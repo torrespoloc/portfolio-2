@@ -246,7 +246,266 @@ export default function XYCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-      2. WHAT I SHIPPED
+      2. DISCOVERY & RESEARCH
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="discovery" className="pb-24 lg:pb-28">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-12`}
+        >
+          Discovery &amp; Research
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={sectionGrid}
+        >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+            >
+              I started by talking to healthcare operations teams. <span className="text-[#EBB207] font-semibold">Three patterns</span> surfaced in every conversation.
+            </motion.h3>
+          </div>
+
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+            >
+              Before writing any code or designing any screens, I needed to understand how healthcare teams actually thought about AI agents. The platform was powerful — but was anyone using it without hand-holding?
+            </motion.p>
+          </div>
+
+          {/* Research pattern cards */}
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={`${sectionFull} space-y-6`}
+          >
+            <div className="p-6 lg:p-8">
+              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
+                Patterns that defined the problem
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+                <div className="flex flex-col items-center text-center gap-3">
+                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
+                    <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
+                  </div>
+                  <p className="text-foreground font-semibold text-sm">Agents were <span className="text-[#EBB207]">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-3">
+                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
+                    <span className="text-accent font-semibold text-xl font-mono tabular-nums">02</span>
+                  </div>
+                  <p className="text-foreground font-semibold text-sm">Different workflows, <span className="text-[#EBB207]">same bottleneck</span> — configuration was the blocker</p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-3">
+                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
+                    <span className="text-accent font-semibold text-xl font-mono tabular-nums">03</span>
+                  </div>
+                  <p className="text-foreground font-semibold text-sm">&ldquo;I&rsquo;d need a <span className="text-[#EBB207]">demo</span>&rdquo; came up in <span className="text-[#EBB207]">every</span> single conversation</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key insight blockquote */}
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+              The problem wasn&rsquo;t the UI&rsquo;s quality. Users couldn&rsquo;t define what they needed until they saw what was possible. A forms-based approach asked them to configure something they&rsquo;d never encountered before.
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+                — Key research insight
+              </span>
+            </blockquote>
+
+            {/* Design directions explored */}
+            <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+              Three directions I explored
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2">
+                <span className="text-xs font-mono text-muted-foreground/60">Direction A</span>
+                <p className="text-sm font-semibold text-foreground">Forms-first</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Traditional configuration forms with dropdowns and fields. Familiar but didn&rsquo;t solve the discovery problem.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2">
+                <span className="text-xs font-mono text-muted-foreground/60">Direction B</span>
+                <p className="text-sm font-semibold text-foreground">Wizard / guided setup</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Step-by-step wizard that walked users through configuration. Helped onboarding but felt rigid for ongoing use.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-[#EBB207]/[0.08] ring-1 ring-[#EBB207]/20 space-y-2 relative overflow-hidden">
+                <div className="absolute top-0 right-0">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#EBB207] bg-[#EBB207]/[0.1] px-2 py-0.5 rounded-bl-lg rounded-tr-xl">
+                    Chosen
+                  </span>
+                </div>
+                <span className="text-xs font-mono text-muted-foreground/60">Direction C</span>
+                <p className="text-sm font-semibold text-foreground">Chat-first</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  A conversational interface where users describe what they need. Natural, explorable, and self-serve.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+      3. BUILDING THE FOUNDATION
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="building-the-foundation" className="pb-24 lg:pb-28">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-12`}
+        >
+          Building the Foundation
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={sectionGrid}
+        >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+            >
+              Before scaling the product, I built the <span className="text-[#EBB207] font-semibold">design foundations</span> the company needed.
+            </motion.h3>
+          </div>
+
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+            >
+              XY had never had a dedicated designer. There was no design system, no token architecture, no language guide — just engineers making UI decisions. Before I could ship, I needed to lay the groundwork that every future screen would depend on.
+            </motion.p>
+          </div>
+
+          {/* Foundation pillars */}
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={`${sectionFull} space-y-6`}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Design tokens */}
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#EBB207]">01 · Token architecture</p>
+                <p className="text-sm font-semibold text-foreground">Beyond ShadCN — semantic tokens for AI workflows</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  I built a three-tier token system that extended far beyond ShadCN&rsquo;s defaults: primitives (raw colors, spacing units), semantic tokens (surface, interactive, agent-state, feedback), and component-level overrides. Every agent status — idle, running, extracting, error — had a dedicated semantic token so engineering never had to guess a hex value.
+                </p>
+              </div>
+
+              {/* Language & tone guide */}
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#EBB207]">02 · Language &amp; tone</p>
+                <p className="text-sm font-semibold text-foreground">Writing guidelines for AI-facing UI</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  AI interfaces need different language than traditional apps — agents don&rsquo;t &ldquo;error,&rdquo; they &ldquo;need attention.&rdquo; I documented voice principles, terminology for agent states, error message patterns, and button labels. The guide gave engineers and future contributors a single source of truth for product copy.
+                </p>
+              </div>
+
+              {/* Color schemes & theming */}
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#EBB207]">03 · Color &amp; theming</p>
+                <p className="text-sm font-semibold text-foreground">A system that works in light, dark, and agent contexts</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  I defined a color palette with accessibility-first contrast ratios, agent-status color mapping, and a dark-mode variant from day one. The system used CSS custom properties so engineers could theme any new component without design input — the semantic layer did the work.
+                </p>
+              </div>
+
+              {/* Motion & interaction */}
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#EBB207]">04 · Motion documentation</p>
+                <p className="text-sm font-semibold text-foreground">Interaction patterns that feel deliberate</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  Easing curves, duration scales, transition patterns — I documented the motion language so agent status transitions, panel reveals, and data loading states felt cohesive. Engineers could reference a single motion spec rather than inventing animations per ticket.
+                </p>
+              </div>
+            </div>
+
+            {/* Color system study — full-page iframe embed */}
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className={`${sectionFull} space-y-4`}
+            >
+              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                Color system study
+              </p>
+              <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-foreground/[0.06]">
+                <iframe
+                  src="/api/proxy/color-system"
+                  title="XY Color System Study"
+                  className="w-full border-0"
+                  style={{ height: "80vh", minHeight: "600px" }}
+                  sandbox="allow-scripts allow-same-origin"
+                  loading="lazy"
+                />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                  <p className="text-label font-semibold text-foreground mb-1">What this is</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    The complete color token system — primitives, semantic tokens, accessibility audit, and proposed system
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                  <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Every component, every agent status, every interaction maps to this semantic system — no more guessing hex values
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                  <p className="text-label font-semibold text-foreground mb-1">The result</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    A three-tier token system that lets engineers theme any new component without design input
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+              Every design system decision was made with the same question: &ldquo;Does this make the next screen faster to ship?&rdquo; If the answer wasn&rsquo;t yes, it didn&rsquo;t go in.
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+                — Design principle
+              </span>
+            </blockquote>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+      4. WHAT I SHIPPED
       ═══════════════════════════════════════════════════════════════════════ */}
       <section id="shipped" className="pb-24 lg:pb-28">
         <motion.h2
@@ -372,7 +631,90 @@ export default function XYCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-      3. IMPACT & RESULTS
+      5. TESTING & VALIDATION
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="testing" className="pb-24 lg:pb-28">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-12`}
+        >
+          Testing &amp; Validation
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={sectionGrid}
+        >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+            >
+              Before committing to chat-first, I validated the direction with <span className="text-[#EBB207] font-semibold">real users</span>.
+            </motion.h3>
+          </div>
+
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+            >
+              Three rounds of validation across different user groups, each designed to stress-test the chat-first hypothesis from a different angle.
+            </motion.p>
+          </div>
+
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={`${sectionFull} space-y-6`}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <span className="text-xs font-mono text-muted-foreground/60">Round 1</span>
+                <p className="text-sm font-semibold text-foreground">Healthcare ops interviews</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  I tested the mental model with the same teams from discovery. The chat metaphor clicked immediately — they described it as &ldquo;like texting an assistant.&rdquo;
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <span className="text-xs font-mono text-muted-foreground/60">Round 2</span>
+                <p className="text-sm font-semibold text-foreground">Enterprise prospect walkthroughs</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  The CPO led two enterprise prospects through the prototype. Both understood the value proposition within minutes — no engineering support in the room.
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-3">
+                <span className="text-xs font-mono text-muted-foreground/60">Round 3</span>
+                <p className="text-sm font-semibold text-foreground">Internal dogfooding</p>
+                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                  Engineering and sales teams used the chat interface internally. Sales could demo independently — a first for the company&rsquo;s product demos.
+                </p>
+              </div>
+            </div>
+
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+              Users who saw the chat interface immediately understood the agent model — something the forms-based approach couldn&rsquo;t achieve in a single session. The CEO began pitching the self-serve AI experience directly to enterprise customers.
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+                — Validation outcome
+              </span>
+            </blockquote>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+      6. IMPACT & RESULTS
       ═══════════════════════════════════════════════════════════════════════ */}
       <section id="impact" className="pb-24 lg:pb-28">
         <motion.h2
@@ -446,7 +788,7 @@ export default function XYCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-      4. INTERNAL PRACTICES INTRODUCED
+      7. INTERNAL PRACTICES INTRODUCED
       ═══════════════════════════════════════════════════════════════════════ */}
       <section id="practices" className="pb-24 lg:pb-28">
         <motion.h2
@@ -502,7 +844,7 @@ export default function XYCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-      5. CLOSING
+      8. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
       <section className="pb-32">
         <motion.div
