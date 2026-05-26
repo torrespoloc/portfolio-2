@@ -566,6 +566,7 @@ export default function WaldoCaseStudy() {
                 title="Project Bits prototyping environment demo"
                 allow="autoplay"
                 loading="lazy"
+                style={{ border: 0 }}
               />
             </div>
             <p className="mt-3 text-xs font-mono text-foreground/60 text-center">

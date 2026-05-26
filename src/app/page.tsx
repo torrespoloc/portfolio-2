@@ -44,7 +44,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="mx-auto w-full max-w-[1200px] relative z-10">
+        <div className="mx-auto w-full max-w-[1200px] relative z-10 px-6 md:px-12">
           <div className="max-w-[1000px] mx-auto">
             <h1
               className="text-[#4d4d4d] text-[clamp(44px,6vw,72px)] leading-[1.1] tracking-tight text-center"

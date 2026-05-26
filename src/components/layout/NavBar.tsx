@@ -150,7 +150,7 @@ export function NavBar() {
                       className="absolute left-0 top-full z-50 pt-2"
                     >
                       <div
-                        className={`relative w-[200px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
+                        className={`relative w-[176px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
                           isScrolled
                             ? "border-white/10 bg-[#0b0f14]/88"
                             : "border-foreground/[0.08] bg-background/92"

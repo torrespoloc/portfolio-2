@@ -354,14 +354,14 @@ export default function XYCaseStudy() {
                 <img src="/logos/cursor.png" alt="Cursor" className="h-full w-full object-contain" />
               </div>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
-                <img src="/logos/claude.png" alt="Claude Code" className="h-full w-full object-contain" />
+                <img src="/logos/claude-code.png" alt="Claude Code" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-[#EBB207]/70 font-light select-none">→</span>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
                 <img src="/logos/github.png" alt="GitHub" className="h-full w-full object-contain" />
               </div>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
-                <img src="/logos/storybook.png" alt="Storybook" className="h-full w-full object-contain" />
+                <img src="/logos/storybook.svg" alt="Storybook" className="h-full w-full object-contain" />
               </div>
             </div>
             <p className="text-center text-xs font-mono uppercase tracking-[0.12em] text-muted-foreground/60">
