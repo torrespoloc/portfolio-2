@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 12px 40px 0;
+  color: #1d2430;
+}
+
+.stage {
+  position: relative;
+  width: 1080px;
+  height: 820px;
+  margin: 0 auto;
+}
+
+.node {
+  position: absolute;
+  background: rgba(255,255,255,.96);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(20,30,40,.08);
+  box-shadow: 0 10px 30px rgba(20,30,40,.06);
+  transition: box-shadow .2s, transform .2s;
+  cursor: default;
+  z-index: 2;
+}
+.node:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(20,30,40,.10); }
+
+.node-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f7a4b;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.small-title { font-size: 11px; }
+
+.item {
+  background: #f7f9fb;
+  border: 1px solid #e4e8ee;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11px;
+  color: #2f3947;
+  margin-bottom: 5px;
+}
+.item:last-child { margin-bottom: 0; }
+
+.cta-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+
+.btn {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 13px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #2f9e63 0%, #2877d6 100%);
+  white-space: nowrap;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.home-action {
+  width: 100%;
+  border: 1px solid #d9e0e8;
+  background: #f7f9fb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2f3947;
+  text-align: left;
+}
+
+.home-action.primary {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #2f9e63 0%, #2877d6 100%);
+}
+
+.home-action.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-action .chev {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.lnk { font-size: 11px; color: #334155; text-decoration: underline; white-space: nowrap; }
+
+.x { position: absolute; top: 8px; right: 10px; font-size: 11px; color: #aaa; }
+
+.scroll-wrap {
+  background: #f7f9fb;
+  border-radius: 8px;
+  padding: 10px 18px 10px 10px;
+  margin: 8px 0;
+  position: relative;
+  border: 1px solid #e4e8ee;
+}
+.scroll-bar {
+  position: absolute; right: 5px; top: 6px;
+  width: 4px; height: 28px;
+  background: #c3cad4; border-radius: 2px;
+}
+.img-block { width: 52px; height: 40px; background: #d9dee6; border-radius: 4px; flex-shrink: 0; }
+.lines { display: flex; flex-direction: column; gap: 5px; }
+.line { height: 7px; background: #c3cad4; border-radius: 3px; }
+.popup-body { background: #f7f9fb; border-radius: 8px; height: 50px; margin: 8px 0 0; border: 1px solid #e4e8ee; }
+
+.dots { display: flex; gap: 3px; margin-bottom: 6px; }
+.dot { width: 10px; height: 10px; background: #c8c8c8; border-radius: 2px; }
+.checkout-text { font-size: 11px; color: #2f3947; line-height: 1.5; flex: 1; }
+.checkout-text u { font-weight: 700; }
+.pay-btn {
+  border: 1.5px solid #ccc; border-radius: 6px;
+  padding: 5px 12px; font-size: 11px; color: #334155;
+  background: #fff; flex-shrink: 0;
+}
+
+#arrows {
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: visible; z-index: 1;
+}
+
+.arrow-track {
+  fill: none;
+  stroke: rgba(70, 82, 100, .52);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.arrow-dot { fill: rgba(70, 82, 100, .72); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <!-- Source node -->
+  <div class="node" id="n-home" style="left:20px; top:239px; width:235px;">
+    <div class="node-title">Homepage Dashboard</div>
+    <div class="home-actions">
+      <button class="home-action primary" id="home-try">Try it free</button>
+      <button class="home-action dropdown" id="home-features">My Features <span class="chev">▾</span></button>
+      <button class="home-action" id="home-addon">See Add-ons</button>
+    </div>
+  </div>
+
+  <!-- ═══════ COLUMN 1 — Situational popup ═══════ -->
+  <div class="node" id="n-sit" style="left:45px; top:508px; width:185px;">
+    <span class="x">✕</span>
+    <div class="node-title small-title">Pop-up (situational)</div>
+    <div style="text-align:center; font-size:20px; color:#bbb; margin:6px 0 8px;">!!!</div>
+    <div style="height:1px; background:#e6ebf0; margin-bottom:10px;"></div>
+    <div class="cta-row" style="justify-content:center;">
+      <button class="btn" id="sit-try">Try Free</button>
+    </div>
+  </div>
+
+  <!-- ═══════ COLUMN 2 — CTA surfaces ═══════ -->
+  <div class="node" id="n-scroll" style="left:337.5px; top:20px; width:265px;">
+    <div class="node-title">Scrollable funnel</div>
+    <div class="cta-row">
+      <button class="btn">Try it free</button>
+      <span class="lnk">View all plans</span>
+    </div>
+    <div class="scroll-wrap">
+      <div class="scroll-bar"></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="img-block"></div>
+        <div class="lines">
+          <div class="line" style="width:90px;"></div>
+          <div class="line" style="width:65px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <button class="btn">Try it free</button>
+      <span class="lnk">View all plans</span>
+    </div>
+    <div style="height:12px; background:#eef2f6; border:1px solid #e4e8ee; border-radius:4px; margin-top:8px; opacity:.6;"></div>
+  </div>
+
+  <div class="node" id="n-feat1" style="left:350px; top:264px; width:240px;">
+    <span class="x">✕</span>
+    <div class="node-title">Pop-up: Specific feature</div>
+    <div class="popup-body"></div>
+    <div class="cta-row">
+      <button class="btn">Try it free</button>
+      <span class="lnk">View all plans</span>
+    </div>
+  </div>
+
+  <div class="node" id="n-feat2" style="left:350px; top:500px; width:240px;">
+    <span class="x">✕</span>
+    <div class="node-title">Pop-up: Specific feature</div>
+    <div class="popup-body"></div>
+    <div class="cta-row">
+      <button class="btn">Try it free</button>
+      <span class="lnk">View all plans</span>
+    </div>
+  </div>
+
+  <!-- ═══════ COLUMN 3 — Checkout ═══════ -->
+  <div class="node" id="n-checkout" style="left:694px; top:270px; width:245px;">
+    <div class="node-title">Checkout — Last CTA</div>
+    <div class="checkout-card" style="background:#f7f9fb; border:1px solid #e4e8ee; border-radius:8px; padding:10px; margin-top:8px; display:flex; align-items:center; gap:10px;">
+      <div style="flex:1;">
+        <div class="dots">
+          <div class="dot"></div><div class="dot"></div>
+          <div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="checkout-text">Choose <u>Enterprise</u><br>for more features</div>
+      </div>
+      <div class="pay-btn">Pay</div>
+    </div>
+  </div>
+
+  <svg id="arrows">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#666"/>
+      </marker>
+      <marker id="ah-g" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#27ae60"/>
+      </marker>
+    </defs>
+  </svg>
+</div>
+
+<script>
+const stage = document.getElementById('stage');
+const svg   = document.getElementById('arrows');
+
+function getBounds(id) {
+  const el = document.getElementById(id);
+  const sr = stage.getBoundingClientRect();
+  const er = el.getBoundingClientRect();
+  const x = er.left - sr.left, y = er.top - sr.top;
+  return { x, y, w: er.width, h: er.height,
+           cx: x + er.width/2, cy: y + er.height/2,
+           r: x + er.width, b: y + er.height };
+}
+
+function getPointBounds(el) {
+  const sr = stage.getBoundingClientRect();
+  const er = el.getBoundingClientRect();
+  const x = er.left - sr.left, y = er.top - sr.top;
+  return { x, y, w: er.width, h: er.height,
+           cx: x + er.width/2, cy: y + er.height/2,
+           r: x + er.width, b: y + er.height };
+}
+
+function edge(id, side, off=0) {
+  const n = getBounds(id);
+  switch(side) {
+    case 'right':  return [n.r,        n.cy + off];
+    case 'left':   return [n.x,        n.cy + off];
+    case 'top':    return [n.cx + off, n.y       ];
+    case 'bottom': return [n.cx + off, n.b       ];
+  }
+}
+
+function edgeEl(id, side, off=0) {
+  const el = document.getElementById(id);
+  const n = getPointBounds(el);
+  switch(side) {
+    case 'right':  return [n.r,        n.cy + off];
+    case 'left':   return [n.x,        n.cy + off];
+    case 'top':    return [n.cx + off, n.y       ];
+    case 'bottom': return [n.cx + off, n.b       ];
+  }
+}
+
+function C(x1,y1,cx1,cy1,cx2,cy2,x2,y2) {
+  return `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`;
+}
+
+function roundedPath(points, radius = 18) {
+  if (!points || points.length < 2) return '';
+  if (points.length === 2) {
+    return `M${points[0].x},${points[0].y} L${points[1].x},${points[1].y}`;
+  }
+
+  let d = `M${points[0].x},${points[0].y}`;
+  let cursor = points[0];
+
+  for (let i = 1; i < points.length - 1; i++) {
+    const curr = points[i];
+    const next = points[i + 1];
+
+    const vx1 = curr.x - cursor.x;
+    const vy1 = curr.y - cursor.y;
+    const vx2 = next.x - curr.x;
+    const vy2 = next.y - curr.y;
+    const len1 = Math.hypot(vx1, vy1);
+    const len2 = Math.hypot(vx2, vy2);
+    if (!len1 || !len2) continue;
+
+    const r = Math.min(radius, len1 / 2, len2 / 2);
+    const entryX = curr.x - (vx1 / len1) * r;
+    const entryY = curr.y - (vy1 / len1) * r;
+    const exitX = curr.x + (vx2 / len2) * r;
+    const exitY = curr.y + (vy2 / len2) * r;
+
+    d += ` L${entryX},${entryY} Q${curr.x},${curr.y} ${exitX},${exitY}`;
+    cursor = { x: exitX, y: exitY };
+  }
+
+  const last = points[points.length - 1];
+  d += ` L${last.x},${last.y}`;
+  return d;
+}
+
+function getConnections() {
+  const homeLaneX = 320;
+  const checkoutLaneX = 633;
+  return [
+    // 0: Home CTA → Scrollable funnel
+    (() => {
+      const [x1,y1] = edgeEl('home-try','right');
+      const [x2,y2] = edge('n-scroll','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: homeLaneX, y: y1 },
+          { x: homeLaneX, y: y2 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['home-try','n-scroll'],
+        dur:2.0
+      };
+    })(),
+    // 1: Home features dropdown → Feature popup 1
+    (() => {
+      const [x1,y1] = edgeEl('home-features','right');
+      const [x2,y2] = edge('n-feat1','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: homeLaneX, y: y1 },
+          { x: homeLaneX, y: y2 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['home-features','n-feat1'],
+        dur:1.2
+      };
+    })(),
+    // 2: Home add-ons → Feature popup 2
+    (() => {
+      const [x1,y1] = edgeEl('home-addon','right');
+      const [x2,y2] = edge('n-feat2','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: homeLaneX, y: y1 },
+          { x: homeLaneX, y: y2 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['home-addon','n-feat2'],
+        dur:1.5
+      };
+    })(),
+    // 3: Situational popup → Feature popup 2
+    (() => {
+      const [x1,y1] = edge('n-sit','right');
+      const [x2,y2] = edge('n-feat2','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['sit-try','n-feat2'],
+        dur:1.8
+      };
+    })(),
+    // 4: Scrollable funnel → Checkout
+    (() => {
+      const [x1,y1] = edge('n-scroll','right');
+      const [x2,y2] = edge('n-checkout','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: checkoutLaneX, y: y1 },
+          { x: checkoutLaneX, y: y2 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['n-scroll','n-checkout'],
+        dur:1.6
+      };
+    })(),
+    // 5: Feature popup 1 → Checkout
+    (() => {
+      const [x1,y1] = edge('n-feat1','right');
+      const [x2,y2] = edge('n-checkout','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['n-feat1','n-checkout'],
+        dur:1.5
+      };
+    })(),
+    // 6: Feature popup 2 → Checkout
+    (() => {
+      const [x1,y1] = edge('n-feat2','right');
+      const [x2,y2] = edge('n-checkout','left');
+      return {
+        d: roundedPath([
+          { x: x1, y: y1 },
+          { x: checkoutLaneX, y: y1 },
+          { x: checkoutLaneX, y: y2 },
+          { x: x2, y: y2 },
+        ]),
+        nodes:['n-feat2','n-checkout'],
+        dur:1.4
+      };
+    })(),
+  ];
+}
+
+const nodeIds = ['n-home','home-try','home-features','home-addon','n-sit','sit-try','n-scroll','n-feat1','n-feat2','n-checkout'];
+const delays  = [0, 0.5, 0.3, 0.9, 1.0, 0.2, 0.6];
+
+const adj = {
+  'n-home':     [0,1,2],
+  'home-try':    [0],
+  'home-features':[1],
+  'home-addon':  [2],
+  'n-sit':      [3],
+  'sit-try':     [3],
+  'n-scroll':    [0,4],
+  'n-feat1':     [1,5],
+  'n-feat2':     [2,3,6],
+  'n-checkout':  [4,5,6],
+};
+
+function draw() {
+  [...svg.querySelectorAll('[data-g]')].forEach(e=>e.remove());
+
+  const conns = getConnections();
+
+  conns.forEach((conn, i) => {
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('data-g', i);
+
+    const track = document.createElementNS('http://www.w3.org/2000/svg','path');
+    track.setAttribute('class','arrow-track');
+    track.setAttribute('d', conn.d);
+    track.setAttribute('marker-end','url(#ah)');
+    track.setAttribute('data-idx', i);
+    g.appendChild(track);
+
+    const mpId = `mp-${i}`;
+    const mp = document.createElementNS('http://www.w3.org/2000/svg','path');
+    mp.setAttribute('id', mpId);
+    mp.setAttribute('d', conn.d);
+    mp.setAttribute('fill','none');
+    mp.setAttribute('stroke','none');
+    g.appendChild(mp);
+
+    const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('r','5');
+    dot.setAttribute('class','arrow-dot');
+    dot.setAttribute('data-idx', i);
+    const anim = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    anim.setAttribute('dur', conn.dur + 's');
+    anim.setAttribute('repeatCount','indefinite');
+    anim.setAttribute('begin', delays[i] + 's');
+    anim.setAttribute('rotate','auto');
+    const mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
+    mpath.setAttributeNS('http://www.w3.org/1999/xlink','href','#' + mpId);
+    anim.appendChild(mpath);
+    dot.appendChild(anim);
+    g.appendChild(dot);
+    svg.appendChild(g);
+  });
+  setupHover();
+}
+
+function setupHover() {
+  const tracks = () => [...svg.querySelectorAll('.arrow-track')];
+  const dots   = () => [...svg.querySelectorAll('.arrow-dot')];
+
+  nodeIds.forEach(id => {
+    const el = document.getElementById(id);
+    el.onmouseenter = () => {
+      const active = new Set(adj[id]);
+      tracks().forEach(t => {
+        const idx = parseInt(t.getAttribute('data-idx'));
+        if (active.has(idx)) {
+          t.style.stroke = '#27ae60';
+          t.style.strokeWidth = '2.5';
+          t.setAttribute('marker-end','url(#ah-g)');
+          t.style.opacity = '1';
+        } else {
+          t.style.opacity = '0.18';
+        }
+      });
+      dots().forEach(d => {
+        const idx = parseInt(d.getAttribute('data-idx'));
+        if (active.has(idx)) {
+          d.style.fill = '#27ae60';
+          d.style.opacity = '1';
+        } else {
+          d.style.opacity = '0.18';
+        }
+      });
+    };
+    el.onmouseleave = () => {
+      tracks().forEach(t => {
+        t.style.stroke = '';
+        t.style.strokeWidth = '';
+        t.style.opacity = '';
+        t.setAttribute('marker-end','url(#ah)');
+      });
+      dots().forEach(d => {
+        d.style.fill = '';
+        d.style.opacity = '';
+      });
+    };
+  });
+}
+
+window.addEventListener('load', () => setTimeout(draw, 80));
+window.addEventListener('resize', () => setTimeout(draw, 60));
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:transparent;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  padding:24px;
+  width:100%;
+  min-height:100%;
+  color:#e8e8ed;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+/* ── Header ── */
+.header{
+  text-align:center;
+  margin-bottom:4px;
+  width:100%;
+  max-width:680px;
+  background:#0a1628;
+  padding:20px;
+  border-radius:12px;
+}
+.header h1{
+  font-size:18px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.01em;
+}
+.header p{
+  font-size:14px;
+  color:#a0bcd8;
+  margin-top:4px;
+}
+
+/* ── Column cards ── */
+.col{
+  width:100%;
+  max-width:680px;
+  border-radius:12px;
+  padding:20px;
+  border:1px solid #1e2a45;
+}
+
+.col.prd{background:#0d1530;}
+.col.shipped{background:#0c1a2e;border-color:#1a3050;}
+.col-label{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#8aaac8;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px solid #1e2a45;
+}
+
+.col-label .count{
+  float:right;
+  font-size:14px;
+  font-weight:700;
+  color:#a0bcd8;
+}
+
+/* Feature pills */
+.pill{
+  display:inline-block;
+  font-size:14px;
+  padding:6px 12px;
+  border-radius:6px;
+  margin:4px;
+  border:1px solid transparent;
+  line-height:1.4;
+  cursor:default;
+  transition:transform .15s,border-color .15s;
+}
+.pill:hover{transform:translateY(-1px);}
+
+.pill.mvp{
+  background:#0f2a40;
+  color:#7dd4c0;
+  border-color:#1a4060;
+}
+.pill.mvp:hover{border-color:#40c0a0;}
+
+.pill.added{
+  background:#1a1840;
+  color:#b090ff;
+  border-color:#2a2860;
+}
+.pill.added:hover{border-color:#9070ff;}
+
+/* Arrow */
+.arrow-svg{width:48px;height:32px;overflow:visible;display:block;flex-shrink:0;}
+.arrow-path{fill:none;stroke:#4466aa;stroke-width:2;stroke-linecap:round;}
+
+/* Stats row in shipped col */
+.stats{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid #1a3050;
+  font-size:14px;
+  color:#a0bcd8;
+  display:flex;
+  gap:24px;
+  justify-content:center;
+}
+.stat strong{font-size:18px;display:block;}
+.stat.mvp strong{color:#40c0a0;}
+.stat.added strong{color:#9070ff;}
+.stat span{font-size:14px;color:#8aaac8;}
+
+/* Bottom note */
+.note{
+  text-align:center;
+  margin-top:4px;
+  font-size:14px;
+  color:#80a0c0;
+  width:100%;
+  max-width:680px;
+  background:#0a1628;
+  padding:16px 20px;
+  border-radius:12px;
+}
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>SideNook — PRD to v1.0</h1>
+    <p>Original plan → what shipped → what grew during development</p>
+  </div>
+
+  <!-- Column 1: PRD Plan -->
+  <div class="col prd">
+    <div class="col-label">PRD plan <span class="count">9</span></div>
+    <div>
+      <span class="pill mvp">Edge-snapping pill</span>
+      <span class="pill mvp">Hover-to-expand</span>
+      <span class="pill mvp">Attention detection</span>
+      <span class="pill mvp">Multi-tab sessions</span>
+      <span class="pill mvp">Two layout modes</span>
+      <span class="pill mvp">Never steals focus</span>
+      <span class="pill mvp">Light + dark mode</span>
+      <span class="pill mvp">NookTheme tokens</span>
+      <span class="pill mvp">Input highlight</span>
+    </div>
+  </div>
+
+  <!-- Arrow down -->
+  <svg class="arrow-svg" viewBox="0 0 48 32">
+    <path class="arrow-path" d="M24,2 L24,26" id="a1"/>
+    <polygon fill="#4466aa" points="21,24 24,30 27,24"/>
+    <circle r="4" fill="#40c0a0" id="d1">
+      <animateMotion dur="1.8s" repeatCount="indefinite">
+        <mpath href="#a1"/>
+      </animateMotion>
+    </circle>
+  </svg>
+
+  <!-- Column 2: Shipped -->
+  <div class="col shipped">
+    <div class="col-label">Shipped v1.0 <span class="count">14</span></div>
+    <div>
+      <span class="pill mvp">Edge-snapping pill</span>
+      <span class="pill mvp">Hover-to-expand</span>
+      <span class="pill mvp">Attention detection</span>
+      <span class="pill mvp">Multi-tab sessions</span>
+      <span class="pill mvp">Two layout modes</span>
+      <span class="pill mvp">Never steals focus</span>
+      <span class="pill mvp">Light + dark mode</span>
+      <span class="pill mvp">NookTheme tokens</span>
+      <span class="pill mvp">Input highlight</span>
+      <span class="pill added">Settings panel</span>
+      <span class="pill added">Keyboard shortcuts</span>
+      <span class="pill added">Font controls</span>
+      <span class="pill added">Pin-to-stay</span>
+      <span class="pill added">Resize handles</span>
+    </div>
+    <div class="stats">
+      <div class="stat mvp"><strong>9</strong><span>MVP shipped</span></div>
+      <div class="stat added"><strong>+5</strong><span>Added during dev</span></div>
+    </div>
+  </div>
+
+  <!-- Bottom note -->
+  <div class="note">
+    9 features from original PRD + 5 added after testing and research during development
+  </div>
+
+</body>
+</html>
