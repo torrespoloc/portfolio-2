@@ -2,6 +2,8 @@ import { CaseStudyCard } from "@/components/case-study-card";
 import { TrustedBy } from "@/components/home/TrustedBy";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CopyEmail } from "@/components/home/CopyEmail";
+import { HowIWorkCards } from "@/components/home/HowIWorkCards";
+import { Experience } from "@/components/home/Experience";
 
 export default function Home() {
   return (
@@ -55,7 +57,7 @@ export default function Home() {
             </h1>
 
             {/* Hero cards row */}
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <HowIWorkCards>
               {/* Card 1 — Real Design CODE rules! */}
               <div className="flex-1 min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
                 <p className="text-sm font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
@@ -91,7 +93,7 @@ export default function Home() {
                   className="absolute bottom-1 right-1 w-12 h-12 object-contain rotate-6"
                 />
               </div>
-            </div>
+            </HowIWorkCards>
           </div>
 
           {/* CTA Buttons */}
@@ -215,6 +217,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience */}
+      <section className="px-4 pb-24">
+        <Experience />
+      </section>
 
       {/* Testimonials */}
       <section className="px-4 pb-24">

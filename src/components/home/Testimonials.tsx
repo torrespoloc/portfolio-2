@@ -155,7 +155,7 @@ export function Testimonials({ className = "" }: Props) {
       </motion.p>
 
       <div className="overflow-x-auto pb-8 -mx-6 px-6 md:overflow-visible md:mx-0 md:px-0">
-        <div className="flex items-stretch justify-center min-w-max md:min-w-0">
+        <div className="flex items-stretch justify-center min-w-max md:min-w-0 p-6">
           {testimonials.map((t, i) => {
             const isMiller = i === 0;
             const isHighlighted = t.featured;
@@ -184,12 +184,13 @@ export function Testimonials({ className = "" }: Props) {
                   rounded-xl p-6 origin-center group
                   ${
                     isHighlighted
-                      ? "bg-burgundy"
-                      : "bg-white ring-1 ring-[#4d4d4d]/10 hover:bg-burgundy hover:ring-transparent"
+                      ? "bg-burgundy z-10 shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
+                      : "bg-white ring-1 ring-[#4d4d4d]/10 hover:bg-burgundy hover:ring-transparent shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
                   }
-                  shadow-[0_1px_3px_rgba(0,0,0,0.04)]
                   hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)]
-                  hover:z-10
+                  ${
+                    isHighlighted ? "" : "hover:z-10"
+                  }
                   transition-[background-color,box-shadow,color] duration-500 ease-[0.22,1,0.36,1]
                 `}
               >
@@ -224,11 +225,9 @@ export function Testimonials({ className = "" }: Props) {
                 <div className={`relative z-10 flex flex-col flex-1 ${isHighlighted ? "mt-6" : ""}`}>
                   <p
                     className={`text-[15px] lg:text-base leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
-                      isMiller
-                        ? "font-heading italic text-[#2f2e31] group-hover:text-white/90"
-                        : isHighlighted
-                          ? "text-white/90"
-                          : "text-[#4d4d4d] group-hover:text-white/90"
+                      isHighlighted
+                        ? "text-white/90"
+                        : "text-[#4d4d4d] group-hover:text-white/90"
                     }`}
                   >
                     &ldquo;{highlightText(t.quote, t.highlights ?? [], isHighlighted)}&rdquo;

@@ -85,7 +85,7 @@ export function NavBar() {
             <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full bg-white p-1.5">
               <img src="/logo.svg" alt="JT" className="h-full w-full" />
             </span>
-            <div className="hidden sm:block leading-tight">
+            <div className="block leading-tight">
               <p
                 className={`text-sm font-semibold transition-colors duration-300 ease-out ${
                   isScrolled ? "text-white" : "text-foreground"
@@ -94,7 +94,7 @@ export function NavBar() {
                 {SITE.name}
               </p>
               <p
-                className={`text-[13px] transition-colors duration-300 ease-out ${
+                className={`text-subtitle sm:text-base transition-colors duration-300 ease-out ${
                   isScrolled ? "text-white/50" : "text-muted-foreground"
                 }`}
               >
