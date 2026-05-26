@@ -258,7 +258,7 @@ export function SideNookMockAfter() {
               <div className="mx-4 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
 
               {/* Status row */}
-              <div className="px-4 pt-2 flex items-center gap-6 text-[11.5px]" style={{ color: tone.fgMute }}>
+              <div className="px-4 pt-2 flex items-center gap-6 text-[13px]" style={{ color: tone.fgMute }}>
                 <span>? for shortcuts</span>
                 <span className="inline-flex items-center gap-1.5">
                   <CircleDot className="h-3 w-3" />

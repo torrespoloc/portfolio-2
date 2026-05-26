@@ -1,6 +1,7 @@
 import { CaseStudyCard } from "@/components/case-study-card";
 import { TrustedBy } from "@/components/home/TrustedBy";
 import { Testimonials } from "@/components/home/Testimonials";
+import { CopyEmail } from "@/components/home/CopyEmail";
 
 export default function Home() {
   return (
@@ -71,8 +72,8 @@ export default function Home() {
                   My Jam 👋
                 </p>
                 <p className="text-base text-white/70 leading-relaxed font-semibold">
-                  Healthtech, fintech, SaaS, B2B, e-commerce + I&apos;m currently building a full AI
-                  agentic platform from scratch.
+                  Healthtech, fintech, SaaS, B2B, e-commerce + I&apos;m currently building a full{" "}
+                  <span className="text-chartreuse">AI agentic</span> platform from scratch.
                 </p>
               </div>
 
@@ -111,9 +112,7 @@ export default function Home() {
                 LinkedIn
               </a>
             </div>
-            <span className="text-sm text-[#757575]">
-              torrespoloc@gmail.com
-            </span>
+            <CopyEmail />
           </div>
         </div>
       </section>
@@ -134,10 +133,11 @@ export default function Home() {
 
           <div className="flex flex-col gap-[60px]">
             <CaseStudyCard
-              tag="HEALTHTECH"
-              headline="Making the XY's healthcare SaaS platform AI and chat driven"
+              tag="HEALTHTECH · AI WORKFLOWS"
+              headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-[rgb(87,126,255)]">AI and chat driven</span></>}
               description="Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows."
               tags={["healthtech", "SaaS"]}
+              year="2025–2026"
               metric1Label="Clicks to value"
               metric1Value="3 steps"
               metric2Label="Setup Reduction"
@@ -150,9 +150,10 @@ export default function Home() {
 
             <CaseStudyCard
               tag="HEALTHTECH"
-              headline="Designed End-to-End Mobile Patient App for HIPAA-Compliant Contact Lens Ordering"
+              headline={<>Designed End-to-End Mobile Patient App for <span className="text-[rgb(87,126,255)]">HIPAA-Compliant</span> Contact Lens Ordering</>}
               description="Designed patient portal app MVP and full checkout experience in sync with Waldo's doctor portal."
-              tags={["healthtech", "mobile", "shipped"]}
+              tags={["healthtech", "desktop", "mobile"]}
+              year="2025"
               metric1Label="Shipped"
               metric1Value="1 month early"
               metric2Label="Ownership"
@@ -165,9 +166,10 @@ export default function Home() {
 
             <CaseStudyCard
               tag="FINTECH · AI"
-              headline="Monetizing Fundr's SaaS platform with an upgrade paywall system"
+              headline={<>Monetizing Fundr&apos;s SaaS platform with an <span className="text-[rgb(87,126,255)]">upgrade paywall system</span></>}
               description="The story of how I cut down the need for 1:1 sales calls by 50% in just 10 weeks for a Fintech stealth startup."
               tags={["fintech", "SaaS"]}
+              year="2023"
               metric1Label="Upgrade Conversions"
               metric1Value="20%"
               metric2Label="Team Productivity"
@@ -180,9 +182,10 @@ export default function Home() {
 
             <CaseStudyCard
               tag="MAC APP"
-              headline="SideNook — A macOS clipboard manager that lives above your dock"
-              description="Built a floating clipboard strip that docks above the macOS menu bar. Keyboard-first navigation, persistent history, and a SwiftUI-native experience."
+              headline={<>SideNook — A <span className="text-[rgb(87,126,255)]">macOS terminal emulator</span> that stays out of your way</>}
+              description="An ambient terminal companion: always there when you need it, invisible when you don&apos;t. Built with spring animations, multi-tab support, and keyboard-first navigation."
               tags={["macOS", "desktop", "shipped"]}
+              year="2026"
               metric1Label="App Type"
               metric1Value="Native Mac"
               metric2Label="Tech"
@@ -193,10 +196,11 @@ export default function Home() {
             />
 
             <CaseStudyCard
-              tag="AI"
-              headline="Redesigned 3 core flows for 7dish's meal planning app"
+              tag="FOODTECH"
+              headline={<>Redesigned <span className="text-[rgb(87,126,255)]">3 core flows</span> for 7dish&apos;s meal planning app</>}
               description="Boosting user satisfaction by 50% through strategic redesigns and 7 new features for working parents."
-              tags={["mobile", "SaaS", "shipped"]}
+              tags={["mobile", "e-commerce", "shipped"]}
+              year="2023–2024"
               metric1Label="User Satisfaction"
               metric1Value="~50%"
               metric2Label="New Features"
@@ -205,6 +209,7 @@ export default function Home() {
               mediaType="image"
               mediaAlt="7dish meal planning app"
               href="/work/7dish"
+              builtForLogo="/logos/7dish.svg"
             />
           </div>
         </div>

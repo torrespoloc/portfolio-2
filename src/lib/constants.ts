@@ -4,8 +4,10 @@ export const LINKS = {
   email: "hello@jackelinetorres.co",
   framerSite: "https://www.jackelinetorres.co",
   sidenookRepo: "https://github.com/torrespoloc/sidenook-app",
+  sidenookDev: "https://www.sidenook.dev",
   idocbridge: "https://idocbridge.com",
-  resume: "/resume.pdf",
+  resume:
+    "https://drive.google.com/file/d/1cot_VGvydSqr3RUZOF6OB-19Bb9P9SRC/view?usp=drive_link",
 }
 
 export const SITE = {
@@ -34,11 +36,18 @@ export const HERO_GRADIENTS = {
 
 export const TOOL_LOGOS: Record<string, string> = {
   Figma: "/logos/figma.png",
-  "V0 by Vercel": "/logos/vercel-v0",
+  "V0 by Vercel": "/logos/vercel-v0.avif",
   GitHub: "/logos/github.png",
-  Storybook: "/logos/storybook.png",
-  "Claude Code": "/logos/claude.png",
+  "Claude Code": "/logos/claude-code.png",
+  Claude: "/logos/claude-chat.png",
   Cursor: "/logos/cursor.png",
+  Notion: "/logos/notion.svg",
+  Loom: "/logos/loom.svg",
+  Maze: "/logos/maze.svg",
+  ChatGPT: "/logos/chatgpt.svg",
+  Perplexity: "/logos/perplexity.svg",
+  Linear: "/logos/linear.svg",
+  V0: "/logos/vercel-v0.avif",
 }
 
 export const NOW = {
@@ -53,6 +62,6 @@ export const WORK_CASE_STUDIES = [
   { label: "XY.AI", href: "/work/xy", meta: "Health Tech · AI", logo: "/logos/XY.svg" },
   { label: "Waldo", href: "/work/waldo", meta: "Health Tech · Mobile", logo: "/logos/waldo.svg" },
   { label: "Fundr", href: "/work/fundr", meta: "Fintech · 0→1", logo: "/logos/fundr-logo.svg" },
-  { label: "7dish", href: "/work/7dish", meta: "Consumer · Food Tech", logo: null },
+  { label: "7dish", href: "/work/7dish", meta: "Consumer · Food Tech", logo: "/logos/7dish.svg" },
   { label: "SideNook", href: "/work/sidenook", meta: "Developer Tools · AI", logo: "/logos/turtle.svg" },
 ] as const

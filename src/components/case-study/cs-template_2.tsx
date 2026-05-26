@@ -30,7 +30,6 @@ export const sectionHeader = "font-[family-name:var(--font-heading)] italic text
 
 export interface CaseStudyMeta {
   role: string
-  industry: string
   duration: string
   team: string
   tools: React.ReactNode
@@ -44,7 +43,7 @@ export interface CaseStudyTemplatePraProps {
   /** Standardized project metadata */
   meta: CaseStudyMeta
   /** Optional meta pill color theme */
-  metaTheme?: "purple-gold" | "teal-orange" | "default"
+  metaTheme?: "purple-gold" | "teal-orange" | "cyan-gray" | "dark-teal-orange" | "default"
   children: React.ReactNode
 }
 
@@ -83,6 +82,7 @@ export function SectionReveal({ children, className, delay = 0 }: { children: Re
 // ─────────────────────────────────────────────
 export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, children }: CaseStudyTemplatePraProps) {
   const [navActive, setNavActive] = useState(false)
+  const [availableSections, setAvailableSections] = useState<{ label: string; id: string }[]>([])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,9 +92,21 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    const sections = [
+      { label: "Hero", ids: ["hero"] },
+      { label: "Solution", ids: ["solution"] },
+      { label: "Impact", ids: ["impact"] },
+      { label: "Reflection", ids: ["reflection", "reflections"] },
+    ]
+    const found = sections
+      .map((s) => ({ label: s.label, id: s.ids.find((id) => document.getElementById(id)) || s.ids[0] }))
+      .filter((s) => document.getElementById(s.id))
+    setAvailableSections(found)
+  }, [])
+
   const metaFields: { label: string; value: React.ReactNode }[] = [
     { label: "Role", value: meta.role },
-    { label: "Industry", value: meta.industry },
     { label: "Duration", value: meta.duration },
     { label: "Team", value: meta.team },
     { label: "Tools", value: meta.tools },
@@ -112,14 +124,12 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
         }`}
       >
         <div className="flex flex-col gap-1 w-full px-4 pt-8">
-          {(["Hero", "Solution", "Impact", "Reflection"] as const).map((label) => {
-            const sectionId = label.toLowerCase()
-            return (
+          {(availableSections.length > 0 ? availableSections : [{ label: "Hero", id: "hero" }, { label: "Solution", id: "solution" }, { label: "Impact", id: "impact" }, { label: "Reflection", id: "reflection" }]).map(({ label, id }) => (
               <button
                 key={label}
                 type="button"
                 onClick={() => {
-                  const el = document.getElementById(sectionId)
+                  const el = document.getElementById(id)
                   el?.scrollIntoView({ behavior: "smooth", block: "start" })
                 }}
                 className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-mono uppercase tracking-[0.12em] transition-colors ${
@@ -130,8 +140,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
               >
                 {label}
               </button>
-            )
-          })}
+            ))}
         </div>
       </nav>
 
@@ -181,44 +190,26 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
           >
             {/* Meta grid — pill-style tags with accent colors */}
             <SectionReveal className={`${contentWidth} pt-6 mt-6 border-t border-foreground/[0.08] mb-16`}>
-              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {metaFields.map((m, i) => {
-                  const defaultSets = [
-                    { dot: "bg-foreground", ring: "ring-chartreuse-500/40", bg: "bg-chartreuse-500", label: "text-neutral-800", value: "text-foreground" },
-                    { dot: "bg-background", ring: "ring-accent-500/40", bg: "bg-accent-500", label: "text-accent-100", value: "text-white" },
-                    { dot: "bg-foreground", ring: "ring-chartreuse-500/40", bg: "bg-chartreuse-500", label: "text-neutral-800", value: "text-foreground" },
-                    { dot: "bg-background", ring: "ring-accent-500/40", bg: "bg-accent-500", label: "text-accent-100", value: "text-white" },
-                    { dot: "bg-foreground", ring: "ring-chartreuse-500/40", bg: "bg-chartreuse-500", label: "text-neutral-800", value: "text-foreground" },
-                  ]
-                  const purpleGoldSets = [
-                    { dot: "bg-[#EBB207]", ring: "ring-[#EBB207]/50", bg: "bg-[#3B3066]/25", label: "text-muted-foreground", value: "text-foreground" },
-                    { dot: "bg-[#3B3066]", ring: "ring-[#3B3066]/50", bg: "bg-[#EBB207]/30", label: "text-muted-foreground", value: "text-foreground" },
-                    { dot: "bg-[#EBB207]", ring: "ring-[#EBB207]/50", bg: "bg-[#3B3066]/25", label: "text-muted-foreground", value: "text-foreground" },
-                    { dot: "bg-[#3B3066]", ring: "ring-[#3B3066]/50", bg: "bg-[#EBB207]/30", label: "text-muted-foreground", value: "text-foreground" },
-                    { dot: "bg-[#EBB207]", ring: "ring-[#EBB207]/50", bg: "bg-[#3B3066]/25", label: "text-muted-foreground", value: "text-foreground" },
-                  ]
-                  const tealOrangeSets = [
-                    { dot: "bg-[#F97316]", ring: "ring-[#F97316]/50", bg: "bg-[#0D9488]/20", label: "text-[#0D9488]", value: "text-foreground" },
-                    { dot: "bg-[#0D9488]", ring: "ring-[#0D9488]/50", bg: "bg-[#F97316]/20", label: "text-[#F97316]", value: "text-foreground" },
-                    { dot: "bg-[#F97316]", ring: "ring-[#F97316]/50", bg: "bg-[#0D9488]/20", label: "text-[#0D9488]", value: "text-foreground" },
-                    { dot: "bg-[#0D9488]", ring: "ring-[#0D9488]/50", bg: "bg-[#F97316]/20", label: "text-[#F97316]", value: "text-foreground" },
-                    { dot: "bg-[#F97316]", ring: "ring-[#F97316]/50", bg: "bg-[#0D9488]/20", label: "text-[#0D9488]", value: "text-foreground" },
-                  ]
-                  const colorSets = metaTheme === "purple-gold" ? purpleGoldSets : metaTheme === "teal-orange" ? tealOrangeSets : defaultSets
-                  const c = colorSets[i % colorSets.length]
-                  const tilt = i % 2 === 0 ? "rotate-2" : "-rotate-2"
+                  const colorSet =
+                    metaTheme === "purple-gold" ? { dot: "bg-[#EBB207]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "teal-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "cyan-gray" ? { dot: "bg-[#0891B2]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "dark-teal-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    { dot: "bg-accent", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" }
                   return (
                     <div
                       key={m.label}
-                      className={`rounded-2xl px-5 py-4 ${c.bg} ${tilt} transition-all duration-200 hover:rotate-0`}
+                      className={`rounded-2xl px-5 py-4 ${colorSet.bg} ring-1 ring-foreground/[0.06]`}
                     >
                       <dt className="flex items-center gap-1.5 mb-1">
-                        <span className={`inline-block h-1.5 w-1.5 rounded-full ${c.dot}`} />
-                        <span className={`text-label font-mono uppercase tracking-[0.18em] ${c.label}`}>
+                        <span className={`inline-block h-1.5 w-1.5 rounded-full ${colorSet.dot}`} />
+                        <span className={`font-bold font-mono uppercase tracking-[0.18em] ${colorSet.label}`}>
                           {m.label}
                         </span>
                       </dt>
-                      <dd className={`text-body-sm leading-snug font-medium ${c.value}`}>
+                      <dd className={`text-body-sm leading-snug font-medium ${colorSet.value}`}>
                         {m.value}
                       </dd>
                     </div>

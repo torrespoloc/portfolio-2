@@ -70,8 +70,8 @@ export function NavBar() {
           borderRadius: 50,
           paddingLeft: isScrolled ? 16 : 24,
           paddingRight: isScrolled ? 16 : 24,
-          paddingTop: isScrolled ? 8 : 0,
-          paddingBottom: isScrolled ? 8 : 0,
+          paddingTop: 8,
+          paddingBottom: 8,
           backgroundColor: isScrolled ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
           boxShadow: isScrolled ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
         }}
@@ -79,7 +79,7 @@ export function NavBar() {
         className="pointer-events-auto fixed left-1/2 top-0 z-40 flex -translate-x-1/2 items-center justify-between overflow-visible backdrop-blur-xl"
         style={{ width: navWidth }}
       >
-        <div className="flex items-center justify-between w-full">
+        <div className="relative flex w-full items-center justify-between">
           {/* Identity */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full bg-white p-1.5">
@@ -94,7 +94,7 @@ export function NavBar() {
                 {SITE.name}
               </p>
               <p
-                className={`text-[11px] transition-colors duration-300 ease-out ${
+                className={`text-[13px] transition-colors duration-300 ease-out ${
                   isScrolled ? "text-white/50" : "text-muted-foreground"
                 }`}
               >
@@ -103,8 +103,8 @@ export function NavBar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center text-sm font-mono">
+          {/* Desktop nav — always centered */}
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
               className={`flex items-center gap-1 rounded-full border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
                 isScrolled
@@ -165,7 +165,7 @@ export function NavBar() {
                             <Link
                               key={study.href}
                               href={study.href}
-                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[12px] transition-all duration-300 ease-out hover:border-white/10 ${
+                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/10 hover:bg-white/[0.06] ${
                                 isScrolled
                                   ? "text-white/78 hover:text-white"
                                   : "text-foreground/78 hover:text-foreground"
@@ -174,7 +174,7 @@ export function NavBar() {
                                 animationDelay: `${index * 40}ms`,
                               }}
                             >
-                              <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/[0.06]">
+                              <span className="relative z-10 flex h-8 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/90 transition-all duration-300 ease-out group-hover:bg-white group-hover:scale-105">
                                 {study.logo ? (
                                   <img
                                     src={study.logo}
@@ -209,16 +209,6 @@ export function NavBar() {
               >
                 About
               </Link>
-              <a
-                href={`mailto:${LINKS.email}`}
-                className={`rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
-                  isScrolled
-                    ? "text-white/60 hover:bg-white/10 hover:text-white"
-                    : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
-                }`}
-              >
-                Contact
-              </a>
             </div>
           </nav>
 
@@ -241,6 +231,8 @@ export function NavBar() {
             <div className="hidden md:flex items-center gap-2">
               <a
                 href={LINKS.resume ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
                   isScrolled
                     ? "text-white/70 hover:text-white hover:bg-white/10"
@@ -298,18 +290,13 @@ export function NavBar() {
                   >
                     About
                   </Link>
-                  <a
-                    href={`mailto:${LINKS.email}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
-                  >
-                    Contact
-                  </a>
                 </nav>
                 <div className="border-t border-border" />
                 <div className="flex flex-col gap-2">
                   <a
                     href={LINKS.resume ?? "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileOpen(false)}
                     className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-1.5 px-2.5 w-full border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
                   >

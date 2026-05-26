@@ -89,7 +89,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       } flex items-center justify-center shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
     >
       <span
-        className={`text-[11px] font-semibold ${
+        className={`text-[11px] lg:text-[13px] font-semibold ${
           light
             ? "text-white/60"
             : "text-[#757575]/60 group-hover:text-white/60"
@@ -149,7 +149,7 @@ export function Testimonials({ className = "" }: Props) {
       <motion.p
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs font-semibold uppercase tracking-[0.2em] text-[#757575] mb-14 text-center"
+        className="text-xs lg:text-sm font-semibold uppercase tracking-[0.2em] text-[#757575] mb-14 text-center"
       >
         Testimonials
       </motion.p>
@@ -197,7 +197,7 @@ export function Testimonials({ className = "" }: Props) {
                 {isHighlighted && (
                   <div className="absolute top-3 left-4 flex items-center gap-1.5">
                     <span className="h-1 w-1 rounded-full bg-chartreuse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-widest text-chartreuse/70">
+                    <span className="text-[12px] font-semibold uppercase tracking-widest text-chartreuse/70 lg:text-[13px]">
                       Featured
                     </span>
                   </div>
@@ -223,7 +223,7 @@ export function Testimonials({ className = "" }: Props) {
 
                 <div className={`relative z-10 flex flex-col flex-1 ${isHighlighted ? "mt-6" : ""}`}>
                   <p
-                    className={`text-[15px] leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
+                    className={`text-[15px] lg:text-base leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
                       isMiller
                         ? "font-heading italic text-[#2f2e31] group-hover:text-white/90"
                         : isHighlighted

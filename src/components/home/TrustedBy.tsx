@@ -13,6 +13,7 @@ const logos = [
   "/logos/XY.svg",
   "/logos/Reail.svg",
   "/logos/fundr-logo.svg",
+  "/logos/7dish.svg",
 ];
 
 type Props = {

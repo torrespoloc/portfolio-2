@@ -25,6 +25,7 @@ import {
   sectionFull,
   sectionHeader,
 } from "@/components/case-study/cs-template_2"
+import { TooltipIcon } from "@/components/ui/tooltip-icon"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 12 },
@@ -32,16 +33,17 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer + Builder (solo)",
-  industry: "Developer Tools / macOS",
+  role: "Product Designer + Builder",
   duration: "Concept → v1.0 · April 2026",
-  team: "Solo",
+  team: "Self-managed, designed, and shipped",
   tools: (
     <div className="flex flex-wrap items-center gap-1.5">
-      <img src="/logos/figma.png" alt="Figma" className="h-4 w-4 rounded-sm" title="Figma" />
-      <img src="/logos/claude.png" alt="Claude" className="h-4 w-4 rounded-sm" title="Claude" />
       <span className="text-xs font-mono text-muted-foreground">SwiftUI</span>
-      <span className="text-xs font-mono text-muted-foreground">SwiftTerm</span>
+      <TooltipIcon src="/logos/claude-chat.png" alt="Claude" tooltip="Claude" className="h-6 w-6 rounded-sm" />
+      <TooltipIcon src="/logos/claude-code.png" alt="Claude Code" tooltip="Claude Code" className="h-6 w-6 rounded-sm" />
+      <TooltipIcon src="/logos/figma.png" alt="Figma" tooltip="Figma" className="h-6 w-6 rounded-sm" />
+      <TooltipIcon src="/logos/cursor.png" alt="Cursor" tooltip="Cursor" className="h-6 w-6 rounded-sm" />
+      <TooltipIcon src="/logos/github.png" alt="GitHub" tooltip="GitHub" className="h-6 w-6 rounded-sm" />
     </div>
   ),
 }
@@ -142,6 +144,7 @@ function PhaseHeader({ p, idx }: { p: Phase; idx: number }) {
 export default function SideNookCaseStudy() {
   return (
     <CaseStudyTemplatePra
+      metaTheme="cyan-gray"
       meta={meta}
       heroImage={
         <video
@@ -162,9 +165,6 @@ export default function SideNookCaseStudy() {
             <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
               macOS · personal
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
-              Open source
-            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             A terminal that&rsquo;s a support character, not the main event.
@@ -175,7 +175,7 @@ export default function SideNookCaseStudy() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-label font-mono uppercase tracking-[0.18em] text-muted-foreground">
             <span>v1.0 · April 23, 2026</span>
             <span className="hidden sm:inline text-muted-foreground/40">•</span>
-            <span>Solo · designed + built</span>
+            <span>Self-managed, designed, and shipped · designed + built</span>
           </div>
         </div>
       }
@@ -405,7 +405,7 @@ export default function SideNookCaseStudy() {
                   Panel visibility and auto-hide state at a glance
                 </li>
               </ul>
-              <p className="text-sm text-foreground/50 italic leading-relaxed">
+              <p className="text-sm lg:text-base text-foreground/50 italic leading-relaxed">
                 <strong className="text-foreground/80 not-italic">Why:</strong> <span className="text-[#EBB207] font-semibold">Nothing blocks silently.</span> That principle made the status indicator the hardest feature. The states looked simple on paper; making them reliable was not.
               </p>
             </div>
@@ -443,7 +443,7 @@ export default function SideNookCaseStudy() {
               <span className="text-muted-foreground/40 text-base">→</span>
               <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-foreground/[0.08] text-foreground/70">AppKit activates window</span>
               <span className="text-chartreuse/50 text-base">→</span>
-              <span className="px-3 py-1.5 rounded-md bg-chartreuse/10 ring-1 ring-chartreuse/20 text-chartreuse font-medium">SideNook intercepts ✗</span>
+              <span className="px-3 py-1.5 rounded-md bg-chartreuse ring-1 ring-chartreuse-foreground/20 text-chartreuse-foreground font-medium">SideNook intercepts ✗</span>
               <span className="text-muted-foreground/40 text-base">→</span>
               <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-foreground/[0.08] text-foreground/70">No app switch</span>
             </div>
@@ -481,7 +481,7 @@ export default function SideNookCaseStudy() {
                   Auto-saved on every change
                 </li>
               </ul>
-              <p className="text-sm text-foreground/50 italic leading-relaxed">
+              <p className="text-sm lg:text-base text-foreground/50 italic leading-relaxed">
                 <strong className="text-foreground/80 not-italic">Why:</strong> When Claude Code generates a command you&rsquo;ll reuse, you <span className="text-[#EBB207] font-semibold">shouldn&rsquo;t need another app</span> to save it.
               </p>
             </div>
@@ -522,7 +522,7 @@ export default function SideNookCaseStudy() {
                   Click-to-send to active terminal
                 </li>
               </ul>
-              <p className="text-sm text-foreground/50 italic leading-relaxed">
+              <p className="text-sm lg:text-base text-foreground/50 italic leading-relaxed">
                 <strong className="text-foreground/80 not-italic">Why:</strong> Claude Code generates commands I don&rsquo;t know yet. Googling them <span className="text-[#EBB207] font-semibold">breaks flow</span>. A local reference <span className="text-[#EBB207] font-semibold">keeps me in the terminal</span>.
               </p>
             </div>
@@ -568,7 +568,7 @@ export default function SideNookCaseStudy() {
                   Drag to resize — keyboard shortcuts for quick-switch
                 </li>
               </ul>
-              <p className="text-sm text-foreground/50 italic leading-relaxed">
+              <p className="text-sm lg:text-base text-foreground/50 italic leading-relaxed">
                 <strong className="text-foreground/80 not-italic">Why:</strong> Running Claude Code, watching builds, editing configs — one session isn&rsquo;t enough. Split panes <span className="text-[#EBB207] font-semibold">keep context without spawning more windows</span>.
               </p>
             </div>
@@ -609,7 +609,7 @@ export default function SideNookCaseStudy() {
                   Adjustable panel opacity, blur, and font controls
                 </li>
               </ul>
-              <p className="text-sm text-foreground/50 italic leading-relaxed">
+              <p className="text-sm lg:text-base text-foreground/50 italic leading-relaxed">
                 <strong className="text-foreground/80 not-italic">Why:</strong> Coordinating SideNook&rsquo;s accents with Claude Code&rsquo;s own color system — across both appearances — required a full token architecture. <span className="text-[#EBB207] font-semibold">No hex values in any component.</span>
               </p>
             </div>
@@ -747,7 +747,7 @@ export default function SideNookCaseStudy() {
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">01</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Ship as a VS Code extension</p>
-                <p className="text-sm text-foreground/60 leading-relaxed">
+                <p className="text-sm lg:text-base text-foreground/60 leading-relaxed">
                   Faster inside an existing app. But that ties SideNook to a single editor. The goal was a <span className="text-[#EBB207] font-semibold">system-level tool</span> that works with any terminal-based agent &mdash; Claude Code, Cursor, SSH, whatever comes next.
                 </p>
               </div>
@@ -756,7 +756,7 @@ export default function SideNookCaseStudy() {
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">02</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Make it paid from day one</p>
-                <p className="text-sm text-foreground/60 leading-relaxed">
+                <p className="text-sm lg:text-base text-foreground/60 leading-relaxed">
                   <span className="text-[#EBB207] font-semibold">I built this to learn.</span> Charging before the interaction pattern was proven would&rsquo;ve been premature. Free now, donations welcome. A pro tier makes sense if the model proves out &mdash; but not until the core is undeniable.
                 </p>
               </div>
@@ -765,7 +765,7 @@ export default function SideNookCaseStudy() {
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">03</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Over-engineer the plugin system before shipping</p>
-                <p className="text-sm text-foreground/60 leading-relaxed">
+                <p className="text-sm lg:text-base text-foreground/60 leading-relaxed">
                   A plugin architecture would be powerful &mdash; custom commands, integrations, themes. But building infrastructure before knowing what people want <span className="text-[#EBB207] font-semibold">is how side projects die</span>. Ship the terminal, learn from usage, then open the platform.
                 </p>
               </div>
@@ -802,37 +802,19 @@ export default function SideNookCaseStudy() {
       ═══════════════════════════════════════════════════════════════════════ */}
       <BurgundySection className="pb-32">
         <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5 text-white">
-          Open source. Try it, fork it, read the code.
+          Designed &amp; built side by side.
         </h3>
         <p className="text-base lg:text-lg text-white/75 leading-relaxed mb-8 max-w-2xl">
-          The whole project — design tokens, SwiftUI views, focus-handoff logic — <span className="text-[#EBB207] font-semibold">is on GitHub</span>. Want to talk through the decisions? Email me.
+          The product <span className="text-[#EBB207] font-semibold">and</span> the marketing site — I designed both, end to end. Check it out at <span className="text-[#EBB207] font-semibold">sidenook.dev</span>.
         </p>
-        <div className="mb-8 inline-flex flex-wrap items-center gap-4 rounded-xl bg-white/[0.06] ring-1 ring-white/[0.10] px-5 py-3 text-sm">
-          <span className="flex items-center gap-1.5 text-white/70">
-            <svg className="h-4 w-4" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
-            <span className="text-white/80 font-medium">torrespoloc/terminal-nook-plugin</span>
-          </span>
-          <span className="text-white/50">·</span>
-          <span className="flex items-center gap-1 text-white/60">
-            <span>★</span> <span>—</span>
-          </span>
-          <span className="flex items-center gap-1 text-white/60">
-            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>MIT</span>
-          </span>
-          <span className="flex items-center gap-1 text-white/60">
-            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span>solo</span>
-          </span>
-        </div>
         <div className="flex flex-wrap gap-3">
           <a
-            href={LINKS.sidenookRepo}
+            href={LINKS.sidenookDev}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
           >
-            View on GitHub
+            View the site
             <ArrowUpRight className="ml-1 h-4 w-4" />
           </a>
           <a

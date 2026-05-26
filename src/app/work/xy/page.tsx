@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Lock, Sparkles, Layers, Workflow } from "lucide-react"
 import { VideoCarousel } from "@/components/home/VideoCarousel"
 import { LINKS, TOOL_LOGOS } from "@/lib/constants"
+import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
   sectionGrid,
@@ -23,15 +24,14 @@ const fadeUp = {
 
 const meta = {
   role: "Product Designer",
-  industry: "Healthcare AI Automation",
   duration: "4 months",
   team: "CPO, CEO, 4 Engineers",
   tools: (
     <div className="flex flex-wrap items-center gap-1.5">
-      {["Figma", "V0 by Vercel", "GitHub"].map((tool) => {
+      {["GitHub", "Cursor", "Claude Code", "Claude", "Figma"].map((tool) => {
         const logo = TOOL_LOGOS[tool]
         if (!logo) return null
-        return <img key={tool} src={logo} alt={tool} className="h-4 w-4 rounded-sm" title={tool} />
+        return <TooltipIcon key={tool} src={logo} alt={tool} tooltip={tool} className={tool === "V0 by Vercel" ? "h-8 w-8 rounded-sm object-cover object-center" : "h-6 w-6 rounded-sm"} />
       })}
     </div>
   ),
@@ -88,8 +88,11 @@ export default function XYCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground">
-              XY.AI · Healthcare AI
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              Healthcare AI
+            </span>
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              SaaS
             </span>
             <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground inline-flex items-center gap-1">
               <Lock className="h-2.5 w-2.5" />

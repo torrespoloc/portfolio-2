@@ -1,14 +1,16 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface CaseStudyCardProps {
   tag: string;
-  headline: string;
+  headline: React.ReactNode;
   description: string;
   tags?: string[];
+  year?: string;
   metric1Label: string;
   metric1Value: string;
   metric2Label: string;
@@ -26,6 +28,7 @@ export function CaseStudyCard({
   headline,
   description,
   tags,
+  year,
   metric1Label,
   metric1Value,
   metric2Label,
@@ -82,11 +85,16 @@ export function CaseStudyCard({
         {/* Gradient overlay for tag readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
 
-        {/* Tag on media */}
+        {/* Tag + year on media */}
         <div className="absolute top-0 left-0 right-0 p-6 sm:p-8 flex items-start justify-between gap-4">
           {tag && (
             <span className="text-[16px] font-medium text-white/90 bg-white/15 backdrop-blur-md rounded-full px-4 py-1">
               {tag}
+            </span>
+          )}
+          {year && (
+            <span className="text-[13px] font-medium text-white/70 bg-white/10 backdrop-blur-md rounded-full px-3 py-1">
+              {year}
             </span>
           )}
         </div>
@@ -98,7 +106,7 @@ export function CaseStudyCard({
           {headline}
         </h3>
 
-        <p className="text-[14px] sm:text-[15px] leading-[1.5] text-[#4d4d4d] mt-2 font-semibold">
+        <p className="text-[14px] sm:text-[15px] lg:text-base leading-[1.5] text-[#4d4d4d] mt-2 font-semibold">
           {description}
         </p>
 
@@ -107,7 +115,7 @@ export function CaseStudyCard({
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-[12px] font-medium text-[#757575] bg-[#f5f5f5] rounded-full px-2.5 py-0.5"
+                className="text-[13px] font-medium text-[#757575] bg-[#f5f5f5] rounded-full px-2.5 py-0.5"
               >
                 {t}
               </span>
@@ -117,7 +125,7 @@ export function CaseStudyCard({
 
         <div className="flex items-center gap-6 mt-3 pt-3 border-t border-[#f0f0f0]">
           <div className="flex flex-col">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+            <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
               {metric1Label}
             </span>
             <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
@@ -125,7 +133,7 @@ export function CaseStudyCard({
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+            <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
               {metric2Label}
             </span>
             <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
@@ -135,7 +143,7 @@ export function CaseStudyCard({
 
           {builtForLogo && (
             <div className="flex items-center gap-2 ml-auto">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+              <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
                 Built for
               </span>
               <img src={builtForLogo} alt="" className="h-6 w-20 object-contain object-center" />

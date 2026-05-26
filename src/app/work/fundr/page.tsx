@@ -5,7 +5,8 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Sparkles } from "lucide-react"
-import { LINKS } from "@/lib/constants"
+import { LINKS, TOOL_LOGOS } from "@/lib/constants"
+import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
   sectionGrid,
@@ -22,10 +23,17 @@ const fadeUp = {
 
 const meta = {
   role: "UX/UI Designer (contract)",
-  industry: "Fintech / Investing SaaS",
   duration: "10 weeks · Sep–Nov 2023",
   team: "CEO + 1 Engineer",
-  tools: "Figma, FigJam, Notion, Loom, Maze",
+  tools: (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {["Figma", "Notion", "ChatGPT"].map((tool) => {
+        const logo = TOOL_LOGOS[tool]
+        if (!logo) return null
+        return <TooltipIcon key={tool} src={logo} alt={tool} tooltip={tool} className="h-6 w-6 rounded-sm" />
+      })}
+    </div>
+  ),
 }
 
 const outcomes: React.ReactNode[] = [
@@ -68,9 +76,14 @@ export default function FundrCaseStudy() {
       }
       headline={
         <div>
-          <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-            Fundr · Stealth fintech
-          </p>
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              Fintech
+            </span>
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              SaaS
+            </span>
+          </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Replacing a sales-call funnel with a paywall users can navigate themselves.
           </h1>
@@ -186,7 +199,7 @@ export default function FundrCaseStudy() {
               — {quote.cite}
             </figcaption>
           </figure>
-          <p className="mt-6 text-sm text-muted-foreground/90 leading-relaxed max-w-2xl border-t border-foreground/[0.06] pt-6">
+          <p className="mt-6 text-sm lg:text-base text-muted-foreground/90 leading-relaxed max-w-2xl border-t border-foreground/[0.06] pt-6">
             This reframed the project from “UI cleanup” to a{" "}
             <span className="text-accent font-semibold">business-critical decision</span>.
             Pricing surface was <span className="text-[#EBB207] font-semibold">the lever</span> — not polish.
@@ -366,7 +379,7 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Research
                 </p>
-                <p className="text-sm text-muted-foreground/85 leading-relaxed">
+                <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
                   Systems with <span className="text-accent font-semibold">combined CTA methods</span> outperform
                   single-method approaches — and the most effective pattern bridges the gap between
                   the CTA and the conversion point with the right information at the right time.
@@ -744,7 +757,7 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Why this approach
                 </p>
-                <p className="text-sm text-muted-foreground/85 leading-relaxed">
+                <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
                   SaaS users convert when they <span className="text-accent font-semibold">experience value firsthand</span>.
                   A free tier worth using builds trust. A premium tier worth paying for converts without pressure.
                 </p>

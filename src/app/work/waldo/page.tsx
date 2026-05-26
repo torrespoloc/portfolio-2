@@ -12,7 +12,8 @@ import {
   Users,
   Sparkles,
 } from "lucide-react"
-import { LINKS } from "@/lib/constants"
+import { LINKS, TOOL_LOGOS } from "@/lib/constants"
+import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
   sectionGrid,
@@ -28,11 +29,18 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer (contract)",
-  industry: "Health Tech / E-commerce",
-  duration: "May–Nov 2025 · 1 month early",
-  team: "Distributed across 3 continents",
-  tools: "Figma, V0 by Vercel, Figma Make, ChatGPT, Perplexity, Loom, Linear, Claude",
+  role: "Product Designer",
+  duration: "May–Nov 2025",
+  team: "VPP, Design Lead, Senior Designer, dev team 3 continents",
+  tools: (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {["Figma", "V0 by Vercel", "ChatGPT", "Perplexity", "Loom"].map((tool) => {
+        const logo = TOOL_LOGOS[tool]
+        if (!logo) return null
+        return <TooltipIcon key={tool} src={logo} alt={tool} tooltip={tool} className={tool === "V0 by Vercel" ? "h-8 w-8 rounded-sm object-cover object-center" : "h-6 w-6 rounded-sm"} />
+      })}
+    </div>
+  ),
 }
 
 type Shipped = {
@@ -83,12 +91,13 @@ const outcomes: ReactNode[] = [
 
 const quote = {
   body: "Without Vercel, we wouldn't have had alignment at the leadership level to have confidence to say V1 is going to be good.",
-  cite: "VP of Product, iDoc Health",
+  cite: "VP of Product, Waldo",
 }
 
 export default function WaldoCaseStudy() {
   return (
     <CaseStudyTemplatePra
+      metaTheme="default"
       meta={meta}
       heroImage={
         <video
@@ -102,9 +111,14 @@ export default function WaldoCaseStudy() {
       }
       headline={
         <div>
-          <p className="text-label font-mono uppercase tracking-[0.18em] text-foreground/60 mb-3">
-            Waldo · iDoc Health
-          </p>
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              Healthtech
+            </span>
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
+              Mobile
+            </span>
+          </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Designed the patient mobile app that closed the last mile for independent eye doctors.
           </h1>
@@ -155,7 +169,7 @@ export default function WaldoCaseStudy() {
             >
               The largest US alliance of independent eye doctors needed a HIPAA-compliant, prescription-aware
               e-commerce system: doctor portal + patient mobile app. Their competitor had <span className="text-accent font-semibold">over a decade</span> head start.
-              We delivered V1 in <span className="text-[#EBB207] font-semibold">six months</span>. I led the patient app <span className="text-[#EBB207] font-semibold">solo for the first three</span>.
+              We delivered V1 in <span className="text-[#EBB207] font-semibold">six months</span>. I led the patient app <span className="text-[#EBB207] font-semibold">Self-managed, designed, and shipped for the first three</span>.
             </motion.p>
           </div>
 

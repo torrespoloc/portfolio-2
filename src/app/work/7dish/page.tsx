@@ -11,7 +11,8 @@ import {
   ListChecks,
   CalendarDays,
 } from "lucide-react"
-import { LINKS } from "@/lib/constants"
+import { LINKS, TOOL_LOGOS } from "@/lib/constants"
+import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import { CaseStudyTemplatePra } from "@/components/case-study/cs-template_2"
 
 const fadeUp = {
@@ -21,10 +22,17 @@ const fadeUp = {
 
 const meta = {
   role: "UX/UI Designer",
-  industry: "Food Tech / Consumer Mobile",
   duration: "12 weeks",
   team: "7-person startup, Quebec",
-  tools: "Figma, FigJam, Notion",
+  tools: (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {["Figma"].map((tool) => {
+        const logo = TOOL_LOGOS[tool]
+        if (!logo) return null
+        return <TooltipIcon key={tool} src={logo} alt={tool} tooltip={tool} className="h-6 w-6 rounded-sm" />
+      })}
+    </div>
+  ),
 }
 
 const sectionGrid = "grid grid-cols-1 lg:grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-8"
@@ -382,14 +390,14 @@ export default function SevenDishCaseStudy() {
             <div className={`${sectionRight} space-y-4`}>
               <div>
                 <p className="text-sm font-semibold text-foreground/85 mb-1">Concept A (More Flexible)</p>
-                <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                <p className="text-sm lg:text-base text-muted-foreground/80 leading-relaxed">
                   Day-by-day planning with specific prep and cook times, offering a granular, time-focused design.{" "}
                   <span className="text-muted-foreground/60 italic">Result: The majority of users were confused by multiple selections, and large food cards felt visually &ldquo;overwhelming.&rdquo;</span>
                 </p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-accent mb-1">Concept B (More Controlled) &mdash; Winning Concept</p>
-                <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                <p className="text-sm lg:text-base text-muted-foreground/80 leading-relaxed">
                   Single-day selection featuring a horizontal scroll combined with smaller images. It also included an accessible, minimizable &ldquo;Unscheduled&rdquo; tab for quick drafts.{" "}
                   <span className="text-foreground/80 font-medium">This won definitively.</span> Users highly valued quick choice elements (dropdowns/horizontal scrolls) and a high-level daily view.
                 </p>
@@ -714,7 +722,7 @@ export default function SevenDishCaseStudy() {
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Eliminating the legacy &ldquo;Inspiration&rdquo; page
               </h4>
-              <p className="text-sm text-muted-foreground/85 leading-relaxed">
+              <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
                 Removed to make room for a direct, intuitive homepage recipe-browsing workflow. Stakeholders were hesitant &mdash; the page had existed since launch.
               </p>
             </div>
@@ -731,7 +739,7 @@ export default function SevenDishCaseStudy() {
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Adding the &ldquo;Saved Recipes Folders&rdquo; feature
               </h4>
-              <p className="text-sm text-muted-foreground/85 leading-relaxed">
+              <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
                 Added technical scope but drastically improved user organization. Not in the original brief &mdash; had to be justified with evidence.
               </p>
             </div>
