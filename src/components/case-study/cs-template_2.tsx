@@ -43,7 +43,7 @@ export interface CaseStudyTemplatePraProps {
   /** Standardized project metadata */
   meta: CaseStudyMeta
   /** Optional meta pill color theme */
-  metaTheme?: "purple-gold" | "teal-orange" | "cyan-gray" | "dark-teal-orange" | "default"
+  metaTheme?: "purple-gold" | "purple-orange" | "teal-orange" | "cyan-gray" | "dark-teal-orange" | "default"
   children: React.ReactNode
 }
 
@@ -179,7 +179,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
         )}
 
         {/* Body content */}
-        <div className="pb-32">
+        <div className="pb-16">
           <motion.div
             initial="hidden"
             animate="show"
@@ -194,6 +194,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
                 {metaFields.map((m, i) => {
                   const colorSet =
                     metaTheme === "purple-gold" ? { dot: "bg-[#EBB207]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "purple-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "teal-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "cyan-gray" ? { dot: "bg-[#0891B2]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "dark-teal-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :

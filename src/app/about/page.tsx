@@ -6,7 +6,7 @@ export default function AboutPage() {
       <div className="min-h-screen bg-[#fafafa] font-sans pt-24 md:pt-32 pb-0">
         <div className="mx-auto w-full max-w-[1200px] px-6 md:px-12">
           {/* Hero — card with headshot + facts */}
-          <div className="rounded-[20px] border border-[#f5f5f5] bg-white p-6 md:p-10 animate-fade-in-up">
+          <div className="w-fit mx-auto max-w-full rounded-[20px] border border-[#f5f5f5] bg-white p-6 md:p-10 animate-fade-in-up">
             <div className="flex flex-col md:flex-row gap-4 items-start">
               {/* Portrait with gradient border */}
               <div className="w-full md:w-[280px] shrink-0">
@@ -85,7 +85,9 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* "A bit about me" heading */}
+          {/* "A bit about me" section — same container width as work section on /home */}
+          <div className="mx-auto w-full max-w-[940px]">
+
           <h2
             className="mt-20 md:mt-28 text-[#4d4d4d] font-bold"
             style={{ fontSize: "28px", lineHeight: "33.6px" }}
@@ -284,6 +286,7 @@ export default function AboutPage() {
           >
             Thank you!
           </p>
+          </div>
         </div>
       </div>
     </>

@@ -1,11 +1,16 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { LINKS } from "@/lib/constants"
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
+  const pathname = usePathname()
+  const isWorkPage = pathname.startsWith("/work/")
 
   return (
-    <footer className="bg-white border-t border-foreground/[0.06]">
+    <footer className={`border-t border-foreground/[0.06] ${isWorkPage ? "lg:ml-[15vw]" : ""}`}>
       <div className="mx-auto w-full max-w-[1000px] px-4 py-20">
         {/* Headline */}
         <p

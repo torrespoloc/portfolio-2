@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { VideoCarousel } from "@/components/home/VideoCarousel";
 
 // ─── Slide data ────────────────────────────────────────────────────────────────
 
@@ -42,6 +43,8 @@ type CardsSlide = BaseSlide & {
   cards: { h: string; b: string }[];
   logos?: string[];
   numbered?: boolean;
+  aiLabel?: string;
+  aiToolsLogos?: string[];
 };
 type TimelineSlide = BaseSlide & {
   type: "timeline";
@@ -137,6 +140,7 @@ type HeroSlide = BaseSlide & {
   metric2Label: string;
   metric2Value: string;
   mediaSrc: string;
+  mediaSrcs?: string[];
   builtForLogo?: string;
   accent: string;
 };
@@ -255,29 +259,20 @@ const SLIDES: Slide[] = [
 
   // 04
   { id: "howiwork", type: "cards", label: "05 / Process", headline: "How I work", sub: "", cards: [
-    { h: "Understand what's at hand", b: "Audit the existing system, code, and workflow. Know the terrain before moving." },
-    { h: "Understand who needs the product", b: "User research and stakeholder alignment. Define who we're building for." },
-    { h: "Map out ideas", b: "Sketch, prototype, test. Fast iterations before committing to a direction." },
-    { h: "List what we need to get there", b: "Components, flows, handoffs, timeline. Structure for execution." },
-  ], numbered: true },
+    { h: "Understand what's at hand", b: "" },
+    { h: "Find UX gaps", b: "" },
+    { h: "Execute", b: "" },
+  ], numbered: true, aiLabel: "How AI enhanced my process", aiToolsLogos: ["figma", "cursor", "claude-code", "storybook", "chatgpt", "perplexity", "vercel-v0"] },
 
-  // 05 — NEW: AI process slide
-  { id: "aiprocess", type: "cards", label: "06 / Evolution", headline: "How AI changed my process", sub: "The tools changed. The craft didn't.", cards: [
-    { h: "Before: Linear by default", b: "Research, prototyping, and feedback were separate phases. Waiting was the norm." },
-    { h: "Shift: AI enters the workflow", b: "ChatGPT, V0, and Claude Code dissolved the wall between thinking and making." },
-    { h: "Now: AI-native pipeline", b: "Figma → Cursor → Claude Code → Storybook. Hours instead of weeks." },
-    { h: "Result: Higher quality, faster", b: "AI handles the plumbing. I focus on the system, interaction, and user." },
-  ], logos: ["figma", "cursor", "claude-code", "storybook", "chatgpt", "perplexity", "vercel-v0"] },
-
-  // 06
-  { id: "whyjiro", type: "jiro", label: "07 / Why Jiro", headline: "Why Jiro, why now", lead: "Jiro gives independent clinicians practice intelligence that's usually locked inside larger health systems. That's an equity problem dressed as a data problem.", bullets: [
+  // 05
+  { id: "whyjiro", type: "jiro", label: "06 / Why Jiro", headline: "Why Jiro, why now", lead: "Jiro gives independent clinicians practice intelligence that's usually locked inside larger health systems. That's an equity problem dressed as a data problem.", bullets: [
     { prefix: "0 to 1", word: "creation" },
     { prefix: "Startup", word: "mission" },
     { prefix: "AI", word: "workflows" },
   ] },
 
   // 07
-  { id: "first90", type: "timeline", label: "08 / Plan", headline: "First 90 days", sub: "How I'd approach it", phases: [
+  { id: "first90", type: "timeline", label: "07 / Plan", headline: "First 90 days", sub: "How I'd approach it", phases: [
     { label: "Days 1–30", h: "Audit and understand", b: "Deep-dive into Jiro, its infrastructure, design files, and foundational code. Map gaps and surface priorities." },
     { label: "Days 31–60", h: "Install the feedback loop", b: "Lightweight post-MVP testing with clinicians. A research habit, not a program." },
     { label: "Days 61–90", h: "Fix upstream", b: "Problem definition before anyone opens a tool. Ideation-to-code workflow so nothing is throwaway." },
@@ -287,16 +282,16 @@ const SLIDES: Slide[] = [
   { id: "trans1", type: "transition", label: "—", line: "Let me show you how I work." },
 
   // XY Hero
-  { id: "xyhero", type: "hero", label: "10 / XY", tag: "HEALTHTECH · AI WORKFLOWS", project: "XY Corp", headline: "Making healthcare AI orchestration self-serve", description: "Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows.", tags: ["healthtech", "SaaS"], year: "2025–2026", metric1Label: "Clicks to value", metric1Value: "3 steps", metric2Label: "Setup Reduction", metric2Value: "Hour to minutes", mediaSrc: "/case-studies/xy-hero.mp4", builtForLogo: "/logos/XY.svg", accent: "#3B3066" },
+  { id: "xyhero", type: "hero", label: "09 / XY", tag: "HEALTHTECH · AI WORKFLOWS", project: "XY Corp", headline: "Making healthcare AI orchestration self-serve", description: "Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows.", tags: ["healthtech", "SaaS"], year: "2025–2026", metric1Label: "Clicks to value", metric1Value: "3 steps", metric2Label: "Setup Reduction", metric2Value: "Hour to minutes", mediaSrc: "/case-studies/xy-hero.mp4", mediaSrcs: ["/xy/IntegrationsHub.mp4", "/xy/BrowserAgent.mp4", "/xy/DataExtraction.mp4", "/xy/KnowledgeBase.mp4", "/xy/TeamProductivity.mp4"], builtForLogo: "/logos/XY.svg", accent: "#3B3066" },
 
   // 10
-  { id: "xyrole", type: "text", label: "11 / XY", headline: "Who is XY?", body: [
+  { id: "xyrole", type: "text", label: "10 / XY", headline: "Who is XY?", body: [
     { bold: "AI orchestration " },
     "for healthcare — agents handle verification, scheduling, and claims for large provider networks.",
   ], img: "/xy/website.png", imgLayout: "bottom" },
 
   // 11
-  { id: "xyfound", type: "image-text", label: "12 / XY", headline: "Who are XY's users?", body: [
+  { id: "xyfound", type: "image-text", label: "11 / XY", headline: "Who are XY's users?", body: [
     "Healthcare operations teams of all technical levels — from clinical coordinators to IT specialists.\n\n",
     { bold: "Four user types:" },
     "",
@@ -305,7 +300,7 @@ const SLIDES: Slide[] = [
   ], img: "/xy/user-types.png", imgAlt: "User persona matrix", imgLayout: "centered" },
 
   // 12 — Discovery & Research
-  { id: "xydiscovery", type: "text", label: "13 / XY", headline: "Discovery & Research", body: [
+  { id: "xydiscovery", type: "text", label: "12 / XY", headline: "Discovery & Research", body: [
     "I started by talking to healthcare operations teams. Three patterns surfaced in every conversation:\n\n",
     { bold: "1. ", normal: "Teams couldn't describe their agent setup — it was abstract until they saw it" },
     { bold: "2. ", normal: "Every team had different workflows but the same bottleneck: configuration was a blocker" },
@@ -313,23 +308,23 @@ const SLIDES: Slide[] = [
   ], logos: ["sully", "scribe", "zapier"] },
 
   // 13
-  { id: "xycontext", type: "text", label: "14 / XY", headline: "Context & Problem", body: [
+  { id: "xycontext", type: "text", label: "13 / XY", headline: "Context & Problem", body: [
     "AI agents handle verification, scheduling, and claims for healthcare operations teams.\n\n",
     "The agents worked. The setup didn't — configuring them required a sales call.\n\n",
     { bold: "My job: make AI orchestration something healthcare teams could set up themselves. Four months, sole designer." },
   ], bottomCallout: "NO SELF-SERVE!?" },
 
-  { id: "xyinsight", type: "insight", label: "14b / XY", quote: "The problem wasn't UI quality. It was asking users to configure something they'd never encountered." },
+  { id: "xyinsight", type: "insight", label: "13b / XY", quote: "The problem wasn't UI quality. It was asking users to configure something they'd never encountered." },
 
   // 15
-  { id: "xyprocess", type: "directions", label: "15 / XY", headline: "Process & Exploration", dirs: [
+  { id: "xyprocess", type: "directions", label: "14 / XY", headline: "Process & Exploration", dirs: [
     { label: "Forms-first", desc: "Clean up existing configuration UI. Lower risk — but users still need to understand the agent model.", tag: "Lower risk", winner: false },
     { label: "Wizard / guided", desc: "Step-by-step onboarding. Better than forms but requires decisions users lack context for.", tag: "Middle ground", winner: false },
     { label: "Chat-first", desc: "Users describe intent in natural language. System interprets and routes. The only pattern matching how healthcare teams communicate.", tag: "The winner", winner: true },
   ] },
 
   // 13
-  { id: "xydecision", type: "text", label: "16 / XY", headline: "The reframe that changed everything", body: [
+  { id: "xydecision", type: "text", label: "15 / XY", headline: "The reframe that changed everything", body: [
     "Initial brief: improve the configuration UI.\n\n",
     { bold: "Real problem: " },
     "Healthcare teams don't think in configurations. They think in tasks.\n\n",
@@ -338,7 +333,7 @@ const SLIDES: Slide[] = [
   ], img: "/xy/reframe-diagram.svg", imgLayout: "bottom" },
 
   // 15 — NEW: Testing & Results
-  { id: "xytest", type: "text", label: "17 / XY", headline: "Testing & Results", body: [
+  { id: "xytest", type: "text", label: "16 / XY", headline: "Testing & Results", body: [
     "Before committing to chat-first, I validated the direction with real users:\n",
     { bold: "▸ ", normal: "Healthcare ops team interviews to test the mental model" },
     { bold: "▸ ", normal: "CPO-led walkthroughs with two enterprise prospects" },
@@ -355,7 +350,7 @@ const SLIDES: Slide[] = [
   ], cta: { label: "Explore the full design file", url: "https://www.figma.com/make/Ac81vE5pZnbQrcOMbXpIdH/github_main-design-repo?fullscreen=1&t=1CyYCzpwBvIjG7TG-1&code-node-id=0-9" } },
 
   // 16
-  { id: "xybuilt", type: "built", label: "18 / XY", headline: "What I built", items: [
+  { id: "xybuilt", type: "built", label: "17 / XY", headline: "What I built", items: [
     { n: "01", h: "AI orchestration via chat", b: "Three agents, one conversation. No config." },
     { n: "02", h: "60+ prod components", b: "Fullscreen, sidebar, embedded contexts." },
     { n: "03", h: "First design system", b: "8px grid, tokens, Storybook." },
@@ -363,10 +358,10 @@ const SLIDES: Slide[] = [
   ], img: "/xy/storybook.png", imgAlt: "Component library in Storybook" },
 
   // 17 — NEW: Video demo
-  { id: "xydemo", type: "video", label: "19 / XY", headline: "Live demo: AI chat in action", body: "Access the self-serve AI chat from the homepage and navigate through different agent modalities. From initial prompt to guided configuration — the conversation handles what forms couldn't.", src: "/xy/ai-chat-demo.mov" },
+  { id: "xydemo", type: "video", label: "18 / XY", headline: "Live demo: AI chat in action", body: "Access the self-serve AI chat from the homepage and navigate through different agent modalities. From initial prompt to guided configuration — the conversation handles what forms couldn't.", src: "/xy/ai-chat-demo.mov" },
 
   // 18 — Integration Challenge
-  { id: "xyintegration", type: "flow", label: "20 / XY", headline: "The Integration Challenge", challenge: "21+ healthcare integrations, each with different auth models and API surfaces", integrations: ["Gmail", "Drive", "Athena", "Dr. Chrono", "Kindbody", "and more"], patterns: [
+  { id: "xyintegration", type: "flow", label: "19 / XY", headline: "The Integration Challenge", challenge: "21+ healthcare integrations, each with different auth models and API surfaces", integrations: ["Gmail", "Drive", "Athena", "Dr. Chrono", "Kindbody", "and more"], patterns: [
     { label: "Simple OAuth", desc: "One-click connect" },
     { label: "API Credential", desc: "API key + endpoint URL" },
     { label: "Complex OAuth", desc: "Scoped permission access" },
@@ -374,13 +369,13 @@ const SLIDES: Slide[] = [
   ], outcome: "One pattern, infinite integrations. Blockers surfaced upfront, never mid-config." },
 
   // 20 — Color System
-  { id: "xycolorsystem", type: "video", label: "21 / XY", headline: "Color system & design tokens", body: "Color system built for XY's design system — tokens, scales, and themeable variables.", src: "/xy/color-system.mp4" },
+  { id: "xycolorsystem", type: "video", label: "20 / XY", headline: "Color system & design tokens", body: "Color system built for XY's design system — tokens, scales, and themeable variables.", src: "/xy/color-system.mp4" },
 
   // 19 — Other cool things
-  { id: "xyothereats", type: "embed", label: "22 / XY", headline: "Other cool things I built for XY", src: "https://www.figma.com/make/ahsvzzM900MujLyJzh3PqB/Interactive-3D-Circular-Model?fullscreen=1&code-node-id=0-9", videoSrc: "/xy/interactive-sphere.mp4" },
+  { id: "xyothereats", type: "embed", label: "21 / XY", headline: "Other cool things I built for XY", src: "https://www.figma.com/make/ahsvzzM900MujLyJzh3PqB/Interactive-3D-Circular-Model?fullscreen=1&code-node-id=0-9", videoSrc: "/xy/interactive-sphere.mp4" },
 
   // 21 — Testing & Results (retest)
-  { id: "xyretest", type: "text", label: "23 / XY", headline: "Testing & Results", body: [
+  { id: "xyretest", type: "text", label: "22 / XY", headline: "Testing & Results", body: [
     "Before committing to chat-first, I validated the direction with real users:\n",
     { bold: "▸ ", normal: "Healthcare ops team interviews to test the mental model" },
     { bold: "▸ ", normal: "CPO-led walkthroughs with two enterprise prospects" },
@@ -397,14 +392,14 @@ const SLIDES: Slide[] = [
   ], cta: { label: "Explore the full design file", url: "https://www.figma.com/make/Ac81vE5pZnbQrcOMbXpIdH/github_main-design-repo?fullscreen=1&t=1CyYCzpwBvIjG7TG-1&code-node-id=0-9" } },
 
   // 22
-  { id: "xyimpact", type: "quote", label: "24 / XY", quote: "Your design instinct is really strong, and that's hard to teach. The visual design combined with the UX — you did some really good work here.", attr: "Scott Cressman, CPO at XY", bullets: [
+  { id: "xyimpact", type: "quote", label: "23 / XY", quote: "Your design instinct is really strong, and that's hard to teach. The visual design combined with the UX — you did some really good work here.", attr: "Scott Cressman, CPO at XY", bullets: [
     "Self-serve AI orchestration became a core sales asset — the CEO pitched it directly to enterprise customers.",
     "Components were production-wired to Temporal for live agent orchestration, not prototypes.",
     "Users: \"This makes perfect sense. Complex flows made chat-friendly.\"",
   ] },
 
   // 23
-  { id: "xyreflect", type: "text", label: "25 / XY", headline: "What I'd do differently", body: [
+  { id: "xyreflect", type: "text", label: "24 / XY", headline: "What I'd do differently", body: [
     "I built fast and I built real — but I was heads down with the CPO and didn't have enough visibility into what engineering was building in parallel.\n\n",
     "Components were created for demos I never saw. The design system and codebase drifted faster than I could close the gap.\n\n",
     { bold: "If I did it again: " },
@@ -416,10 +411,10 @@ const SLIDES: Slide[] = [
   { id: "trans2", type: "transition", label: "—", line: "A few other things I've built." },
 
   // Waldo Hero
-  { id: "waldohero", type: "hero", label: "25 / Waldo", tag: "HEALTHTECH", project: "Waldo Health", headline: "End-to-end mobile patient app for HIPAA-compliant contact lens ordering", description: "Designed patient portal app MVP and full checkout experience in sync with Waldo's doctor portal. Shipped 1 month early.", tags: ["healthtech", "mobile"], year: "2025", metric1Label: "Shipped", metric1Value: "1 month early", metric2Label: "Ownership", metric2Value: "100% patient app", mediaSrc: "/case-studies/waldo-hero.mp4", builtForLogo: "/logos/waldo.svg", accent: "#D97706" },
+  { id: "waldohero", type: "hero", label: "24 / Waldo", tag: "HEALTHTECH", project: "Waldo Health", headline: "End-to-end mobile patient app for HIPAA-compliant contact lens ordering", description: "Designed patient portal app MVP and full checkout experience in sync with Waldo's doctor portal. Shipped 1 month early.", tags: ["healthtech", "mobile"], year: "2025", metric1Label: "Shipped", metric1Value: "1 month early", metric2Label: "Ownership", metric2Value: "100% patient app", mediaSrc: "/case-studies/waldo-hero.mp4", builtForLogo: "/logos/waldo.svg", accent: "#D97706" },
 
   // 23
-  { id: "waldo", type: "image-text", label: "26 / Waldo", headline: "Waldo Health — Zero-to-one patient app", body: [
+  { id: "waldo", type: "image-text", label: "25 / Waldo", headline: "Waldo Health — Zero-to-one patient app", body: [
     "Eye care company (acquired by Specsavers) selling prescription contacts DTC.\n\n",
     "Sole designer on the patient app. Doctor portal on one side, patient app on the other — a dual ecosystem.\n\n",
     "Owned 100% from zero: research, IA, flows, high-fidelity UI, handoff.\n\n",
@@ -427,7 +422,7 @@ const SLIDES: Slide[] = [
   ], img: "/waldo/journey-map-preview.png", imgAlt: "Patient journey map" },
 
   // 22
-  { id: "otherwork", type: "projects", label: "27 / More", headline: "More from the portfolio", projects: [
+  { id: "otherwork", type: "projects", label: "26 / More", headline: "More from the portfolio", projects: [
     { name: "7dish", description: "Meal planning app. End-to-end product design from research through UI. 3 core flows redesigned, A/B tested.", mediaSrc: "/case-studies/7dish-hero.png", mediaType: "image" },
     { name: "SideNook", description: "macOS terminal emulator. Sole designer + SwiftUI developer. Shipped April 2026.", mediaSrc: "/case-studies/sidenook-hero.mp4", mediaType: "video" },
     { name: "Fundr", description: "SaaS paywall redesign. 20% increase in upgrade rates, ~50% fewer sales calls.", mediaSrc: "/case-studies/fundr-hero.mp4", mediaType: "video" },
@@ -436,7 +431,7 @@ const SLIDES: Slide[] = [
   ] },
 
   // 23
-  { id: "bring", type: "table", label: "28 / Fit", headline: "Here's how I plug in", header: ["Chris's need", "What I bring"], rows: [
+  { id: "bring", type: "table", label: "27 / Fit", headline: "Here's how I plug in", header: ["Chris's need", "What I bring"], rows: [
     ["Design system + code out of sync", "Built XY's first design system and 60+ component library from zero. Mapped to engineering output."],
     ["No time to build foundation", "I've been the sole designer twice. Build the foundation while still shipping."],
     ["Research function missing", "I install lightweight feedback loops — fast, repeatable, tied to decisions."],
@@ -448,7 +443,7 @@ const SLIDES: Slide[] = [
   ] },
 
   // 24
-  { id: "close", type: "contact", label: "29 / Contact", headline: "I came ready to get into the weeds.", sub: "", name: "Jacki Torres", email: "hello@jackelinetorres.co", site: "jackelinetorres.co" },
+  { id: "close", type: "contact", label: "28 / Contact", headline: "I came ready to get into the weeds.", sub: "", name: "Jacki Torres", email: "hello@jackelinetorres.co", site: "jackelinetorres.co" },
 ];
 
 // ─── Component ─────────────────────────────────────────────────────────────────
@@ -933,36 +928,45 @@ function TextSlide({ headline, body, logos, img, imgLayout, bottomCallout, cta, 
   );
 }
 
-function CardsSlide({ headline, sub, cards, logos, numbered }: CardsSlide) {
+function CardsSlide({ headline, sub, cards, logos, numbered, aiLabel, aiToolsLogos }: CardsSlide) {
   return (
     <div className="max-w-5xl w-full animate-fade-in min-h-[calc(100vh-200px)] pt-[116px]">
       <h2 className="text-[28px] md:text-[36px] font-bold text-[#2f2e31] mb-6 leading-tight">{headline}</h2>
       {sub && <p className="text-sm text-[#888] mb-6">{sub}</p>}
       {logos && <div className="mb-8"><ToolIcons logos={logos} centered /></div>}
       {numbered ? (
-        <div className="flex gap-12 items-start">
-          <div className="flex-1 flex flex-col gap-0">
-            {cards.map((c, i) => (
-              <div key={i} className="flex gap-5">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#4361EE] text-white text-sm font-bold shrink-0">
-                    {i + 1}
+        <>
+          <div className="flex gap-12 items-start">
+            <div className="flex-1 flex flex-col gap-0">
+              {cards.map((c, i) => (
+                <div key={i} className="flex gap-5">
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#4361EE] text-white text-sm font-bold shrink-0">
+                      {i + 1}
+                    </div>
+                    {i < cards.length - 1 && <div className="w-[2px] flex-1 bg-[#4361EE]/20 my-1" />}
                   </div>
-                  {i < cards.length - 1 && <div className="w-[2px] flex-1 bg-[#4361EE]/20 my-1" />}
+                  <div className="pb-8 pt-1">
+                    <h3 className="text-base font-bold text-[#2f2e31] mb-1">{c.h}</h3>
+                    <p className="text-sm text-[#4d4d4d] leading-relaxed">{c.b}</p>
+                  </div>
                 </div>
-                <div className="pb-8 pt-1">
-                  <h3 className="text-base font-bold text-[#2f2e31] mb-1">{c.h}</h3>
-                  <p className="text-sm text-[#4d4d4d] leading-relaxed">{c.b}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="hidden md:flex w-48 shrink-0 items-start justify-center pt-4">
+              <p className="text-[56px] md:text-[64px] leading-[1] font-serif italic text-[#540f37] text-right" style={{ fontFamily: "var(--font-serif)" }}>
+                Always<br />Ask Why
+              </p>
+            </div>
           </div>
-          <div className="hidden md:flex w-48 shrink-0 items-start justify-center pt-4">
-            <p className="text-[56px] md:text-[64px] leading-[1] font-serif italic text-[#540f37] text-right" style={{ fontFamily: "var(--font-serif)" }}>
-              Always<br />Ask Why
-            </p>
-          </div>
-        </div>
+          {aiLabel && aiToolsLogos && (
+            <div className="mt-10 pt-8 border-t border-[#e8e8e8]">
+              <h3 className="text-base font-semibold text-[#2f2e31] mb-1">{aiLabel}</h3>
+              <p className="text-sm text-[#4d4d4d] mb-5">Figma → Cursor → Claude Code → Storybook. Hours instead of weeks.</p>
+              <ToolIcons logos={aiToolsLogos} centered />
+            </div>
+          )}
+        </>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {cards.map((c, i) => (
@@ -1136,7 +1140,7 @@ function ContactSlide({ headline, sub, name, email, site }: ContactSlide) {
   );
 }
 
-function HeroSlide({ tag, project, headline, description, tags, year, metric1Label, metric1Value, metric2Label, metric2Value, mediaSrc, builtForLogo, accent }: HeroSlide) {
+function HeroSlide({ tag, project, headline, description, tags, year, metric1Label, metric1Value, metric2Label, metric2Value, mediaSrc, mediaSrcs, builtForLogo, accent }: HeroSlide) {
   return (
     <div className="w-full max-w-6xl animate-fade-in flex flex-col min-h-[55vh]">
       {/* Top branding bar — matches cover */}
@@ -1187,14 +1191,22 @@ function HeroSlide({ tag, project, headline, description, tags, year, metric1Lab
 
         {/* Right — enlarged hero media, no container */}
         <div className="w-full md:w-[440px] lg:w-[500px] shrink-0 flex items-center">
-          <video
-            src={mediaSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full object-cover rounded-lg"
-          />
+          {mediaSrcs && mediaSrcs.length > 0 ? (
+            <VideoCarousel
+              videos={mediaSrcs}
+              interval={4000}
+              className="w-full"
+            />
+          ) : (
+            <video
+              src={mediaSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full object-cover rounded-lg"
+            />
+          )}
         </div>
       </div>
     </div>

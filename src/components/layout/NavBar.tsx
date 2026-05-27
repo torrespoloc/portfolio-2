@@ -11,6 +11,7 @@ import { LINKS, SITE, WORK_CASE_STUDIES } from "@/lib/constants"
 export function NavBar() {
   const pathname = usePathname()
   const isHome = pathname === "/"
+  const isWorkPage = !isHome && pathname.startsWith("/work/")
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [viewportWidth, setViewportWidth] = useState<number | null>(null)
@@ -56,9 +57,14 @@ export function NavBar() {
   }, [isHome, pathname])
 
   const isScrolled = isHome ? scrolled : true
-  const expandedWidth = viewportWidth ? Math.min(viewportWidth - 60, 800) : 800
-  const defaultWidth = viewportWidth ? Math.min(viewportWidth - 40, 1200) : "calc(100vw - 40px)"
+  const expandedWidth = viewportWidth
+    ? Math.min(isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
+    : 800
+  const defaultWidth = viewportWidth
+    ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - 40, 1200)
+    : "calc(100vw - 40px)"
   const navWidth = isScrolled ? expandedWidth : defaultWidth
+  const navLeft = isWorkPage ? "calc(50% + 7.5vw)" : "50%"
 
   return (
     <>
@@ -77,7 +83,7 @@ export function NavBar() {
         }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="pointer-events-auto fixed left-1/2 top-0 z-40 flex -translate-x-1/2 items-center justify-between overflow-visible backdrop-blur-xl"
-        style={{ width: navWidth }}
+        style={{ width: navWidth, left: navLeft }}
       >
         <div className="relative flex w-full items-center justify-between">
           {/* Identity */}
@@ -165,7 +171,7 @@ export function NavBar() {
                             <Link
                               key={study.href}
                               href={study.href}
-                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/10 hover:bg-white/[0.06] ${
+                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
                                 isScrolled
                                   ? "text-white/78 hover:text-white"
                                   : "text-foreground/78 hover:text-foreground"

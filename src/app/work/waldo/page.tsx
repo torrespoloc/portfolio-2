@@ -56,9 +56,9 @@ const shipped: Shipped[] = [
     eyebrow: "Patient mobile app",
     title: "Prescription-aware dashboard with real-time validity and sync.",
     body: <>
-      Prescription dashboard with <span className="text-[#EBB207] font-semibold">color-coded badges</span>, supply bars, and 3-state validity logic (valid, expiring, expired).<br /><br />
+      Prescription dashboard with <span className="text-brand-blue font-semibold">color-coded badges</span>, supply bars, and 3-state validity logic (valid, expiring, expired).<br /><br />
       Real-time staff-patient sync: create a checkout, patient notified. Patient changes quantity, staff sees it live.<br /><br />
-      <span className="text-[#EBB207] font-semibold">Skeleton loading</span>, toast confirmations, and 30-second error retry keep trust intact.
+      <span className="text-brand-blue font-semibold">Skeleton loading</span>, toast confirmations, and 30-second error retry keep trust intact.
     </>,
   },
   {
@@ -67,24 +67,24 @@ const shipped: Shipped[] = [
     title: "One account. The whole household.",
     body: <>
       Named sub-patient profiles with their own prescription cards and order history.<br /><br />
-      <span className="text-[#EBB207] font-semibold">No multi-account architecture needed</span> — caregivers manage the whole household without juggling logins.
+      <span className="text-brand-blue font-semibold">No multi-account architecture needed</span> — caregivers manage the whole household without juggling logins.
     </>,
   },
 ]
 
 const outcomes: ReactNode[] = [
   <>
-    Delivered <span className="text-[#EBB207] font-semibold">1 month early</span>, live at idocbridge.com
+    Delivered <span className="text-brand-blue font-semibold">1 month early</span>, live at idocbridge.com
   </>,
   <>
-    Target: <span className="text-[#EBB207] font-semibold">60%+</span> of pilot clinic patients complete
+    Target: <span className="text-brand-blue font-semibold">60%+</span> of pilot clinic patients complete
     first purchase in-app (vs. 0% previously)
   </>,
   <>
-    Target: <span className="text-[#EBB207] font-semibold">40%</span> reduction in staff checkout creation time
+    Target: <span className="text-brand-blue font-semibold">40%</span> reduction in staff checkout creation time
   </>,
   <>
-    Target: <span className="text-[#EBB207] font-semibold">80%+</span> of first-time users complete
+    Target: <span className="text-brand-blue font-semibold">80%+</span> of first-time users complete
     checkout independently
   </>,
 ]
@@ -169,7 +169,7 @@ export default function WaldoCaseStudy() {
             >
               The largest US alliance of independent eye doctors needed a HIPAA-compliant, prescription-aware
               e-commerce system: doctor portal + patient mobile app. Their competitor had <span className="text-accent font-semibold">over a decade</span> head start.
-              We delivered V1 in <span className="text-[#EBB207] font-semibold">six months</span>. I led the patient app <span className="text-[#EBB207] font-semibold">Self-managed, designed, and shipped for the first three</span>.
+              We delivered V1 in <span className="text-brand-blue font-semibold">six months</span>. I owned the patient app design process.
             </motion.p>
           </div>
 
@@ -305,7 +305,7 @@ export default function WaldoCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              Staff logged into <span className="text-[#EBB207] font-semibold">four systems</span> to complete one order. Family defaults saved the last patient who ordered, requiring manual corrections. Duplicate carts caused errors. Patients had no visibility into their own prescriptions.
+              Staff logged into <span className="text-brand-blue font-semibold">four systems</span> to complete one order. Family defaults saved the last patient who ordered, requiring manual corrections. Duplicate carts caused errors. Patients had no visibility into their own prescriptions.
             </motion.p>
           </div>
 
@@ -445,7 +445,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className={sectionFull}
+          className={`${sectionFull} mt-12`}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
             <div className="relative overflow-hidden rounded-xl ring-1 ring-foreground/[0.06] max-h-[560px]">
@@ -512,7 +512,7 @@ export default function WaldoCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              <span className="text-[#EBB207] font-semibold">$5</span> in V0 credits. Twelve checkout iterations. The team found out later.
+              <span className="text-brand-blue font-semibold">$5</span> in V0 credits. Twelve checkout iterations. The team found out later.
             </motion.h3>
           </div>
 
@@ -524,7 +524,7 @@ export default function WaldoCaseStudy() {
             >
               When V0 credits ran out, I built a personal prototyping environment (Project Bits, using
               Figma Make) to test five-plus checkout flows without burning budget. Stretched $5 across
-              <span className="text-[#EBB207] font-semibold">12+ feature iterations</span>. The team only realized once decisions were already faster.
+              <span className="text-brand-blue font-semibold">12+ feature iterations</span>. The team only realized once decisions were already faster.
             </motion.p>
           </div>
 
@@ -570,7 +570,7 @@ export default function WaldoCaseStudy() {
               />
             </div>
             <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
-              <span className="text-[#EBB207] font-semibold">Project Bits</span>, the private prototyping environment that stretched $5 across 12+ iterations
+              <span className="text-brand-blue font-semibold">Project Bits</span>, the private prototyping environment that stretched $5 across 12+ iterations
             </p>
           </motion.div>
         </motion.div>
@@ -623,14 +623,14 @@ export default function WaldoCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              I mapped every updated design token across every patient screen (colors, typography, components) and tested across <span className="text-[#EBB207] font-semibold">every state: loading, error, empty, success</span>. Worked with the design system owner to keep both apps visually cohesive through the transition.
+              I mapped every updated design token across every patient screen (colors, typography, components) and tested across <span className="text-brand-blue font-semibold">every state: loading, error, empty, success</span>. Worked with the design system owner to keep both apps visually cohesive through the transition.
             </motion.p>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              The original timeline held. <span className="text-[#EBB207] font-semibold">No delay to dev handoff</span>. The final designs were better for it.
+              The original timeline held. <span className="text-brand-blue font-semibold">No delay to dev handoff</span>. The final designs were better for it.
             </motion.p>
           </div>
         </motion.div>
@@ -828,7 +828,7 @@ export default function WaldoCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              What worked: the prototype-first approach. By the time requirements were written, the team had already reacted to something real. That <span className="text-[#EBB207] font-semibold">collapsed weeks of alignment into days</span>.
+              What worked: the prototype-first approach. By the time requirements were written, the team had already reacted to something real. That <span className="text-brand-blue font-semibold">collapsed weeks of alignment into days</span>.
             </motion.p>
           </div>
 
@@ -838,18 +838,18 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="rounded-2xl p-8 lg:p-10 bg-foreground text-background">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-background/50 mb-5">
+            <div className="rounded-2xl p-8 lg:p-10 bg-brand-blue text-white">
+              <p className="text-label font-mono uppercase tracking-[0.18em] text-white/50 mb-5">
                 Real Talk
               </p>
-              <div className="space-y-4 text-base lg:text-lg leading-relaxed text-background/85 max-w-3xl">
+              <div className="space-y-4 text-base lg:text-lg leading-relaxed text-white/85 max-w-3xl">
                 <p>
                   The product is live at idocbridge.com. No direct user access for months. The analytics dashboard didn&rsquo;t make V1. My white-label work is in the V2 backlog.
                 </p>
                 <p>
                   That is product design. Make good decisions within real constraints, keep the team moving, ship something that works, even when it isn&rsquo;t everything you originally designed.
                 </p>
-                <p className="pt-4 text-background font-medium">
+                <p className="pt-4 text-white font-medium">
                   One staff member said &ldquo;Hallelujah&rdquo; the first time she saw the prototype work. <span className="text-[#EBB207] font-semibold">That is enough</span>.
                 </p>
               </div>
@@ -861,7 +861,7 @@ export default function WaldoCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       7. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-32">
+      <section className="pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

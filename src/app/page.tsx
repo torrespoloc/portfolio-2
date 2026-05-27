@@ -144,8 +144,7 @@ export default function Home() {
               metric1Value="3 steps"
               metric2Label="Setup Reduction"
               metric2Value="Hour to minutes"
-              mediaSrc="/case-studies/xy-hero.mp4"
-              mediaType="video"
+              mediaSrcs={["/xy/IntegrationsHub.mp4", "/xy/BrowserAgent.mp4", "/xy/DataExtraction.mp4", "/xy/KnowledgeBase.mp4", "/xy/TeamProductivity.mp4"]}
               href="/work/xy"
               builtForLogo="/logos/XY.svg"
             />

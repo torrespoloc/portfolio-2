@@ -21,7 +21,7 @@ Next.js portfolio site at jackelinetorres.co.
 | `/work/fundr` | `[--accent:#059669]` (emerald) | default |
 | `/work/waldo` | `[--accent:#D97706]` (amber) | default |
 | `/work/sidenook` | `[--accent:#0891B2]` (cyan) | default |
-| `/work/xy` | `[--accent:#3B3066]` (purple) | `purple-gold` |
+| `/work/xy` | `[--accent:#3B3066]` (purple) | `purple-orange` |
 | `/work/7dish` | `[--accent:#0D9488]` (teal) | `teal-orange` |
 
 ## Active Work

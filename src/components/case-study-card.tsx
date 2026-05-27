@@ -4,6 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { VideoCarousel } from "@/components/home/VideoCarousel";
 
 interface CaseStudyCardProps {
   tag: string;
@@ -16,6 +17,7 @@ interface CaseStudyCardProps {
   metric2Label: string;
   metric2Value: string;
   mediaSrc?: string;
+  mediaSrcs?: string[];
   mediaType?: "image" | "video";
   mediaAlt?: string;
   href?: string;
@@ -34,6 +36,7 @@ export function CaseStudyCard({
   metric2Label,
   metric2Value,
   mediaSrc,
+  mediaSrcs,
   mediaType = "image",
   mediaAlt = "",
   href,
@@ -56,7 +59,13 @@ export function CaseStudyCard({
     >
       {/* Media area */}
       <div className="relative w-full aspect-video overflow-hidden bg-[#f1f5f9]">
-        {mediaSrc && mediaType === "video" ? (
+        {mediaSrcs && mediaSrcs.length > 0 ? (
+          <VideoCarousel
+            videos={mediaSrcs}
+            interval={4000}
+            className="absolute inset-0 w-full h-full [&_video]:group-hover:scale-[1.04] [&_video]:transition-transform [&_video]:duration-700 [&_video]:ease-out"
+          />
+        ) : mediaSrc && mediaType === "video" ? (
           <video
             src={mediaSrc}
             autoPlay
@@ -106,7 +115,7 @@ export function CaseStudyCard({
           {headline}
         </h3>
 
-        <p className="text-[14px] sm:text-[15px] lg:text-base leading-[1.5] text-[#4d4d4d] mt-2 font-semibold">
+        <p className="text-subtitle md:text-body leading-[1.5] text-[#4d4d4d] mt-2">
           {description}
         </p>
 
