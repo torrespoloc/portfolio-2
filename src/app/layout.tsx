@@ -19,11 +19,39 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://www.jackelinetorres.co";
+
 export const metadata: Metadata = {
-  title: "Portfolio — Jacki Torres Poloc",
-  description: "Design & development portfolio",
+  metadataBase: new URL(siteUrl),
+  title: "Jackeline Torres - Senior Product Designer",
+  description:
+    "Senior Product Designer crafting apps and systems that users love.",
   icons: {
     icon: "/logo.svg",
+  },
+  openGraph: {
+    title: "Jackeline Torres - Senior Product Designer",
+    description:
+      "Senior Product Designer crafting apps and systems that users love.",
+    url: siteUrl,
+    siteName: "Jackeline Torres",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 800,
+        alt: "Jackeline Torres - Senior Product Designer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jackeline Torres - Senior Product Designer",
+    description:
+      "Senior Product Designer crafting apps and systems that users love.",
+    images: ["/og-image.png"],
   },
   other: {
     "color-scheme": "light",
