@@ -1016,8 +1016,8 @@ export default function FundrCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <p className="text-sm text-muted-foreground leading-relaxed mt-2 text-center">
-              A brief walkthrough of the high-level design process behind the Fundr upgrade flow.
+            <p className="text-sm text-muted-foreground leading-relaxed text-center mt-1">
+              A high-level walkthrough of the Fundr upgrade flow — a deeper dive into specific decisions and trade-offs is available during a portfolio interview.
             </p>
           </motion.div>
         </motion.div>
