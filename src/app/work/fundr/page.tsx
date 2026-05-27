@@ -973,6 +973,57 @@ export default function FundrCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
+      VIDEO EXPLAINER
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section className="pb-16">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-12`}
+        >
+          The full story in ~4-min
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={sectionGrid}
+        >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={sectionFull}
+          >
+            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-foreground/[0.06] bg-black">
+              <video
+                src="/fundr/video-explain.mp4"
+                controls
+                playsInline
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: "16/9" }}
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={sectionFull}
+          >
+            <p className="text-sm text-muted-foreground leading-relaxed mt-2 text-center">
+              A brief walkthrough of the high-level design process behind the Fundr upgrade flow.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
       12. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
       <section className="pb-16">
@@ -1019,6 +1070,7 @@ export default function FundrCaseStudy() {
           </div>
         </motion.div>
       </section>
+
     </div>
     </CaseStudyTemplatePra>
   )
