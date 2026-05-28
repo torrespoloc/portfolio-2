@@ -32,11 +32,11 @@ const experience = [
 export function Experience() {
   return (
     <div className="mx-auto w-full max-w-[940px]">
-      <h2 className="text-[#4d4d4d] text-sm font-semibold uppercase tracking-wider mb-8">
+      <h2 className="text-[#4d4d4d] text-sm font-semibold uppercase tracking-wider mb-6">
         Experience
       </h2>
 
-      <div className="flex flex-col gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {experience.map((entry, i) => (
           <div key={i} className="flex flex-col gap-1.5">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#757575]">

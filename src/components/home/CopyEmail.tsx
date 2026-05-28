@@ -33,7 +33,7 @@ export function CopyEmail() {
       </button>
       <span>{EMAIL}</span>
       {copied && (
-        <span className="absolute -top-7 left-8 text-[11px] text-[#757575] bg-white px-2 py-0.5 rounded border border-[#e5e5e5] shadow-sm animate-in fade-in slide-in-from-bottom-1 duration-200">
+        <span className="absolute -top-7 left-8 text-[14px] text-[#757575] bg-white px-2 py-0.5 rounded border border-[#e5e5e5] shadow-sm animate-in fade-in slide-in-from-bottom-1 duration-200">
           Copied!
         </span>
       )}

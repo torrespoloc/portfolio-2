@@ -18,12 +18,12 @@ const contentWidth = "px-6 sm:px-10 lg:px-16 xl:px-24 max-w-6xl mx-auto"
 const heroWidth = "px-6 sm:px-10 max-w-6xl mx-auto"
 
 // ─── Shared section layout classes ───
-// Two-column grid: heading left (col-span-5), body right (col-span-7),
-// visual artifacts span full width (col-span-12).
-export const sectionGrid = "grid grid-cols-1 lg:grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-8"
-export const sectionLeft = "lg:col-span-5"
-export const sectionRight = "lg:col-span-7"
-export const sectionFull = "lg:col-span-12"
+// Single-column stack: heading, body, and visuals stack vertically
+// for easier reading and skimming.
+export const sectionGrid = "flex flex-col gap-8"
+export const sectionLeft = ""
+export const sectionRight = ""
+export const sectionFull = ""
 
 // ─── Section header: Playfair Display italic, accent blue ───
 export const sectionHeader = "font-[family-name:var(--font-heading)] italic text-2xl sm:text-3xl lg:text-4xl text-accent tracking-tight leading-[1.1]"
@@ -43,7 +43,7 @@ export interface CaseStudyTemplatePraProps {
   /** Standardized project metadata */
   meta: CaseStudyMeta
   /** Optional meta pill color theme */
-  metaTheme?: "purple-gold" | "purple-orange" | "teal-orange" | "cyan-gray" | "dark-teal-orange" | "default"
+  metaTheme?: "purple-orange" | "teal-orange" | "cyan-gray" | "dark-teal-orange" | "default"
   children: React.ReactNode
 }
 
@@ -95,8 +95,10 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
   useEffect(() => {
     const sections = [
       { label: "Hero", ids: ["hero"] },
+      { label: "Problem", ids: ["problem"] },
       { label: "Solution", ids: ["solution"] },
       { label: "Impact", ids: ["impact"] },
+      { label: "Walkthrough", ids: ["walkthrough"] },
       { label: "Reflection", ids: ["reflection", "reflections"] },
     ]
     const found = sections
@@ -124,7 +126,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
         }`}
       >
         <div className="flex flex-col gap-1 w-full px-4 pt-8">
-          {(availableSections.length > 0 ? availableSections : [{ label: "Hero", id: "hero" }, { label: "Solution", id: "solution" }, { label: "Impact", id: "impact" }, { label: "Reflection", id: "reflection" }]).map(({ label, id }) => (
+          {(availableSections.length > 0 ? availableSections : [{ label: "Hero", id: "hero" }, { label: "Problem", id: "problem" }, { label: "Solution", id: "solution" }, { label: "Impact", id: "impact" }, { label: "Walkthrough", id: "walkthrough" }, { label: "Reflection", id: "reflection" }]).map(({ label, id }) => (
               <button
                 key={label}
                 type="button"
@@ -193,7 +195,6 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
               <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {metaFields.map((m, i) => {
                   const colorSet =
-                    metaTheme === "purple-gold" ? { dot: "bg-[#EBB207]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "purple-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "teal-orange" ? { dot: "bg-[#F97316]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     metaTheme === "cyan-gray" ? { dot: "bg-[#0891B2]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :

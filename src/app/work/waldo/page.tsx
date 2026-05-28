@@ -125,12 +125,12 @@ export default function WaldoCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#D97706]">
+      <div className="[--accent:#D97706] [--accent-2:#3B3066]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY IDOC NEEDED A BETTER PATIENT EXPERIENCE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="background" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
+      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +168,7 @@ export default function WaldoCaseStudy() {
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               The largest US alliance of independent eye doctors needed a HIPAA-compliant, prescription-aware
-              e-commerce system: doctor portal + patient mobile app. Their competitor had <span className="text-accent font-semibold">over a decade</span> head start.
+              e-commerce system: doctor portal + patient mobile app. Their competitor had <span className="text-accent-2 font-semibold">over a decade</span> head start.
               We delivered V1 in <span className="text-brand-blue font-semibold">six months</span>. I owned the patient app design process.
             </motion.p>
           </div>
@@ -195,7 +195,7 @@ export default function WaldoCaseStudy() {
                   <span className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
                     {m.value}
                   </span>
-                  <span className="text-xs font-mono text-foreground/60 leading-snug max-w-[12ch]">
+                  <span className="text-body-sm font-mono text-foreground/70 leading-snug max-w-[12ch]">
                     {m.label}
                   </span>
                 </div>
@@ -218,19 +218,19 @@ export default function WaldoCaseStudy() {
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">A decade-old market leader with a massive head start</p>
+                  <p className="text-body font-semibold text-foreground">A decade-old market leader with a massive head start</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">02</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">HIPAA-compliant prescription verification at scale</p>
+                  <p className="text-body font-semibold text-foreground">HIPAA-compliant prescription verification at scale</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">03</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Patients with no visibility into their own prescription data</p>
+                  <p className="text-body font-semibold text-foreground">Patients with no visibility into their own prescription data</p>
                 </div>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function WaldoCaseStudy() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
+            <p className="mt-3 text-body-sm font-mono text-foreground/70 text-center">
               The staff-facing order interface iDoc relied on before the patient app
             </p>
           </motion.div>
@@ -300,13 +300,16 @@ export default function WaldoCaseStudy() {
             >
               The VP of Product ran moderated testing sessions with practice staff and patients. One front-desk coordinator (who placed orders daily) became the clearest signal for what needed to change.
             </motion.p>
-            <motion.p
+            <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed list-disc pl-5 space-y-1.5"
             >
-              Staff logged into <span className="text-brand-blue font-semibold">four systems</span> to complete one order. Family defaults saved the last patient who ordered, requiring manual corrections. Duplicate carts caused errors. Patients had no visibility into their own prescriptions.
-            </motion.p>
+              <li>Staff logged into <span className="text-brand-blue font-semibold">four systems</span> to complete one order.</li>
+              <li>Family defaults saved the last patient who ordered, requiring manual corrections.</li>
+              <li>Duplicate carts caused errors with no automatic resolution.</li>
+              <li>Patients had no visibility into their own prescriptions.</li>
+            </motion.ul>
           </div>
 
           {/* Quote card */}
@@ -321,7 +324,7 @@ export default function WaldoCaseStudy() {
                   <p>&ldquo;Hallelujah.&rdquo;</p>
                   <p>&ldquo;That was amazing. Fantastic.&rdquo;</p>
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-accent">
+                <figcaption className="mt-6 flex items-center gap-2 text-body-sm font-mono uppercase tracking-[0.18em] text-accent">
                   <span className="h-px w-6 bg-accent/30" />
                   Front-desk coordinator, on seeing the family ordering prototype
                 </figcaption>
@@ -344,7 +347,7 @@ export default function WaldoCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
+            <p className="mt-3 text-body-sm font-mono text-foreground/70 text-center">
               Early FigJam brainstorming, working through the complex checkout flow that had to sync with the doctor&rsquo;s desktop app
             </p>
           </motion.div>
@@ -370,7 +373,7 @@ export default function WaldoCaseStudy() {
               />
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.03] transition-colors duration-500" />
             </a>
-            <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
+            <p className="mt-3 text-body-sm font-mono text-foreground/70 text-center">
               Journey map tracing the full experience from staff profile creation through patient checkout.{" "}
               <a
                 href="/waldo/journey-map.pdf"
@@ -388,7 +391,7 @@ export default function WaldoCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       3. WHAT I SHIPPED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="shipped" className="pb-24 lg:pb-28">
+      <section id="solution" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -423,7 +426,7 @@ export default function WaldoCaseStudy() {
                     <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-foreground/[0.04] ring-1 ring-foreground/[0.06] text-foreground/70">
                       <Icon className="h-4 w-4" />
                     </span>
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-foreground/60">
+                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-foreground/70">
                       {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
                     </p>
                   </div>
@@ -476,7 +479,7 @@ export default function WaldoCaseStudy() {
               />
             </div>
           </div>
-          <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
+          <p className="mt-3 text-body-sm font-mono text-foreground/70 text-center">
             Patient mobile app: dashboard with prescription status, prescription management, and checkout
           </p>
         </motion.div>
@@ -545,7 +548,7 @@ export default function WaldoCaseStudy() {
                 <blockquote className="text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
                   &ldquo;{quote.body}&rdquo;
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-accent">
+                <figcaption className="mt-6 flex items-center gap-2 text-body-sm font-mono uppercase tracking-[0.18em] text-accent">
                   <span className="h-px w-6 bg-accent/30" />
                   {quote.cite}
                 </figcaption>
@@ -569,7 +572,7 @@ export default function WaldoCaseStudy() {
                 style={{ border: 0 }}
               />
             </div>
-            <p className="mt-3 text-xs font-mono text-foreground/60 text-center">
+            <p className="mt-3 text-body-sm font-mono text-foreground/70 text-center">
               <span className="text-brand-blue font-semibold">Project Bits</span>, the private prototyping environment that stretched $5 across 12+ iterations
             </p>
           </motion.div>
@@ -712,7 +715,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="mt-4 text-xs font-mono text-foreground/60 text-center"
+          className="mt-4 text-body-sm font-mono text-foreground/70 text-center"
         >
           From color system to color system: three brand identities in five months
         </motion.p>
@@ -725,7 +728,7 @@ export default function WaldoCaseStudy() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="mt-8 p-6 lg:p-8 rounded-2xl bg-accent/[0.04] ring-1 ring-accent/20 max-w-2xl mx-auto"
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-accent mb-3">
+          <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-accent mb-3">
             Fun fact
           </p>
           <p className="text-base lg:text-lg text-foreground leading-relaxed">
@@ -737,7 +740,7 @@ export default function WaldoCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       5. OUTCOMES
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="outcomes" className="pb-24 lg:pb-28">
+      <section id="impact" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -814,8 +817,18 @@ export default function WaldoCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              My first healthcare product. The constraints: limited budget, a back injury mid-project, a brand change two weeks before finalization, a dev team in a different time zone.
+              My first healthcare product. The constraints:
             </motion.p>
+            <motion.ul
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed list-disc pl-5 space-y-1.5"
+            >
+              <li>Limited budget</li>
+              <li>A back injury mid-project</li>
+              <li>A brand change two weeks before finalization</li>
+              <li>A dev team in a different time zone</li>
+            </motion.ul>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -831,29 +844,68 @@ export default function WaldoCaseStudy() {
               What worked: the prototype-first approach. By the time requirements were written, the team had already reacted to something real. That <span className="text-brand-blue font-semibold">collapsed weeks of alignment into days</span>.
             </motion.p>
           </div>
+        </motion.div>
+      </section>
 
-          {/* Real Talk card */}
+      {/* ══════════════════════════════════════════════════════════════════════
+      REAL TALK
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="real-talk" className="pb-24 lg:pb-28">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-12`}
+        >
+          Real Talk
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={sectionGrid}
+        >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+            >
+              Shipping isn&rsquo;t the finish line. It&rsquo;s the starting point.
+            </motion.h3>
+          </div>
+
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
+            >
+              The product is live at idocbridge.com. No direct user access for months. The analytics dashboard didn&rsquo;t make V1. My white-label work is in the V2 backlog.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
+            >
+              That is product design. Make good decisions within real constraints, keep the team moving, ship something that works, even when it isn&rsquo;t everything you originally designed.
+            </motion.p>
+          </div>
+
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="rounded-2xl p-8 lg:p-10 bg-brand-blue text-white">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-white/50 mb-5">
-                Real Talk
-              </p>
-              <div className="space-y-4 text-base lg:text-lg leading-relaxed text-white/85 max-w-3xl">
-                <p>
-                  The product is live at idocbridge.com. No direct user access for months. The analytics dashboard didn&rsquo;t make V1. My white-label work is in the V2 backlog.
-                </p>
-                <p>
-                  That is product design. Make good decisions within real constraints, keep the team moving, ship something that works, even when it isn&rsquo;t everything you originally designed.
-                </p>
-                <p className="pt-4 text-white font-medium">
-                  One staff member said &ldquo;Hallelujah&rdquo; the first time she saw the prototype work. <span className="text-[#EBB207] font-semibold">That is enough</span>.
-                </p>
-              </div>
-            </div>
+            <p className="text-base lg:text-lg text-brand-blue font-semibold leading-relaxed text-center max-w-2xl mx-auto">
+              One staff member said &ldquo;Hallelujah&rdquo; the first time she saw the prototype work. <span className="text-accent-2 font-semibold">That is enough</span>.
+            </p>
           </motion.div>
         </motion.div>
       </section>

@@ -48,6 +48,7 @@ const testimonials: Testimonial[] = [
       "You're a thoughtful and resourceful UX designer. She's a natural at collaborating and shipping great work. I'd recommend her to anyone.",
     name: "Vincent Trepnier",
     title: "CEO of 7dish",
+    image: "/headshots/vincent.jpeg",
     highlights: ["thoughtful and resourceful"],
   },
   {
@@ -89,7 +90,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       } flex items-center justify-center shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
     >
       <span
-        className={`text-[11px] lg:text-[13px] font-semibold ${
+        className={`text-[14px] font-semibold ${
           light
             ? "text-white/60"
             : "text-[#757575]/60 group-hover:text-white/60"
@@ -198,7 +199,7 @@ export function Testimonials({ className = "" }: Props) {
                 {isHighlighted && (
                   <div className="absolute top-3 left-4 flex items-center gap-1.5">
                     <span className="h-1 w-1 rounded-full bg-chartreuse" />
-                    <span className="text-[12px] font-semibold uppercase tracking-widest text-chartreuse/70 lg:text-[13px]">
+                    <span className="text-[14px] font-semibold uppercase tracking-widest text-chartreuse/70">
                       Featured
                     </span>
                   </div>
@@ -224,7 +225,7 @@ export function Testimonials({ className = "" }: Props) {
 
                 <div className={`relative z-10 flex flex-col flex-1 ${isHighlighted ? "mt-6" : ""}`}>
                   <p
-                    className={`text-[15px] lg:text-base leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
+                    className={`text-[15px] lg:text-body leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
                       isHighlighted
                         ? "text-white/90"
                         : "text-[#4d4d4d] group-hover:text-white/90"

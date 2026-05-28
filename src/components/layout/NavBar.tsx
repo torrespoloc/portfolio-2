@@ -56,6 +56,8 @@ export function NavBar() {
     return () => observer.disconnect()
   }, [isHome, pathname])
 
+  const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
+  const tightScreen = viewportWidth !== null && viewportWidth < 1024
   const isScrolled = isHome ? (scrolled || tightScreen) : true
   const expandedWidth = viewportWidth
     ? Math.min(isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
@@ -64,8 +66,6 @@ export function NavBar() {
     ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - 40, 1200)
     : "calc(100vw - 40px)"
   const navWidth = isScrolled ? expandedWidth : defaultWidth
-  const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
-  const tightScreen = viewportWidth !== null && viewportWidth < 1024
   const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
 
   return (

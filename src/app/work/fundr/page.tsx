@@ -38,19 +38,19 @@ const meta = {
 
 const outcomes: React.ReactNode[] = [
   <>
-    <span className="text-[#EBB207] font-semibold">20%</span> increase in upgrade rates through improved
+    <span className="text-accent-2 font-semibold">20%</span> increase in upgrade rates through improved
     financial dashboard UI
   </>,
   <>
-    <span className="text-[#EBB207] font-semibold">~50%</span> reduction in negative feedback by redesigning
+    <span className="text-accent-2 font-semibold">~50%</span> reduction in negative feedback by redesigning
     navigation for embedded experiences
   </>,
   <>
-    <span className="text-[#EBB207] font-semibold">~50%</span> decrease in required sales calls via
+    <span className="text-accent-2 font-semibold">~50%</span> decrease in required sales calls via
     self-serve monetization design
   </>,
   <>
-    Expected <span className="text-[#EBB207] font-semibold">5%</span> client-base growth within 6 months of launch
+    Expected <span className="text-accent-2 font-semibold">5%</span> client-base growth within 6 months of launch
   </>,
 ]
 
@@ -90,12 +90,12 @@ export default function FundrCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#059669]">
+      <div className="[--accent:#059669] [--accent-2:#D97706]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY FUNDR NEEDED A REDESIGN
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="background" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
+      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,11 +130,11 @@ export default function FundrCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              Every plan change ran through a <span className="text-[#EBB207] font-semibold">1:1 sales call</span>. Users waited days for a human to flip a switch.
+              Every plan change ran through a <span className="text-accent-2 font-semibold">1:1 sales call</span>. Users waited days for a human to flip a switch.
               The pricing was confusing, the low tiers didn’t justify upgrading, and there was no self-service
-              path. I had <span className="text-accent font-semibold">ten weeks</span> to design one.
+              path. I had <span className="text-accent-2 font-semibold">ten weeks</span> to design one.
             </motion.p>
           </div>
 
@@ -153,26 +153,26 @@ export default function FundrCaseStudy() {
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Sales calls for every upgrade</p>
+                  <p className="text-body font-semibold text-foreground">Sales calls for every upgrade</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">02</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Confusing pricing structure</p>
+                  <p className="text-body font-semibold text-foreground">Confusing pricing structure</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">03</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Free tier too limited to sell upgrades</p>
+                  <p className="text-body font-semibold text-foreground">Free tier too limited to sell upgrades</p>
                 </div>
               </div>
             </div>
 
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
               “I didn’t even know there were paid plans. I’ve been on the same tier since I signed up.”
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                 — User during discovery interviews
               </span>
             </blockquote>
@@ -195,14 +195,14 @@ export default function FundrCaseStudy() {
             <blockquote className="text-xl lg:text-2xl xl:text-3xl leading-[1.25] text-foreground/90 font-medium tracking-tight">
               “{quote.body}”
             </blockquote>
-            <figcaption className="mt-5 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            <figcaption className="mt-5 text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70">
               — {quote.cite}
             </figcaption>
           </figure>
-          <p className="mt-6 text-sm lg:text-base text-muted-foreground/90 leading-relaxed max-w-2xl border-t border-foreground/[0.06] pt-6">
+          <p className="mt-6 text-body lg:text-base text-foreground/70 leading-relaxed max-w-2xl border-t border-foreground/[0.06] pt-6">
             This reframed the project from “UI cleanup” to a{" "}
-            <span className="text-accent font-semibold">business-critical decision</span>.
-            Pricing surface was <span className="text-[#EBB207] font-semibold">the lever</span> — not polish.
+            <span className="text-accent-2 font-semibold">business-critical decision</span>.
+            Pricing surface was <span className="text-accent-2 font-semibold">the lever</span> — not polish.
           </p>
         </div>
       </motion.section>
@@ -210,7 +210,7 @@ export default function FundrCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       3. THE UPGRADE FLOW
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="upgrade-flow" className="pb-24 lg:pb-28">
+      <section id="solution" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -245,10 +245,10 @@ export default function FundrCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               Before diving into individual surfaces, it’s worth seeing how the pieces connect.
-              The upgrade flow has <span className="text-accent font-semibold">three entry points</span> — a
+              The upgrade flow has <span className="text-accent-2 font-semibold">three entry points</span> — a
               scrollable sales funnel, feature-specific popups, and situational upgrade prompts — all
               converging into a single checkout. Users can start from anywhere and finish in under a minute.
             </motion.p>
@@ -281,19 +281,19 @@ export default function FundrCaseStudy() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   How all three CTA paths converge into a single checkout
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Multiple entry points, one consistent upgrade experience
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">The result</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Users can enter from any surface and complete in under a minute
                 </p>
               </div>
@@ -320,7 +320,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           Three upgrade surfaces that don’t interrupt the workflow.
         </motion.p>
@@ -351,25 +351,25 @@ export default function FundrCaseStudy() {
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                Users who wanted to upgrade <span className="text-[#EBB207] font-semibold">hit a wall</span> — a generic “Contact Sales” link and days of waiting.
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
+                Users who wanted to upgrade <span className="text-accent-2 font-semibold">hit a wall</span> — a generic “Contact Sales” link and days of waiting.
               </p>
 
               <div>
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
                   What I did
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground/85">
+                <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Collapsible status menu</strong> — feature access at a glance, expanded by default</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Static CTA buttons</strong> — accessible from every page so users never hunt for the upgrade path</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Triggered popup cards</strong> — let users keep working without losing context</span>
                   </li>
                 </ul>
@@ -379,8 +379,8 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Research
                 </p>
-                <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
-                  Systems with <span className="text-accent font-semibold">combined CTA methods</span> outperform
+                <p className="text-body lg:text-base text-foreground/75 leading-relaxed">
+                  Systems with <span className="text-accent-2 font-semibold">combined CTA methods</span> outperform
                   single-method approaches — and the most effective pattern bridges the gap between
                   the CTA and the conversion point with the right information at the right time.
                 </p>
@@ -404,19 +404,19 @@ export default function FundrCaseStudy() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Three CTA types layered by user intent — glance, browse, and act
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Each surface serves a different moment without overwhelming the interface
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">The result</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Self-serve upgrades that don’t interrupt the user’s flow
                   </p>
                 </div>
@@ -465,10 +465,10 @@ export default function FundrCaseStudy() {
               <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                 The problem
               </p>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 Fundr’s platform centers on Special Purpose Vehicles — the investment structure
-                that lets investors pool capital into a single startup. Most users <span className="text-[#EBB207] font-semibold">didn’t understand what an SPV was</span> or how capital flowed through it.{" "}
-                <span className="text-accent font-semibold">Upgrade prompts had no context</span> — users
+                that lets investors pool capital into a single startup. Most users <span className="text-accent-2 font-semibold">didn’t understand what an SPV was</span> or how capital flowed through it.{" "}
+                <span className="text-accent-2 font-semibold">Upgrade prompts had no context</span> — users
                 couldn’t value what they couldn’t visualize.
               </p>
             </div>
@@ -477,17 +477,17 @@ export default function FundrCaseStudy() {
               <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
                 What I did
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground/85">
+              <ul className="space-y-2 text-body text-foreground/75">
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                   <span><strong className="text-foreground/80 font-medium">Designed an infographic</strong> breaking down who’s involved, how capital moves, and what happens at each stage</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                   <span><strong className="text-foreground/80 font-medium">Connected it to upgrade triggers</strong> — premium unlocks more SPV data, deeper analytics, and priority access</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                   <span><strong className="text-foreground/80 font-medium">Placed after CTAs</strong> — users see the infographic right after an upgrade prompt, bridging curiosity to understanding</span>
                 </li>
               </ul>
@@ -511,19 +511,19 @@ export default function FundrCaseStudy() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   The SPV structure — investors, capital flow, and the startup relationship
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Users understand the core mechanism before they consider paying for premium access
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">The result</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Upgrade prompts now carry context — users know exactly what they’re unlocking
                 </p>
               </div>
@@ -550,7 +550,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           Confusing tiers, made deliberate.
         </motion.p>
@@ -576,30 +576,30 @@ export default function FundrCaseStudy() {
                 </p>
               </div>
               <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
-                A single pricing table that mixed investor and startup features — making both segments feel the product <span className="text-[#EBB207] font-semibold">wasn’t built for them</span>.
+                A single pricing table that mixed investor and startup features — making both segments feel the product <span className="text-accent-2 font-semibold">wasn’t built for them</span>.
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 Fundr’s pricing page was a single table that mixed investor features with startup
-                features — making both segments feel the product <span className="text-[#EBB207] font-semibold">wasn’t built for them</span>.
+                features — making both segments feel the product <span className="text-accent-2 font-semibold">wasn’t built for them</span>.
               </p>
 
               <div>
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
                   What I did
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground/85">
+                <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Two separate pricing paths</strong> — investors and startups on different pages, each with tailored features</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Best-value option highlighted</strong> — users see which plan gives them the most without guessing</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Transparent fees up-front</strong> — annual plan incentives, clear per-user pricing, no hidden costs</span>
                   </li>
                 </ul>
@@ -620,9 +620,9 @@ export default function FundrCaseStudy() {
                   className="w-full h-auto"
                 />
               </div>
-              <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+              <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
                 “Wait — I can actually see what each plan costs without guessing. That’s… clear.”
-                <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+                <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                   — User testing the pricing page prototype
                 </span>
               </blockquote>
@@ -670,10 +670,10 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-xl bg-burgundy/[0.06] ring-1 ring-burgundy/20 p-5 lg:p-6"
             >
-              <p className="text-body-sm text-foreground/85 leading-relaxed">
+              <p className="text-body text-foreground/85 leading-relaxed">
                 The CEO wanted one unified pricing page — simplicity was a core value, and two paths
                 risked surface complexity. I mapped both user journeys, showed where investor and startup
-                needs diverged, and <span className="text-accent font-semibold">the data won</span>.
+                needs diverged, and <span className="text-accent-2 font-semibold">the data won</span>.
                 We shipped two pricing paths.
               </p>
             </motion.div>
@@ -699,7 +699,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           A free tier worth using. A premium tier worth paying for.
         </motion.p>
@@ -729,25 +729,25 @@ export default function FundrCaseStudy() {
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                The free tier was a demo, not a product — so limited that users <span className="text-[#EBB207] font-semibold">couldn’t evaluate whether Fundr was right for them</span>.
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
+                The free tier was a demo, not a product — so limited that users <span className="text-accent-2 font-semibold">couldn’t evaluate whether Fundr was right for them</span>.
               </p>
 
               <div>
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
                   What I did
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground/85">
+                <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Basic tier</strong> — genuinely useful features with upgrade triggers at natural ceilings</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">Premium tier</strong> — advanced graphs, expanded data, and priority support that extends how you work in the free tier</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">▸</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">▸</span>
                     <span><strong className="text-foreground/80 font-medium">The trigger</strong> — users hit a natural ceiling in the free tier and decide for themselves whether the upgrade is worth it</span>
                   </li>
                 </ul>
@@ -757,8 +757,8 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Why this approach
                 </p>
-                <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
-                  SaaS users convert when they <span className="text-accent font-semibold">experience value firsthand</span>.
+                <p className="text-body lg:text-base text-foreground/75 leading-relaxed">
+                  SaaS users convert when they <span className="text-accent-2 font-semibold">experience value firsthand</span>.
                   A free tier worth using builds trust. A premium tier worth paying for converts without pressure.
                 </p>
               </div>
@@ -801,13 +801,13 @@ export default function FundrCaseStudy() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Side-by-side comparison of free vs paid dashboard experience
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Users see exactly what they gain — not just what they’re missing
                   </p>
                 </div>
@@ -837,7 +837,7 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
             Three shifts that changed the upgrade experience.
           </p>
           <div className="space-y-4">
@@ -850,14 +850,14 @@ export default function FundrCaseStudy() {
                 key={i}
                 className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 sm:gap-6 items-center p-4 lg:p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]"
               >
-                <div className="text-body-sm text-muted-foreground leading-snug">
+                <div className="text-body text-foreground/70 leading-snug">
                   <span className="text-label font-mono uppercase tracking-[0.12em] text-destructive/70 block mb-1">Before</span>
                   {pair.before}
                 </div>
                 <div className="flex items-center justify-center">
                   <span className="text-accent text-lg font-semibold leading-none">→</span>
                 </div>
-                <div className="text-body-sm text-foreground leading-snug">
+                <div className="text-body text-foreground leading-snug">
                   <span className="text-label font-mono uppercase tracking-[0.12em] text-status-success-text/70 block mb-1">After</span>
                   {pair.after}
                 </div>
@@ -887,8 +887,8 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-2xl">
-            Fewer sales calls. More upgrades. <span className="text-[#EBB207] font-semibold">A pricing surface that does its own selling.</span>
+          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
+            Fewer sales calls. More upgrades. <span className="text-accent-2 font-semibold">A pricing surface that does its own selling.</span>
           </p>
           <ul className="space-y-4">
             {outcomes.map((o, i) => (
@@ -904,10 +904,10 @@ export default function FundrCaseStudy() {
               </motion.li>
             ))}
           </ul>
-          <blockquote className="mt-8 pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+          <blockquote className="mt-8 pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
             “I just upgraded myself. It took like 20 seconds. Last time I had to email
             support and wait three days.”
-            <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+            <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
               — Beta user, first week after launch
             </span>
           </blockquote>
@@ -934,15 +934,15 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-8 max-w-2xl">
             Hindsight and the next version.
           </p>
           <ul className="space-y-4">
             <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
               <span className="text-accent font-semibold text-sm shrink-0 mt-0.5">01</span>
               <div>
-                <p className="text-body-sm text-foreground/85 leading-relaxed">
-                  <strong className="text-foreground font-semibold">Push for <span className="text-[#EBB207] font-semibold">analytics instrumentation before shipping</span>.</strong>{" "}
+                <p className="text-body text-foreground/85 leading-relaxed">
+                  <strong className="text-foreground font-semibold">Push for <span className="text-accent-2 font-semibold">analytics instrumentation before shipping</span>.</strong>{" "}
                   We had to estimate upgrade rate impact instead of measuring it directly, which made
                   iteration harder and the second cycle slower than it needed to be.
                 </p>
@@ -951,9 +951,9 @@ export default function FundrCaseStudy() {
             <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
               <span className="text-accent font-semibold text-sm shrink-0 mt-0.5">02</span>
               <div>
-                <p className="text-body-sm text-foreground/85 leading-relaxed">
+                <p className="text-body text-foreground/85 leading-relaxed">
                   <strong className="text-foreground font-semibold">Run a larger A/B test on the 3-CTA hierarchy.</strong>{" "}
-                  The collapsible menu and popup cards tested well individually, but a <span className="text-[#EBB207] font-semibold">cleaner 2-variant
+                  The collapsible menu and popup cards tested well individually, but a <span className="text-accent-2 font-semibold">cleaner 2-variant
                   test</span> would have given stronger signal on which surface drives the most conversions.
                 </p>
               </div>
@@ -961,8 +961,8 @@ export default function FundrCaseStudy() {
             <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
               <span className="text-accent font-semibold text-sm shrink-0 mt-0.5">03</span>
               <div>
-                <p className="text-body-sm text-foreground/85 leading-relaxed">
-                  <strong className="text-foreground font-semibold">Involve <span className="text-[#EBB207] font-semibold">engineering earlier in the pricing IA</span>.</strong>{" "}
+                <p className="text-body text-foreground/85 leading-relaxed">
+                  <strong className="text-foreground font-semibold">Involve <span className="text-accent-2 font-semibold">engineering earlier in the pricing IA</span>.</strong>{" "}
                   Separating investor and startup billing had back-end implications we didn’t surface
                   until implementation, which compressed the engineering timeline.
                 </p>
@@ -975,7 +975,7 @@ export default function FundrCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       VIDEO EXPLAINER
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16">
+      <section id="walkthrough" className="pb-16">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1016,7 +1016,7 @@ export default function FundrCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <p className="text-sm text-muted-foreground leading-relaxed text-center mt-1">
+            <p className="text-body text-center text-foreground/70 mt-1 leading-relaxed">
               A high-level walkthrough of the Fundr upgrade flow — a deeper dive into specific decisions and trade-offs is available during a portfolio interview.
             </p>
           </motion.div>
@@ -1038,7 +1038,7 @@ export default function FundrCaseStudy() {
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">
-            I’ll walk you through <span className="text-[#EBB207] font-semibold">the pricing redesign, the CTA tests, and the calls we cut</span>.
+            I’ll walk you through <span className="text-accent-2 font-semibold">the pricing redesign, the CTA tests, and the calls we cut</span>.
           </p>
           <div className="flex flex-wrap gap-3 mb-8">
             <a

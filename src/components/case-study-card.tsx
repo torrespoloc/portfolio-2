@@ -102,7 +102,7 @@ export function CaseStudyCard({
             </span>
           )}
           {year && (
-            <span className="text-[13px] font-medium text-white/70 bg-white/10 backdrop-blur-md rounded-full px-3 py-1">
+            <span className="text-[14px] font-medium text-white/70 bg-white/10 backdrop-blur-md rounded-full px-3 py-1">
               {year}
             </span>
           )}
@@ -124,7 +124,7 @@ export function CaseStudyCard({
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-[13px] font-medium text-[#757575] bg-[#f5f5f5] rounded-full px-2.5 py-0.5"
+                className="text-[14px] font-medium text-[#757575] bg-[#f5f5f5] rounded-full px-2.5 py-0.5"
               >
                 {t}
               </span>
@@ -134,7 +134,7 @@ export function CaseStudyCard({
 
         <div className="flex items-center gap-6 mt-3 pt-3 border-t border-[#f0f0f0]">
           <div className="flex flex-col">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
+            <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
               {metric1Label}
             </span>
             <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
@@ -142,7 +142,7 @@ export function CaseStudyCard({
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
+            <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
               {metric2Label}
             </span>
             <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
@@ -152,7 +152,7 @@ export function CaseStudyCard({
 
           {builtForLogo && (
             <div className="flex items-center gap-2 ml-auto">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#757575] lg:text-[13px]">
+              <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
                 Built for
               </span>
               <img src={builtForLogo} alt="" className="h-6 w-20 object-contain object-center" />

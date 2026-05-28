@@ -86,7 +86,7 @@ export default function SevenDishCaseStudy() {
         {/* ══════════════════════════════════════════════════════════════════════
         1. BACKGROUND & PROJECT GOALS
         ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="background" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
+      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,14 +121,14 @@ export default function SevenDishCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               Considering the majority of its user base access 7dish on mobile, 7dish hired me to introduce a native mobile app for meal planning. This initiative opened the door to tackling the existing design debt while addressing usability challenges in the previous design.
             </motion.p>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               7dish users struggled when performing core tasks, often stemming from feeling confused or having a sense of getting lost throughout their journeys. I was hired to determine the root causes behind users&rsquo; struggles and to redesign{" "}
               <strong className="text-foreground/85 font-medium">3 core user tasks</strong>:
@@ -188,7 +188,7 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 The audit revealed consistent patterns across the experience: wasted screen real estate, unclear instructions, non-compliant contrast, inconsistent button states, and navigation that hindered smooth task completion.
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 01 &mdash; Design audit across the experience: wasted screen real estate, unclear instructions, contrast failures, inconsistency, and navigation issues.
             </p>
           </motion.div>
@@ -218,25 +218,25 @@ export default function SevenDishCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
                   Homepage Audit (Before)
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground/85">
+                <ul className="space-y-2 text-body text-foreground/70">
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Unnecessary use of space:</strong> Elements took up too much premium screen real estate.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Unclear instructions &amp; misleading descriptions:</strong> Long, dense copy made it difficult for users to scan and figure out where to start.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Non-compliant contrast:</strong> Text and visual treatments did not meet contrast standards.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Lack of consistency:</strong> Most buttons used the same color regardless of their active/inactive state.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Ineffective navigation:</strong> Blocked buttons and long, unclear copy hindered smooth task completion.</span>
                   </li>
                 </ul>
@@ -245,17 +245,17 @@ export default function SevenDishCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
                   Homepage Solutions (After)
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground/85">
+                <ul className="space-y-2 text-body text-foreground/70">
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">Short instructions:</strong> Clear copy with prioritized, top-of-page placement to save screen real estate.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">New food cards:</strong> Food titles separated from images to ensure AAA compliant contrast.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                    <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                     <span><strong className="text-foreground/80 font-medium">New home button:</strong> Added clear active-state indicators to all navigation icons.</span>
                   </li>
                 </ul>
@@ -275,7 +275,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 01b &mdash; Seeing the existing experience through users&rsquo; eyes revealed the patterns that needed to change.
             </p>
           </motion.div>
@@ -292,7 +292,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 01c &mdash; End-to-end user flow across the three core tasks, mapped during the audit phase.
             </p>
           </motion.div>
@@ -302,7 +302,7 @@ export default function SevenDishCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       3. CORE TASK #1: CREATE A MEAL PLAN
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="task-1" className="pb-24 lg:pb-28">
+      <section id="solution" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export default function SevenDishCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           Create a Meal Plan
         </motion.p>
@@ -348,20 +348,20 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mb-4">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed mb-4">
                 Our initial design audit highlighted that the existing flow was fragmented and unintuitive. To fix this, I introduced:
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground/85">
+              <ul className="space-y-2 text-body text-foreground/70">
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span>Organized <strong className="text-foreground/80 font-medium">daily</strong> meal planning hierarchy.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span>Meal type <strong className="text-foreground/80 font-medium">selection</strong> (Breakfast, Lunch, Snack, Dinner).</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span>A straightforward approach to adding meals directly from saved folders.</span>
                 </li>
               </ul>
@@ -389,15 +389,15 @@ export default function SevenDishCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-4`}>
               <div>
-                <p className="text-sm font-semibold text-foreground/85 mb-1">Concept A (More Flexible)</p>
-                <p className="text-sm lg:text-base text-muted-foreground/80 leading-relaxed">
+                <p className="text-body font-semibold text-foreground/85 mb-1">Concept A (More Flexible)</p>
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Day-by-day planning with specific prep and cook times, offering a granular, time-focused design.{" "}
-                  <span className="text-muted-foreground/60 italic">Result: The majority of users were confused by multiple selections, and large food cards felt visually &ldquo;overwhelming.&rdquo;</span>
+                  <span className="text-foreground/50 italic">Result: The majority of users were confused by multiple selections, and large food cards felt visually &ldquo;overwhelming.&rdquo;</span>
                 </p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-accent mb-1">Concept B (More Controlled) &mdash; Winning Concept</p>
-                <p className="text-sm lg:text-base text-muted-foreground/80 leading-relaxed">
+                <p className="text-body font-semibold text-accent mb-1">Concept B (More Controlled) &mdash; Winning Concept</p>
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Single-day selection featuring a horizontal scroll combined with smaller images. It also included an accessible, minimizable &ldquo;Unscheduled&rdquo; tab for quick drafts.{" "}
                   <span className="text-foreground/80 font-medium">This won definitively.</span> Users highly valued quick choice elements (dropdowns/horizontal scrolls) and a high-level daily view.
                 </p>
@@ -417,7 +417,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 02 &mdash; Concept A (left) vs. Concept B (right). Users valued quick choices over granular control.
             </p>
           </motion.div>
@@ -442,7 +442,7 @@ export default function SevenDishCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           Saving a Recipe
         </motion.p>
@@ -473,7 +473,7 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 Users also worried about managing a rapidly growing, unorganized list. The disconnect between screens meant saved recipes felt like a dead end rather than a tool for planning.
               </p>
             </div>
@@ -492,21 +492,21 @@ export default function SevenDishCaseStudy() {
               </div>
             </div>
             <div className={`${sectionRight} space-y-2`}>
-              <ul className="space-y-2 text-sm text-muted-foreground/85">
+              <ul className="space-y-2 text-body text-foreground/70">
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Dedicated search bar</strong> built directly into the &lsquo;Saved&rsquo; screen.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Sorting and filtering</strong> controls.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Smaller, consistent food cards</strong> to eliminate visually overwhelming vertical scrolling.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span>
                     <strong className="text-foreground/80 font-medium">Saved Folders feature:</strong> Implemented fixed system folders (e.g.,{" "}
                     <em>&lsquo;Meals Made&rsquo;</em>, <em>&lsquo;My Recipes&rsquo;</em>) alongside customizable user folders (e.g.,{" "}
@@ -530,7 +530,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center">
               Fig. 03 &mdash; Saved Recipes screens with the new folder system, search bar, and consistent food cards.
             </p>
             <div className="rounded-2xl overflow-hidden ring-1 ring-foreground/[0.06]">
@@ -540,7 +540,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center">
               Fig. 04 &mdash; Saved Folders feature detail. Fixed system folders + customizable user folders.
             </p>
           </motion.div>
@@ -565,7 +565,7 @@ export default function SevenDishCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
         >
           Making a Shopping List
         </motion.p>
@@ -596,21 +596,21 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={`${sectionRight} space-y-4`}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 A shopping list is the final fundamental step of the meal planning journey. The original design had three issues that made this step frustrating:
               </p>
               <ol className="space-y-3">
                 <li className="flex gap-3">
-                  <span className="text-sm font-mono text-muted-foreground/60 shrink-0 pt-0.5">01</span>
-                  <span className="text-sm text-muted-foreground/85">Absence of an option to delete one item at a time (deleting cleared the entire category).</span>
+                  <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">01</span>
+                  <span className="text-body text-foreground/70">Absence of an option to delete one item at a time (deleting cleared the entire category).</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-sm font-mono text-muted-foreground/60 shrink-0 pt-0.5">02</span>
-                  <span className="text-sm text-muted-foreground/85">Use of free-form type-in bars instead of predictive dropdowns led to frequent misspellings and miscalculations.</span>
+                  <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">02</span>
+                  <span className="text-body text-foreground/70">Use of free-form type-in bars instead of predictive dropdowns led to frequent misspellings and miscalculations.</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-sm font-mono text-muted-foreground/60 shrink-0 pt-0.5">03</span>
-                  <span className="text-sm text-muted-foreground/85">Unclear iconography (Users noted: <em>&ldquo;I don&rsquo;t understand what &lsquo;+ usuals&rsquo; means&rdquo;</em>).</span>
+                  <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">03</span>
+                  <span className="text-body text-foreground/70">Unclear iconography (Users noted: <em>&ldquo;I don&rsquo;t understand what &lsquo;+ usuals&rsquo; means&rdquo;</em>).</span>
                 </li>
               </ol>
             </div>
@@ -629,17 +629,17 @@ export default function SevenDishCaseStudy() {
               </div>
             </div>
             <div className={`${sectionRight} space-y-4`}>
-              <ul className="space-y-2 text-sm text-muted-foreground/85">
+              <ul className="space-y-2 text-body text-foreground/70">
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Easy editing/deletion</strong> of individual line items.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Predetermined categories</strong> attached to items for automated, efficient sorting.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span>
                     <strong className="text-foreground/80 font-medium">Clear separation of checked vs. unchecked items:</strong> While the initial concept kept them on one screen, 4/5 users explicitly preferred a dedicated separation to track purchases cleanly. I added distinct color-coded separators to streamline the shopping experience.
                   </span>
@@ -660,7 +660,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 05 &mdash; Shopping list testing and iteration. 4/5 users preferred separating checked from unchecked items.
             </p>
           </motion.div>
@@ -670,7 +670,7 @@ export default function SevenDishCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       6. TEAM COLLABORATION & STAKEHOLDER ALIGNMENT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="stakeholders" className="pb-24 lg:pb-28">
+      <section id="reflection" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -698,7 +698,7 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 For this project, the primary points of alignment involved:
               </p>
             </div>
@@ -722,7 +722,7 @@ export default function SevenDishCaseStudy() {
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Eliminating the legacy &ldquo;Inspiration&rdquo; page
               </h4>
-              <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
+              <p className="text-body text-foreground/70 leading-relaxed">
                 Removed to make room for a direct, intuitive homepage recipe-browsing workflow. Stakeholders were hesitant &mdash; the page had existed since launch.
               </p>
             </div>
@@ -739,7 +739,7 @@ export default function SevenDishCaseStudy() {
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Adding the &ldquo;Saved Recipes Folders&rdquo; feature
               </h4>
-              <p className="text-sm lg:text-base text-muted-foreground/85 leading-relaxed">
+              <p className="text-body text-foreground/70 leading-relaxed">
                 Added technical scope but drastically improved user organization. Not in the original brief &mdash; had to be justified with evidence.
               </p>
             </div>
@@ -759,9 +759,11 @@ export default function SevenDishCaseStudy() {
                 How we aligned
               </p>
             </div>
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              To align the 3 key stakeholders, I leveraged quantitative data and qualitative quotes directly from our concept usability tests. Hearing the direct utility metrics from prospective users completely cleared the development blockers. The arguments stopped being about taste and started being about evidence.
-            </p>
+            <ul className="text-base lg:text-lg text-foreground/70 leading-relaxed list-disc pl-5 space-y-1.5">
+              <li>To align the 3 key stakeholders, I leveraged <span className="text-accent font-semibold">quantitative data</span> and <span className="text-accent font-semibold">qualitative quotes</span> from concept usability tests.</li>
+              <li>Hearing direct utility metrics from prospective users completely cleared the development blockers.</li>
+              <li>The arguments stopped being about <span className="text-accent font-semibold">taste</span> and started being about <span className="text-accent font-semibold">evidence</span>.</li>
+            </ul>
           </motion.aside>
 
           {/* Zoom team */}
@@ -776,7 +778,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 06a &mdash; Design collaboration session with the 7dish team. Aligning stakeholders with evidence, not taste.
             </p>
           </motion.div>
@@ -786,7 +788,7 @@ export default function SevenDishCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       7. FINAL TESTING & EXPECTED IMPACT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="outcomes" className="pb-24 lg:pb-28">
+      <section id="impact" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -815,7 +817,7 @@ export default function SevenDishCaseStudy() {
               </h3>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
                 When flows that were previously disconnected finally worked together, users noticed immediately. The results confirmed the direction.
               </p>
             </div>
@@ -837,10 +839,10 @@ export default function SevenDishCaseStudy() {
                   key={i}
                   className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]"
                 >
-                  <span className="text-sm font-mono text-muted-foreground/70 shrink-0 pt-0.5">
+                  <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-body-sm text-foreground/85 leading-relaxed">{item}</p>
+                  <p className="text-body text-foreground/70 leading-relaxed">{item}</p>
                 </li>
               ))}
             </ul>
@@ -858,7 +860,7 @@ export default function SevenDishCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <p className="text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground text-center mt-4">
+            <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70 text-center mt-4">
               Fig. 06 &mdash; Final user testing survey results. 10/10 users rated the new design 8 or above.
             </p>
           </motion.div>
@@ -873,7 +875,7 @@ export default function SevenDishCaseStudy() {
                 <blockquote className="text-lg lg:text-xl xl:text-2xl leading-[1.3] text-foreground/90 font-medium tracking-tight">
                   &ldquo;{q.body}&rdquo;
                 </blockquote>
-                <figcaption className="mt-4 text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                <figcaption className="mt-4 text-body-sm font-mono uppercase tracking-[0.18em] text-foreground/70">
                   &mdash; {q.cite}
                 </figcaption>
               </figure>
@@ -888,17 +890,17 @@ export default function SevenDishCaseStudy() {
               </p>
             </div>
             <div className={`${sectionRight} space-y-3`}>
-              <ul className="space-y-2 text-sm text-muted-foreground/85">
+              <ul className="space-y-2 text-body text-foreground/70">
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Organic Growth:</strong> Positive feedback from 8/10 users points to higher overall satisfaction, driving word-of-mouth app recommendations.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Personalization:</strong> Custom search metrics and toggle states give users complete ownership over their dashboards.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-chartreuse mt-1 shrink-0">&#9656;</span>
+                  <span className="text-foreground/70 mt-1 shrink-0">&#9656;</span>
                   <span><strong className="text-foreground/80 font-medium">Frictionless Utility:</strong> Eliminating the shopping list configuration obstacles ensures users successfully transition from digital planning to real-world execution.</span>
                 </li>
               </ul>

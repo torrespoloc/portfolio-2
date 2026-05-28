@@ -127,7 +127,7 @@ export default function XYCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY XY NEEDED A SELF-SERVE AI EXPERIENCE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="background" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
+      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,7 +159,7 @@ export default function XYCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="mt-4 text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               Verification, scheduling, claims — the agents could handle it all. But every hour sales spent walking users through setup was an hour they couldn&rsquo;t sell. I had four months to change that.
             </motion.p>
@@ -196,9 +196,9 @@ export default function XYCaseStudy() {
               </div>
             </div>
 
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
               &ldquo;{quote.body}&rdquo;
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                 — {quote.cite}
               </span>
             </blockquote>
@@ -254,7 +254,7 @@ export default function XYCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               Before writing any code or designing any screens, I needed to understand how healthcare teams actually thought about AI agents. The platform was powerful — but was anyone using it without hand-holding?
             </motion.p>
@@ -275,27 +275,27 @@ export default function XYCaseStudy() {
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Agents were <span className="text-[#F97316]">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
+                  <p className="text-body font-semibold text-foreground">Agents were <span className="text-[#F97316]">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">02</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">Different workflows, <span className="text-[#F97316]">same bottleneck</span> — configuration was the blocker</p>
+                  <p className="text-body font-semibold text-foreground">Different workflows, <span className="text-[#F97316]">same bottleneck</span> — configuration was the blocker</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">03</span>
                   </div>
-                  <p className="text-foreground font-semibold text-sm">&ldquo;I&rsquo;d need a <span className="text-[#F97316]">demo</span>&rdquo; came up in <span className="text-[#F97316]">every</span> single conversation</p>
+                  <p className="text-body font-semibold text-foreground">&ldquo;I&rsquo;d need a <span className="text-[#F97316]">demo</span>&rdquo; came up in <span className="text-[#F97316]">every</span> single conversation</p>
                 </div>
               </div>
             </div>
 
             {/* Key insight blockquote */}
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
               The problem wasn&rsquo;t the UI&rsquo;s quality. Users couldn&rsquo;t define what they needed until they saw what was possible. A forms-based approach asked them to configure something they&rsquo;d never encountered before.
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                 — Key research insight
               </span>
             </blockquote>
@@ -306,16 +306,16 @@ export default function XYCaseStudy() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2">
-                <span className="text-xs font-mono text-muted-foreground/60">Direction A</span>
+                <span className="text-body-sm font-mono text-foreground/60">Direction A</span>
                 <p className="text-sm font-semibold text-foreground">Forms-first</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Traditional configuration forms with dropdowns and fields. Familiar but didn&rsquo;t solve the discovery problem.
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2">
-                <span className="text-xs font-mono text-muted-foreground/60">Direction B</span>
+                <span className="text-body-sm font-mono text-foreground/60">Direction B</span>
                 <p className="text-sm font-semibold text-foreground">Wizard / guided setup</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   Step-by-step wizard that walked users through configuration. Helped onboarding but felt rigid for ongoing use.
                 </p>
               </div>
@@ -325,9 +325,9 @@ export default function XYCaseStudy() {
                     Chosen
                   </span>
                 </div>
-                <span className="text-xs font-mono text-muted-foreground/60">Direction C</span>
+                <span className="text-body-sm font-mono text-foreground/60">Direction C</span>
                 <p className="text-sm font-semibold text-foreground">Chat-first</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-body text-foreground/70 leading-relaxed">
                   A conversational interface where users describe what they need. Natural, explorable, and self-serve.
                 </p>
               </div>
@@ -374,10 +374,16 @@ export default function XYCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              XY had never had a dedicated designer. There was no design system, no token architecture, no language guide — just engineers making UI decisions. Before I could ship, I needed to lay the groundwork that every future screen would depend on.
+              XY had never had a dedicated designer — just engineers making UI decisions. Before I could ship, I needed the foundations every screen would depend on:
             </motion.p>
+            <ul className="space-y-1.5 list-disc pl-5 text-base lg:text-lg text-foreground/70 leading-relaxed">
+              <li>A design system &amp; semantic token architecture</li>
+              <li>Writing guidelines for AI-facing UI</li>
+              <li>Light, dark, and agent theming</li>
+              <li>Interaction patterns that feel deliberate</li>
+            </ul>
           </div>
 
           {/* Foundation pillars */}
@@ -392,7 +398,7 @@ export default function XYCaseStudy() {
                 <div className="flex justify-center">
                   <Layers className="h-5 w-5 text-[#F97316]" />
                 </div>
-                <p className="text-sm font-semibold text-foreground leading-snug">Semantic tokens for AI workflows</p>
+                <p className="text-body font-semibold text-foreground leading-snug">Semantic tokens for AI workflows</p>
               </div>
 
               {/* Language & tone guide */}
@@ -400,7 +406,7 @@ export default function XYCaseStudy() {
                 <div className="flex justify-center">
                   <PenLine className="h-5 w-5 text-[#F97316]" />
                 </div>
-                <p className="text-sm font-semibold text-foreground leading-snug">Writing guidelines for AI-facing UI</p>
+                <p className="text-body font-semibold text-foreground leading-snug">Writing guidelines for AI-facing UI</p>
               </div>
 
               {/* Color schemes & theming */}
@@ -408,7 +414,7 @@ export default function XYCaseStudy() {
                 <div className="flex justify-center">
                   <Palette className="h-5 w-5 text-[#F97316]" />
                 </div>
-                <p className="text-sm font-semibold text-foreground leading-snug">Light, dark, and agent theming</p>
+                <p className="text-body font-semibold text-foreground leading-snug">Light, dark, and agent theming</p>
               </div>
 
               {/* Motion & interaction */}
@@ -416,7 +422,7 @@ export default function XYCaseStudy() {
                 <div className="flex justify-center">
                   <MoveRight className="h-5 w-5 text-[#F97316]" />
                 </div>
-                <p className="text-sm font-semibold text-foreground leading-snug">Interaction patterns that feel deliberate</p>
+                <p className="text-body font-semibold text-foreground leading-snug">Interaction patterns that feel deliberate</p>
               </div>
             </div>
 
@@ -442,28 +448,28 @@ export default function XYCaseStudy() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">What this is</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     The complete color token system — primitives, semantic tokens, accessibility audit, and proposed system
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     Every component, every agent status, every interaction maps to this semantic system — no more guessing hex values
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                   <p className="text-label font-semibold text-foreground mb-1">The result</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-body text-foreground/70 leading-relaxed">
                     A three-tier token system that lets engineers theme any new component without design input
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
               Every design system decision was made with the same question: &ldquo;Does this make the next screen faster to ship?&rdquo; If the answer wasn&rsquo;t yes, it didn&rsquo;t go in.
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                 — Design principle
               </span>
             </blockquote>
@@ -474,7 +480,7 @@ export default function XYCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       4. WHAT I SHIPPED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="shipped" className="pb-24 lg:pb-28">
+      <section id="solution" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -509,7 +515,7 @@ export default function XYCaseStudy() {
                     <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-foreground/[0.04] ring-1 ring-foreground/[0.06] text-foreground/70">
                       <Icon className="h-4 w-4" />
                     </span>
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
+                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-foreground/70">
                       {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
                     </p>
                   </div>
@@ -518,7 +524,7 @@ export default function XYCaseStudy() {
                   </h3>
                 </div>
                 <div className={`${sectionRight} space-y-5`}>
-                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">{s.body}</p>
+                  <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">{s.body}</p>
                 </div>
 
                 {/* Storybook visual artifact — only on the components section */}
@@ -539,19 +545,19 @@ export default function XYCaseStudy() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                         <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
+                        <p className="text-body text-foreground/70 leading-relaxed">
                           The 60+ component library, documented and ready for engineering
                         </p>
                       </div>
                       <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                         <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
+                        <p className="text-body text-foreground/70 leading-relaxed">
                           Components designed for AI-agent interaction patterns — not generic UI
                         </p>
                       </div>
                       <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                         <p className="text-label font-semibold text-foreground mb-1">The result</p>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
+                        <p className="text-body text-foreground/70 leading-relaxed">
                           Engineers pulled components directly from Storybook without designer intervention
                         </p>
                       </div>
@@ -568,7 +574,7 @@ export default function XYCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl mx-auto"
           >
-            <p className="text-center text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-6">
+            <p className="text-center text-xs font-mono uppercase tracking-[0.2em] text-foreground/70 mb-6">
               AI-native design stack
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-6 py-6 flex-wrap">
@@ -590,7 +596,7 @@ export default function XYCaseStudy() {
                 <img src="/logos/storybook.svg" alt="Storybook" className="h-full w-full object-contain" />
               </div>
             </div>
-            <p className="text-center text-xs font-mono uppercase tracking-[0.12em] text-muted-foreground/60">
+            <p className="text-center text-xs font-mono uppercase tracking-[0.12em] text-foreground/70">
               Figma Design → Figma Make / Magic Patterns → GitHub → Engineering  ·  Tracked in Linear
             </p>
           </motion.div>
@@ -635,7 +641,7 @@ export default function XYCaseStudy() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-muted-foreground leading-relaxed"
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
               Three rounds of validation across different user groups, each designed to stress-test the chat-first hypothesis from a different angle.
             </motion.p>
@@ -648,22 +654,22 @@ export default function XYCaseStudy() {
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-xs font-mono text-muted-foreground/60">Round 1</span>
-                <p className="text-sm font-semibold text-foreground leading-snug">Healthcare ops interviews — chat metaphor <span className="text-[#F97316]">clicked immediately</span></p>
+                <span className="text-body-sm font-mono text-foreground/60">Round 1</span>
+                <p className="text-body font-semibold text-foreground leading-snug">Healthcare ops interviews — chat metaphor <span className="text-[#F97316]">clicked immediately</span></p>
               </div>
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-xs font-mono text-muted-foreground/60">Round 2</span>
-                <p className="text-sm font-semibold text-foreground leading-snug">Enterprise prospects <span className="text-[#F97316]">understood in minutes</span> — no engineering support needed</p>
+                <span className="text-body-sm font-mono text-foreground/60">Round 2</span>
+                <p className="text-body font-semibold text-foreground leading-snug">Enterprise prospects <span className="text-[#F97316]">understood in minutes</span> — no engineering support needed</p>
               </div>
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-xs font-mono text-muted-foreground/60">Round 3</span>
-                <p className="text-sm font-semibold text-foreground leading-snug">Sales team could <span className="text-[#F97316]">demo independently</span> — a company first</p>
+                <span className="text-body-sm font-mono text-foreground/60">Round 3</span>
+                <p className="text-body font-semibold text-foreground leading-snug">Sales team could <span className="text-[#F97316]">demo independently</span> — a company first</p>
               </div>
             </div>
 
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body-sm text-muted-foreground italic leading-relaxed">
+            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
               Users who saw the chat interface immediately understood the agent model — something the forms-based approach couldn&rsquo;t achieve in a single session. The CEO began pitching the self-serve AI experience directly to enterprise customers.
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
                 — Validation outcome
               </span>
             </blockquote>
@@ -691,20 +697,20 @@ export default function XYCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
             Users orchestrated agents themselves. That self-serve UX became a <span className="text-[#F97316] font-semibold">core sales asset</span>.
           </p>
 
-          <ul className="space-y-3 mb-12 list-disc pl-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <ul className="space-y-3 mb-12 list-disc pl-5 text-base lg:text-lg text-foreground/70 leading-relaxed">
             <li>The <span className="text-[#F97316] font-semibold">CEO pitched</span> the AI orchestration experience directly — no engineer needed.</li>
             <li>Production-ready AI workflow components wired to Temporal for <span className="text-[#F97316] font-semibold">live agent orchestration</span>.</li>
             <li>Self-serve AI experience became central to how the <span className="text-[#F97316] font-semibold">sales team closes deals</span>.</li>
           </ul>
 
           {/* User feedback quote */}
-          <blockquote className="pl-5 border-l-2 border-accent/60 text-base lg:text-lg text-muted-foreground italic leading-relaxed mb-10">
+          <blockquote className="pl-5 border-l-2 border-accent/60 text-base lg:text-lg text-foreground/70 italic leading-relaxed mb-10">
             &ldquo;{userFeedback.body}&rdquo;
-            <span className="block mt-1.5 not-italic text-label font-mono uppercase tracking-[0.12em] text-muted-foreground/70">
+            <span className="block mt-1.5 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
               — {userFeedback.cite}
             </span>
           </blockquote>
@@ -721,7 +727,7 @@ export default function XYCaseStudy() {
               <blockquote className="text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
                 &ldquo;{cpoQuote.body}&rdquo;
               </blockquote>
-              <figcaption className="mt-6 flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-accent">
+              <figcaption className="mt-6 flex items-center gap-2 text-body-sm font-mono uppercase tracking-[0.18em] text-accent">
                 <span className="h-px w-6 bg-accent/30" />
                 {cpoQuote.cite}
               </figcaption>
@@ -733,7 +739,7 @@ export default function XYCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       7. INTERNAL PRACTICES INTRODUCED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="practices" className="pb-24 lg:pb-28">
+      <section id="reflection" className="pb-24 lg:pb-28">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -750,34 +756,34 @@ export default function XYCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-body text-foreground/70 mb-8 max-w-2xl">
             I was the <span className="text-[#F97316] font-semibold">only designer</span>, reporting directly to the CPO and CEO. The workflow was <span className="text-[#F97316] font-semibold">mine to own</span>.
           </p>
 
           <ul className="space-y-5">
             <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
-              <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-0.5">01</span>
+              <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">01</span>
               <div>
-                <p className="text-sm font-semibold text-foreground mb-1">Design-to-engineering pipeline ownership</p>
-                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                <p className="text-body font-semibold text-foreground mb-1">Design-to-engineering pipeline ownership</p>
+                <p className="text-body text-foreground/70 leading-relaxed">
                   <span className="text-[#F97316] font-semibold">Linear</span> tracked every move from Figma to production. Clear tickets, estimates, review cycles.
                 </p>
               </div>
             </li>
             <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
-              <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-0.5">02</span>
+              <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">02</span>
               <div>
-                <p className="text-sm font-semibold text-foreground mb-1">Rigorous design standards</p>
-                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                <p className="text-body font-semibold text-foreground mb-1">Rigorous design standards</p>
+                <p className="text-body text-foreground/70 leading-relaxed">
                   The company's <span className="text-[#F97316] font-semibold">first design practice</span>: 8px grid, semantic tokens, typography, spacing, language &amp; tone, motion documentation.
                 </p>
               </div>
             </li>
             <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
-              <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-0.5">03</span>
+              <span className="text-body-sm font-mono text-foreground/70 shrink-0 pt-0.5">03</span>
               <div>
-                <p className="text-sm font-semibold text-foreground mb-1">AI-powered workflow tracking via Claude MCP</p>
-                <p className="text-body-sm text-muted-foreground leading-relaxed">
+                <p className="text-body font-semibold text-foreground mb-1">AI-powered workflow tracking via Claude MCP</p>
+                <p className="text-body text-foreground/70 leading-relaxed">
                   <span className="text-[#F97316] font-semibold">Claude MCP</span> connected Figma to production in <span className="text-[#F97316] font-semibold">hours, not sprints</span>.
                 </p>
               </div>
@@ -800,9 +806,14 @@ export default function XYCaseStudy() {
           <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
           </h3>
-          <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">
-            I&rsquo;ll walk you through the AI agent orchestration flow, the 60+ component library, and the AI-native pipeline that took this from prototype to production.
+          <p className="text-base lg:text-lg text-background/75 leading-relaxed max-w-2xl">
+            Here&rsquo;s what I&rsquo;d love to walk you through:
           </p>
+          <ul className="space-y-1.5 list-disc pl-5 max-w-2xl text-base lg:text-lg text-background/75 leading-relaxed mb-6">
+            <li>The AI agent orchestration flow</li>
+            <li>The 60+ component library</li>
+            <li>The AI-native pipeline from prototype to production</li>
+          </ul>
           <div className="flex flex-wrap gap-3 mb-8">
             <a
               href={`mailto:${LINKS.email}?subject=XY.AI%20case%20study`}
