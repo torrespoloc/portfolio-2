@@ -127,14 +127,21 @@ export default function FundrCaseStudy() {
           </div>
 
           <div className={`${sectionRight} space-y-4`}>
+            <motion.ul
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-foreground/70 leading-relaxed list-disc pl-5 space-y-1.5"
+            >
+              <li>Every plan change ran through a <span className="text-accent-2 font-semibold">1:1 sales call</span> &mdash; users waited days for a human to flip a switch.</li>
+              <li>The pricing was confusing, and the low tiers didn’t justify upgrading.</li>
+              <li>There was no self-service path to upgrade.</li>
+            </motion.ul>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              Every plan change ran through a <span className="text-accent-2 font-semibold">1:1 sales call</span>. Users waited days for a human to flip a switch.
-              The pricing was confusing, the low tiers didn’t justify upgrading, and there was no self-service
-              path. I had <span className="text-accent-2 font-semibold">ten weeks</span> to design one.
+              I had <span className="text-accent-2 font-semibold">ten weeks</span> to design one.
             </motion.p>
           </div>
 
@@ -757,10 +764,11 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Why this approach
                 </p>
-                <p className="text-body lg:text-base text-foreground/75 leading-relaxed">
-                  SaaS users convert when they <span className="text-accent-2 font-semibold">experience value firsthand</span>.
-                  A free tier worth using builds trust. A premium tier worth paying for converts without pressure.
-                </p>
+                <ul className="text-body lg:text-base text-foreground/75 leading-relaxed list-disc pl-5 space-y-1.5">
+                  <li>SaaS users convert when they <span className="text-accent-2 font-semibold">experience value firsthand</span>.</li>
+                  <li>A <span className="text-accent-2 font-semibold">free tier worth using</span> builds trust.</li>
+                  <li>A <span className="text-accent-2 font-semibold">premium tier worth paying for</span> converts without pressure.</li>
+                </ul>
               </div>
             </div>
 

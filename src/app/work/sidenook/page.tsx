@@ -628,9 +628,11 @@ export default function SideNookCaseStudy() {
               </h4>
             </div>
             <div className={sectionRight}>
-              <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
-                Scope grew organically as each phase revealed the next. Features weren&rsquo;t added from a wishlist — they <span className="text-accent-2 font-semibold">earned their place through use</span>. The PRD was a starting point, not a contract.
-              </p>
+              <ul className="text-base lg:text-lg text-foreground/70 leading-relaxed list-disc pl-5 space-y-1.5">
+                <li>Scope grew organically as each phase revealed the next.</li>
+                <li>Features weren&rsquo;t added from a wishlist — they <span className="text-accent-2 font-semibold">earned their place through use</span>.</li>
+                <li>The PRD was a starting point, <span className="text-accent-2 font-semibold">not a contract</span>.</li>
+              </ul>
             </div>
             <div className={`${sectionFull} w-full overflow-hidden rounded-xl`}>
               <iframe

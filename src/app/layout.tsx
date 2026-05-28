@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Jackeline Torres",
     images: [
       {
-        url: "/og-image.png",
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 800,
         alt: "Jackeline Torres - Senior Product Designer",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Jackeline Torres - Senior Product Designer",
     description:
       "Senior Product Designer crafting apps and systems that users love.",
-    images: ["/og-image.png"],
+    images: [`${siteUrl}/og-image.png`],
   },
   other: {
     "color-scheme": "light",
