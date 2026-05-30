@@ -71,7 +71,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col">
         <CustomCursor />
-        <NavBar />
+        <header className="relative z-50 bg-transparent">
+          <NavBar />
+        </header>
         <main className="flex-1">
           {children}
         </main>

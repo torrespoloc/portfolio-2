@@ -8,7 +8,7 @@ import { Experience } from "@/components/home/Experience";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#fafafa] font-sans">
-      <section className="relative flex flex-col justify-center min-h-[90vh] px-4 pt-20 pb-12">
+      <section className="relative flex flex-col justify-center min-h-[100svh] px-4 py-16 sm:py-20 lg:py-24">
         {/* Blur blobs — positioned to bleed from work section into hero */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
           {/* Large blue — left side */}
