@@ -23,6 +23,7 @@ interface CaseStudyCardProps {
   href?: string;
   className?: string;
   builtForLogo?: string;
+  ndaBadge?: boolean;
 }
 
 export function CaseStudyCard({
@@ -42,6 +43,7 @@ export function CaseStudyCard({
   href,
   className,
   builtForLogo,
+  ndaBadge,
 }: CaseStudyCardProps) {
   const isExternal = href?.startsWith("http");
   const Tag = href ? (isExternal ? "a" : Link) : "div";
@@ -52,7 +54,7 @@ export function CaseStudyCard({
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn(
-        "group block w-[95%] mx-auto rounded-[24px] overflow-hidden bg-white shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
+        "group block w-full md:w-[95%] md:mx-auto rounded-[24px] overflow-hidden bg-white shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
         href && "cursor-pointer",
         className
       )}
@@ -96,11 +98,18 @@ export function CaseStudyCard({
 
         {/* Tag + year on media */}
         <div className="absolute top-0 left-0 right-0 p-6 sm:p-8 flex items-start justify-between gap-4">
-          {tag && (
-            <span className="text-[16px] font-medium text-white/90 bg-white/15 backdrop-blur-md rounded-full px-4 py-1">
-              {tag}
-            </span>
-          )}
+          <div className="flex items-center gap-2">
+            {tag && (
+              <span className="text-[16px] font-medium text-white/90 bg-white/15 backdrop-blur-md rounded-full px-4 py-1">
+                {tag}
+              </span>
+            )}
+            {ndaBadge && (
+              <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse rounded-full px-3 py-1">
+                NDA-friendly
+              </span>
+            )}
+          </div>
           {year && (
             <span className="text-[14px] font-medium text-white/70 bg-white/10 backdrop-blur-md rounded-full px-3 py-1">
               {year}
@@ -132,30 +141,30 @@ export function CaseStudyCard({
           </div>
         )}
 
-        <div className="flex items-center gap-6 mt-3 pt-3 border-t border-[#f0f0f0]">
-          <div className="flex flex-col">
-            <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+        <div className="flex items-center gap-x-3 sm:gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-[#f0f0f0]">
+          <div className="flex flex-col min-w-0">
+            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
               {metric1Label}
             </span>
-            <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
+            <span className="text-body-sm sm:text-[18px] font-bold text-[#2f2e31] leading-none mt-0.5">
               {metric1Value}
             </span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+          <div className="flex flex-col min-w-0">
+            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
               {metric2Label}
             </span>
-            <span className="text-[18px] sm:text-[20px] font-bold text-[#2f2e31] leading-none mt-0.5">
+            <span className="text-body-sm sm:text-[18px] font-bold text-[#2f2e31] leading-none mt-0.5">
               {metric2Value}
             </span>
           </div>
 
           {builtForLogo && (
-            <div className="flex items-center gap-2 ml-auto">
-              <span className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#757575]">
+            <div className="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+              <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
                 Built for
               </span>
-              <img src={builtForLogo} alt="" className="h-6 w-20 object-contain object-center" />
+              <img src={builtForLogo} alt="" className="h-5 sm:h-6 w-auto max-w-[80px] object-contain object-center" />
             </div>
           )}
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/layout/NavBar";
@@ -17,6 +17,12 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
   style: ["normal", "italic"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 const siteUrl = "https://www.jackelinetorres.co";
@@ -67,7 +73,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased", dmSans.variable, playfair.variable, "font-sans", "light")}
+      className={cn("h-full", "antialiased", dmSans.variable, playfair.variable, jetbrainsMono.variable, "font-sans", "light")}
     >
       <body className="min-h-screen flex flex-col">
         <CustomCursor />

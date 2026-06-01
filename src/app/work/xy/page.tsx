@@ -98,6 +98,9 @@ export default function XYCaseStudy() {
               <Lock className="h-2.5 w-2.5" />
               NDA
             </span>
+            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2.5 py-1 rounded-full">
+              NDA-friendly
+            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Turning a suite of AI agents into a platform anyone can orchestrate.

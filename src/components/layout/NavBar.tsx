@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, Download, Menu, X } from "lucide-react"
+import { ChevronDown, ExternalLink, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LINKS, SITE, WORK_CASE_STUDIES } from "@/lib/constants"
 
@@ -17,6 +17,7 @@ export function NavBar() {
   const [viewportWidth, setViewportWidth] = useState<number | null>(null)
   const [isWorkSectionVisible, setIsWorkSectionVisible] = useState(false)
   const [isWorkMenuOpen, setIsWorkMenuOpen] = useState(false)
+  const [mobileWorkExpanded, setMobileWorkExpanded] = useState(true)
   const workMenuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export function NavBar() {
   const tightScreen = viewportWidth !== null && viewportWidth < 1024
   const isScrolled = isHome ? (scrolled || tightScreen) : true
   const expandedWidth = viewportWidth
-    ? Math.min(isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
+    ? Math.min(tightScreen ? viewportWidth - 64 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
     : 800
   const defaultWidth = viewportWidth
     ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - 40, 1200)
@@ -76,8 +77,8 @@ export function NavBar() {
           width: navWidth,
           y: 12,
           borderRadius: 50,
-          paddingLeft: isScrolled ? 16 : 24,
-          paddingRight: isScrolled ? 16 : 24,
+          paddingLeft: tightScreen ? 24 : isScrolled ? 16 : 24,
+          paddingRight: tightScreen ? 24 : isScrolled ? 16 : 24,
           paddingTop: 8,
           paddingBottom: 8,
           backgroundColor: isScrolled ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
@@ -241,13 +242,13 @@ export function NavBar() {
                 href={LINKS.resume ?? "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
+                className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
                   isScrolled
                     ? "text-white/70 hover:text-white hover:bg-white/10"
                     : "text-foreground/80 hover:text-foreground"
                 }`}
               >
-                <Download className="h-3.5 w-3.5 mr-1" /> Resume
+                <ExternalLink className="h-3.5 w-3.5 mr-1" /> Resume
               </a>
             </div>
           </div>
@@ -284,13 +285,58 @@ export function NavBar() {
               </div>
               <div className="px-6 pb-8 flex flex-col gap-6">
                 <nav className="flex flex-col gap-1">
-                  <Link
-                    href={isHome ? "#work" : "/#work"}
-                    onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
-                  >
-                    Work
-                  </Link>
+                  {/* Work — expandable section */}
+                  <div className="flex flex-col">
+                    <button
+                      onClick={() => setMobileWorkExpanded(!mobileWorkExpanded)}
+                      className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
+                    >
+                      <span>Work</span>
+                      <ChevronDown
+                        className={`h-3.5 w-3.5 transition-transform duration-300 ease-out ${
+                          mobileWorkExpanded ? "rotate-180" : "rotate-0"
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {mobileWorkExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col gap-0.5 pl-3 pr-1 py-1">
+                            {WORK_CASE_STUDIES.map((study: { label: string; href: string; meta?: string; logo?: string }) => (
+                              <Link
+                                key={study.href}
+                                href={study.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="flex items-center gap-3 px-2.5 py-2 text-sm rounded-lg hover:bg-muted transition-colors"
+                              >
+                                <span className="flex h-7 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-muted">
+                                  {study.logo ? (
+                                    <img
+                                      src={study.logo}
+                                      alt=""
+                                      aria-hidden="true"
+                                      className="h-full w-full object-contain p-1"
+                                    />
+                                  ) : (
+                                    <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                      {study.label?.charAt(0) || "?"}
+                                    </span>
+                                  )}
+                                </span>
+                                <span className="truncate leading-none">{study.label}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                   <Link
                     href="/about"
                     onClick={() => setMobileOpen(false)}
@@ -308,7 +354,7 @@ export function NavBar() {
                     onClick={() => setMobileOpen(false)}
                     className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-1.5 px-2.5 w-full border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
                   >
-                    <Download className="h-3.5 w-3.5 mr-1" /> Resume
+                    <ExternalLink className="h-3.5 w-3.5 mr-1" /> Resume
                   </a>
                 </div>
               </div>

@@ -4,11 +4,13 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { CopyEmail } from "@/components/home/CopyEmail";
 import { HowIWorkCards } from "@/components/home/HowIWorkCards";
 import { Experience } from "@/components/home/Experience";
+import { TypewriterTag } from "@/components/home/TypewriterTag";
+import { ScrollChevron } from "@/components/home/ScrollChevron";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#fafafa] font-sans">
-      <section className="relative flex flex-col justify-center min-h-[100svh] px-4 py-16 sm:py-20 lg:py-24">
+      <section className="relative flex flex-col justify-center min-h-[100svh] px-6 pt-16 sm:py-20 lg:py-24">
         {/* Blur blobs — positioned to bleed from work section into hero */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
           {/* Large blue — left side */}
@@ -46,45 +48,50 @@ export default function Home() {
           />
         </div>
 
-        <div className="mx-auto w-full max-w-[1200px] relative z-10 px-6 md:px-12">
-          <div className="max-w-[1000px] mx-auto">
+        <div className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12">
+          <div className="max-w-[1200px] mx-auto">
             <h1
-              className="text-[#4d4d4d] text-[clamp(44px,6vw,72px)] leading-[1.1] tracking-tight text-center"
+              className="text-[#4d4d4d] text-[clamp(38px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
               style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
             >
-              Hey, I&apos;m Jacki&mdash;I design apps and systems that make users say:{" "}
-              <span className="text-[rgb(87,126,255)]">&ldquo;Omg! This product WORKS!&rdquo;</span>
+              Hey, I&apos;m Jacki&mdash;I design apps and systems that make users say:
+              <br />
+              <span className="text-accent">Omg! This product WORKS!</span>
             </h1>
 
             {/* Hero cards row */}
-            <HowIWorkCards>
+            <div className="mt-12">
+              <HowIWorkCards>
               {/* Card 1 — Real Design CODE rules! */}
-              <div className="flex-1 min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
-                <p className="text-sm font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+              <div className="self-center min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
+                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Real Design CODE rules!
                 </p>
-                <p className="text-sm text-[#4d4d4d] leading-relaxed font-semibold">
+                <p className="text-sm md:text-body text-[#4d4d4d] leading-relaxed font-semibold">
                   Cursor, Claude Code + Figma Make, you name it. I ship code, not mockups.
                 </p>
               </div>
 
               {/* Card 2 — My Jam */}
-              <div className="flex-1 min-w-[220px] max-w-[346px] rounded-[20px] border border-[#f5f5f5] bg-[rgb(59,74,237)] p-5 animate-fade-in-up transition-transform duration-400 ease-out rotate-[2deg] hover:rotate-0">
-                <p className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-2">
+              <div className="flex-1 min-w-[220px] max-w-[400px] rounded-[20px] border border-[#f5f5f5] bg-[rgb(59,74,237)] p-5 animate-fade-in-up transition-transform duration-400 ease-out rotate-[2deg] hover:rotate-0">
+                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-white/90 mb-2">
                   My Jam 👋
                 </p>
-                <p className="text-base text-white/70 leading-relaxed font-semibold">
-                  Healthtech, fintech, SaaS, B2B, e-commerce + I&apos;m currently building a full{" "}
-                  <span className="text-chartreuse">AI agentic</span> platform from scratch.
+                <p className="text-sm md:text-body text-white/85 leading-relaxed font-semibold">
+                  Designing the future of Healthtech, SaaS, &amp; Fintech. I build{" "}
+                  <span className="text-chartreuse">full AI agentic 0-1 platforms</span> with AI workflows and agent orchestration.
                 </p>
+                <div className="mt-3 flex justify-center">
+                  <TypewriterTag />
+                </div>
               </div>
 
               {/* Card 3 — Community Builder */}
-              <div className="flex-1 min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
-                <p className="text-sm font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+              <div className="self-center min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
+                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Community Builder
                 </p>
-                <p className="text-sm text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
+                <p className="text-sm md:text-body text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
                   I founded The UX Chats, a 180+ member space where UXers connect, share, and play.
                 </p>
                 <img
@@ -94,6 +101,7 @@ export default function Home() {
                 />
               </div>
             </HowIWorkCards>
+            </div>
           </div>
 
           {/* CTA Buttons */}
@@ -117,23 +125,24 @@ export default function Home() {
             <CopyEmail />
           </div>
         </div>
+        <ScrollChevron />
       </section>
 
       {/* Trusted By */}
-      <section className="px-4 pb-24">
+      <section className="px-6 pb-20">
         <div className="mx-auto w-full max-w-[940px]">
           <TrustedBy />
         </div>
       </section>
 
       {/* Work Section */}
-      <section id="work" className="px-4 pb-24">
+      <section id="work" className="px-6 pb-20">
         <div className="mx-auto w-full max-w-[940px]">
           <h2 className="text-[#4d4d4d] text-sm font-semibold uppercase tracking-wider mb-8">
             Work
           </h2>
 
-          <div className="flex flex-col gap-[60px]">
+          <div className="flex flex-col gap-10">
             <CaseStudyCard
               tag="HEALTHTECH · AI WORKFLOWS"
               headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-[rgb(87,126,255)]">AI and chat driven</span></>}
@@ -147,6 +156,7 @@ export default function Home() {
               mediaSrcs={["/xy/IntegrationsHub.mp4", "/xy/BrowserAgent.mp4", "/xy/DataExtraction.mp4", "/xy/KnowledgeBase.mp4", "/xy/TeamProductivity.mp4"]}
               href="/work/xy"
               builtForLogo="/logos/XY.svg"
+              ndaBadge
             />
 
             <CaseStudyCard
@@ -217,12 +227,12 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="px-4 pb-24">
+      <section className="px-6 pb-20">
         <Experience />
       </section>
 
       {/* Testimonials */}
-      <section className="px-4 pb-24">
+      <section className="px-6 pb-20">
         <div className="mx-auto w-full max-w-[940px]">
           <Testimonials />
         </div>
