@@ -165,6 +165,9 @@ export default function SideNookCaseStudy() {
             <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-foreground/[0.08]">
               macOS · personal
             </span>
+            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2.5 py-1 rounded-full">
+              Building V2
+            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             A terminal that&rsquo;s a support character, not the main event.

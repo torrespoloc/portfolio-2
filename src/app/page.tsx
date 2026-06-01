@@ -4,8 +4,8 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { CopyEmail } from "@/components/home/CopyEmail";
 import { HowIWorkCards } from "@/components/home/HowIWorkCards";
 import { Experience } from "@/components/home/Experience";
-import { TypewriterTag } from "@/components/home/TypewriterTag";
 import { ScrollChevron } from "@/components/home/ScrollChevron";
+import { MyJamFlipCard } from "@/components/home/MyJamFlipCard";
 
 export default function Home() {
   return (
@@ -63,7 +63,7 @@ export default function Home() {
             <div className="mt-12">
               <HowIWorkCards>
               {/* Card 1 — Real Design CODE rules! */}
-              <div className="self-center min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
+              <div className="self-center min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
                 <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Real Design CODE rules!
                 </p>
@@ -72,27 +72,16 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Card 2 — My Jam */}
-              <div className="flex-1 min-w-[220px] max-w-[400px] rounded-[20px] border border-[#f5f5f5] bg-[rgb(59,74,237)] p-5 animate-fade-in-up transition-transform duration-400 ease-out rotate-[2deg] hover:rotate-0">
-                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-white/90 mb-2">
-                  My Jam 👋
-                </p>
-                <p className="text-sm md:text-body text-white/85 leading-relaxed font-semibold">
-                  Designing the future of Healthtech, SaaS, &amp; Fintech. I build{" "}
-                  <span className="text-chartreuse">full AI agentic 0-1 platforms</span> with AI workflows and agent orchestration.
-                </p>
-                <div className="mt-3 flex justify-center">
-                  <TypewriterTag />
-                </div>
-              </div>
+              {/* Card 2 — My Jam (3D flip card) */}
+              <MyJamFlipCard />
 
               {/* Card 3 — Community Builder */}
-              <div className="self-center min-w-[220px] max-w-[290px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
+              <div className="self-center min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
                 <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Community Builder
                 </p>
                 <p className="text-sm md:text-body text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
-                  I founded The UX Chats, a 180+ member space where UXers connect, share, and play.
+                  I founded and lead The UX Chats, a 180+ member community for UXers.
                 </p>
                 <img
                   src="/the-ux-chats-logo.png"
@@ -142,7 +131,7 @@ export default function Home() {
             Work
           </h2>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 lg:gap-[88px]">
             <CaseStudyCard
               tag="HEALTHTECH · AI WORKFLOWS"
               headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-[rgb(87,126,255)]">AI and chat driven</span></>}
@@ -193,6 +182,7 @@ export default function Home() {
 
             <CaseStudyCard
               tag="MAC APP"
+              badge="Building V2"
               headline={<>SideNook — A <span className="text-[rgb(87,126,255)]">macOS terminal emulator</span> that stays out of your way</>}
               description="An ambient terminal companion: always there when you need it, invisible when you don&apos;t. Built with spring animations, multi-tab support, and keyboard-first navigation."
               tags={["macOS", "desktop", "shipped"]}

@@ -24,6 +24,7 @@ interface CaseStudyCardProps {
   className?: string;
   builtForLogo?: string;
   ndaBadge?: boolean;
+  badge?: string;
 }
 
 export function CaseStudyCard({
@@ -44,6 +45,7 @@ export function CaseStudyCard({
   className,
   builtForLogo,
   ndaBadge,
+  badge,
 }: CaseStudyCardProps) {
   const isExternal = href?.startsWith("http");
   const Tag = href ? (isExternal ? "a" : Link) : "div";
@@ -107,6 +109,11 @@ export function CaseStudyCard({
             {ndaBadge && (
               <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse rounded-full px-3 py-1">
                 NDA-friendly
+              </span>
+            )}
+            {badge && (
+              <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse rounded-full px-3 py-1">
+                {badge}
               </span>
             )}
           </div>

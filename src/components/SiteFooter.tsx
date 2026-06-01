@@ -1,11 +1,9 @@
 "use client"
 
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { LINKS } from "@/lib/constants"
 
 export function SiteFooter() {
-  const year = new Date().getFullYear()
   const pathname = usePathname()
   const isWorkPage = pathname.startsWith("/work/")
 
@@ -14,10 +12,10 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-[1000px] px-4 py-20">
         {/* Headline */}
         <p
-          className="text-[#4d4d4d] text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-center max-w-[500px] mx-auto"
+          className="text-[#4d4d4d] text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-center max-w-[800px] mx-auto"
           style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
         >
-          Got a 0-to-1 product that needs to ship fast?
+          Got a 0-to-1 product that needs to ship <span className="text-accent">fast</span>?
         </p>
 
         {/* Reach out row */}
@@ -40,29 +38,11 @@ export function SiteFooter() {
           >
             See Resume
           </a>
-          , Jackeline Torres © {year}
         </p>
 
-        {/* Bottom Nav */}
-        <nav className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-hero-muted">
-          <Link href="/" className="hover:text-foreground transition-colors">
-            Product Designer Jackeline Torres
-          </Link>
-          <Link href="/#work" className="hover:text-foreground transition-colors">
-            Work
-          </Link>
-          <a
-            href={LINKS.resume ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Resume
-          </a>
-          <Link href="/about" className="hover:text-foreground transition-colors">
-            About
-          </Link>
-        </nav>
+        <p className="mt-2 text-center text-xs text-hero-muted">
+          Jackeline Torres © 2026. All Rights Reserved. SF, Bay Area
+        </p>
       </div>
     </footer>
   )
