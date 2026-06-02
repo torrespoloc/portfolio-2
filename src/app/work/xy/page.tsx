@@ -636,7 +636,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              Before committing to chat-first, I validated the direction with <span className="text-[#F97316] font-semibold">real users</span>.
+              Before committing to chat-first, the <span className="text-[#F97316] font-semibold">CEO ran three rounds of demos</span> to validate the self-serve AI experience with enterprise prospects.
             </motion.h3>
           </div>
 
@@ -646,7 +646,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-foreground/70 leading-relaxed"
             >
-              Three rounds of validation across different user groups, each designed to stress-test the chat-first hypothesis from a different angle.
+              Three rounds of live demos with enterprise prospects, each building on the previous. I designed the experience but the CEO carried every conversation — I never talked to clients directly.
             </motion.p>
           </div>
 
@@ -656,26 +656,26 @@ export default function XYCaseStudy() {
             className={`${sectionFull} space-y-6`}
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-body-sm font-mono text-foreground/60">Round 1</span>
-                <p className="text-body font-semibold text-foreground leading-snug">Healthcare ops interviews — chat metaphor <span className="text-[#F97316]">clicked immediately</span></p>
+                <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
+                  <span className="text-body-sm font-mono text-foreground/60">Demo Round 1</span>
+                  <p className="text-body font-semibold text-foreground leading-snug">CEO showed the prototype — prospects <span className="text-[#F97316]">immediately understood</span> the agent metaphor without explanation</p>
+                </div>
+                <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
+                  <span className="text-body-sm font-mono text-foreground/60">Demo Round 2</span>
+                  <p className="text-body font-semibold text-foreground leading-snug">Live self-serve walkthrough — prospects engaged <span className="text-[#F97316]">without engineering hand-holding</span></p>
+                </div>
+                <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
+                  <span className="text-body-sm font-mono text-foreground/60">Demo Round 3</span>
+                  <p className="text-body font-semibold text-foreground leading-snug">CEO pitched the platform independently — <span className="text-[#F97316]">sales team could demo without an engineer</span></p>
+                </div>
               </div>
-              <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-body-sm font-mono text-foreground/60">Round 2</span>
-                <p className="text-body font-semibold text-foreground leading-snug">Enterprise prospects <span className="text-[#F97316]">understood in minutes</span> — no engineering support needed</p>
-              </div>
-              <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
-                <span className="text-body-sm font-mono text-foreground/60">Round 3</span>
-                <p className="text-body font-semibold text-foreground leading-snug">Sales team could <span className="text-[#F97316]">demo independently</span> — a company first</p>
-              </div>
-            </div>
 
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
-              Users who saw the chat interface immediately understood the agent model — something the forms-based approach couldn&rsquo;t achieve in a single session. The CEO began pitching the self-serve AI experience directly to enterprise customers.
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
-                — Validation outcome
-              </span>
-            </blockquote>
+              <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-foreground/70 italic leading-relaxed">
+                Every demo confirmed the same thing: once people saw the chat interface, the agent model clicked. The forms-based approach needed a guided walkthrough every time. The CEO didn&rsquo;t need me in the room — the design spoke for itself.
+                <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-foreground/70">
+                  — What the CEO reported back
+                </span>
+              </blockquote>
           </motion.div>
         </motion.div>
       </section>
