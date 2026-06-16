@@ -98,8 +98,8 @@ export function CaseStudyCard({
         {/* Gradient overlay for tag readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
 
-        {/* Tag + year on media */}
-        <div className="absolute top-0 left-0 right-0 p-6 sm:p-8 flex items-start justify-between gap-4">
+        {/* Tag + badges on media — top-left */}
+        <div className="absolute top-0 left-0 right-0 p-6 sm:p-8">
           <div className="flex items-center gap-2">
             {tag && (
               <span className="text-[16px] font-medium text-white/90 bg-white/15 backdrop-blur-md rounded-full px-4 py-1">
@@ -117,12 +117,14 @@ export function CaseStudyCard({
               </span>
             )}
           </div>
-          {year && (
-            <span className="text-[14px] font-medium text-white/70 bg-white/10 backdrop-blur-md rounded-full px-3 py-1">
-              {year}
-            </span>
-          )}
         </div>
+
+        {/* Year badge — bottom-left of media */}
+        {year && (
+          <span className="absolute bottom-3 left-3 text-[13px] sm:text-sm px-2 py-0.5 rounded-md bg-black/40 text-white/60 font-mono uppercase tracking-wider">
+            {year}
+          </span>
+        )}
       </div>
 
       {/* Info banner */}
@@ -148,8 +150,8 @@ export function CaseStudyCard({
           </div>
         )}
 
-        <div className="flex items-center gap-x-3 sm:gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-[#f0f0f0]">
-          <div className="flex flex-col min-w-0">
+        <div className="flex items-start gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-[#f0f0f0]">
+          <div className="flex flex-col min-w-0 flex-1">
             <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
               {metric1Label}
             </span>
@@ -157,7 +159,7 @@ export function CaseStudyCard({
               {metric1Value}
             </span>
           </div>
-          <div className="flex flex-col min-w-0">
+          <div className="flex flex-col min-w-0 flex-1">
             <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
               {metric2Label}
             </span>
@@ -167,7 +169,7 @@ export function CaseStudyCard({
           </div>
 
           {builtForLogo && (
-            <div className="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+            <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto sm:ml-auto">
               <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
                 Built for
               </span>
