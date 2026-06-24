@@ -57,10 +57,10 @@ export function NavBar() {
     return () => observer.disconnect()
   }, [isHome, pathname])
 
+  const isMobile = viewportWidth !== null && viewportWidth < 768
   const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
   const tightScreen = viewportWidth !== null && viewportWidth < 1024
-  const isScrolled = isHome ? scrolled : true
-  const isMobile = viewportWidth !== null && viewportWidth < 768
+  const isScrolled = scrolled || (!isHome && !isMobile)
   const mobileResting = isMobile && !isScrolled
   const useDarkStyle = isScrolled && !tightScreen
   const expandedWidth = viewportWidth
