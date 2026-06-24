@@ -11,7 +11,7 @@ import { TypewriterTag } from "@/components/home/TypewriterTag";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#fafafa] font-sans">
-      <section className="relative flex flex-col justify-center min-h-[100svh] px-6 pt-16 sm:py-20 lg:py-24">
+      <section className="relative flex flex-col justify-center min-h-[100svh] px-6 pt-[76px] sm:py-20 lg:py-24">
         {/* Blur blobs — positioned to bleed from work section into hero */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
           {/* Large blue — left side */}
@@ -52,7 +52,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12">
           <div className="max-w-[1200px] mx-auto">
             <h1
-              className="text-[#4d4d4d] text-[clamp(30px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
+              className="text-[#4d4d4d] text-[clamp(34px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
               style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
             >
               Hey, I&apos;m Jacki&mdash;I design apps and systems that make users say:
@@ -63,29 +63,34 @@ export default function Home() {
             {/* Hero cards row */}
             <div className="mt-12">
               <HowIWorkCards>
-              {/* Card 1 — Real Design CODE rules! */}
-              <div className="self-center min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up">
-                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
-                  Real Design CODE rules!
+              {/* Card 1 — Design Eng. */}
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up flex flex-col">
+                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+                  DESIGN ENG. RULES!
                 </p>
-                <p className="text-sm md:text-body text-[#4d4d4d] leading-relaxed font-semibold">
-                  Cursor, Claude Code + Figma Make, you name it. I ship code, not mockups.
+                <p className="text-body-mobile md:text-body text-[#4d4d4d] leading-relaxed font-semibold flex-1">
+                  <img src="/logos/cursor.png" alt="Cursor" className="inline-block h-[30px] w-auto align-middle mr-0.5" />,
+                  <img src="/logos/claude-code.png" alt="Claude Code" className="inline-block h-[36px] w-auto align-middle mr-0.5" />,
+                  <img src="/logos/figma.png" alt="Figma" className="inline-block h-[30px] w-auto align-middle mr-0.5" />
+                  ; I ship real production code, not just mockups.
                 </p>
               </div>
 
               {/* Card 2 — My Jam (3D flip card) */}
-              <div className="md:flex-1 flex flex-col items-center gap-3">
+              <div className="self-center md:flex-1 flex flex-col items-center gap-3">
                 <MyJamFlipCard />
-                <TypewriterTag />
+                <div className="md:hidden">
+                  <TypewriterTag />
+                </div>
               </div>
 
               {/* Card 3 — Community Builder */}
-              <div className="self-center min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
-                <p className="text-sm md:text-body font-semibold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden flex flex-col">
+                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Community Builder
                 </p>
-                <p className="text-sm md:text-body text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
-                  I founded and lead The UX Chats, a 180+ member community for UXers.
+                <p className="text-body-mobile md:text-body text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
+                  I founded and lead The UX Chats, a 200 member community for UXers.
                 </p>
                 <img
                   src="/the-ux-chats-logo.png"
@@ -95,10 +100,15 @@ export default function Home() {
               </div>
             </HowIWorkCards>
             </div>
+
+          {/* TypewriterTag below the card row on desktop */}
+          <div className="hidden md:flex justify-center mt-5">
+            <TypewriterTag />
+          </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="mt-12 flex flex-col items-center gap-5">
+          <div className="mt-10 md:mt-8 flex flex-col items-center gap-5">
             <div className="flex flex-wrap justify-center gap-3">
               <a
                 href="/about"

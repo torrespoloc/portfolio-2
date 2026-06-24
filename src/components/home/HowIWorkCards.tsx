@@ -83,7 +83,7 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
             }}
           >
             {childrenArray.map((child, i) => (
-              <div key={i} className="shrink-0" style={{ width: `${cardW}px` }}>
+              <div key={i} className="shrink-0 flex flex-col justify-center" style={{ width: `${cardW}px` }}>
                 <div
                   className={`transition-all duration-500 ease-out ${
                     i === current
@@ -116,7 +116,7 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
       </div>
 
       {/* Desktop/Tablet: original flex row layout */}
-      <div className="hidden md:flex flex-wrap justify-center gap-6 mt-10">
+      <div className="hidden md:flex flex-wrap justify-center items-center gap-6 mt-10">
         {children}
       </div>
     </>

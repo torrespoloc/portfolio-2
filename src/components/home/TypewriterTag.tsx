@@ -38,7 +38,7 @@ export function TypewriterTag() {
   return (
     <span className="inline-flex items-center gap-2 px-3 py-1.5
                     bg-chartreuse text-hero-text-dark
-                    font-mono text-sm leading-tight select-none
+                    font-mono text-[14px] md:text-[16px] md:font-bold leading-tight select-none
                     rounded-md whitespace-nowrap">
       {/* Status dot — pulsing when typing, steady when done */}
       <span className="relative w-2 h-2 shrink-0">

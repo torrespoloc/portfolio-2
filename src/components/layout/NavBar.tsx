@@ -60,6 +60,8 @@ export function NavBar() {
   const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
   const tightScreen = viewportWidth !== null && viewportWidth < 1024
   const isScrolled = isHome ? scrolled : true
+  const isMobile = viewportWidth !== null && viewportWidth < 768
+  const mobileResting = isMobile && !isScrolled
   const useDarkStyle = isScrolled && !tightScreen
   const expandedWidth = viewportWidth
     ? Math.min(tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
@@ -75,19 +77,21 @@ export function NavBar() {
       <motion.nav
         initial={false}
         animate={{
-          width: navWidth,
+          width: mobileResting ? "100%" : navWidth,
+          left: mobileResting ? 0 : navLeft,
+          x: mobileResting ? 0 : "-50%",
           y: 12,
-          borderRadius: 50,
-          paddingLeft: tightScreen ? 16 : isScrolled ? 16 : 24,
-          paddingRight: tightScreen ? 16 : isScrolled ? 16 : 24,
+          borderRadius: mobileResting ? 0 : 50,
+          paddingLeft: tightScreen ? (mobileResting ? 24 : 16) : isScrolled ? 16 : 24,
+          paddingRight: tightScreen ? (mobileResting ? 24 : 16) : isScrolled ? 16 : 24,
           paddingTop: 8,
           paddingBottom: 8,
-          backgroundColor: tightScreen ? "rgba(255,255,255,0.75)" : useDarkStyle ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
-          boxShadow: tightScreen ? "0 2px 12px rgba(0,0,0,0.06)" : useDarkStyle ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
-          borderColor: tightScreen ? "rgba(0,0,0,0.08)" : useDarkStyle ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0)",
+          backgroundColor: mobileResting ? "rgba(255,255,255,0)" : tightScreen ? "rgba(255,255,255,0.75)" : useDarkStyle ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
+          boxShadow: mobileResting ? "0 0 0 rgba(0,0,0,0)" : tightScreen ? "0 2px 12px rgba(0,0,0,0.06)" : useDarkStyle ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
+          borderColor: mobileResting ? "rgba(0,0,0,0)" : tightScreen ? "rgba(0,0,0,0.08)" : useDarkStyle ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0)",
         }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-auto fixed left-1/2 top-0 z-40 flex -translate-x-1/2 items-center justify-between overflow-visible backdrop-blur-xl border"
+        className="pointer-events-auto fixed top-0 z-40 flex items-center justify-between overflow-visible backdrop-blur-xl border"
         style={{ width: navWidth, left: navLeft }}
       >
         <div className="relative flex w-full items-center justify-between">
