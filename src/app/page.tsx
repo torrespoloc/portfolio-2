@@ -6,6 +6,7 @@ import { HowIWorkCards } from "@/components/home/HowIWorkCards";
 import { Experience } from "@/components/home/Experience";
 import { ScrollChevron } from "@/components/home/ScrollChevron";
 import { MyJamFlipCard } from "@/components/home/MyJamFlipCard";
+import { TypewriterTag } from "@/components/home/TypewriterTag";
 
 export default function Home() {
   return (
@@ -51,12 +52,12 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12">
           <div className="max-w-[1200px] mx-auto">
             <h1
-              className="text-[#4d4d4d] text-[clamp(38px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
+              className="text-[#4d4d4d] text-[clamp(30px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
               style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
             >
               Hey, I&apos;m Jacki&mdash;I design apps and systems that make users say:
               <br />
-              <span className="text-accent">Omg! This product WORKS!</span>
+              <span className="text-accent">Omw! This thing WORKS!</span>
             </h1>
 
             {/* Hero cards row */}
@@ -73,7 +74,10 @@ export default function Home() {
               </div>
 
               {/* Card 2 — My Jam (3D flip card) */}
-              <MyJamFlipCard />
+              <div className="md:flex-1 flex flex-col items-center gap-3">
+                <MyJamFlipCard />
+                <TypewriterTag />
+              </div>
 
               {/* Card 3 — Community Builder */}
               <div className="self-center min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden">
@@ -133,7 +137,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-10 lg:gap-[88px]">
             <CaseStudyCard
-              tag="HEALTHTECH · AI WORKFLOWS"
+              tag="AI WORKFLOWS"
               headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-[rgb(87,126,255)]">AI and chat driven</span></>}
               description="Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows."
               tags={["healthtech", "SaaS"]}

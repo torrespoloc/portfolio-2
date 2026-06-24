@@ -13,6 +13,9 @@
   --font-serif: var(--font-heading);
   --color-burgundy: #540f37;
   --color-cream: #fdf5ec;
+  --color-forest: #335d4a;
+  --color-sage: #7ea08d;
+  --color-mint-cream: #f3fbf4;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -198,6 +201,20 @@ section[id] {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes bounce-sm {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-bounce-sm {
+  animation: bounce-sm 1.6s ease-in-out infinite;
+}
+
 .animate-float-geometric {
   animation: float-geometric 20s ease-in-out infinite;
 }
@@ -229,6 +246,13 @@ section[id] {
   width: fit-content;
 }
 
+/* 2x speed on mobile */
+@media (max-width: 767px) {
+  .marquee-track {
+    animation-duration: 7.5s;
+  }
+}
+
 .marquee-track:hover {
   animation-play-state: paused;
 }
@@ -252,8 +276,8 @@ section[id] {
 
 /* Node-style border pulse — used by MyJamFlipCard back face */
 @keyframes node-border-pulse {
-  0%, 100% { border-color: #540f37; }
-  50% { border-color: #1a1a1a; }
+  0%, 100% { border-color: #335d4a; }
+  50% { border-color: #7ea08d; }
 }
 
 .animate-node-border-pulse {

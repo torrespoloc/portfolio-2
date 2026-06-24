@@ -8,7 +8,7 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [current, setCurrent] = useState(0)
   const [cardW, setCardW] = useState(0)
-  const gap = 16
+  const gap = 2
   const dragOffRef = useRef(0)
   const touchStartRef = useRef(0)
   const [isDragging, setIsDragging] = useState(false)
@@ -17,8 +17,8 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   // Measure card width on mount and resize
   useLayoutEffect(() => {
     const measure = () => {
-      const vw = window.innerWidth
-      setCardW(Math.min(Math.max(240, vw * 0.68), 280))
+      const containerWidth = containerRef.current?.clientWidth ?? window.innerWidth
+      setCardW(Math.min(containerWidth - 64, 320))
     }
     measure()
     window.addEventListener("resize", measure)
@@ -67,14 +67,14 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   return (
     <>
       {/* Mobile: horizontal carousel with peek */}
-      <div className="md:hidden mt-10 select-none overflow-x-clip" ref={containerRef}>
+      <div className="md:hidden mt-10 relative left-1/2 -translate-x-1/2 w-screen select-none overflow-x-clip" ref={containerRef}>
         <div
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
           <div
-            className="flex gap-4"
+            className="flex gap-0.5"
             style={{
               transform: `translateX(${translateX}px)`,
               transition: isDragging

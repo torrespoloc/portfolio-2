@@ -59,14 +59,15 @@ export function NavBar() {
 
   const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
   const tightScreen = viewportWidth !== null && viewportWidth < 1024
-  const isScrolled = isHome ? (scrolled || tightScreen) : true
+  const isScrolled = isHome ? scrolled : true
+  const useDarkStyle = isScrolled && !tightScreen
   const expandedWidth = viewportWidth
-    ? Math.min(tightScreen ? viewportWidth - 64 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
+    ? Math.min(tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
     : 800
   const defaultWidth = viewportWidth
-    ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - 40, 1200)
-    : "calc(100vw - 40px)"
-  const navWidth = isScrolled ? expandedWidth : defaultWidth
+    ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - (tightScreen ? 88 : 64), 1200)
+    : "calc(100vw - 88px)"
+  const navWidth = tightScreen ? defaultWidth : (isScrolled ? expandedWidth : defaultWidth)
   const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
 
   return (
@@ -77,34 +78,35 @@ export function NavBar() {
           width: navWidth,
           y: 12,
           borderRadius: 50,
-          paddingLeft: tightScreen ? 24 : isScrolled ? 16 : 24,
-          paddingRight: tightScreen ? 24 : isScrolled ? 16 : 24,
+          paddingLeft: tightScreen ? 16 : isScrolled ? 16 : 24,
+          paddingRight: tightScreen ? 16 : isScrolled ? 16 : 24,
           paddingTop: 8,
           paddingBottom: 8,
-          backgroundColor: isScrolled ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
-          boxShadow: isScrolled ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
+          backgroundColor: tightScreen ? "rgba(255,255,255,0.75)" : useDarkStyle ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
+          boxShadow: tightScreen ? "0 2px 12px rgba(0,0,0,0.06)" : useDarkStyle ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
+          borderColor: tightScreen ? "rgba(0,0,0,0.08)" : useDarkStyle ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0)",
         }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-auto fixed left-1/2 top-0 z-40 flex -translate-x-1/2 items-center justify-between overflow-visible backdrop-blur-xl"
+        className="pointer-events-auto fixed left-1/2 top-0 z-40 flex -translate-x-1/2 items-center justify-between overflow-visible backdrop-blur-xl border"
         style={{ width: navWidth, left: navLeft }}
       >
         <div className="relative flex w-full items-center justify-between">
           {/* Identity */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full bg-white p-1.5">
+            <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full md:bg-white p-1.5">
               <img src="/logo.svg" alt="JT" className="h-full w-full" />
             </span>
             <div className="block leading-tight">
               <p
                 className={`text-sm font-semibold transition-colors duration-300 ease-out ${
-                  isScrolled ? "text-white" : "text-foreground"
+                  useDarkStyle ? "text-white" : "text-foreground"
                 }`}
               >
                 {SITE.name}
               </p>
               <p
                 className={`text-subtitle sm:text-base transition-colors duration-300 ease-out ${
-                  isScrolled ? "text-white/50" : "text-muted-foreground"
+                  useDarkStyle ? "text-white/50" : "text-muted-foreground"
                 }`}
               >
                 Senior Product Designer
@@ -116,7 +118,7 @@ export function NavBar() {
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
               className={`flex items-center gap-1 rounded-full border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
-                isScrolled
+                useDarkStyle
                   ? "border-white/10 bg-white/[0.06]"
                   : "border-foreground/[0.08] bg-background/75"
               }`}
@@ -136,7 +138,7 @@ export function NavBar() {
                 <Link
                   href={isHome ? "#work" : "/#work"}
                   className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
-                    isScrolled
+                    useDarkStyle
                       ? "text-white/60 hover:bg-white/10 hover:text-white"
                       : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
                   }`}
@@ -160,7 +162,7 @@ export function NavBar() {
                     >
                       <div
                         className={`relative w-[176px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
-                          isScrolled
+                          useDarkStyle
                             ? "border-white/10 bg-[#0b0f14]/88"
                             : "border-foreground/[0.08] bg-background/92"
                         }`}
@@ -175,7 +177,7 @@ export function NavBar() {
                               key={study.href}
                               href={study.href}
                               className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
-                                isScrolled
+                                useDarkStyle
                                   ? "text-white/78 hover:text-white"
                                   : "text-foreground/78 hover:text-foreground"
                               }`}
@@ -211,7 +213,7 @@ export function NavBar() {
               <Link
                 href="/about"
                 className={`rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
-                  isScrolled
+                  useDarkStyle
                     ? "text-white/60 hover:bg-white/10 hover:text-white"
                     : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
                 }`}
@@ -227,7 +229,7 @@ export function NavBar() {
             <button
               onClick={() => setMobileOpen(true)}
               className={`md:hidden p-2 rounded-md transition-colors duration-300 ease-out ${
-                isScrolled
+                useDarkStyle
                   ? "text-white/60 hover:text-white"
                   : "text-muted-foreground hover:text-foreground"
               }`}
@@ -272,7 +274,7 @@ export function NavBar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 36 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] bg-background z-50 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-[256px] bg-background z-50 shadow-2xl flex flex-col"
             >
               <div className="flex items-center justify-end p-4">
                 <button
@@ -283,7 +285,7 @@ export function NavBar() {
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <div className="px-6 pb-8 flex flex-col gap-6">
+              <div className="px-3 pb-8 flex flex-col gap-6">
                 <nav className="flex flex-col gap-1">
                   {/* Work — expandable section */}
                   <div className="flex flex-col">
