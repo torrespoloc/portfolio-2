@@ -64,7 +64,7 @@ export default function Home() {
             <div className="mt-12">
               <HowIWorkCards>
               {/* Card 1 — Design Eng. */}
-              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up flex flex-col">
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up flex flex-col mx-3 md:mx-0">
                 <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   DESIGN ENG. RULES!
                 </p>
@@ -85,7 +85,7 @@ export default function Home() {
               </div>
 
               {/* Card 3 — Community Builder */}
-              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden flex flex-col">
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden flex flex-col mx-3 md:mx-0">
                 <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
                   Community Builder
                 </p>

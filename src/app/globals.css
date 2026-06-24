@@ -166,8 +166,10 @@
   }
 }
 
-* {
-  cursor: none !important;
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }
 
 /* Scroll offset for fixed navbar (48px) */

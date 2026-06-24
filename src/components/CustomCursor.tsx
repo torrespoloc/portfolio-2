@@ -5,8 +5,15 @@ import { useEffect, useState } from "react";
 export function CustomCursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
+  const [isTouch, setIsTouch] = useState(true); // assume touch until proven otherwise
 
   useEffect(() => {
+    // Only activate on devices with a fine pointer (mouse)
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!hasFinePointer) return;
+
+    setIsTouch(false);
+
     const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
 
     const onOver = (e: MouseEvent) => {
@@ -30,6 +37,8 @@ export function CustomCursor() {
       document.removeEventListener("mouseover", onOver);
     };
   }, []);
+
+  if (isTouch) return null;
 
   return (
     <>
