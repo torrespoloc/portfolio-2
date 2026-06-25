@@ -183,7 +183,7 @@ export default function SideNookCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#0891B2] [--accent-2:#D97706]">
+      <div className="[--accent:#0891B2] [--accent-2:#B45309]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY THIS PRODUCT EXISTS

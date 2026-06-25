@@ -125,7 +125,7 @@ export default function WaldoCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#D97706] [--accent-2:#3B3066]">
+      <div className="[--accent:#B45309] [--accent-2:#3B3066]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY IDOC NEEDED A BETTER PATIENT EXPERIENCE

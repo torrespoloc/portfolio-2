@@ -138,7 +138,7 @@ export default function SevenDishCaseStudy() {
                 "Creating a shopping list",
               ].map((task, i) => (
                 <li key={task} className="flex gap-3 items-start">
-                  <span className="text-sm font-mono text-[#F97316] shrink-0 pt-0.5">
+                  <span className="text-sm font-mono text-[#C2410C] shrink-0 pt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-base text-foreground/85">{task}</span>
@@ -210,10 +210,10 @@ export default function SevenDishCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
-                Research based on 7dish&rsquo;s <span className="text-[#F97316] font-semibold">analytics and user interviews</span> revealed users often did a &ldquo;back and forth&rdquo; in completing core tasks and reported confusion.
+                Research based on 7dish&rsquo;s <span className="text-[#C2410C] font-semibold">analytics and user interviews</span> revealed users often did a &ldquo;back and forth&rdquo; in completing core tasks and reported confusion.
               </p>
               <div>
-                <p className="text-sm font-mono uppercase tracking-[0.18em] text-[#F97316] font-semibold mb-2">
+                <p className="text-sm font-mono uppercase tracking-[0.18em] text-[#C2410C] font-semibold mb-2">
                   Main reasons identified
                 </p>
                 <ul className="list-disc list-inside text-base lg:text-lg text-foreground/70 leading-relaxed space-y-1">
@@ -557,7 +557,7 @@ export default function SevenDishCaseStudy() {
             </div>
             <div className={sectionRight}>
               <p className="text-base lg:text-lg text-foreground/70 leading-relaxed">
-                I focused on easy editing and deleting items, predetermined categories attached to items for automated sorting, and clearly separating checked and unchecked items. <span className="text-[#F97316] font-semibold">4/5 users</span> explicitly preferred a dedicated separation with color-coded separators.
+                I focused on easy editing and deleting items, predetermined categories attached to items for automated sorting, and clearly separating checked and unchecked items. <span className="text-[#C2410C] font-semibold">4/5 users</span> explicitly preferred a dedicated separation with color-coded separators.
               </p>
             </div>
           </motion.div>
@@ -637,7 +637,7 @@ export default function SevenDishCaseStudy() {
                 Eliminating the legacy &ldquo;Inspiration&rdquo; page
               </h4>
               <p className="text-body text-foreground/70 leading-relaxed">
-                Removed to make room for a direct, intuitive homepage recipe-browsing workflow. <span className="text-[#F97316] font-semibold">Stakeholders were hesitant</span> &mdash; the page had existed since launch.
+                Removed to make room for a direct, intuitive homepage recipe-browsing workflow. <span className="text-[#C2410C] font-semibold">Stakeholders were hesitant</span> &mdash; the page had existed since launch.
               </p>
             </div>
 
@@ -654,7 +654,7 @@ export default function SevenDishCaseStudy() {
                 Adding the &ldquo;Saved Recipes Folders&rdquo; feature
               </h4>
               <p className="text-body text-foreground/70 leading-relaxed">
-                Added technical scope but drastically improved user organization. Not in the original brief &mdash; <span className="text-[#F97316] font-semibold">had to be justified with evidence.</span>
+                Added technical scope but drastically improved user organization. Not in the original brief &mdash; <span className="text-[#C2410C] font-semibold">had to be justified with evidence.</span>
               </p>
             </div>
           </motion.div>
@@ -663,10 +663,10 @@ export default function SevenDishCaseStudy() {
           <motion.aside
             variants={fadeUp}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl p-6 lg:p-8 bg-foreground/[0.02] ring-1 ring-foreground/[0.06] border-l-2 border-[#F97316]"
+            className="rounded-2xl p-6 lg:p-8 bg-foreground/[0.02] ring-1 ring-foreground/[0.06] border-l-2 border-[#C2410C]"
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center justify-center h-7 w-7 rounded-md bg-[#F97316]/10 ring-1 ring-[#F97316]/20 text-[#F97316]">
+              <span className="inline-flex items-center justify-center h-7 w-7 rounded-md bg-[#C2410C]/10 ring-1 ring-[#C2410C]/20 text-[#C2410C]">
                 <Sparkles className="h-3.5 w-3.5" />
               </span>
               <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
@@ -751,7 +751,7 @@ export default function SevenDishCaseStudy() {
                   key={i}
                   className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-foreground/[0.06]"
                 >
-                  <span className="text-body-sm font-mono text-[#F97316] shrink-0 pt-0.5">
+                  <span className="text-body-sm font-mono text-[#C2410C] shrink-0 pt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-body text-foreground/70 leading-relaxed">{item}</p>

@@ -49,19 +49,19 @@ const shipped: Shipped[] = [
     icon: Workflow,
     eyebrow: "AI agent orchestration",
     title: "Three agents, one conversation.",
-    body: <>I built a <span className="text-[#F97316] font-semibold">chat</span> instead of forms. Users describe what they need. The system routes to the right agent. A multi-hour call becomes a <span className="text-[#F97316] font-semibold">five-minute conversation</span>.</>,
+    body: <>I built a <span className="text-[#C2410C] font-semibold">chat</span> instead of forms. Users describe what they need. The system routes to the right agent. A multi-hour call becomes a <span className="text-[#C2410C] font-semibold">five-minute conversation</span>.</>,
   },
   {
     icon: Layers,
     eyebrow: "Organism-level components",
     title: "60+ components built for AI workflows.",
-    body: <>Agent configuration cards, workflow status indicators, data extraction previews — built for <span className="text-[#F97316] font-semibold">fullscreen, sidebar, or embedded</span>. Alongside the company's <span className="text-[#F97316] font-semibold">first design system</span>: 8px grid, semantic tokens, language &amp; tone, motion docs.</>,
+    body: <>Agent configuration cards, workflow status indicators, data extraction previews — built for <span className="text-[#C2410C] font-semibold">fullscreen, sidebar, or embedded</span>. Alongside the company's <span className="text-[#C2410C] font-semibold">first design system</span>: 8px grid, semantic tokens, language &amp; tone, motion docs.</>,
   },
   {
     icon: Sparkles,
     eyebrow: "AI-native pipeline",
     title: "Figma to engineering in hours.",
-    body: <>Figma Design → Figma Make / Magic Patterns → GitHub → Engineering. <span className="text-[#F97316] font-semibold">Prototype-to-production</span> in hours when a customer demo needed it. Storybook gave engineers <span className="text-[#F97316] font-semibold">direct access</span> — no design handoff wait.</>,
+    body: <>Figma Design → Figma Make / Magic Patterns → GitHub → Engineering. <span className="text-[#C2410C] font-semibold">Prototype-to-production</span> in hours when a customer demo needed it. Storybook gave engineers <span className="text-[#C2410C] font-semibold">direct access</span> — no design handoff wait.</>,
   },
 ]
 
@@ -157,7 +157,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              XY's platform runs on <span className="text-[#F97316] font-semibold">AI agents</span> — but configuring them required a <span className="text-[#F97316] font-semibold">sales call</span>.
+              XY's platform runs on <span className="text-[#C2410C] font-semibold">AI agents</span> — but configuring them required a <span className="text-[#C2410C] font-semibold">sales call</span>.
             </motion.h3>
             <motion.p
               variants={fadeUp}
@@ -182,19 +182,19 @@ export default function XYCaseStudy() {
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-accent font-semibold text-sm font-mono">01</span>
                   </div>
-                  <p className="text-sm text-foreground leading-snug">AI agents required a <span className="text-[#F97316]">human to configure</span></p>
+                  <p className="text-sm text-foreground leading-snug">AI agents required a <span className="text-[#C2410C]">human to configure</span></p>
                 </div>
                 <div className="flex items-center gap-3 p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-accent font-semibold text-sm font-mono">02</span>
                   </div>
-                  <p className="text-sm text-foreground leading-snug">UI <span className="text-[#F97316]">built for engineers</span>, not healthcare teams</p>
+                  <p className="text-sm text-foreground leading-snug">UI <span className="text-[#C2410C]">built for engineers</span>, not healthcare teams</p>
                 </div>
                 <div className="flex items-center gap-3 p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06]">
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-accent font-semibold text-sm font-mono">03</span>
                   </div>
-                  <p className="text-sm text-foreground leading-snug">No orchestration <span className="text-[#F97316]">without a sales call</span></p>
+                  <p className="text-sm text-foreground leading-snug">No orchestration <span className="text-[#C2410C]">without a sales call</span></p>
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              I started by talking to healthcare operations teams. <span className="text-[#F97316] font-semibold">Three patterns</span> surfaced in every conversation.
+              I started by talking to healthcare operations teams. <span className="text-[#C2410C] font-semibold">Three patterns</span> surfaced in every conversation.
             </motion.h3>
           </div>
 
@@ -278,19 +278,19 @@ export default function XYCaseStudy() {
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
                   </div>
-                  <p className="text-body font-semibold text-foreground">Agents were <span className="text-[#F97316]">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
+                  <p className="text-body font-semibold text-foreground">Agents were <span className="text-[#C2410C]">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">02</span>
                   </div>
-                  <p className="text-body font-semibold text-foreground">Different workflows, <span className="text-[#F97316]">same bottleneck</span> — configuration was the blocker</p>
+                  <p className="text-body font-semibold text-foreground">Different workflows, <span className="text-[#C2410C]">same bottleneck</span> — configuration was the blocker</p>
                 </div>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">03</span>
                   </div>
-                  <p className="text-body font-semibold text-foreground">&ldquo;I&rsquo;d need a <span className="text-[#F97316]">demo</span>&rdquo; came up in <span className="text-[#F97316]">every</span> single conversation</p>
+                  <p className="text-body font-semibold text-foreground">&ldquo;I&rsquo;d need a <span className="text-[#C2410C]">demo</span>&rdquo; came up in <span className="text-[#C2410C]">every</span> single conversation</p>
                 </div>
               </div>
             </div>
@@ -322,9 +322,9 @@ export default function XYCaseStudy() {
                   Step-by-step wizard that walked users through configuration. Helped onboarding but felt rigid for ongoing use.
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-[#F97316]/[0.08] ring-1 ring-[#F97316]/20 space-y-2 relative overflow-hidden">
+              <div className="p-4 rounded-xl bg-[#C2410C]/[0.08] ring-1 ring-[#C2410C]/20 space-y-2 relative overflow-hidden">
                 <div className="absolute top-0 right-0">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#F97316] bg-[#F97316]/[0.1] px-2 py-0.5 rounded-bl-lg rounded-tr-xl">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#C2410C] bg-[#C2410C]/[0.1] px-2 py-0.5 rounded-bl-lg rounded-tr-xl">
                     Chosen
                   </span>
                 </div>
@@ -369,7 +369,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              Before scaling the product, I built the <span className="text-[#F97316] font-semibold">design foundations</span> the company needed.
+              Before scaling the product, I built the <span className="text-[#C2410C] font-semibold">design foundations</span> the company needed.
             </motion.h3>
           </div>
 
@@ -399,7 +399,7 @@ export default function XYCaseStudy() {
               {/* Design tokens */}
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                 <div className="flex justify-center">
-                  <Layers className="h-5 w-5 text-[#F97316]" />
+                  <Layers className="h-5 w-5 text-[#C2410C]" />
                 </div>
                 <p className="text-body font-semibold text-foreground leading-snug">Semantic tokens for AI workflows</p>
               </div>
@@ -407,7 +407,7 @@ export default function XYCaseStudy() {
               {/* Language & tone guide */}
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                 <div className="flex justify-center">
-                  <PenLine className="h-5 w-5 text-[#F97316]" />
+                  <PenLine className="h-5 w-5 text-[#C2410C]" />
                 </div>
                 <p className="text-body font-semibold text-foreground leading-snug">Writing guidelines for AI-facing UI</p>
               </div>
@@ -415,7 +415,7 @@ export default function XYCaseStudy() {
               {/* Color schemes & theming */}
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                 <div className="flex justify-center">
-                  <Palette className="h-5 w-5 text-[#F97316]" />
+                  <Palette className="h-5 w-5 text-[#C2410C]" />
                 </div>
                 <p className="text-body font-semibold text-foreground leading-snug">Light, dark, and agent theming</p>
               </div>
@@ -423,7 +423,7 @@ export default function XYCaseStudy() {
               {/* Motion & interaction */}
               <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                 <div className="flex justify-center">
-                  <MoveRight className="h-5 w-5 text-[#F97316]" />
+                  <MoveRight className="h-5 w-5 text-[#C2410C]" />
                 </div>
                 <p className="text-body font-semibold text-foreground leading-snug">Interaction patterns that feel deliberate</p>
               </div>
@@ -584,14 +584,14 @@ export default function XYCaseStudy() {
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
                 <img src="/logos/figma.png" alt="Figma" className="h-full w-full object-contain" />
               </div>
-              <span className="text-xl text-[#F97316]/70 font-light select-none">→</span>
+              <span className="text-xl text-[#C2410C]/70 font-light select-none">→</span>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
                 <img src="/logos/cursor.png" alt="Cursor" className="h-full w-full object-contain" />
               </div>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
                 <img src="/logos/claude-code.png" alt="Claude Code" className="h-full w-full object-contain" />
               </div>
-              <span className="text-xl text-[#F97316]/70 font-light select-none">→</span>
+              <span className="text-xl text-[#C2410C]/70 font-light select-none">→</span>
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-[#3B3066]/[0.08] ring-2 ring-[#3B3066]/20 p-2.5">
                 <img src="/logos/github.png" alt="GitHub" className="h-full w-full object-contain" />
               </div>
@@ -636,7 +636,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              Before committing to chat-first, the <span className="text-[#F97316] font-semibold">CEO ran three rounds of demos</span> to validate the self-serve AI experience with enterprise prospects.
+              Before committing to chat-first, the <span className="text-[#C2410C] font-semibold">CEO ran three rounds of demos</span> to validate the self-serve AI experience with enterprise prospects.
             </motion.h3>
           </div>
 
@@ -658,15 +658,15 @@ export default function XYCaseStudy() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                   <span className="text-body-sm font-mono text-foreground/60">Demo Round 1</span>
-                  <p className="text-body font-semibold text-foreground leading-snug">CEO showed the prototype — prospects <span className="text-[#F97316]">immediately understood</span> the agent metaphor without explanation</p>
+                  <p className="text-body font-semibold text-foreground leading-snug">CEO showed the prototype — prospects <span className="text-[#C2410C]">immediately understood</span> the agent metaphor without explanation</p>
                 </div>
                 <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                   <span className="text-body-sm font-mono text-foreground/60">Demo Round 2</span>
-                  <p className="text-body font-semibold text-foreground leading-snug">Live self-serve walkthrough — prospects engaged <span className="text-[#F97316]">without engineering hand-holding</span></p>
+                  <p className="text-body font-semibold text-foreground leading-snug">Live self-serve walkthrough — prospects engaged <span className="text-[#C2410C]">without engineering hand-holding</span></p>
                 </div>
                 <div className="p-4 rounded-xl bg-background ring-1 ring-foreground/[0.06] space-y-2 text-center">
                   <span className="text-body-sm font-mono text-foreground/60">Demo Round 3</span>
-                  <p className="text-body font-semibold text-foreground leading-snug">CEO pitched the platform independently — <span className="text-[#F97316]">sales team could demo without an engineer</span></p>
+                  <p className="text-body font-semibold text-foreground leading-snug">CEO pitched the platform independently — <span className="text-[#C2410C]">sales team could demo without an engineer</span></p>
                 </div>
               </div>
 
@@ -701,13 +701,13 @@ export default function XYCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
-            Users orchestrated agents themselves. That self-serve UX became a <span className="text-[#F97316] font-semibold">core sales asset</span>.
+            Users orchestrated agents themselves. That self-serve UX became a <span className="text-[#C2410C] font-semibold">core sales asset</span>.
           </p>
 
           <ul className="space-y-3 mb-12 list-disc pl-5 text-base lg:text-lg text-foreground/70 leading-relaxed">
-            <li>The <span className="text-[#F97316] font-semibold">CEO pitched</span> the AI orchestration experience directly — no engineer needed.</li>
-            <li>Production-ready AI workflow components wired to Temporal for <span className="text-[#F97316] font-semibold">live agent orchestration</span>.</li>
-            <li>Self-serve AI experience became central to how the <span className="text-[#F97316] font-semibold">sales team closes deals</span>.</li>
+            <li>The <span className="text-[#C2410C] font-semibold">CEO pitched</span> the AI orchestration experience directly — no engineer needed.</li>
+            <li>Production-ready AI workflow components wired to Temporal for <span className="text-[#C2410C] font-semibold">live agent orchestration</span>.</li>
+            <li>Self-serve AI experience became central to how the <span className="text-[#C2410C] font-semibold">sales team closes deals</span>.</li>
           </ul>
 
           {/* User feedback quote */}
@@ -760,7 +760,7 @@ export default function XYCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-body text-foreground/70 mb-8 max-w-2xl">
-            I was the <span className="text-[#F97316] font-semibold">only designer</span>, reporting directly to the CPO and CEO. The workflow was <span className="text-[#F97316] font-semibold">mine to own</span>.
+            I was the <span className="text-[#C2410C] font-semibold">only designer</span>, reporting directly to the CPO and CEO. The workflow was <span className="text-[#C2410C] font-semibold">mine to own</span>.
           </p>
 
           <ul className="space-y-5">
@@ -769,7 +769,7 @@ export default function XYCaseStudy() {
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Design-to-engineering pipeline ownership</p>
                 <p className="text-body text-foreground/70 leading-relaxed">
-                  <span className="text-[#F97316] font-semibold">Linear</span> tracked every move from Figma to production. Clear tickets, estimates, review cycles.
+                  <span className="text-[#C2410C] font-semibold">Linear</span> tracked every move from Figma to production. Clear tickets, estimates, review cycles.
                 </p>
               </div>
             </li>
@@ -778,7 +778,7 @@ export default function XYCaseStudy() {
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Rigorous design standards</p>
                 <p className="text-body text-foreground/70 leading-relaxed">
-                  The company's <span className="text-[#F97316] font-semibold">first design practice</span>: 8px grid, semantic tokens, typography, spacing, language &amp; tone, motion documentation.
+                  The company's <span className="text-[#C2410C] font-semibold">first design practice</span>: 8px grid, semantic tokens, typography, spacing, language &amp; tone, motion documentation.
                 </p>
               </div>
             </li>
@@ -787,7 +787,7 @@ export default function XYCaseStudy() {
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">AI-powered workflow tracking via Claude MCP</p>
                 <p className="text-body text-foreground/70 leading-relaxed">
-                  <span className="text-[#F97316] font-semibold">Claude MCP</span> connected Figma to production in <span className="text-[#F97316] font-semibold">hours, not sprints</span>.
+                  <span className="text-[#C2410C] font-semibold">Claude MCP</span> connected Figma to production in <span className="text-[#C2410C] font-semibold">hours, not sprints</span>.
                 </p>
               </div>
             </li>

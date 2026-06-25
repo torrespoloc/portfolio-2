@@ -90,7 +90,7 @@ export default function FundrCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#059669] [--accent-2:#D97706]">
+      <div className="[--accent:#059669] [--accent-2:#B45309]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY FUNDR NEEDED A REDESIGN
