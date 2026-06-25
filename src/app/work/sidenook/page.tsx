@@ -194,7 +194,7 @@ export default function SideNookCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Why this product exists
         </motion.h2>
@@ -323,7 +323,7 @@ export default function SideNookCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-muted-foreground mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-muted-foreground mb-6 max-w-2xl"
         >
           Three phases. <span className="text-accent-2 font-semibold">The animation came before the terminal</span> — on purpose.
         </motion.p>
@@ -658,7 +658,7 @@ export default function SideNookCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Outcomes
         </motion.h2>
@@ -804,7 +804,7 @@ export default function SideNookCaseStudy() {
         <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5 text-white">
           Designed &amp; built side by side.
         </h3>
-        <p className="text-base lg:text-lg text-white/75 leading-relaxed mb-8 max-w-2xl">
+        <p className="text-base lg:text-lg text-white/75 leading-relaxed mb-6 max-w-2xl">
           The product <span className="text-accent-2 font-semibold">and</span> the marketing site — I designed both, end to end. Check it out at <span className="text-accent-2 font-semibold">sidenook.dev</span>.
         </p>
         <div className="flex flex-wrap gap-3">

@@ -56,13 +56,13 @@ export function CaseStudyCard({
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn(
-        "group block w-full md:w-[95%] md:mx-auto rounded-[24px] overflow-hidden bg-white shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
+        "group block w-full rounded-[24px] overflow-hidden bg-card shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
         href && "cursor-pointer",
         className
       )}
     >
       {/* Media area */}
-      <div className="relative w-full aspect-video overflow-hidden bg-[#f1f5f9]">
+      <div className="relative w-full aspect-video overflow-hidden bg-muted">
         {mediaSrcs && mediaSrcs.length > 0 ? (
           <VideoCarousel
             videos={mediaSrcs}
@@ -86,7 +86,7 @@ export function CaseStudyCard({
             className="object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-[#f8fafc] text-[#94a3b8]">
+          <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="3" y="3" width="18" height="18" rx="3" />
               <circle cx="8.5" cy="8.5" r="1.5" />
@@ -129,11 +129,11 @@ export function CaseStudyCard({
 
       {/* Info banner */}
       <div className="p-5 sm:p-6">
-        <h3 className="text-[21px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.25] text-[#2f2e31]">
+        <h3 className="text-[21px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.25] text-hero-text-dark">
           {headline}
         </h3>
 
-        <p className="text-subtitle md:text-body leading-[1.5] text-[#4d4d4d] mt-2">
+        <p className="text-subtitle md:text-body leading-[1.5] text-hero-text mt-2">
           {description}
         </p>
 
@@ -142,7 +142,7 @@ export function CaseStudyCard({
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-[14px] font-medium text-[#757575] bg-[#f5f5f5] rounded-full px-2.5 py-0.5"
+                className="text-[14px] font-medium text-hero-muted bg-hero-border rounded-full px-2.5 py-0.5"
               >
                 {t}
               </span>
@@ -150,27 +150,27 @@ export function CaseStudyCard({
           </div>
         )}
 
-        <div className="flex items-start gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-[#f0f0f0]">
+        <div className="flex items-start gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-hero-border">
           <div className="flex flex-col min-w-0 flex-1">
-            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
+            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
               {metric1Label}
             </span>
-            <span className="text-body-sm sm:text-[18px] font-bold text-[#2f2e31] leading-none mt-0.5">
+            <span className="text-body-sm sm:text-[18px] font-bold text-hero-text-dark leading-none mt-0.5">
               {metric1Value}
             </span>
           </div>
           <div className="flex flex-col min-w-0 flex-1">
-            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
+            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
               {metric2Label}
             </span>
-            <span className="text-body-sm sm:text-[18px] font-bold text-[#2f2e31] leading-none mt-0.5">
+            <span className="text-body-sm sm:text-[18px] font-bold text-hero-text-dark leading-none mt-0.5">
               {metric2Value}
             </span>
           </div>
 
           {builtForLogo && (
             <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto sm:ml-auto">
-              <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-[#757575]">
+              <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
                 Built for
               </span>
               <img src={builtForLogo} alt="" className="h-5 sm:h-6 w-auto max-w-[80px] object-contain object-center" />

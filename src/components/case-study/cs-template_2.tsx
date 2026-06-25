@@ -20,7 +20,7 @@ const heroWidth = "px-6 sm:px-10 max-w-6xl mx-auto"
 // ─── Shared section layout classes ───
 // Single-column stack: heading, body, and visuals stack vertically
 // for easier reading and skimming.
-export const sectionGrid = "flex flex-col gap-8"
+export const sectionGrid = "flex flex-col gap-6"
 export const sectionLeft = ""
 export const sectionRight = ""
 export const sectionFull = ""
@@ -195,10 +195,10 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
               <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {metaFields.map((m, i) => {
                   const colorSet =
-                    metaTheme === "purple-orange" ? { dot: "bg-[#C2410C]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "teal-orange" ? { dot: "bg-[#C2410C]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "cyan-gray" ? { dot: "bg-[#0891B2]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "dark-teal-orange" ? { dot: "bg-[#C2410C]", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "purple-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "teal-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "cyan-gray" ? { dot: "bg-accent", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
+                    metaTheme === "dark-teal-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
                     { dot: "bg-accent", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" }
                   return (
                     <div

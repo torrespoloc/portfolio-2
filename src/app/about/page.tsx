@@ -3,10 +3,10 @@ import { LINKS } from "@/lib/constants"
 export default function AboutPage() {
   return (
     <>
-      <div className="min-h-screen bg-[#fafafa] font-sans pt-24 md:pt-32 pb-0">
+      <div className="min-h-screen bg-hero-bg font-sans pt-24 md:pt-32 pb-0">
         <div className="mx-auto w-full max-w-[1200px] px-6 md:px-12">
           {/* Hero — card with headshot + facts */}
-          <div className="w-fit mx-auto max-w-full rounded-[20px] border border-[#f5f5f5] bg-white p-6 md:p-10 animate-fade-in-up">
+          <div className="w-fit mx-auto max-w-full rounded-[20px] border border-hero-border bg-card p-6 md:p-10 animate-fade-in-up">
             <div className="flex flex-col md:flex-row gap-4 items-start">
               {/* Portrait with gradient border */}
               <div className="w-full md:w-[280px] shrink-0">
@@ -19,7 +19,7 @@ export default function AboutPage() {
                     animation: "gradient-shift 4s ease infinite",
                   }}
                 >
-                  <div className="rounded-full p-[3px] bg-white">
+                  <div className="rounded-full p-[3px] bg-background">
                     <div className="rounded-full overflow-hidden aspect-square">
                       <img
                       src="/about-jacki-headshot.png"
@@ -34,13 +34,13 @@ export default function AboutPage() {
             {/* Intro text + facts */}
             <div className="flex-1">
               <p
-                className="text-[#4d4d4d] font-semibold"
+                className="text-hero-text font-semibold"
                 style={{ fontSize: "18px", lineHeight: "27px" }}
               >
                 I have an interesting story to tell. But first, a few facts:
               </p>
 
-              <ul className="mt-6 space-y-3 list-disc pl-4 text-[#4d4d4d] marker:text-[#999]"
+              <ul className="mt-6 space-y-3 list-disc pl-4 text-hero-text marker:text-muted-foreground"
                 style={{ fontSize: "16.5px", lineHeight: "21.45px" }}
               >
                 <li>I have <strong>good communication</strong> skills.</li>
@@ -52,7 +52,7 @@ export default function AboutPage() {
               </ul>
 
               <p
-                className="mt-6 text-[#4d4d4d]"
+                className="mt-6 text-hero-text"
                 style={{ fontSize: "16.5px", lineHeight: "21.45px" }}
               >
                 Before UX, I was an architectural designer.
@@ -89,7 +89,7 @@ export default function AboutPage() {
           <div className="mx-auto w-full max-w-[940px]">
 
           <h2
-            className="mt-20 md:mt-28 text-[#4d4d4d] font-bold"
+            className="mt-20 md:mt-28 text-hero-text font-bold"
             style={{ fontSize: "28px", lineHeight: "33.6px" }}
           >
             A bit about me{" "}
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <div className="mt-12 md:mt-16 flex flex-col md:flex-row md:gap-12 lg:gap-20 items-center">
             <div className="flex-1">
               <h3
-                className="text-[#4d4d4d] font-bold"
+                className="text-hero-text font-bold"
                 style={{ fontSize: "33px", lineHeight: "39.6px" }}
               >
                 UX events, TED talks, <span className="text-accent">networking</span>
@@ -108,14 +108,14 @@ export default function AboutPage() {
               </h3>
               <div className="mt-5 space-y-4">
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   The last few years of my product design career have been filled with new
                   experiences. And btw, did I mention I want to be a TED speaker?
                 </p>
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   I join every year since 2024 ;)
@@ -137,7 +137,7 @@ export default function AboutPage() {
           <div className="mt-16 md:mt-24 flex flex-col md:flex-row-reverse md:gap-12 lg:gap-20 items-center">
             <div className="flex-1">
               <h3
-                className="text-[#4d4d4d] font-bold"
+                className="text-hero-text font-bold"
                 style={{ fontSize: "33px", lineHeight: "39.6px" }}
               >
                 I&apos;m <span className="text-accent">competitive</span> and know
@@ -145,7 +145,7 @@ export default function AboutPage() {
               </h3>
               <div className="mt-5 space-y-4">
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   Not to sound corny, but in sports,{" "}
@@ -153,7 +153,7 @@ export default function AboutPage() {
                   <strong>work strategy</strong> are everything.
                 </p>
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   My teamwork skills don&apos;t just happen at work or on a sports
@@ -163,7 +163,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="w-full md:w-[280px] shrink-0 mt-6 md:mt-0">
-              <div className="rounded-[20px] overflow-hidden border border-[#f5f5f5]">
+              <div className="rounded-[20px] overflow-hidden border border-hero-border">
                 <img
                   src="/about-work-in-teams.png"
                   alt="Jackeline Torres — competitive spirit"
@@ -177,7 +177,7 @@ export default function AboutPage() {
           <div className="mt-16 md:mt-24">
             <div className="max-w-[600px]">
               <h3
-                className="text-[#4d4d4d] font-bold"
+                className="text-hero-text font-bold"
                 style={{ fontSize: "33px", lineHeight: "39.6px" }}
               >
                 I broke through a barrier and got good at{" "}
@@ -185,7 +185,7 @@ export default function AboutPage() {
               </h3>
               <div className="mt-5 space-y-4">
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   Filming myself used to terrify me, so I joined the sales world and
@@ -193,7 +193,7 @@ export default function AboutPage() {
                   <strong>$100k in revenue.</strong>
                 </p>
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   P.S. I shot these 17 times.
@@ -203,7 +203,7 @@ export default function AboutPage() {
 
             {/* YouTube video row */}
             <div className="mt-8 flex flex-row gap-0 max-w-[960px]">
-              <div className="flex-1 min-w-0 overflow-hidden border border-[#f5f5f5] bg-black aspect-video">
+              <div className="flex-1 min-w-0 overflow-hidden border border-hero-border bg-black aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/nmEeakg-xqw?mute=1&autoplay=1&loop=1&playlist=nmEeakg-xqw&controls=0&showinfo=0&modestbranding=1&playsinline=1"
                   className="w-full h-full"
@@ -212,7 +212,7 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex-1 min-w-0 overflow-hidden border border-[#f5f5f5] bg-black aspect-video">
+              <div className="flex-1 min-w-0 overflow-hidden border border-hero-border bg-black aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/fcj76pBvuU4?mute=1&autoplay=1&loop=1&playlist=fcj76pBvuU4&controls=0&showinfo=0&modestbranding=1&playsinline=1"
                   className="w-full h-full"
@@ -221,7 +221,7 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex-1 min-w-0 overflow-hidden border border-[#f5f5f5] bg-black aspect-video">
+              <div className="flex-1 min-w-0 overflow-hidden border border-hero-border bg-black aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/TeVozgHPnt0?mute=1&autoplay=1&loop=1&playlist=TeVozgHPnt0&controls=0&showinfo=0&modestbranding=1&playsinline=1"
                   className="w-full h-full"
@@ -230,7 +230,7 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex-1 min-w-0 overflow-hidden border border-[#f5f5f5] bg-black aspect-video">
+              <div className="flex-1 min-w-0 overflow-hidden border border-hero-border bg-black aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/hSW6J_jp7lc?mute=1&autoplay=1&loop=1&playlist=hSW6J_jp7lc&controls=0&showinfo=0&modestbranding=1&playsinline=1"
                   className="w-full h-full"
@@ -246,7 +246,7 @@ export default function AboutPage() {
           <div className="mt-16 md:mt-24 flex flex-col md:flex-row-reverse md:gap-12 lg:gap-20 items-center">
             <div className="flex-1">
               <h3
-                className="text-[#4d4d4d] font-bold"
+                className="text-hero-text font-bold"
                 style={{ fontSize: "33px", lineHeight: "39.6px" }}
               >
                 Other creative outlets—they make me a{" "}
@@ -254,14 +254,14 @@ export default function AboutPage() {
               </h3>
               <div className="mt-5 space-y-4">
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   Every creative person has specific ways to wind down. For me, racket
                   sports, writing, and painting do the trick.
                 </p>
                 <p
-                  className="text-[#4d4d4d]"
+                  className="text-hero-text"
                   style={{ fontSize: "18px", lineHeight: "27px" }}
                 >
                   This talent emerged in the 2020 pandemic times.
@@ -269,7 +269,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="w-full md:w-[280px] shrink-0 mt-6 md:mt-0">
-              <div className="rounded-[20px] overflow-hidden border border-[#f5f5f5]">
+              <div className="rounded-[20px] overflow-hidden border border-hero-border">
                 <img
                   src="/about-creative-outlets.png"
                   alt="Jackeline Torres — creative outlets"
@@ -281,7 +281,7 @@ export default function AboutPage() {
 
           {/* Thank you */}
           <p
-            className="mt-20 md:mt-28 pb-16 md:pb-24 text-[#4d4d4d]"
+            className="mt-20 md:mt-28 pb-16 md:pb-24 text-hero-text"
             style={{ fontSize: "18px", lineHeight: "27px" }}
           >
             Thank you!

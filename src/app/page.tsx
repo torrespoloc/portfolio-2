@@ -10,7 +10,7 @@ import { TypewriterTag } from "@/components/home/TypewriterTag";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#fafafa] font-sans">
+    <div className="relative min-h-screen bg-hero-bg font-sans">
       <section className="relative flex flex-col justify-center min-h-[100svh] px-6 pt-[76px] sm:py-20 lg:py-24">
         {/* Blur blobs — positioned to bleed from work section into hero */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
@@ -52,7 +52,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12">
           <div className="max-w-[1200px] mx-auto">
             <h1
-              className="text-[#4d4d4d] text-[clamp(34px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
+              className="text-hero-text text-[clamp(34px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
               style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
             >
               Hey, I&apos;m Jacki&mdash;I design apps and systems that make users say:
@@ -64,11 +64,11 @@ export default function Home() {
             <div className="mt-12">
               <HowIWorkCards>
               {/* Card 1 — Design Eng. */}
-              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up flex flex-col mx-3 md:mx-0">
-                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-hero-border bg-white p-5 animate-fade-in-up flex flex-col mx-3 md:mx-0">
+                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-brand-accent mb-2">
                   DESIGN ENG. RULES!
                 </p>
-                <p className="text-body-mobile md:text-body text-[#4d4d4d] leading-relaxed font-semibold flex-1">
+                <p className="text-body-mobile md:text-body text-hero-text leading-relaxed font-semibold flex-1">
                   <img src="/logos/cursor.png" alt="Cursor" className="inline-block h-[30px] w-auto align-middle mr-0.5" />,
                   <img src="/logos/claude-code.png" alt="Claude Code" className="inline-block h-[36px] w-auto align-middle mr-0.5" />,
                   <img src="/logos/figma.png" alt="Figma" className="inline-block h-[30px] w-auto align-middle mr-0.5" />
@@ -85,11 +85,11 @@ export default function Home() {
               </div>
 
               {/* Card 3 — Community Builder */}
-              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-[#f5f5f5] bg-white p-5 animate-fade-in-up relative overflow-hidden flex flex-col mx-3 md:mx-0">
-                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-[rgb(87,126,255)] mb-2">
+              <div className="self-stretch min-w-[220px] max-w-[306px] rounded-[20px] border border-hero-border bg-white p-5 animate-fade-in-up relative overflow-hidden flex flex-col mx-3 md:mx-0">
+                <p className="text-sm md:text-body font-bold uppercase tracking-wider text-brand-accent mb-2">
                   Community Builder
                 </p>
-                <p className="text-body-mobile md:text-body text-[#4d4d4d] leading-relaxed relative z-10 font-semibold">
+                <p className="text-body-mobile md:text-body text-hero-text leading-relaxed relative z-10 font-semibold">
                   I founded and lead The UX Chats, a 200 member community for UXers.
                 </p>
                 <img
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-3">
               <a
                 href="/about"
-                className="inline-flex items-center justify-center h-[38px] px-6 rounded-[20px] text-sm font-medium bg-[rgb(10,10,10)] text-[rgb(250,250,250)] hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center h-[38px] px-6 rounded-[20px] text-sm font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
               >
                 About me
               </a>
@@ -120,7 +120,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/jackelinetorres/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-[38px] px-6 rounded-[20px] text-sm font-medium text-[#4d4d4d] border border-[rgb(203,212,237)] bg-background hover:bg-[#f5f5f5] transition-colors"
+                className="inline-flex items-center justify-center h-[38px] px-6 rounded-[20px] text-sm font-medium text-hero-text border border-border bg-background hover:bg-hero-border transition-colors"
               >
                 LinkedIn
               </a>
@@ -141,14 +141,14 @@ export default function Home() {
       {/* Work Section */}
       <section id="work" className="px-6 pb-20">
         <div className="mx-auto w-full max-w-[940px]">
-          <h2 className="text-[#4d4d4d] text-sm font-semibold uppercase tracking-wider mb-8">
+          <h2 className="text-hero-text text-sm font-semibold uppercase tracking-wider mb-8">
             Work
           </h2>
 
           <div className="flex flex-col gap-10 lg:gap-[88px]">
             <CaseStudyCard
               tag="AI WORKFLOWS"
-              headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-[rgb(87,126,255)]">AI and chat driven</span></>}
+              headline={<>Making the XY&#39;s healthcare SaaS platform <span className="text-brand-accent">AI and chat driven</span></>}
               description="Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows."
               tags={["healthtech", "SaaS"]}
               year="2025–2026"
@@ -164,7 +164,7 @@ export default function Home() {
 
             <CaseStudyCard
               tag="HEALTHTECH"
-              headline={<>Designed End-to-End Mobile Patient App for <span className="text-[rgb(87,126,255)]">HIPAA-Compliant</span> Contact Lens Ordering</>}
+              headline={<>Designed End-to-End Mobile Patient App for <span className="text-brand-accent">HIPAA-Compliant</span> Contact Lens Ordering</>}
               description="Designed patient portal app MVP and full checkout experience in sync with Waldo's doctor portal."
               tags={["healthtech", "desktop", "mobile"]}
               year="2025"
@@ -180,7 +180,7 @@ export default function Home() {
 
             <CaseStudyCard
               tag="FINTECH · AI"
-              headline={<>Monetizing Fundr&apos;s SaaS platform with an <span className="text-[rgb(87,126,255)]">upgrade paywall system</span></>}
+              headline={<>Monetizing Fundr&apos;s SaaS platform with an <span className="text-brand-accent">upgrade paywall system</span></>}
               description="The story of how I cut down the need for 1:1 sales calls by 50% in just 10 weeks for a Fintech stealth startup."
               tags={["fintech", "SaaS"]}
               year="2023"
@@ -197,7 +197,7 @@ export default function Home() {
             <CaseStudyCard
               tag="MAC APP"
               badge="Building V2"
-              headline={<>SideNook — A <span className="text-[rgb(87,126,255)]">macOS terminal emulator</span> that stays out of your way</>}
+              headline={<>SideNook — A <span className="text-brand-accent">macOS terminal emulator</span> that stays out of your way</>}
               description="An ambient terminal companion: always there when you need it, invisible when you don&apos;t. Built with spring animations, multi-tab support, and keyboard-first navigation."
               tags={["macOS", "desktop", "shipped"]}
               year="2026"
@@ -212,7 +212,7 @@ export default function Home() {
 
             <CaseStudyCard
               tag="FOODTECH"
-              headline={<>Redesigned <span className="text-[rgb(87,126,255)]">3 core flows</span> for 7dish&apos;s meal planning app</>}
+              headline={<>Redesigned <span className="text-brand-accent">3 core flows</span> for 7dish&apos;s meal planning app</>}
               description="Boosting user satisfaction by 50% through strategic redesigns and 7 new features for working parents."
               tags={["mobile", "e-commerce", "shipped"]}
               year="2023–2024"

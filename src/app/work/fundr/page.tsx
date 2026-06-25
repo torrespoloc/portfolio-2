@@ -101,7 +101,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Why Fundr needed a redesign
         </motion.h2>
@@ -155,7 +155,7 @@ export default function FundrCaseStudy() {
               <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
                 Three things standing in the way
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
@@ -223,7 +223,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           The Upgrade Flow
         </motion.h2>
@@ -327,7 +327,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl"
         >
           Three upgrade surfaces that don’t interrupt the workflow.
         </motion.p>
@@ -442,7 +442,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           The Core Mechanism
         </motion.h2>
@@ -557,7 +557,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl"
         >
           Confusing tiers, made deliberate.
         </motion.p>
@@ -647,7 +647,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           The Controversy
         </motion.h2>
@@ -706,7 +706,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="text-base lg:text-lg text-foreground/70 mb-16 max-w-2xl"
+          className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl"
         >
           A free tier worth using. A premium tier worth paying for.
         </motion.p>
@@ -834,7 +834,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Before → After
         </motion.h2>
@@ -845,7 +845,7 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl">
             Three shifts that changed the upgrade experience.
           </p>
           <div className="space-y-4">
@@ -884,7 +884,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Impact
         </motion.h2>
@@ -895,7 +895,7 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl">
             Fewer sales calls. More upgrades. <span className="text-accent-2 font-semibold">A pricing surface that does its own selling.</span>
           </p>
           <ul className="space-y-4">
@@ -931,7 +931,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           What I’d Do Differently
         </motion.h2>
@@ -942,7 +942,7 @@ export default function FundrCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-foreground/70 mb-8 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl">
             Hindsight and the next version.
           </p>
           <ul className="space-y-4">
@@ -989,7 +989,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           The full story in ~4-min
         </motion.h2>
@@ -1048,7 +1048,7 @@ export default function FundrCaseStudy() {
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">
             I’ll walk you through <span className="text-accent-2 font-semibold">the pricing redesign, the CTA tests, and the calls we cut</span>.
           </p>
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-3 mb-6">
             <a
               href={`mailto:${LINKS.email}?subject=Fundr%20case%20study`}
               className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"

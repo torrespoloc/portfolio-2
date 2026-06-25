@@ -136,7 +136,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Why iDoc needed a better patient experience
         </motion.h2>
@@ -213,7 +213,7 @@ export default function WaldoCaseStudy() {
               <p className="text-label font-mono uppercase tracking-[0.18em] text-foreground/60 mb-5">
                 Three things standing in the way
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-accent font-semibold text-xl font-mono tabular-nums">01</span>
@@ -267,7 +267,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Research that shaped the product
         </motion.h2>
@@ -397,7 +397,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           What I Shipped
         </motion.h2>
@@ -494,7 +494,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           The $5 Constraint
         </motion.h2>
@@ -588,7 +588,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           A new brand arrived two weeks before we shipped
         </motion.h2>
@@ -746,7 +746,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Outcomes
         </motion.h2>
@@ -757,7 +757,7 @@ export default function WaldoCaseStudy() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-base lg:text-lg text-foreground/70 mb-10 max-w-2xl">
+          <p className="text-base lg:text-lg text-foreground/70 mb-6 max-w-2xl">
             Delivered a month early. Live, in patients&rsquo; hands.
           </p>
           <ul className="space-y-4">
@@ -786,7 +786,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           What I learned designing my first healthcare product
         </motion.h2>
@@ -856,7 +856,7 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-12`}
+          className={`${sectionHeader} mb-6`}
         >
           Real Talk
         </motion.h2>
@@ -928,7 +928,7 @@ export default function WaldoCaseStudy() {
             Visit the live product, or get in touch and I&rsquo;ll talk you through the design decisions,
             including the ones that didn&rsquo;t make it to ship.
           </p>
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-3 mb-6">
             <a
               href={LINKS.idocbridge}
               target="_blank"
