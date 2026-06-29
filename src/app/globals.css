@@ -38,6 +38,9 @@
   --color-accent-2: var(--accent-2);
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
+  --color-case-highlight: var(--case-highlight);
+  --color-case-eyebrow: var(--case-eyebrow);
+  --color-case-page-bg: var(--case-page-bg);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -141,9 +144,24 @@
   --hero-muted: #757575;
   --hero-border: #f5f5f5;
   --hero-card: #ffffff;
+  --navy-900: #1f2430;
+  --navy-800: #2a3040;
+  --navy-700: #394154;
+  --navy-600: #566079;
+  --navy-500: #73809d;
+  --navy-400: #97a3ba;
+  --ink: #2f2e31;
+  --ink-muted: #4d4d4d;
+  --ink-subtle: #757575;
+  --ink-tertiary: #a3a3a3;
+  --hairline: #e9e9ee;
+  --hairline-strong: #d7d8e0;
   --accent-2: #B45309;
   --highlight: #C2410C;
   --highlight-foreground: #FFFFFF;
+  --case-highlight: var(--forest);
+  --case-eyebrow: var(--brand-accent);
+  --case-page-bg: #f8f8f6;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -170,9 +188,9 @@
   --accent: #6b7fff;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #23262e;
-  --input: #2f323c;
-  --ring: #3a3d48;
+  --border: #313543;
+  --input: #3a3f4f;
+  --ring: #555c71;
   --burgundy: #8a2e5a;
   --cream: #2a231d;
   --forest: #4a8068;
@@ -186,11 +204,14 @@
   --hero-text: #c8cad4;
   --hero-text-dark: #efeff1;
   --hero-muted: #a3a3a3;
-  --hero-border: #23262e;
+  --hero-border: #2d3140;
   --hero-card: #1a1d28;
   --accent-2: #D97706;
   --highlight: #E86A30;
   --highlight-foreground: #1a1a1a;
+  --case-highlight: var(--chartreuse);
+  --case-eyebrow: var(--brand-accent);
+  --case-page-bg: #1d212c;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -214,8 +235,8 @@
   --ink-muted: #c8cad4;
   --ink-subtle: #838699;
   --ink-tertiary: #5c5f72;
-  --hairline: #23262e;
-  --hairline-strong: #2f323c;
+  --hairline: #2d3140;
+  --hairline-strong: #3a3f4f;
 }
 
 @layer base {

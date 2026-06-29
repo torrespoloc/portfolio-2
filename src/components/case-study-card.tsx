@@ -67,7 +67,7 @@ export function CaseStudyCard({
           <VideoCarousel
             videos={mediaSrcs}
             interval={4000}
-            className="absolute inset-0 w-full h-full [&_video]:group-hover:scale-[1.04] [&_video]:transition-transform [&_video]:duration-700 [&_video]:ease-out"
+            className="absolute inset-0 w-full h-full [&_video]:group-hover:scale-[1.04] [&_video]:transition-transform [&_video]:duration-200 [&_video]:ease-out"
           />
         ) : mediaSrc && mediaType === "video" ? (
           <video
@@ -76,7 +76,7 @@ export function CaseStudyCard({
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-200 ease-out"
           />
         ) : mediaSrc && mediaType === "image" ? (
           <Image
@@ -121,7 +121,7 @@ export function CaseStudyCard({
 
         {/* Year badge — bottom-left of media */}
         {year && (
-          <span className="absolute bottom-3 left-3 text-[13px] sm:text-sm px-2 py-0.5 rounded-md bg-black/40 text-white/60 font-mono uppercase tracking-wider">
+          <span className="absolute bottom-3 left-3 rounded-md bg-black/55 px-2 py-0.5 text-[13px] font-mono uppercase tracking-wider text-white/85 sm:text-sm">
             {year}
           </span>
         )}

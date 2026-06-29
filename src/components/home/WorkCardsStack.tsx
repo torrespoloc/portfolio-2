@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect, useState } from "react"
 import {
   motion,
   useScroll,
@@ -128,62 +128,6 @@ const workCards = [
   },
 ]
 
-/* ── Per-card scroll-driven transforms ── */
-function StackCardItem({
-  index,
-  total,
-  scrollYProgress,
-  prefersReducedMotion,
-  children,
-}: {
-  index: number
-  total: number
-  scrollYProgress: MotionValue<number>
-  prefersReducedMotion: boolean
-  children: React.ReactNode
-}) {
-  /* Skip transforms when user prefers reduced motion — render static */
-  if (prefersReducedMotion) {
-    return <>{children}</>
-  }
-
-  /*
-   * Each card gets a staggered animation window as the user scrolls through
-   * the work section.
-   *
-   * Card 0 rangeStart = 0.00, rangeEnd = 0.35  — leads the cascade
-   * Card 1 rangeStart = 0.08, rangeEnd = 0.43  — follows
-   * Card 2 rangeStart = 0.16, rangeEnd = 0.51
-   * Card 3 rangeStart = 0.24, rangeEnd = 0.59
-   * Card 4 rangeStart = 0.32, rangeEnd = 0.67
-   *
-   * Within each window the card transitions from "stacked" (overlapping,
-   * rotated, slightly transparent) to "fanned out" (natural position).
-   */
-  const rangeStart = index * 0.08
-  const rangeEnd = Math.min(rangeStart + 0.35, 1)
-
-  /* — Stacked-state values — */
-  const stackY = 60 + index * 10            // each card shifts up from deeper in the stack
-  const stackRotate = (index - Math.floor(total / 2)) * 2  // fan: alternating rotation
-  const stackScale = 0.93
-  const stackOpacity = 0.8
-
-  /* — Transforms — */
-  const y = useTransform(scrollYProgress, [rangeStart, rangeEnd], [stackY, 0])
-  const rotate = useTransform(scrollYProgress, [rangeStart, rangeEnd], [stackRotate, 0])
-  const scale = useTransform(scrollYProgress, [rangeStart, rangeEnd], [stackScale, 1])
-  const opacity = useTransform(scrollYProgress, [rangeStart, rangeEnd], [stackOpacity, 1])
-
-  return (
-    <motion.div
-      style={{ y, rotate, scale, opacity, transformOrigin: "center center" }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
 /* ── Section heading entrance ── */
 const headingVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -194,50 +138,180 @@ const headingVariants = {
   },
 }
 
+/* ── Per-card deck transforms ── */
+function DeckCardItem({
+  index,
+  total,
+  deckIndex,
+  isMobile,
+  children,
+}: {
+  index: number
+  total: number
+  deckIndex: MotionValue<number>
+  isMobile: boolean
+  children: React.ReactNode
+}) {
+  const prefersReducedMotion = useReducedMotion()
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    /* Sync after hydration to prevent SSR mismatch */
+    setReducedMotion(prefersReducedMotion ?? false)
+  }, [prefersReducedMotion])
+
+  if (reducedMotion) {
+    return <div className="mb-6">{children}</div>
+  }
+
+  /* Parameters vary by viewport. Desktop: 3 cards visible, 24px offset.
+   * Mobile: 2 cards visible, 12px offset. */
+  const offset1 = isMobile ? 12 : 24
+  const offset2 = isMobile ? 20 : 48
+
+  const y = useTransform(deckIndex, (v) => {
+    const diff = v - index
+    const dist = Math.abs(diff)
+    if (dist < 0.5) return 0
+    if (dist < 1.5) return offset1
+    if (dist < 2.5) return offset2
+    /* Hidden off-screen — direction determines which side */
+    return diff < 0 ? 600 : -600
+  })
+
+  const scale = useTransform(deckIndex, (v) => {
+    const dist = Math.abs(v - index)
+    if (dist < 0.5) return 1
+    if (dist < 1.5) return 0.9
+    if (dist < 2.5) return 0.81
+    return 0.7
+  })
+
+  const opacity = useTransform(deckIndex, (v) => {
+    const dist = Math.abs(v - index)
+    if (dist < 0.5) return 1
+    if (dist < 1.5) return 1
+    if (dist < 2.5) return 0.8
+    return 0
+  })
+
+  const zIndex = useTransform(deckIndex, (v) => {
+    const dist = Math.abs(v - index)
+    if (dist < 0.5) return total + 5
+    if (dist < 1.5) return total + 3
+    if (dist < 2.5) return total + 1
+    return 0
+  })
+
+  return (
+    <motion.div
+      className="absolute inset-0 flex items-start justify-center pt-[15vh] sm:pt-[20vh] lg:pt-[12vh]"
+      style={{ y, scale, opacity, zIndex, willChange: "transform" }}
+    >
+      <div className="w-full max-w-[940px] px-6">{children}</div>
+    </motion.div>
+  )
+}
+
 /* ── Main component ── */
 export function WorkCardsStack() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const prefersReducedMotion = useReducedMotion() ?? true
+  const prefersReducedMotion = useReducedMotion()
+  const [isMobile, setIsMobile] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    /* Sync reduced-motion preference after hydration to avoid SSR mismatch */
+    setReducedMotion(prefersReducedMotion ?? false)
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [prefersReducedMotion])
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   })
 
-  return (
-    <section
-      id="work"
-      ref={sectionRef}
-      className="px-6 pb-20 relative z-10"
-      style={prefersReducedMotion ? undefined : { perspective: "1000px" }}
-    >
-      <div className="mx-auto w-full max-w-[940px]">
-        {/* Section heading — fades up on scroll into view */}
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={headingVariants}
-          className="text-hero-text text-sm font-semibold uppercase tracking-wider mb-8"
-        >
-          Work
-        </motion.h2>
+  const deckIndex = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, workCards.length - 1],
+  )
 
-        {/* Cards — flex column, staggered scroll-driven transforms */}
-        <div className="flex flex-col gap-10 lg:gap-[88px]">
-          {workCards.map((card, i) => (
-            <StackCardItem
-              key={i}
-              index={i}
-              total={workCards.length}
-              scrollYProgress={scrollYProgress}
-              prefersReducedMotion={prefersReducedMotion}
+  const tallHeight = isMobile ? "400vh" : "500vh"
+
+  /* Reduced motion client fallback: render as column */
+  if (reducedMotion) {
+    return (
+      <>
+        <section className="px-6 pt-20 pb-8 relative z-10">
+          <div className="mx-auto w-full max-w-[940px]">
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={headingVariants}
+              className="text-hero-text text-sm font-semibold uppercase tracking-wider"
             >
-              <CaseStudyCard {...card} />
-            </StackCardItem>
-          ))}
+              Work
+            </motion.h2>
+          </div>
+        </section>
+        <section id="work" className="relative px-6 pb-20">
+          <div className="mx-auto w-full max-w-[940px]">
+            <div className="flex flex-col gap-10 lg:gap-[88px]">
+              {workCards.map((card, i) => (
+                <CaseStudyCard key={i} {...card} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
+
+  return (
+    <>
+      {/* Heading — scrolls away naturally before the stack */}
+      <section className="px-6 pt-20 pb-8 relative z-10">
+        <div className="mx-auto w-full max-w-[940px]">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={headingVariants}
+            className="text-hero-text text-sm font-semibold uppercase tracking-wider"
+          >
+            Work
+          </motion.h2>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Tall scroll section — drives the card deck */}
+      <section
+        id="work"
+        ref={sectionRef}
+        className="relative"
+        style={{ height: tallHeight }}
+      >
+        <div className="sticky top-0 h-screen overflow-hidden">
+          <div className="relative w-full h-full">
+            {workCards.map((card, i) => (
+              <DeckCardItem
+                key={i}
+                index={i}
+                total={workCards.length}
+                deckIndex={deckIndex}
+                isMobile={isMobile}
+              >
+                <CaseStudyCard {...card} />
+              </DeckCardItem>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

@@ -26,7 +26,7 @@ export const sectionRight = ""
 export const sectionFull = ""
 
 // ─── Section header: Playfair Display italic, accent blue ───
-export const sectionHeader = "font-[family-name:var(--font-heading)] italic text-2xl sm:text-3xl lg:text-4xl text-accent tracking-tight leading-[1.1]"
+export const sectionHeader = "font-[family-name:var(--font-heading)] italic text-2xl sm:text-3xl lg:text-4xl text-case-eyebrow tracking-tight leading-[1.1]"
 
 export interface CaseStudyMeta {
   role: string
@@ -115,13 +115,13 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
   ]
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-case-page-bg text-foreground">
 
       {/* ─── SIDE NAV ─── */}
       <nav
         className={`fixed left-0 top-0 bottom-0 w-[15vw] hidden lg:flex flex-col z-30 transition-all duration-300 ${
           navActive
-            ? "border-r border-foreground/[0.06] bg-background"
+            ? "border-r border-hairline bg-background"
             : "border-r border-transparent bg-transparent"
         }`}
       >
@@ -136,8 +136,8 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
                 }}
                 className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-mono uppercase tracking-[0.12em] transition-colors ${
                   navActive
-                    ? "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.04]"
-                    : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.02]"
+                    ? "text-hero-muted hover:text-foreground hover:bg-secondary/80"
+                    : "text-hero-muted hover:text-foreground hover:bg-secondary/50"
                 }`}
               >
                 {label}
@@ -174,7 +174,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className={`${heroWidth} mb-16`}
           >
-            <div className="overflow-hidden rounded-xl ring-1 ring-foreground/[0.06]">
+            <div className="overflow-hidden rounded-xl ring-1 ring-hairline">
               {heroImage}
             </div>
           </motion.div>
@@ -191,19 +191,19 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
             }}
           >
             {/* Meta grid — pill-style tags with accent colors */}
-            <SectionReveal className={`${contentWidth} pt-6 mt-6 border-t border-foreground/[0.08] mb-16`}>
+            <SectionReveal className={`${contentWidth} pt-6 mt-6 border-t border-hairline-strong mb-16`}>
               <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {metaFields.map((m, i) => {
                   const colorSet =
-                    metaTheme === "purple-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "teal-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "cyan-gray" ? { dot: "bg-accent", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    metaTheme === "dark-teal-orange" ? { dot: "bg-highlight", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" } :
-                    { dot: "bg-accent", bg: "bg-foreground/[0.04]", label: "text-foreground", value: "text-foreground" }
+                    metaTheme === "purple-orange" ? { dot: "bg-highlight", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :
+                    metaTheme === "teal-orange" ? { dot: "bg-highlight", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :
+                    metaTheme === "cyan-gray" ? { dot: "bg-accent", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :
+                    metaTheme === "dark-teal-orange" ? { dot: "bg-highlight", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :
+                    { dot: "bg-accent", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" }
                   return (
                     <div
                       key={m.label}
-                      className={`rounded-2xl px-5 py-4 ${colorSet.bg} ring-1 ring-foreground/[0.06]`}
+                      className={`rounded-2xl px-5 py-4 ${colorSet.bg} ring-1 ring-hairline`}
                     >
                       <dt className="flex items-center gap-1.5 mb-1">
                         <span className={`inline-block h-1.5 w-1.5 rounded-full ${colorSet.dot}`} />

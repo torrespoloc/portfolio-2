@@ -190,7 +190,7 @@ export function NavBar() {
                       <div
                         className={`relative w-[176px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
                           isDarkTheme
-                            ? "border-white/10 bg-[#0b0f14]/88"
+                            ? "border-white/10 bg-navy-900/88"
                             : "border-foreground/[0.08] bg-background/92"
                         }`}
                       >

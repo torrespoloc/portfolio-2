@@ -14,7 +14,7 @@ export default function AboutPage() {
                   className="rounded-full p-[8px]"
                   style={{
                     background:
-                      "linear-gradient(135deg, #485bfc, #3b7fff, #a855f7, #ff6b35, #ff8c42, #ccff00, #485bfc)",
+                      "linear-gradient(135deg, var(--accent), var(--brand-accent), var(--case-eyebrow), var(--highlight), var(--accent-2), var(--chartreuse), var(--accent))",
                     backgroundSize: "200% 200%",
                     animation: "gradient-shift 4s ease infinite",
                   }}
@@ -66,19 +66,18 @@ export default function AboutPage() {
             <div
               className="inline-block rounded-[20px] p-5 -rotate-1 hover:rotate-0 transition-transform duration-300 ease-out"
               style={{
-                background: "linear-gradient(135deg, #f0e6ff, #e0d4ff)",
-                boxShadow: "0 4px 20px rgba(100, 80, 200, 0.1)"
+                background: "linear-gradient(135deg, color-mix(in srgb, var(--case-eyebrow) 14%, var(--background)), color-mix(in srgb, var(--case-eyebrow) 8%, var(--background)))",
+                boxShadow: "0 4px 20px color-mix(in srgb, var(--case-eyebrow) 14%, transparent)"
               }}
             >
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#7c6baf] mb-1">
+              <p className="mb-1 text-sm font-semibold uppercase tracking-wider text-case-eyebrow">
                 A speaker I admire:
               </p>
               <a
                 href="https://www.youtube.com/watch?v=4VdO7LuoBzM&ab_channel=TEDxTalks"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-bold underline underline-offset-4 decoration-2 hover:text-accent transition-colors"
-                style={{ color: "#5b4a8a" }}
+                className="text-base font-bold text-case-eyebrow underline underline-offset-4 decoration-2 transition-colors hover:text-accent"
               >
                 My favorite TED talk ↗
               </a>

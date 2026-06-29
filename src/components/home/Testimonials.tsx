@@ -86,7 +86,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       className={`h-11 w-11 rounded-full ${
         light
           ? "bg-white/10 ring-1 ring-white/20"
-          : "bg-muted ring-1 ring-[#4d4d4d]/10 group-hover:bg-white/10 group-hover:ring-white/20"
+          : "bg-muted ring-1 ring-border group-hover:bg-white/10 group-hover:ring-white/20"
       } flex items-center justify-center shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
     >
       <span
@@ -228,7 +228,7 @@ export function Testimonials({ className = "" }: Props) {
                     className={`text-[15px] lg:text-body leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
                       isHighlighted
                         ? "text-white/90"
-                        : "text-hero-text group-hover:text-white/90"
+                        : "text-hero-text-dark group-hover:text-white"
                     }`}
                   >
                     &ldquo;{highlightText(t.quote, t.highlights ?? [], isHighlighted)}&rdquo;
@@ -241,7 +241,7 @@ export function Testimonials({ className = "" }: Props) {
                         className={`text-sm font-medium leading-tight ${
                           isHighlighted
                             ? "text-white"
-                            : "text-hero-text-dark group-hover:text-white"
+                            : "text-foreground group-hover:text-white"
                         } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
                       >
                         {t.name}
@@ -250,7 +250,7 @@ export function Testimonials({ className = "" }: Props) {
                         className={`text-xs leading-tight mt-0.5 ${
                           isHighlighted
                             ? "text-white/60"
-                            : "text-hero-muted group-hover:text-white/60"
+                            : "text-hero-muted group-hover:text-white/70"
                         } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
                       >
                         {t.title}

@@ -106,8 +106,8 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
               onClick={() => setCurrent(i)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 i === current
-                  ? "bg-[rgb(87,126,255)] w-6"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-brand-accent w-6"
+                  : "bg-hairline-strong hover:bg-hero-muted"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

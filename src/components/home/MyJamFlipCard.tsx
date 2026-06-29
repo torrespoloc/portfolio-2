@@ -44,7 +44,7 @@ export function MyJamFlipCard() {
 
   return (
     <div
-      className="w-[calc(100%-24px)] max-w-none md:flex-1 md:min-w-[244px] md:max-w-[424px] cursor-pointer group focus:outline-none"
+      className="md:flex-1 min-w-[284px] md:min-w-[432px] cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent focus:outline-none"
       style={{ WebkitTapHighlightColor: "transparent" }}
       onClick={() => { if (!isDesktop) setIsFlipped((prev) => !prev) }}
       onMouseEnter={() => { if (isDesktop) setIsFlipped(true) }}

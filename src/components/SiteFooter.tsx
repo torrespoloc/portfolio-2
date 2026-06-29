@@ -8,24 +8,24 @@ export function SiteFooter() {
   const isWorkPage = pathname.startsWith("/work/")
 
   return (
-    <footer className={`border-t border-foreground/[0.06] ${isWorkPage ? "lg:ml-[15vw]" : ""}`}>
+    <footer className={`border-t border-hairline ${isWorkPage ? "lg:ml-[15vw]" : ""}`}>
       <div className="mx-auto w-full max-w-[1000px] px-4 py-20">
         {/* Headline */}
         <p
-          className="text-[#4d4d4d] text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-center max-w-[800px] mx-auto"
+          className="mx-auto max-w-[800px] text-center text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-hero-text-dark"
           style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
         >
           Got a 0-to-1 product that needs to ship <span className="text-accent">fast</span>?
         </p>
 
         {/* Reach out row */}
-        <p className="mt-6 text-center text-sm text-hero-muted leading-relaxed">
+        <p className="mt-6 text-center text-sm leading-relaxed text-hero-muted">
           Reach out,{" "}
           <a
             href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground hover:text-accent transition-colors underline underline-offset-2 decoration-foreground/[0.2] hover:decoration-accent"
+            className="text-hero-text-dark underline decoration-hero-muted/30 underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
           >
             LinkedIn
           </a>
@@ -34,7 +34,7 @@ export function SiteFooter() {
             href={LINKS.resume ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground hover:text-accent transition-colors underline underline-offset-2 decoration-foreground/[0.2] hover:decoration-accent"
+            className="text-hero-text-dark underline decoration-hero-muted/30 underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
           >
             See Resume
           </a>

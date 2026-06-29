@@ -196,8 +196,8 @@ export function HeroContent() {
                   </div>
                 </motion.div>
 
-                <motion.div variants={cardUp}>
-                  <div className="self-center md:flex-1 flex flex-col items-center gap-3">
+                <motion.div variants={cardUp} className="md:flex-1 md:min-w-[244px]">
+                  <div className="self-center flex flex-col items-center gap-3">
                     <MyJamFlipCard />
                     <div className="md:hidden">
                       <TypewriterTag />
