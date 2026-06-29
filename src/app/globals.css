@@ -77,7 +77,20 @@
   --color-hero-text: var(--hero-text);
   --color-hero-text-dark: var(--hero-text-dark);
   --color-hero-muted: var(--hero-muted);
+  --color-hero-card: var(--hero-card);
   --color-hero-border: var(--hero-border);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-navy-400: var(--navy-400);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-ink-tertiary: var(--ink-tertiary);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
   --animate-chevron-bounce: chevron-bounce 2.2s ease-in-out infinite;
 }
 
@@ -127,6 +140,7 @@
   --hero-text-dark: #2f2e31;
   --hero-muted: #757575;
   --hero-border: #f5f5f5;
+  --hero-card: #ffffff;
   --accent-2: #B45309;
   --highlight: #C2410C;
   --highlight-foreground: #FFFFFF;
@@ -141,38 +155,39 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --background: #151720;
+  --foreground: #efeff1;
+  --card: #1a1d28;
+  --card-foreground: #efeff1;
+  --popover: #1f2230;
+  --popover-foreground: #efeff1;
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --secondary: #242738;
+  --secondary-foreground: #efeff1;
+  --muted: #1f2230;
+  --muted-foreground: #c8cad4;
   --accent: #6b7fff;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: #23262e;
+  --input: #2f323c;
+  --ring: #3a3d48;
   --burgundy: #8a2e5a;
   --cream: #2a231d;
   --forest: #4a8068;
   --sage: #6b8a79;
   --mint-cream: #1a2a1f;
   --chartreuse: #ccff00;
-  --chartreuse-foreground: #f5f5f5;
+  --chartreuse-foreground: #1a1a1a;
   --brand-blue: rgb(89, 102, 255);
   --brand-accent: rgb(106, 140, 255);
-  --hero-bg: #171717;
-  --hero-text: #c8c8c8;
-  --hero-text-dark: #f0f0f0;
-  --hero-muted: #8a8a8a;
-  --hero-border: #262626;
+  --hero-bg: #151720;
+  --hero-text: #c8cad4;
+  --hero-text-dark: #efeff1;
+  --hero-muted: #a3a3a3;
+  --hero-border: #23262e;
+  --hero-card: #1a1d28;
   --accent-2: #D97706;
   --highlight: #E86A30;
   --highlight-foreground: #1a1a1a;
@@ -181,14 +196,26 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar: #1a1d28;
+  --sidebar-foreground: #efeff1;
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-accent: #1f2230;
+  --sidebar-accent-foreground: #efeff1;
+  --sidebar-border: #23262e;
+  --sidebar-ring: #3a3d48;
+  --navy-900: #151720;
+  --navy-800: #1a1d28;
+  --navy-700: #1f2230;
+  --navy-600: #242738;
+  --navy-500: #292c40;
+  --navy-400: #3a3d48;
+  --ink: #efeff1;
+  --ink-muted: #c8cad4;
+  --ink-subtle: #838699;
+  --ink-tertiary: #5c5f72;
+  --hairline: #23262e;
+  --hairline-strong: #2f323c;
 }
 
 @layer base {
@@ -207,6 +234,14 @@
   * {
     cursor: none !important;
   }
+}
+
+/* Page-level accent overrides that need dark mode variants */
+.accent-xy {
+  --accent: #3B3066;
+}
+.dark .accent-xy {
+  --accent: #8b7fc4;
 }
 
 /* Scroll offset for fixed navbar (48px) */
@@ -296,6 +331,35 @@ section[id] {
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* Grayscale logos by default (light mode), light gray + grayscale in dark mode */
+.marquee-track img {
+  filter: grayscale(1);
+  transition: filter 300ms, opacity 300ms;
+}
+.marquee-track img:hover {
+  filter: grayscale(0);
+}
+.dark .marquee-track img {
+  filter: brightness(0) invert(0.78) grayscale(1);
+}
+.dark .marquee-track img:hover {
+  filter: brightness(0) invert(0.78) grayscale(0);
+}
+
+/* Case study card "Built for" logos — light gray grayscale in dark mode */
+.dark .built-for-logo {
+  filter: brightness(0) invert(0.78) grayscale(1);
+}
+.dark .built-for-logo:hover {
+  filter: brightness(0) invert(0.78);
+  opacity: 0.8;
+}
+
+/* Hero card tool logos — grayscale in dark mode (exclude claude-code, figma, the-ux-chats-logo) */
+.dark img[src*="/logos/"]:not(.built-for-logo):not([src*="claude-code"]):not([src*="figma"]):not([src*="the-ux-chats"]) {
+  filter: brightness(0) invert(0.78) grayscale(1);
 }
 
 .mask-fade-x {

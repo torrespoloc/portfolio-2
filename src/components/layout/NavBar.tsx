@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ExternalLink, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LINKS, SITE, WORK_CASE_STUDIES } from "@/lib/constants"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 export function NavBar() {
   const pathname = usePathname()
@@ -18,6 +19,7 @@ export function NavBar() {
   const [isWorkSectionVisible, setIsWorkSectionVisible] = useState(false)
   const [isWorkMenuOpen, setIsWorkMenuOpen] = useState(false)
   const [mobileWorkExpanded, setMobileWorkExpanded] = useState(true)
+  const [isDarkTheme, setDarkTheme] = useState(true)
   const workMenuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -57,8 +59,19 @@ export function NavBar() {
     return () => observer.disconnect()
   }, [isHome, pathname])
 
+  // Theme reactivity via custom event
+  useEffect(() => {
+    const initial = document.documentElement.classList.contains("dark") ? "dark" : "light"
+    setDarkTheme(initial === "dark")
+    const handler = (e: Event) => {
+      setDarkTheme((e as CustomEvent<"dark" | "light">).detail === "dark")
+    }
+    window.addEventListener("themechange", handler)
+    return () => window.removeEventListener("themechange", handler)
+  }, [])
+
   const isMobile = viewportWidth !== null && viewportWidth < 768
-  const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true // lg breakpoint
+  const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true
   const tightScreen = viewportWidth !== null && viewportWidth < 1024
   const isScrolled = scrolled || (!isHome && !isMobile)
   const mobileResting = isMobile && !isScrolled
@@ -71,6 +84,24 @@ export function NavBar() {
     : "calc(100vw - 88px)"
   const navWidth = tightScreen ? defaultWidth : (isScrolled ? expandedWidth : defaultWidth)
   const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
+
+  // Theme-aware glass colors for the nav background
+  const isNavGlassed = !mobileResting && (tightScreen || isScrolled)
+  const navBgColor = isNavGlassed
+    ? isDarkTheme
+      ? (tightScreen ? "rgba(0,0,0,0.75)" : "rgba(0,0,0,0.55)")
+      : (tightScreen ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.85)")
+    : "rgba(255,255,255,0)"
+  const navShadow = isNavGlassed
+    ? (isDarkTheme
+      ? "0 8px 32px rgba(0,0,0,0.3)"
+      : tightScreen
+        ? "0 2px 12px rgba(0,0,0,0.06)"
+        : "0 8px 32px rgba(0,0,0,0.1)")
+    : "0 0 0 rgba(0,0,0,0)"
+  const navBorder = isNavGlassed
+    ? (isDarkTheme ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)")
+    : "rgba(0,0,0,0)"
 
   return (
     <>
@@ -86,9 +117,9 @@ export function NavBar() {
           paddingRight: tightScreen ? (mobileResting ? 24 : 16) : isScrolled ? 16 : 24,
           paddingTop: 8,
           paddingBottom: 8,
-          backgroundColor: mobileResting ? "rgba(255,255,255,0)" : tightScreen ? "rgba(255,255,255,0.75)" : useDarkStyle ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0)",
-          boxShadow: mobileResting ? "0 0 0 rgba(0,0,0,0)" : tightScreen ? "0 2px 12px rgba(0,0,0,0.06)" : useDarkStyle ? "0 8px 32px rgba(0,0,0,0.1)" : "0 0 0 rgba(0,0,0,0)",
-          borderColor: mobileResting ? "rgba(0,0,0,0)" : tightScreen ? "rgba(0,0,0,0.08)" : useDarkStyle ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0)",
+          backgroundColor: navBgColor,
+          boxShadow: navShadow,
+          borderColor: navBorder,
         }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="pointer-events-auto fixed top-0 z-40 flex items-center justify-between overflow-visible backdrop-blur-xl border"
@@ -101,19 +132,11 @@ export function NavBar() {
               <img src="/logo.svg" alt="JT" className="h-full w-full" />
             </span>
             <div className="block leading-tight">
-              <p
-                className={`text-sm font-semibold transition-colors duration-300 ease-out ${
-                  useDarkStyle ? "text-white" : "text-foreground"
-                }`}
-              >
+              <p className="text-sm font-semibold text-foreground transition-colors duration-300 ease-out">
                 {SITE.name}
               </p>
-              <p
-                className={`text-subtitle sm:text-base transition-colors duration-300 ease-out ${
-                  useDarkStyle ? "text-white/50" : "text-muted-foreground"
-                }`}
-              >
-                Senior Product Designer
+              <p className="text-subtitle sm:text-base text-muted-foreground transition-colors duration-300 ease-out">
+                 AI Product Designer
               </p>
             </div>
           </Link>
@@ -122,7 +145,7 @@ export function NavBar() {
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
               className={`flex items-center gap-1 rounded-full border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
-                useDarkStyle
+                isDarkTheme
                   ? "border-white/10 bg-white/[0.06]"
                   : "border-foreground/[0.08] bg-background/75"
               }`}
@@ -142,7 +165,7 @@ export function NavBar() {
                 <Link
                   href={isHome ? "#work" : "/#work"}
                   className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
-                    useDarkStyle
+                    isDarkTheme
                       ? "text-white/60 hover:bg-white/10 hover:text-white"
                       : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
                   }`}
@@ -166,7 +189,7 @@ export function NavBar() {
                     >
                       <div
                         className={`relative w-[176px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
-                          useDarkStyle
+                          isDarkTheme
                             ? "border-white/10 bg-[#0b0f14]/88"
                             : "border-foreground/[0.08] bg-background/92"
                         }`}
@@ -181,7 +204,7 @@ export function NavBar() {
                               key={study.href}
                               href={study.href}
                               className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
-                                useDarkStyle
+                                isDarkTheme
                                   ? "text-white/78 hover:text-white"
                                   : "text-foreground/78 hover:text-foreground"
                               }`}
@@ -195,7 +218,8 @@ export function NavBar() {
                                     src={study.logo}
                                     alt=""
                                     aria-hidden="true"
-                                    className="h-full w-full object-contain p-1"
+                                    className="dropdown-logo h-full w-full object-contain p-1"
+                                    style={{ filter: "none" }}
                                   />
                                 ) : (
                                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
@@ -217,7 +241,7 @@ export function NavBar() {
               <Link
                 href="/about"
                 className={`rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
-                  useDarkStyle
+                  isDarkTheme
                     ? "text-white/60 hover:bg-white/10 hover:text-white"
                     : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
                 }`}
@@ -229,11 +253,14 @@ export function NavBar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2 shrink-0">
+            {/* Theme toggle */}
+            <ThemeToggle />
+
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
               className={`md:hidden p-2 rounded-md transition-colors duration-300 ease-out ${
-                useDarkStyle
+                isDarkTheme
                   ? "text-white/60 hover:text-white"
                   : "text-muted-foreground hover:text-foreground"
               }`}
@@ -249,7 +276,7 @@ export function NavBar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
-                  isScrolled
+                  isScrolled && isDarkTheme
                     ? "text-white/70 hover:text-white hover:bg-white/10"
                     : "text-foreground/80 hover:text-foreground"
                 }`}
@@ -280,7 +307,8 @@ export function NavBar() {
               transition={{ type: "spring", stiffness: 320, damping: 36 }}
               className="fixed top-0 right-0 bottom-0 w-[256px] bg-background z-50 shadow-2xl flex flex-col"
             >
-              <div className="flex items-center justify-end p-4">
+              <div className="flex items-center justify-between p-4">
+                <ThemeToggle />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-2 text-muted-foreground hover:text-foreground rounded-md"
@@ -327,7 +355,8 @@ export function NavBar() {
                                       src={study.logo}
                                       alt=""
                                       aria-hidden="true"
-                                      className="h-full w-full object-contain p-1"
+                                      className="dropdown-logo h-full w-full object-contain p-1"
+                                    style={{ filter: "none" }}
                                     />
                                   ) : (
                                     <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">

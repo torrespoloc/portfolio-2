@@ -35,7 +35,7 @@ export function TrustedBy({ className = "" }: Props) {
       <motion.p
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs font-semibold uppercase tracking-[0.2em] text-[#757575] mb-14 text-center"
+        className="text-xs font-semibold uppercase tracking-[0.2em] text-hero-muted mb-14 text-center"
       >
         Trusted By
       </motion.p>
@@ -47,7 +47,7 @@ export function TrustedBy({ className = "" }: Props) {
               key={`${src}-${i}`}
               src={src}
               alt=""
-              className="h-8 sm:h-10 w-auto object-contain shrink-0 opacity-50 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+              className="h-8 sm:h-10 w-auto object-contain shrink-0 opacity-50 hover:opacity-80 transition-all duration-300"
             />
           ))}
         </div>

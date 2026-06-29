@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/layout/NavBar";
@@ -19,26 +19,21 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 const siteUrl = "https://www.jackelinetorres.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Jackeline Torres - Senior Product Designer",
+  title: "Jackeline Torres -  AI Product Designer",
   description:
-    "Senior Product Designer crafting apps and systems that users love.",
+    " AI Product Designer crafting apps and systems that users love.",
   icons: {
     icon: "/logo.svg",
   },
   openGraph: {
-    title: "Jackeline Torres - Senior Product Designer",
+    title: "Jackeline Torres -  AI Product Designer",
     description:
-      "Senior Product Designer crafting apps and systems that users love.",
+      " AI Product Designer crafting apps and systems that users love.",
     url: siteUrl,
     siteName: "Jackeline Torres",
     images: [
@@ -46,7 +41,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 800,
-        alt: "Jackeline Torres - Senior Product Designer",
+        alt: "Jackeline Torres -  AI Product Designer",
       },
     ],
     locale: "en_US",
@@ -54,13 +49,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackeline Torres - Senior Product Designer",
+    title: "Jackeline Torres -  AI Product Designer",
     description:
-      "Senior Product Designer crafting apps and systems that users love.",
+      " AI Product Designer crafting apps and systems that users love.",
     images: [`${siteUrl}/og-image.png`],
   },
   other: {
-    "color-scheme": "light",
+    "color-scheme": "dark",
   },
 };
 
@@ -73,17 +68,22 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased", dmSans.variable, playfair.variable, jetbrainsMono.variable, "font-sans", "light")}
+      className={cn("h-full", "antialiased", dmSans.variable, playfair.variable, "font-sans")}
     >
       <body className="min-h-screen flex flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("dark")}})()`,
+          }}
+        />
         <CustomCursor />
-        <header className="relative z-50 bg-transparent">
-          <NavBar />
-        </header>
-        <main className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+          <header className="relative z-50 bg-transparent">
+            <NavBar />
+          </header>
+          <main className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
       </body>
     </html>
   );

@@ -2,9 +2,9 @@
 
 ## Meta
 
-- Role: Product Designer
+- Role: AI Product Designer
 - Duration: May-Nov 2025
-- Team: VPP, Design Lead, Senior Designer, dev team 3 continents
+- Team: VPP, Design Lead,  Designer, dev team 3 continents
 - Tools: Figma, V0 by Vercel, ChatGPT, Perplexity, Loom
 - Tags: Healthtech, Mobile
 

@@ -173,7 +173,7 @@ export function CaseStudyCard({
               <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
                 Built for
               </span>
-              <img src={builtForLogo} alt="" className="h-5 sm:h-6 w-auto max-w-[80px] object-contain object-center" />
+              <img src={builtForLogo} alt="" className="built-for-logo h-5 sm:h-6 w-auto max-w-[80px] object-contain object-center" />
             </div>
           )}
         </div>

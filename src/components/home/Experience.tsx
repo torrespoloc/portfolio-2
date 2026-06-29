@@ -1,21 +1,21 @@
 const experience = [
   {
     period: "NOV '25 - APRIL 2026",
-    role: "Product Designer",
+    role: "AI Product Designer",
     company: "XY.AI Labs",
     description:
       "Agentifying XY's SaaS platform with a fully AI chat-driven experience for self-serve and daily use.",
   },
   {
     period: "MAY - NOV, 2025",
-    role: "Product Designer",
+    role: "AI Product Designer",
     company: "Waldo",
     description:
       "Co-led design of dual-platform healthcare app (staff + patient), supporting e-commerce and prescription management.",
   },
   {
     period: "JUN - SEP, 2026",
-    role: "Product Designer",
+    role: "AI Product Designer",
     company: "Reail",
     description:
       "Designed desktop-first MVP UX for landlord risk AI tool and investor-facing marketing site.",

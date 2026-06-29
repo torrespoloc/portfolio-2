@@ -29,9 +29,9 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer",
+  role: "AI Product Designer",
   duration: "May–Nov 2025",
-  team: "VPP, Design Lead, Senior Designer, dev team 3 continents",
+  team: "VPP, Design Lead,  Designer, dev team 3 continents",
   tools: (
     <div className="flex flex-wrap items-center gap-1.5">
       {["Figma", "V0 by Vercel", "ChatGPT", "Perplexity", "Loom"].map((tool) => {

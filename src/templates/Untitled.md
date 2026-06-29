@@ -28,7 +28,7 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer (placeholder)",
+  role: "AI Product Designer (placeholder)",
   industry: "Placeholder · token-saver",
   duration: "Lorem ipsum",
   team: "Designer + 3 Engineers",

@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Role: Product Designer + Builder
+- Role: AI Product Designer + Builder
 - Duration: Concept -> v1.0 · April 2026
 - Team: Self-managed, designed, and shipped
 - Tools: SwiftUI, Claude, Claude Code, Figma, Cursor, GitHub

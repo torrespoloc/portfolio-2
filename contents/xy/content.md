@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Role: Product Designer
+- Role: AI Product Designer
 - Duration: 4 months
 - Team: CPO, CEO, 4 Engineers
 - Tools: GitHub, Cursor, Claude Code, Claude, Figma

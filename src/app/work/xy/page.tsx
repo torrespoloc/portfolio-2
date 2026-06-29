@@ -23,7 +23,7 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer",
+  role: "AI Product Designer",
   duration: "4 months",
   team: "CPO, CEO, 4 Engineers",
   tools: (
@@ -119,7 +119,7 @@ export default function XYCaseStudy() {
     >
 
       {/* Purple + orange accent override for this project */}
-      <div className="[--accent:#3B3066]">
+      <div className="accent-xy">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY XY NEEDED A SELF-SERVE AI EXPERIENCE

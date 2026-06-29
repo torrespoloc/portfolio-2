@@ -20,7 +20,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "The best product designers share one quality: their work feels inevitable. You use it and think — of course it works this way. Jacki designs like that.",
+      "The best AI Product Designers share one quality: their work feels inevitable. You use it and think — of course it works this way. Jacki designs like that.",
     name: "Christopher Miller",
     title: "Enterprise UX · Design Career Coach",
     image: "/headshots/miller.png",
@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Jacki is an ambitious talent — always willing to learn, solve tough problems, and deliver strong results. I'd work with her again in a heartbeat.",
     name: "Jonathan Brink",
-    title: "Senior UX Manager at IBM",
+    title: " UX Manager at IBM",
     image: "/headshots/brink.png",
     highlights: ["ambitious talent"],
   },
@@ -75,7 +75,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
         width={44}
         height={44}
         className={`h-11 w-11 rounded-full object-cover ${
-          light ? "ring-2 ring-white/20" : "ring-2 ring-[#f5f5f5] group-hover:ring-white/20"
+          light ? "ring-2 ring-white/20" : "ring-2 ring-hero-border group-hover:ring-white/20"
         } shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
       />
     );
@@ -86,14 +86,14 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       className={`h-11 w-11 rounded-full ${
         light
           ? "bg-white/10 ring-1 ring-white/20"
-          : "bg-[#f5f5f5] ring-1 ring-[#4d4d4d]/10 group-hover:bg-white/10 group-hover:ring-white/20"
+          : "bg-muted ring-1 ring-[#4d4d4d]/10 group-hover:bg-white/10 group-hover:ring-white/20"
       } flex items-center justify-center shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
     >
       <span
         className={`text-[14px] font-semibold ${
           light
             ? "text-white/60"
-            : "text-[#757575]/60 group-hover:text-white/60"
+            : "text-hero-muted/60 group-hover:text-white/60"
         } tracking-wide transition-colors duration-500 ease-[0.22,1,0.36,1]`}
       >
         {initials}
@@ -117,7 +117,7 @@ function highlightText(text: string, highlights: string[], dark = false): React.
           className={`font-semibold transition-colors duration-500 ease-[0.22,1,0.36,1] ${
             dark
               ? "text-chartreuse"
-              : "text-[rgb(87,126,255)] group-hover:text-chartreuse"
+              : "text-brand-accent group-hover:text-chartreuse"
           }`}
         >
           {part}
@@ -150,7 +150,7 @@ export function Testimonials({ className = "" }: Props) {
       <motion.p
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs lg:text-sm font-semibold uppercase tracking-[0.2em] text-[#757575] mb-14 text-center"
+        className="text-xs lg:text-sm font-semibold uppercase tracking-[0.2em] text-hero-muted mb-14 text-center"
       >
         Testimonials
       </motion.p>
@@ -186,7 +186,7 @@ export function Testimonials({ className = "" }: Props) {
                   ${
                     isHighlighted
                       ? "bg-burgundy z-10 shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
-                      : "bg-white ring-1 ring-[#4d4d4d]/10 hover:bg-burgundy hover:ring-transparent shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+                      : "bg-card ring-1 ring-border hover:bg-burgundy hover:ring-transparent shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
                   }
                   hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)]
                   ${
@@ -228,7 +228,7 @@ export function Testimonials({ className = "" }: Props) {
                     className={`text-[15px] lg:text-body leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
                       isHighlighted
                         ? "text-white/90"
-                        : "text-[#4d4d4d] group-hover:text-white/90"
+                        : "text-hero-text group-hover:text-white/90"
                     }`}
                   >
                     &ldquo;{highlightText(t.quote, t.highlights ?? [], isHighlighted)}&rdquo;
@@ -241,7 +241,7 @@ export function Testimonials({ className = "" }: Props) {
                         className={`text-sm font-medium leading-tight ${
                           isHighlighted
                             ? "text-white"
-                            : "text-[#2f2e31] group-hover:text-white"
+                            : "text-hero-text-dark group-hover:text-white"
                         } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
                       >
                         {t.name}
@@ -250,7 +250,7 @@ export function Testimonials({ className = "" }: Props) {
                         className={`text-xs leading-tight mt-0.5 ${
                           isHighlighted
                             ? "text-white/60"
-                            : "text-[#757575] group-hover:text-white/60"
+                            : "text-hero-muted group-hover:text-white/60"
                         } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
                       >
                         {t.title}

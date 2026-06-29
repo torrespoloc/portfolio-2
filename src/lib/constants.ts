@@ -12,7 +12,7 @@ export const LINKS = {
 
 export const SITE = {
   name: "Jacki Torres",
-  title: "Product Designer",
+  title: "AI Product Designer",
   tagline: "Designer who ships code, not mockups.",
   description:
     "I design and build across health tech, fintech, and AI — from 0 to 1 and beyond. I care about systems, accessibility, and code that makes it to production.",

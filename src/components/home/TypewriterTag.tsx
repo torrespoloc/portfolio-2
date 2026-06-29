@@ -37,30 +37,30 @@ export function TypewriterTag() {
 
   return (
     <span className="inline-flex items-center gap-2 px-3 py-1.5
-                    bg-chartreuse text-hero-text-dark
+                    bg-chartreuse text-chartreuse-foreground
                     font-mono text-[14px] md:text-[16px] md:font-bold leading-tight select-none
                     rounded-md whitespace-nowrap">
       {/* Status dot — pulsing when typing, steady when done */}
       <span className="relative w-2 h-2 shrink-0">
         <span
-          className="absolute inset-0 rounded-full bg-hero-text-dark"
+          className="absolute inset-0 rounded-full bg-chartreuse-foreground"
           style={{
             opacity: typing ? 0.25 : 0.12,
             animation: typing ? "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite" : "none",
           }}
         />
-        <span className="absolute inset-0.5 rounded-full bg-hero-text-dark" />
+        <span className="absolute inset-0.5 rounded-full bg-chartreuse-foreground" />
       </span>
 
       {/* Prompt prefix */}
-      <span className="text-hero-text-dark/40 font-medium">{PROMPT}</span>
+      <span className="text-chartreuse-foreground/40 font-medium">{PROMPT}</span>
 
       {/* Command text — types out char by char */}
       <span className="tabular-nums">{COMMAND.slice(0, chars)}</span>
 
       {/* Blinking block cursor */}
       <span
-        className="inline-block w-[2px] h-[1.1em] bg-hero-text-dark shrink-0 ml-px"
+        className="inline-block w-[2px] h-[1.1em] bg-chartreuse-foreground shrink-0 ml-px"
         style={{
           opacity: cursorOn ? 1 : 0,
           transition: typing ? "none" : "opacity 0.08s",

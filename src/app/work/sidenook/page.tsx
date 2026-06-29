@@ -33,7 +33,7 @@ const fadeUp = {
 }
 
 const meta = {
-  role: "Product Designer + Builder",
+  role: "AI Product Designer + Builder",
   duration: "Concept → v1.0 · April 2026",
   team: "Self-managed, designed, and shipped",
   tools: (

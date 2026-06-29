@@ -59,7 +59,7 @@ export function MyJamFlipCard() {
         }
       }}
     >
-      <div className="animate-fade-in-up rotate-[2deg] relative" style={{ perspective: "1200px" }}>
+      <div className="rotate-[2deg] relative" style={{ perspective: "1200px" }}>
         {/* Glow behind the card on hover */}
         <div
           className="absolute -inset-2 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
@@ -116,7 +116,7 @@ export function MyJamFlipCard() {
 
           {/* Back face — burgundy with green accents */}
           <div
-            className="[grid-area:1/1] p-5 md:p-6 flex flex-col overflow-hidden rounded-[20px]"
+            className="absolute inset-0 p-5 md:p-6 flex flex-col overflow-hidden rounded-[20px]"
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
