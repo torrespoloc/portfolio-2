@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/og-image.png`],
   },
   other: {
-    "color-scheme": "dark",
+    "color-scheme": "light",
   },
 };
 
@@ -73,7 +73,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("dark")}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("dark")}})()`,
           }}
         />
         <CustomCursor />
