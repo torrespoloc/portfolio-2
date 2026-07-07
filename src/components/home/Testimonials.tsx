@@ -151,7 +151,7 @@ export function Testimonials({ className = "" }: Props) {
           Testimonials
         </p>
         <h2 className="mt-3 max-w-[560px] text-[28px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[36px]">
-          Let one endorsement lead. Let the others back it up.
+          Community &amp; relationships matter. Endorsements are proof of that.
         </h2>
       </motion.div>
 

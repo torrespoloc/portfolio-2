@@ -43,7 +43,7 @@ export function TrustedBy({ className = "" }: Props) {
               I&apos;m grateful for their trust
             </p>
             <h2 className="mt-3 text-[24px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[30px]">
-              Community &amp; relationships matter. Endorsements are proof of that.
+              I&apos;ve found ways to bump up my UX journey. The Start-up way.
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-hero-muted sm:text-body-sm">
               A mix of healthtech, fintech, AI tooling, and founder-led products where the work had to ship.
