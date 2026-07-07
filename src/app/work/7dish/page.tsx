@@ -16,6 +16,7 @@ import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
   sectionGrid,
+  sectionHeader,
   sectionLeft,
   sectionRight,
   sectionFull,
@@ -40,9 +41,6 @@ const meta = {
     </div>
   ),
 }
-
-const sectionHeader =
-  "font-[family-name:var(--font-heading)] italic text-3xl sm:text-4xl lg:text-5xl text-case-eyebrow tracking-tight leading-[1.1]"
 
 export default function SevenDishCaseStudy() {
   return (

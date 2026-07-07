@@ -1,0 +1,171 @@
+/* ─── Palette V2 — saved 2026-07-01 ───
+   Core accent colors: teal, orange, pink, deep red.
+   Light mode: accessible dark teal (#0A7385). Dark mode: navy-based backgrounds.
+   Chartreuse replaced with pink/ lavender (#FFB0FA).
+   Active palette lives in src/app/globals.css
+*/
+
+:root {
+  /* ── Neutrals ── */
+  --background: #FFFCF9;
+  --foreground: #242424;
+  --card: #FFFFFF;
+  --card-foreground: #242424;
+  --popover: #FFFFFF;
+  --popover-foreground: #242424;
+  --primary: #242424;
+  --primary-foreground: #FFFCF9;
+  --secondary: #f5f0eb;
+  --secondary-foreground: #242424;
+  --muted: #f5f0eb;
+  --muted-foreground: #5c5c5c;
+  --border: #e5e0db;
+  --input: #e5e0db;
+  --ring: #d0cbc6;
+
+  /* ── Accents ── */
+  --accent: #0A7385;
+  --accent-foreground: #FFFFFF;
+  --accent-2: #FF9A5F;
+  --accent-teal: #0A7385;
+  --accent-teal-light: #0D879B;
+  --accent-amber: #FF9A5F;
+  --accent-lavender: #FFB0FA;
+  --highlight: #7E0000;
+  --highlight-foreground: #FFFFFF;
+  --brand-blue: #0A7385;
+  --brand-accent: #0A7385;
+
+  /* ── Semantic ── */
+  --destructive: #7E0000;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+
+  /* ── Themed values ── */
+  --burgundy: #7E0000;
+  --cream: #FFFCF9;
+  --forest: #1a4a3f;
+  --sage: #6b8a79;
+  --mint-cream: #f0faf0;
+  --chartreuse: #FFB0FA;
+  --chartreuse-foreground: #242424;
+  --hero-bg: #FFFCF9;
+  --hero-text: #5c5c5c;
+  --hero-text-dark: #242424;
+  --hero-muted: #8a8a8a;
+  --hero-border: #e5e0db;
+  --hero-card: #FFFFFF;
+  --case-highlight: #0A7385;
+  --case-eyebrow: #0A7385;
+  --case-page-bg: #FFFCF9;
+  --ink: #242424;
+  --ink-muted: #5c5c5c;
+  --ink-subtle: #8a8a8a;
+  --ink-tertiary: #b0b0b0;
+  --hairline: #e5e0db;
+  --hairline-strong: #d0cbc6;
+
+  /* ── Navy scale ── */
+  --navy-900: #1a1a2e;
+  --navy-800: #1f1f35;
+  --navy-700: #2a2a40;
+  --navy-600: #3a3a50;
+  --navy-500: #5a5a70;
+  --navy-400: #7a7a90;
+
+  /* ── Sidebar ── */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  /* ── Neutrals (navy-based) ── */
+  --background: #151720;
+  --foreground: #efeff1;
+  --card: #1a1d28;
+  --card-foreground: #efeff1;
+  --popover: #1f2230;
+  --popover-foreground: #efeff1;
+  --primary: #efeff1;
+  --primary-foreground: #151720;
+  --secondary: #1f2230;
+  --secondary-foreground: #efeff1;
+  --muted: #1f2230;
+  --muted-foreground: #c8cad4;
+  --border: #313543;
+  --input: #3a3f4f;
+  --ring: #555c71;
+
+  /* ── Accents (same palette, functional on navy) ── */
+  --accent: #19AFC4;
+  --accent-foreground: #FFFFFF;
+  --accent-2: #FF9A5F;
+  --accent-teal: #19AFC4;
+  --accent-teal-light: #35B7C9;
+  --accent-amber: #FF9A5F;
+  --accent-lavender: #FFB0FA;
+  --highlight: #CC4444;
+  --highlight-foreground: #FFFFFF;
+  --brand-blue: #19AFC4;
+  --brand-accent: #19AFC4;
+
+  /* ── Semantic ── */
+  --destructive: #CC4444;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+
+  /* ── Themed values ── */
+  --burgundy: #8a2e5a;
+  --cream: #1a1d28;
+  --forest: #2a5a4f;
+  --sage: #5a7a69;
+  --mint-cream: #1a2a1f;
+  --chartreuse: #FFB0FA;
+  --chartreuse-foreground: #151720;
+  --hero-bg: #151720;
+  --hero-text: #c8cad4;
+  --hero-text-dark: #efeff1;
+  --hero-muted: #a3a3a3;
+  --hero-border: #2d3140;
+  --hero-card: #1a1d28;
+  --case-highlight: #19AFC4;
+  --case-eyebrow: #19AFC4;
+  --case-page-bg: #151720;
+  --ink: #efeff1;
+  --ink-muted: #c8cad4;
+  --ink-subtle: #838699;
+  --ink-tertiary: #5c5f72;
+  --hairline: #2d3140;
+  --hairline-strong: #3a3f4f;
+
+  /* ── Navy scale ── */
+  --navy-900: #151720;
+  --navy-800: #1a1d28;
+  --navy-700: #1f2230;
+  --navy-600: #242738;
+  --navy-500: #292c40;
+  --navy-400: #3a3d48;
+
+  /* ── Sidebar ── */
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}

@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Jacki is an ambitious talent — always willing to learn, solve tough problems, and deliver strong results. I'd work with her again in a heartbeat.",
     name: "Jonathan Brink",
-    title: " UX Manager at IBM",
+    title: "UX Manager at IBM",
     image: "/headshots/brink.png",
     highlights: ["ambitious talent"],
   },
@@ -72,30 +72,22 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       <Image
         src={image}
         alt={name}
-        width={44}
-        height={44}
-        className={`h-11 w-11 rounded-full object-cover ${
-          light ? "ring-2 ring-white/20" : "ring-2 ring-hero-border group-hover:ring-white/20"
-        } shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
+        width={48}
+        height={48}
+        className={`h-12 w-12 rounded-full object-cover ${
+          light ? "ring-2 ring-white/15" : "ring-2 ring-black/5"
+        } shrink-0`}
       />
     );
   }
 
   return (
     <div
-      className={`h-11 w-11 rounded-full ${
-        light
-          ? "bg-white/10 ring-1 ring-white/20"
-          : "bg-muted ring-1 ring-border group-hover:bg-white/10 group-hover:ring-white/20"
-      } flex items-center justify-center shrink-0 transition-all duration-500 ease-[0.22,1,0.36,1]`}
+      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
+        light ? "bg-white/10 ring-1 ring-white/20" : "bg-muted ring-1 ring-black/5"
+      }`}
     >
-      <span
-        className={`text-[14px] font-semibold ${
-          light
-            ? "text-white/60"
-            : "text-hero-muted/60 group-hover:text-white/60"
-        } tracking-wide transition-colors duration-500 ease-[0.22,1,0.36,1]`}
-      >
+      <span className={`text-[14px] font-semibold ${light ? "text-white/70" : "text-hero-muted"}`}>
         {initials}
       </span>
     </div>
@@ -114,11 +106,7 @@ function highlightText(text: string, highlights: string[], dark = false): React.
       return (
         <span
           key={i}
-          className={`font-semibold transition-colors duration-500 ease-[0.22,1,0.36,1] ${
-            dark
-              ? "text-chartreuse"
-              : "text-brand-accent group-hover:text-chartreuse"
-          }`}
+          className={`font-semibold ${dark ? "text-chartreuse" : "text-brand-accent"}`}
         >
           {part}
         </span>
@@ -132,10 +120,17 @@ type Props = {
   className?: string;
 };
 
-const rotations = [-0.5, 0.8, -0.6, 0.4, -0.4];
-const yOffsets = [0, -10, 6, -6, 3];
+const leftRotations = ["rotate-[-1deg]", "rotate-[1.5deg]"];
+const rightRotations = ["rotate-[1deg]", "rotate-[-1.5deg]"];
 
 export function Testimonials({ className = "" }: Props) {
+  const featured = testimonials.find((testimonial) => testimonial.featured);
+  const supporting = testimonials.filter((testimonial) => !testimonial.featured);
+  const leftColumn = supporting.slice(0, 2);
+  const rightColumn = supporting.slice(2);
+
+  if (!featured) return null;
+
   return (
     <motion.section
       initial="hidden"
@@ -143,125 +138,110 @@ export function Testimonials({ className = "" }: Props) {
       viewport={{ once: true, amount: 0.15 }}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+        show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
       }}
       className={className}
     >
-      <motion.p
+      <motion.div
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs lg:text-sm font-semibold uppercase tracking-[0.2em] text-hero-muted mb-14 text-center"
+        className="mb-10 flex flex-col items-center text-center"
       >
-        Testimonials
-      </motion.p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-hero-muted">
+          Testimonials
+        </p>
+        <h2 className="mt-3 max-w-[560px] text-[28px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[36px]">
+          Let one endorsement lead. Let the others back it up.
+        </h2>
+      </motion.div>
 
-      <div className="overflow-x-auto pb-8 -mx-6 px-6 md:overflow-visible md:mx-0 md:px-0">
-        <div className="flex items-stretch justify-center min-w-max md:min-w-0 p-6">
-          {testimonials.map((t, i) => {
-            const isMiller = i === 0;
-            const isHighlighted = t.featured;
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)]">
+        <div className="grid gap-4">
+          <motion.article
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex h-full rotate-[-1deg] flex-col overflow-hidden rounded-[28px] bg-burgundy p-7 text-white shadow-[0_24px_80px_rgba(48,18,36,0.18)] transition-transform duration-300 hover:rotate-0 sm:p-8"
+          >
+            <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/40 to-transparent" />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -left-1 top-0 text-[7rem] font-heading italic leading-none text-chartreuse/10"
+            >
+              &ldquo;
+            </span>
 
-            return (
-              <motion.div
-                key={t.name}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: {
-                    opacity: 1,
-                    y: yOffsets[i],
-                    rotate: rotations[i],
-                    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
-                whileHover={{
-                  rotate: 0,
-                  y: -8,
-                  scale: 1.03,
-                  transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-                }}
-                className={`relative w-[250px] flex-shrink-0 flex flex-col ${
-                  i > 0 ? "-ml-12" : ""
-                }
-                  rounded-xl p-6 origin-center group
-                  ${
-                    isHighlighted
-                      ? "bg-burgundy z-10 shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
-                      : "bg-card ring-1 ring-border hover:bg-burgundy hover:ring-transparent shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
-                  }
-                  hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)]
-                  ${
-                    isHighlighted ? "" : "hover:z-10"
-                  }
-                  transition-[background-color,box-shadow,color] duration-500 ease-[0.22,1,0.36,1]
-                `}
+            <div className="relative z-10 flex h-full flex-1 flex-col">
+              <div className="mb-6 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-chartreuse" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-chartreuse/80">
+                  Featured Quote
+                </span>
+              </div>
+
+              <p className="max-w-[40ch] flex-1 text-body sm:text-[1.375rem] leading-[1.6] text-white/92">
+                &ldquo;{highlightText(featured.quote, featured.highlights ?? [], true)}&rdquo;
+              </p>
+
+              <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-5">
+                <Avatar name={featured.name} image={featured.image} light />
+                <div>
+                  <p className="text-body-sm font-medium text-white">{featured.name}</p>
+                  <p className="mt-0.5 text-sm text-white/65">{featured.title}</p>
+                </div>
+              </div>
+            </div>
+          </motion.article>
+
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.04 }}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {leftColumn.map((testimonial, index) => (
+              <article
+                key={testimonial.name}
+                className={`${leftRotations[index] ?? ""} flex h-full flex-col rounded-[22px] border border-black/5 bg-white/85 p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0`}
               >
-                {/* Featured badge — top left */}
-                {isHighlighted && (
-                  <div className="absolute top-3 left-4 flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-chartreuse" />
-                    <span className="text-[14px] font-semibold uppercase tracking-widest text-chartreuse/70">
-                      Featured
-                    </span>
-                  </div>
-                )}
+                <p className="flex-1 text-body-sm sm:text-body leading-[1.65] text-hero-text-dark">
+                  &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
+                </p>
 
-                {/* Miller: decorative giant quote mark + chartreuse top accent */}
-                {isMiller && (
-                  <>
-                    <span
-                      aria-hidden
-                      className="absolute -top-4 -left-1 text-[7rem] font-heading italic leading-none text-chartreuse/10 select-none pointer-events-none"
-                    >
-                      &ldquo;
-                    </span>
-                    <div className="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-chartreuse/30 to-transparent" />
-                  </>
-                )}
-
-                {/* Subtle left accent line appears on hover for non-highlighted, non-Miller cards */}
-                {!isHighlighted && !isMiller && (
-                  <div className="absolute left-0 top-6 bottom-6 w-0.5 rounded-full bg-gradient-to-b from-transparent via-chartreuse/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[0.22,1,0.36,1]" />
-                )}
-
-                <div className={`relative z-10 flex flex-col flex-1 ${isHighlighted ? "mt-6" : ""}`}>
-                  <p
-                    className={`text-[15px] lg:text-body leading-relaxed transition-colors duration-500 ease-[0.22,1,0.36,1] ${
-                      isHighlighted
-                        ? "text-white/90"
-                        : "text-hero-text-dark group-hover:text-white"
-                    }`}
-                  >
-                    &ldquo;{highlightText(t.quote, t.highlights ?? [], isHighlighted)}&rdquo;
-                  </p>
-
-                  <div className="flex items-center gap-3 mt-auto pt-5">
-                    <Avatar name={t.name} image={t.image} light={isHighlighted} />
-                    <div className="min-w-0">
-                      <p
-                        className={`text-sm font-medium leading-tight ${
-                          isHighlighted
-                            ? "text-white"
-                            : "text-foreground group-hover:text-white"
-                        } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
-                      >
-                        {t.name}
-                      </p>
-                      <p
-                        className={`text-xs leading-tight mt-0.5 ${
-                          isHighlighted
-                            ? "text-white/60"
-                            : "text-hero-muted group-hover:text-white/70"
-                        } transition-colors duration-500 ease-[0.22,1,0.36,1]`}
-                      >
-                        {t.title}
-                      </p>
-                    </div>
+                <div className="mt-5 flex items-center gap-3 border-t border-black/5 pt-4">
+                  <Avatar name={testimonial.name} image={testimonial.image} />
+                  <div>
+                    <p className="text-body-sm font-medium text-hero-text-dark">{testimonial.name}</p>
+                    <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+              </article>
+            ))}
+          </motion.div>
         </div>
+
+        <motion.div
+          variants={fadeUp}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1"
+        >
+          {rightColumn.map((testimonial, index) => (
+            <article
+              key={testimonial.name}
+              className={`${rightRotations[index] ?? ""} flex h-full flex-col rounded-[22px] border border-black/5 bg-white/85 p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0`}
+            >
+              <p className="flex-1 text-body-sm sm:text-body leading-[1.65] text-hero-text-dark">
+                &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
+              </p>
+
+              <div className="mt-5 flex items-center gap-3 border-t border-black/5 pt-4">
+                <Avatar name={testimonial.name} image={testimonial.image} />
+                <div>
+                  <p className="text-body-sm font-medium text-hero-text-dark">{testimonial.name}</p>
+                  <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </motion.div>
       </div>
     </motion.section>
   );

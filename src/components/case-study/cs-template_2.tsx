@@ -25,8 +25,8 @@ export const sectionLeft = ""
 export const sectionRight = ""
 export const sectionFull = ""
 
-// ─── Section header: Playfair Display italic, accent blue ───
-export const sectionHeader = "font-[family-name:var(--font-heading)] italic text-2xl sm:text-3xl lg:text-4xl text-case-eyebrow tracking-tight leading-[1.1]"
+// ─── Section header: heading font token, accent eyebrow ───
+export const sectionHeader = "font-heading font-semibold text-base sm:text-lg lg:text-xl text-case-eyebrow tracking-tight leading-[1.1]"
 
 export interface CaseStudyMeta {
   role: string

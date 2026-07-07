@@ -8,8 +8,11 @@ import { CopyEmail } from "./CopyEmail"
 import { ScrollChevron } from "./ScrollChevron"
 
 /* ── Heading text ── */
-const line1 = ["Hey,", "I'm", "Jacki—I", "design", "apps", "and", "systems", "that", "make", "users", "say:"]
-const line2 = ["Omw!", "This", "thing", "WORKS!"]
+const headingLines = [
+  ["Hey,", "I'm", "Jacki—I", "design"],
+  ["apps", "and", "systems", "that", "make", "users", "say:"],
+  ["Omg!", "This", "thing", "WORKS!"],
+]
 
 /* ── Section-level orchestration ── */
 const containerVariants: Variants = {
@@ -116,7 +119,7 @@ export function HeroContent() {
         <div
           className="absolute w-[280px] h-[280px] rounded-full animate-float-geometric"
           style={{
-            background: "radial-gradient(50% 50%, rgb(48, 62, 150) 0%, rgb(29, 48, 170) 100%)",
+            background: "radial-gradient(50% 50%, rgb(72, 91, 252) 0%, rgb(45, 55, 200) 100%)",
             filter: "blur(70px)",
             opacity: "0.15",
             top: "-60px",
@@ -126,7 +129,7 @@ export function HeroContent() {
         <div
           className="absolute w-[280px] h-[280px] rounded-full animate-float-geometric-slow"
           style={{
-            background: "radial-gradient(50% 50%, rgb(41, 22, 148) 99.99%, rgb(29, 48, 170) 100%)",
+            background: "radial-gradient(50% 50%, rgb(216, 180, 254) 99.99%, rgb(170, 125, 210) 100%)",
             filter: "blur(80px)",
             opacity: "0.15",
             top: "clamp(20px, 4vw, 80px)",
@@ -136,7 +139,7 @@ export function HeroContent() {
         <div
           className="absolute w-[280px] h-[280px] rounded-full animate-float-geometric-alt"
           style={{
-            background: "radial-gradient(50% 50%, rgb(48, 62, 150) 0%, rgb(29, 48, 170) 100%)",
+            background: "radial-gradient(50% 50%, rgb(72, 91, 252) 0%, rgb(216, 180, 254) 100%)",
             filter: "blur(80px)",
             opacity: "0.15",
             top: "clamp(-100px, -8vw, -20px)",
@@ -154,28 +157,28 @@ export function HeroContent() {
           {/* Heading — word-by-word reveal */}
           <motion.h1
             variants={headingWords}
-            className="text-hero-text text-[clamp(34px,6.5vw,80px)] leading-[1.1] tracking-tight text-center"
-            style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
+            className="w-full max-w-[900px] mx-auto flex flex-col items-center font-display text-hero-text text-[clamp(18px,5.8vw,80px)] leading-[1.08] tracking-tight text-center font-medium"
           >
-            {line1.map((word, i) => (
-              <motion.span
-                key={`l1-${i}`}
-                variants={wordSlideUp}
-                className="inline-block mr-[0.2em]"
-              >
-                {word}
-              </motion.span>
-            ))}
-            <br />
-            {line2.map((word, i) => (
-              <motion.span
-                key={`l2-${i}`}
-                variants={wordPop}
-                className="inline-block mr-[0.2em] text-accent"
-              >
-                {word}
-              </motion.span>
-            ))}
+            {headingLines.map((line, lineIndex) => {
+              const isPunchline = lineIndex === headingLines.length - 1
+
+              return (
+                <span
+                  key={`line-${lineIndex}`}
+                  className={`block md:whitespace-nowrap ${isPunchline ? "text-accent" : ""}`}
+                >
+                  {line.map((word, wordIndex) => (
+                    <motion.span
+                      key={`l${lineIndex}-${wordIndex}`}
+                      variants={isPunchline ? wordPop : wordSlideUp}
+                      className="inline-block mr-[0.2em]"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </span>
+              )
+            })}
           </motion.h1>
 
           {/* Hero cards — staggered card by card */}

@@ -253,10 +253,13 @@ export function WorkCardsStack() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               variants={headingVariants}
-              className="text-hero-text text-sm font-semibold uppercase tracking-wider"
+              className="font-heading text-[28px] sm:text-[36px] lg:text-[42px] font-semibold leading-[1.1] text-hero-text-dark"
             >
-              Work
+              Selected work
             </motion.h2>
+            <p className="text-hero-muted text-body-sm sm:text-body mt-2 max-w-[480px]">
+              Case studies across fintech, healthtech, and product design.
+            </p>
           </div>
         </section>
         <section id="work" className="relative px-6 pb-20">
@@ -282,10 +285,13 @@ export function WorkCardsStack() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={headingVariants}
-            className="text-hero-text text-sm font-semibold uppercase tracking-wider"
+            className="font-heading text-[28px] sm:text-[36px] lg:text-[42px] font-semibold leading-[1.1] text-hero-text-dark"
           >
-            Work
+            Selected work
           </motion.h2>
+          <p className="text-hero-muted text-body-sm sm:text-body mt-2 max-w-[480px]">
+            Case studies across fintech, healthtech, and product design.
+          </p>
         </div>
       </section>
 

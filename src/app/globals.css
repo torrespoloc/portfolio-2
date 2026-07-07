@@ -8,9 +8,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-body: var(--font-body);
+  --font-display: var(--font-display);
   --font-heading: var(--font-heading);
-  --font-serif: var(--font-heading);
+  --font-label: var(--font-label);
+  --font-ui: var(--font-ui);
   --color-burgundy: var(--burgundy);
   --color-cream: var(--cream);
   --color-forest: var(--forest);
@@ -105,6 +108,11 @@
 }
 
 :root {
+  --font-body: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-label: var(--font-mono);
+  --font-ui: var(--font-mono);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -119,6 +127,15 @@
   --muted-foreground: oklch(0.556 0 0);
   --accent: #485bfc;
   --accent-foreground: oklch(0.205 0 0);
+  --accent-2: #B45309;
+  --highlight: #C2410C;
+  --highlight-foreground: #FFFFFF;
+  --accent-teal: #485bfc;
+  --accent-teal-light: #5a6cfc;
+  --accent-amber: #B45309;
+  --accent-lavender: #d8b4fe;
+  --brand-blue: rgb(59, 74, 237);
+  --brand-accent: rgb(56, 94, 204);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -131,13 +148,11 @@
   --radius: 0.625rem;
   --burgundy: #540f37;
   --cream: #fdf5ec;
-  --forest: #335d4a;
+  --forest: #149EB2;
   --sage: #7ea08d;
   --mint-cream: #f3fbf4;
   --chartreuse: #ccff00;
   --chartreuse-foreground: #1a1a1a;
-  --brand-blue: rgb(59, 74, 237);
-  --brand-accent: rgb(87, 126, 255);
   --hero-bg: #fafafa;
   --hero-text: #4d4d4d;
   --hero-text-dark: #2f2e31;
@@ -156,9 +171,6 @@
   --ink-tertiary: #a3a3a3;
   --hairline: #e9e9ee;
   --hairline-strong: #d7d8e0;
-  --accent-2: #B45309;
-  --highlight: #C2410C;
-  --highlight-foreground: #FFFFFF;
   --case-highlight: var(--forest);
   --case-eyebrow: var(--brand-accent);
   --case-page-bg: #f8f8f6;
@@ -173,6 +185,11 @@
 }
 
 .dark {
+  --font-body: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-label: var(--font-mono);
+  --font-ui: var(--font-mono);
   --background: #151720;
   --foreground: #efeff1;
   --card: #1a1d28;
@@ -187,10 +204,24 @@
   --muted-foreground: #c8cad4;
   --accent: #6b7fff;
   --accent-foreground: oklch(0.985 0 0);
+  --accent-2: #D97706;
+  --highlight: #E86A30;
+  --highlight-foreground: #1a1a1a;
+  --accent-teal: #6b7fff;
+  --accent-teal-light: #8a99ff;
+  --accent-amber: #D97706;
+  --accent-lavender: #c084fc;
+  --brand-blue: rgb(89, 102, 255);
+  --brand-accent: rgb(106, 140, 255);
   --destructive: oklch(0.704 0.191 22.216);
   --border: #313543;
   --input: #3a3f4f;
   --ring: #555c71;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
   --burgundy: #8a2e5a;
   --cream: #2a231d;
   --forest: #4a8068;
@@ -198,33 +229,12 @@
   --mint-cream: #1a2a1f;
   --chartreuse: #ccff00;
   --chartreuse-foreground: #1a1a1a;
-  --brand-blue: rgb(89, 102, 255);
-  --brand-accent: rgb(106, 140, 255);
   --hero-bg: #151720;
   --hero-text: #c8cad4;
   --hero-text-dark: #efeff1;
   --hero-muted: #a3a3a3;
   --hero-border: #2d3140;
   --hero-card: #1a1d28;
-  --accent-2: #D97706;
-  --highlight: #E86A30;
-  --highlight-foreground: #1a1a1a;
-  --case-highlight: var(--chartreuse);
-  --case-eyebrow: var(--brand-accent);
-  --case-page-bg: #1d212c;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: #1a1d28;
-  --sidebar-foreground: #efeff1;
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: #1f2230;
-  --sidebar-accent-foreground: #efeff1;
-  --sidebar-border: #23262e;
-  --sidebar-ring: #3a3d48;
   --navy-900: #151720;
   --navy-800: #1a1d28;
   --navy-700: #1f2230;
@@ -237,6 +247,17 @@
   --ink-tertiary: #5c5f72;
   --hairline: #2d3140;
   --hairline-strong: #3a3f4f;
+  --case-highlight: var(--chartreuse);
+  --case-eyebrow: var(--brand-accent);
+  --case-page-bg: #1d212c;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
@@ -378,9 +399,14 @@ section[id] {
   opacity: 0.8;
 }
 
-/* Hero card tool logos — grayscale in dark mode (exclude claude-code, figma, the-ux-chats-logo) */
+/* Hero card tool logos — grayscale in dark mode */
 .dark img[src*="/logos/"]:not(.built-for-logo):not([src*="claude-code"]):not([src*="figma"]):not([src*="the-ux-chats"]) {
   filter: brightness(0) invert(0.78) grayscale(1);
+}
+
+/* TrustedBy section logos — lighter on dark card bg for legibility */
+.dark .trusted-logo {
+  filter: brightness(0) invert(0.85) grayscale(1);
 }
 
 .mask-fade-x {
@@ -402,7 +428,7 @@ section[id] {
 
 /* Node-style border pulse — used by MyJamFlipCard back face */
 @keyframes node-border-pulse {
-  0%, 100% { border-color: #335d4a; }
+  0%, 100% { border-color: #149EB2; }
   50% { border-color: #7ea08d; }
 }
 

@@ -90,7 +90,7 @@ export default function FundrCaseStudy() {
         </div>
       }
     >
-      <div className="[--accent:#059669] [--accent-2:#B45309]">
+      <div className="[--accent:var(--case-highlight)] [--accent-2:#B45309]">
 
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY FUNDR NEEDED A REDESIGN
@@ -1046,7 +1046,7 @@ export default function FundrCaseStudy() {
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">
-            I’ll walk you through <span className="text-case-highlight font-semibold">the pricing redesign, the CTA tests, and the calls we cut</span>.
+            I’ll walk you through <span className="text-chartreuse dark:text-forest font-semibold">the pricing redesign, the CTA tests, and the calls we cut</span>.
           </p>
           <div className="flex flex-wrap gap-3 mb-6">
             <a

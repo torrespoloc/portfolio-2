@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque, Mona_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/layout/NavBar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CustomCursor } from "@/components/CustomCursor";
 
-const dmSans = DM_Sans({
+const bricolage = Bricolage_Grotesque({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-heading",
+const monaSans = Mona_Sans({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
 
@@ -68,7 +68,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased", dmSans.variable, playfair.variable, "font-sans")}
+      className={cn("h-full", "antialiased", bricolage.variable, monaSans.variable, "font-sans")}
     >
       <body className="min-h-screen flex flex-col">
         <script

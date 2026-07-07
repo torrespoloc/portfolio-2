@@ -55,6 +55,7 @@ export function CaseStudyCard({
       href={href ?? ""}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
+      aria-label={href && !isExternal ? `View case study: ${tag}` : undefined}
       className={cn(
         "group block w-full rounded-[24px] overflow-hidden bg-card shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
         href && "cursor-pointer",
@@ -129,7 +130,7 @@ export function CaseStudyCard({
 
       {/* Info banner */}
       <div className="p-5 sm:p-6">
-        <h3 className="text-[21px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.25] text-hero-text-dark">
+        <h3 className="font-heading text-[21px] sm:text-[24px] lg:text-[28px] font-semibold leading-[1.25] text-hero-text-dark">
           {headline}
         </h3>
 
@@ -142,7 +143,7 @@ export function CaseStudyCard({
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-[14px] font-medium text-hero-muted bg-hero-border rounded-full px-2.5 py-0.5"
+                className="text-[14px] font-medium text-hero-muted bg-secondary rounded-full px-2.5 py-0.5"
               >
                 {t}
               </span>
@@ -177,6 +178,16 @@ export function CaseStudyCard({
             </div>
           )}
         </div>
+
+        {href && (
+          <div className="flex items-center gap-1.5 text-sm font-medium text-brand-accent opacity-0 translate-x-[-4px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out mt-2">
+            <span>View case study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </div>
+        )}
       </div>
     </Tag>
   );

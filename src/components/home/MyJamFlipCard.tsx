@@ -66,7 +66,7 @@ export function MyJamFlipCard() {
           style={{
             background: isFlipped
               ? "radial-gradient(ellipse, rgba(84,15,55,0.3) 0%, transparent 70%)"
-              : "radial-gradient(ellipse, rgba(59,74,237,0.2) 0%, transparent 70%)",
+              : "radial-gradient(ellipse, rgba(126,0,0,0.25) 0%, transparent 70%)",
           }}
         />
         <div

@@ -12,8 +12,7 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-[1000px] px-4 py-20">
         {/* Headline */}
         <p
-          className="mx-auto max-w-[800px] text-center text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-hero-text-dark"
-          style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
+          className="mx-auto max-w-[800px] text-center text-[clamp(20px,3vw,32px)] leading-[1.3] tracking-tight text-hero-text-dark font-heading italic"
         >
           Got a 0-to-1 product that needs to ship <span className="text-accent">fast</span>?
         </p>

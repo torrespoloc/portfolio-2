@@ -143,7 +143,7 @@ export default function XYCaseStudy() {
             hidden: {},
             show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
           }}
-          className={sectionGrid}
+          className={`${sectionGrid} gap-8 lg:gap-10`}
         >
           <div className={sectionFull}>
             <motion.h3
@@ -226,97 +226,52 @@ export default function XYCaseStudy() {
             hidden: {},
             show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
           }}
-          className={sectionGrid}
+          className={`${sectionGrid} space-y-0`}
         >
-          <div className={sectionLeft}>
-            <motion.h3
-              variants={fadeUp}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
-            >
-              I started by talking to healthcare operations teams. <span className="text-case-highlight font-semibold">Three patterns</span> surfaced in every conversation.
-            </motion.h3>
-          </div>
-
-          <div className={`${sectionRight} space-y-4`}>
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed"
-            >
-              Before writing any code or designing any screens, I needed to understand how healthcare teams actually thought about AI agents. The platform was powerful — but was anyone using it without hand-holding?
-            </motion.p>
-          </div>
-
-          {/* Research pattern cards */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={`${sectionFull} space-y-6`}
+            className={`${sectionFull} space-y-4`}
           >
-            <div className="p-6 lg:p-8">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
-                Patterns that defined the problem
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
-                    <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">01</span>
-                  </div>
-                  <p className="text-body font-semibold text-foreground">Agents were <span className="text-case-highlight">abstract</span> — teams couldn&rsquo;t describe their setup until they saw it</p>
-                </div>
-                <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
-                    <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">02</span>
-                  </div>
-                  <p className="text-body font-semibold text-foreground">Different workflows, <span className="text-case-highlight">same bottleneck</span> — configuration was the blocker</p>
-                </div>
-                <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
-                    <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">03</span>
-                  </div>
-                  <p className="text-body font-semibold text-foreground">&ldquo;I&rsquo;d need a <span className="text-case-highlight">demo</span>&rdquo; came up in <span className="text-case-highlight">every</span> single conversation</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key insight blockquote */}
-            <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
-              The problem wasn&rsquo;t the UI&rsquo;s quality. Users couldn&rsquo;t define what they needed until they saw what was possible. A forms-based approach asked them to configure something they&rsquo;d never encountered before.
-              <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                — Key research insight
+            <div className="flex items-center gap-3 mb-1">
+              <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
+                <Sparkles className="h-4 w-4" />
               </span>
-            </blockquote>
-
-            {/* Design directions explored */}
-            <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-              Three directions I explored
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
+                Research snapshot
+              </p>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
+              Four user groups all needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
+            </h3>
+            <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
+              The recurring blocker wasn&rsquo;t trust. It was abstraction. People needed examples before setup.
             </p>
+
+            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-background">
+              <img
+                src="/xy/user-types.png"
+                alt="Research artifact showing the four primary XY.AI user groups: nurses, clinic receptionists, doctors, and admin employees"
+                className="w-full h-auto"
+              />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-xl bg-background ring-1 ring-hairline space-y-2">
-                <span className="text-body-sm font-mono text-hero-muted">Direction A</span>
-                <p className="text-sm font-semibold text-foreground">Forms-first</p>
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">What I learned</p>
                 <p className="text-body text-ink-muted leading-relaxed">
-                  Traditional configuration forms with dropdowns and fields. Familiar but didn&rsquo;t solve the discovery problem.
+                  Users couldn&rsquo;t describe an agent setup until they saw one.
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-background ring-1 ring-hairline space-y-2">
-                <span className="text-body-sm font-mono text-hero-muted">Direction B</span>
-                <p className="text-sm font-semibold text-foreground">Wizard / guided setup</p>
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">Shared blocker</p>
                 <p className="text-body text-ink-muted leading-relaxed">
-                  Step-by-step wizard that walked users through configuration. Helped onboarding but felt rigid for ongoing use.
+                  Different roles, same friction: configuration was too abstract.
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-case-highlight/[0.08] ring-1 ring-case-highlight/20 space-y-2 relative overflow-hidden">
-                <div className="absolute top-0 right-0">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-case-highlight bg-case-highlight/[0.1] px-2 py-0.5 rounded-bl-lg rounded-tr-xl">
-                    Chosen
-                  </span>
-                </div>
-                <span className="text-body-sm font-mono text-hero-muted">Direction C</span>
-                <p className="text-sm font-semibold text-foreground">Chat-first</p>
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">Why it mattered</p>
                 <p className="text-body text-ink-muted leading-relaxed">
-                  A conversational interface where users describe what they need. Natural, explorable, and self-serve.
+                  Every workflow still depended on a sales-led demo.
                 </p>
               </div>
             </div>
@@ -325,7 +280,82 @@ export default function XYCaseStudy() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-      3. BUILDING THE FOUNDATION
+      3. ITERATION
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="iteration" className="pb-24 lg:pb-28">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`${sectionHeader} mb-6`}
+        >
+          Iteration
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+          className={`${sectionGrid} gap-8 lg:gap-10`}
+        >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={`${sectionFull} space-y-4`}
+          >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
+                <Layers className="h-4 w-4" />
+              </span>
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
+                Product direction
+              </p>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
+              I reframed setup as <span className="text-case-highlight font-semibold">conversation</span>, not configuration.
+            </h3>
+            <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
+              I explored forms, a guided wizard, and chat. Chat won because it let users discover possibilities while they configured.
+            </p>
+
+            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-background">
+              <img
+                src="/xy/xy-platform.png"
+                alt="XY platform concept showing a chat-first assistant beside the product workspace"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">Discarded</p>
+                <p className="text-body text-ink-muted leading-relaxed">
+                  Forms-first felt familiar, but it still assumed users knew what to ask for.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">Also tested</p>
+                <p className="text-body text-ink-muted leading-relaxed">
+                  A wizard improved onboarding, but it was too rigid for ongoing use.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <p className="text-label font-semibold text-foreground mb-1">Chosen</p>
+                <p className="text-body text-ink-muted leading-relaxed">
+                  Chat let users explore, clarify, and self-serve in the same flow.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+      4. BUILDING THE FOUNDATION
       ═══════════════════════════════════════════════════════════════════════ */}
       <section id="building-the-foundation" className="pb-24 lg:pb-28">
         <motion.h2
