@@ -22,7 +22,6 @@ interface CaseStudyCardProps {
   mediaAlt?: string;
   href?: string;
   className?: string;
-  builtForLogo?: string;
   ndaBadge?: boolean;
   badge?: string;
 }
@@ -43,7 +42,6 @@ export function CaseStudyCard({
   mediaAlt = "",
   href,
   className,
-  builtForLogo,
   ndaBadge,
   badge,
 }: CaseStudyCardProps) {
@@ -57,7 +55,7 @@ export function CaseStudyCard({
       rel={isExternal ? "noopener noreferrer" : undefined}
       aria-label={href && !isExternal ? `View case study: ${tag}` : undefined}
       className={cn(
-        "group block w-full rounded-[24px] overflow-hidden bg-card shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
+        "group block w-full h-full rounded-none overflow-hidden bg-card flex flex-col shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
         href && "cursor-pointer",
         className
       )}
@@ -103,17 +101,17 @@ export function CaseStudyCard({
         <div className="absolute top-0 left-0 right-0 p-6 sm:p-8">
           <div className="flex items-center gap-2">
             {tag && (
-              <span className="text-[16px] font-medium text-white/90 bg-white/15 backdrop-blur-md rounded-full px-4 py-1">
+              <span className="text-sm font-medium text-white/90 bg-white/15 backdrop-blur-md px-4 py-1">
                 {tag}
               </span>
             )}
             {ndaBadge && (
-              <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse rounded-full px-3 py-1">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
                 NDA-friendly
               </span>
             )}
             {badge && (
-              <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse rounded-full px-3 py-1">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
                 {badge}
               </span>
             )}
@@ -122,28 +120,28 @@ export function CaseStudyCard({
 
         {/* Year badge — bottom-left of media */}
         {year && (
-          <span className="absolute bottom-3 left-3 rounded-md bg-black/55 px-2 py-0.5 text-[13px] font-mono uppercase tracking-wider text-white/85 sm:text-sm">
+          <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
             {year}
           </span>
         )}
       </div>
 
       {/* Info banner */}
-      <div className="p-5 sm:p-6">
+      <div className="flex flex-col flex-1 p-6 sm:p-7">
         <h3 className="font-heading text-[21px] sm:text-[24px] lg:text-[28px] font-semibold leading-[1.25] text-hero-text-dark">
           {headline}
         </h3>
 
-        <p className="text-subtitle md:text-body leading-[1.5] text-hero-text mt-2">
+        <p className="text-body-lg leading-[1.5] text-hero-text mt-2 flex-1">
           {description}
         </p>
 
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-1.5 mt-3">
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-[14px] font-medium text-hero-muted bg-secondary rounded-full px-2.5 py-0.5"
+                className="text-xs font-medium text-hero-muted bg-muted px-2.5 py-1"
               >
                 {t}
               </span>
@@ -151,43 +149,27 @@ export function CaseStudyCard({
           </div>
         )}
 
-        <div className="flex items-start gap-x-6 gap-y-4 sm:gap-y-6 flex-wrap mt-3 pt-3 border-t border-hero-border">
-          <div className="flex flex-col min-w-0 flex-1">
-            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
-              {metric1Label}
-            </span>
-            <span className="text-body-sm sm:text-[18px] font-bold text-hero-text-dark leading-none mt-0.5">
-              {metric1Value}
-            </span>
-          </div>
-          <div className="flex flex-col min-w-0 flex-1">
-            <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
-              {metric2Label}
-            </span>
-            <span className="text-body-sm sm:text-[18px] font-bold text-hero-text-dark leading-none mt-0.5">
-              {metric2Value}
-            </span>
-          </div>
-
-          {builtForLogo && (
-            <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto sm:ml-auto">
-              <span className="text-xs sm:text-[14px] font-semibold uppercase tracking-[0.06em] sm:tracking-[0.08em] text-hero-muted">
-                Built for
+        {/* Metrics */}
+        <div className="mt-4 pt-4">
+          <div className="flex items-start gap-6">
+            <div className="flex flex-col min-w-0 flex-1">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
+                {metric1Label}
               </span>
-              <img src={builtForLogo} alt="" className="built-for-logo h-5 sm:h-6 w-auto max-w-[80px] object-contain object-center" />
+              <span className="text-body font-bold text-hero-text-dark leading-none mt-0.5">
+                {metric1Value}
+              </span>
             </div>
-          )}
-        </div>
-
-        {href && (
-          <div className="flex items-center gap-1.5 text-sm font-medium text-brand-accent opacity-0 translate-x-[-4px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out mt-2">
-            <span>View case study</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
+            <div className="flex flex-col min-w-0 flex-1">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
+                {metric2Label}
+              </span>
+              <span className="text-body font-bold text-hero-text-dark leading-none mt-0.5">
+                {metric2Value}
+              </span>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </Tag>
   );

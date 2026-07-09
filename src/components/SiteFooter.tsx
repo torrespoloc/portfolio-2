@@ -42,6 +42,7 @@ export function SiteFooter() {
         <p className="mt-2 text-center text-xs text-hero-muted">
           Jackeline Torres © 2026. All Rights Reserved. SF, Bay Area
         </p>
+
       </div>
     </footer>
   )

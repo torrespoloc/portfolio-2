@@ -242,19 +242,11 @@ export default function XYCaseStudy() {
               </p>
             </div>
             <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
-              Four user groups all needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
+              Nurses and admin staff both needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
             </h3>
             <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
-              The recurring blocker wasn&rsquo;t trust. It was abstraction. People needed examples before setup.
+              Two main user groups emerged from research: <span className="text-case-highlight font-semibold">nurses</span> managing patient workflows and <span className="text-case-highlight font-semibold">admin staff</span> handling scheduling, claims, and verifications. The recurring blocker wasn&rsquo;t trust. It was abstraction. Both groups needed examples before setup.
             </p>
-
-            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-background">
-              <img
-                src="/xy/user-types.png"
-                alt="Research artifact showing the four primary XY.AI user groups: nurses, clinic receptionists, doctors, and admin employees"
-                className="w-full h-auto"
-              />
-            </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
                 <p className="text-label font-semibold text-foreground mb-1">What I learned</p>
