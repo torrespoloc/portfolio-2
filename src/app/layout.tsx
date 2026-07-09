@@ -6,6 +6,7 @@ import { NavBar } from "@/components/layout/NavBar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SplashScreen } from "@/components/SplashScreen";
+import { BackToTop } from "@/components/BackToTop";
 import Script from "next/script";
 
 const bricolage = Bricolage_Grotesque({
@@ -82,6 +83,7 @@ export default function RootLayout({
         />
         <CustomCursor />
         <SplashScreen showOnce />
+        <BackToTop />
           <header className="relative z-50 bg-transparent">
             <NavBar />
           </header>

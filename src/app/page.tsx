@@ -3,10 +3,7 @@ import { WorkCardsStack } from "@/components/home/WorkCardsStack";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Experience } from "@/components/home/Experience";
 import { HeroContent } from "@/components/home/HeroContent";
-import { BackToTop } from "@/components/BackToTop";
 import { SectionDivider } from "@/components/ui/section-divider";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -47,7 +44,6 @@ export default function Home() {
         </div>
       </section>
       </div>
-      <BackToTop />
     </div>
   );
 }
