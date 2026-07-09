@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, useReducedMotion } from "framer-motion"
-import { Pause, Play } from "lucide-react"
+import { Play } from "lucide-react"
 
 export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -35,15 +35,26 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
     }
   }, [])
 
-  const toggleInlinePlayback = () => {
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleMouseEnter = () => {
     const video = videoRef.current
     if (!video) return
+    // Start playing on hover after a short delay to avoid accidental plays
+    hoverTimeoutRef.current = setTimeout(() => {
+      video.play().catch(() => {})
+    }, 200)
+  }
 
-    if (video.paused) {
-      void video.play()
-    } else {
-      video.pause()
+  const handleMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
     }
+    const video = videoRef.current
+    if (!video) return
+    video.pause()
+    video.currentTime = 1
   }
 
   return (
@@ -53,6 +64,8 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
       aria-label="Open Jacki video"
       className="group relative inline-flex shrink-0 align-middle -mt-1 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-[width,height] duration-200 ease-out w-[calc(1.35em+20px)] h-[calc(1.35em+20px)] max-md:w-[calc(1.35em+28px)] max-md:h-[calc(1.35em+28px)] md:hover:w-[calc(1.35em+68px)] md:hover:h-[calc(1.35em+68px)]"
       onClick={onOpenOverlay}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onPointerDown={(e) => {
         if (e.pointerType !== "mouse") onOpenOverlay()
       }}
@@ -93,17 +106,19 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
         className="block w-full h-full rounded-full object-cover object-center ring-1 ring-foreground/[0.06] scale-x-[-1]"
         onClick={onOpenOverlay}
       />
-      <button
-        type="button"
-        aria-label={isPlaying ? "Pause Jacki video" : "Play Jacki video"}
-        className="absolute left-1/2 top-1/2 z-20 size-[38px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity duration-150 ease-out pointer-events-none max-md:hidden md:group-hover:pointer-events-auto md:group-hover:opacity-100 focus:opacity-100 focus:pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        onClick={(event) => {
-          event.stopPropagation()
-          toggleInlinePlayback()
-        }}
-      >
-        {isPlaying ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
-      </button>
+      {!isPlaying && (
+        <button
+          type="button"
+          aria-label="Play Jacki video"
+          className="absolute left-1/2 top-1/2 z-20 size-[38px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity duration-150 ease-out pointer-events-none max-md:hidden md:group-hover:pointer-events-auto md:group-hover:opacity-100 focus:opacity-100 focus:pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          onClick={(event) => {
+            event.stopPropagation()
+            onOpenOverlay()
+          }}
+        >
+          <Play className="h-4 w-4" aria-hidden="true" />
+        </button>
+      )}
     </div>
   )
 }

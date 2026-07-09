@@ -37,8 +37,8 @@ export function TrustedBy({ className = "" }: Props) {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="rounded-none bg-white/75 dark:bg-[#1a1d28] backdrop-blur-sm dark:backdrop-blur-none overflow-hidden"
       >
-        <div className="sm:grid sm:grid-cols-2">
-          <div className="px-5 py-10 sm:px-6 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border sm:px-8 sm:py-14">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-hero-muted">
               I&apos;m grateful for their trust
             </p>
@@ -57,7 +57,7 @@ export function TrustedBy({ className = "" }: Props) {
               return (
                 <div
                   key={logo.alt}
-                  className={`flex h-full items-center justify-center px-4 ${
+                  className={`flex h-full items-center justify-center px-4 py-4 sm:py-0 ${
                     !isLastInRow ? "border-r border-hero-border" : ""
                   } ${!isLastRow ? "border-b border-hero-border" : ""}`}
                 >

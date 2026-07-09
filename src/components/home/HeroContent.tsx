@@ -74,9 +74,12 @@ export function HeroContent() {
             variants={sectionUp}
             className="font-heading text-[clamp(30px,5.8vw,68px)] leading-[1.1] tracking-tight text-center text-hero-text-dark font-semibold"
           >
-            Hi! I&apos;m Jacki{" "}
+            <span>Hi! I&apos;m Jacki.{" "}</span>
             <HeroVideoInline onOpenOverlay={openOverlay} />
-            . I design psychologically smart AI products.
+            <span>
+              <br className="md:hidden" />
+              I design psychologically smart AI products.
+            </span>
           </motion.h1>
         </div>
       </motion.div>

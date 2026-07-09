@@ -378,6 +378,15 @@ section[id] {
   50% { opacity: 0.8; }
 }
 
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(255,255,255,0.08), 0 0 18px rgba(255,255,255,0.04); }
+  50% { box-shadow: 0 0 10px rgba(255,255,255,0.18), 0 0 28px rgba(255,255,255,0.08); }
+}
+
+.animate-border-glow {
+  animation: border-glow 2.5s ease-in-out infinite;
+}
+
 .animate-bounce-turtle {
   animation: bounce-turtle 1.2s ease-in-out infinite;
 }

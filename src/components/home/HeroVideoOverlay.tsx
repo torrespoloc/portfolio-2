@@ -3,6 +3,69 @@
 import { useRef, useState, useEffect } from "react"
 import { Pause, Play, Volume2, VolumeX, X } from "lucide-react"
 
+interface CaptionCue {
+  start: number
+  end: number
+  text: string
+}
+
+function parseVTT(text: string): CaptionCue[] {
+  const lines = text.split(/\r?\n/)
+  const cues: CaptionCue[] = []
+  let currentCue: Partial<CaptionCue> | null = null
+
+  for (const line of lines) {
+    const trimmed = line.trim()
+
+    // Skip WEBVTT header and blank lines
+    if (trimmed === "WEBVTT" || trimmed === "") {
+      if (currentCue?.start != null && currentCue?.end != null && currentCue?.text) {
+        cues.push(currentCue as CaptionCue)
+      }
+      currentCue = null
+      continue
+    }
+
+    // Timestamp line
+    const timeMatch = trimmed.match(
+      /^(\d{2}):(\d{2}):(\d{2})\.(\d{3})\s-->\s(\d{2}):(\d{2}):(\d{2})\.(\d{3})/
+    )
+    if (timeMatch) {
+      if (currentCue?.start != null && currentCue?.end != null && currentCue?.text) {
+        cues.push(currentCue as CaptionCue)
+      }
+      const toSeconds = (h: number, m: number, s: number, ms: number) =>
+        h * 3600 + m * 60 + s + ms / 1000
+      currentCue = {
+        start: toSeconds(
+          Number(timeMatch[1]), Number(timeMatch[2]),
+          Number(timeMatch[3]), Number(timeMatch[4])
+        ),
+        end: toSeconds(
+          Number(timeMatch[5]), Number(timeMatch[6]),
+          Number(timeMatch[7]), Number(timeMatch[8])
+        ),
+        text: "",
+      }
+      continue
+    }
+
+    // Text line
+    if (currentCue) {
+      currentCue.text = currentCue.text
+        ? currentCue.text + "\n" + trimmed
+        : trimmed
+    }
+  }
+
+  // Flush last cue
+  if (currentCue?.start != null && currentCue?.end != null && currentCue?.text) {
+    cues.push(currentCue as CaptionCue)
+  }
+
+  return cues
+}
+
 function formatTime(s: number) {
   const mins = Math.floor(s / 60)
   const secs = Math.floor(s % 60)
@@ -21,6 +84,9 @@ export function HeroVideoOverlay({
   const [overlayTime, setOverlayTime] = useState(0)
   const [overlayDuration, setOverlayDuration] = useState(0)
   const [overlayMuted, setOverlayMuted] = useState(false)
+  const [captions, setCaptions] = useState<CaptionCue[]>([])
+  const [currentCaption, setCurrentCaption] = useState("")
+  const [typewriterIdx, setTypewriterIdx] = useState(0)
 
   useEffect(() => {
     if (!isOpen) return
@@ -35,6 +101,32 @@ export function HeroVideoOverlay({
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [isOpen, onClose])
 
+  // Load captions
+  useEffect(() => {
+    if (!isOpen) return
+    fetch("/hero-video-captions.vtt")
+      .then((res) => res.text())
+      .then((text) => setCaptions(parseVTT(text)))
+      .catch(() => {})
+  }, [isOpen])
+
+  // Word-by-word typewriter for captions
+  useEffect(() => {
+    if (!currentCaption) {
+      setTypewriterIdx(0)
+      return
+    }
+    const words = currentCaption.split(/\s+/)
+    setTypewriterIdx(0)
+    let idx = 0
+    const interval = setInterval(() => {
+      idx++
+      setTypewriterIdx(idx)
+      if (idx >= words.length) clearInterval(interval)
+    }, 180)
+    return () => clearInterval(interval)
+  }, [currentCaption])
+
   const onOverlayLoadedMetadata = () => {
     const video = overlayVideoRef.current
     if (!video) return
@@ -44,7 +136,12 @@ export function HeroVideoOverlay({
 
   const onOverlayTimeUpdate = () => {
     const video = overlayVideoRef.current
-    if (video) setOverlayTime(video.currentTime)
+    if (!video) return
+    const time = video.currentTime
+    setOverlayTime(time)
+    // Update captions
+    const active = captions.find((c) => time >= c.start && time < c.end)
+    setCurrentCaption(active?.text ?? "")
   }
 
   const toggleOverlayPlay = () => {
@@ -84,7 +181,7 @@ export function HeroVideoOverlay({
     >
       <div className="mx-auto flex h-full w-full max-w-5xl items-center justify-center">
         <div
-          className="relative w-full overflow-hidden rounded-[12px] border border-white/10 bg-black shadow-2xl group"
+          className="relative w-full overflow-hidden rounded-[12px] border border-white/10 bg-black shadow-2xl group animate-border-glow group-hover:animate-none"
           onClick={(event) => event.stopPropagation()}
         >
           <button
@@ -103,13 +200,22 @@ export function HeroVideoOverlay({
             autoPlay
             playsInline
             poster="/hero-video-poster.png"
-            className="block aspect-video w-full h-auto max-h-[80svh] object-contain bg-black scale-x-[-1]"
+            className="block aspect-video w-full h-auto max-h-[60svh] md:max-h-[70svh] lg:max-h-[80svh] object-contain bg-black scale-x-[-1]"
             onLoadedMetadata={onOverlayLoadedMetadata}
             onTimeUpdate={onOverlayTimeUpdate}
             onPlay={() => setOverlayPlaying(true)}
             onPause={() => setOverlayPlaying(false)}
             onClick={toggleOverlayPlay}
           />
+
+          {/* Captions — below video, always reserving space */}
+          <div className="px-4 py-3 min-h-[88px] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div className="mx-auto w-full text-center">
+              <span className={`inline-block text-white text-base md:text-lg font-semibold leading-relaxed ${!currentCaption ? "invisible" : ""}`}>
+                {currentCaption ? currentCaption.split(/\s+/).slice(0, typewriterIdx).join(" ") : " "}
+              </span>
+            </div>
+          </div>
 
           {/* Custom controls bar */}
           <div

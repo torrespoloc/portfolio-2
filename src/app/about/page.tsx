@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="min-h-screen bg-hero-bg font-sans pt-24 md:pt-32 pb-0">
-        <div className="mx-auto w-full max-w-[1360px] border-x border-hero-border min-h-screen">
+        <div className="mx-auto w-full max-w-[1600px] border-x border-hero-border min-h-screen">
           <div className="mx-auto w-full max-w-[940px]">
 
             {/* Hero card — headshot + facts */}

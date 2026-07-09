@@ -8,12 +8,11 @@ import { SectionDivider } from "@/components/ui/section-divider";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
-      {/* Viewport-edge vertical lines */}
-      <div className="fixed inset-y-0 left-0 w-px bg-hero-border pointer-events-none" aria-hidden="true" />
-      <div className="fixed inset-y-0 right-0 w-px bg-hero-border pointer-events-none" aria-hidden="true" />
-
-      {/* Content container with its own vertical borders */}
-      <div className="mx-auto w-full max-w-[1360px] border-x border-hero-border min-h-screen px-5 md:px-0">
+      {/* Content container */}
+      <div className="mx-auto w-full max-w-[1600px] min-h-screen px-5 md:px-0 relative">
+        {/* Vertical projection lines — at content padding edge on mobile, container edge on desktop */}
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none md:right-0 z-10" aria-hidden="true" />
 
       <HeroContent />
 
@@ -21,7 +20,7 @@ export default function Home() {
 
       {/* Trusted By */}
       <section className="w-full">
-        <div className="mx-auto w-full max-w-[1360px]">
+        <div className="mx-auto w-full max-w-[1600px]">
           <TrustedBy />
         </div>
       </section>
@@ -34,7 +33,7 @@ export default function Home() {
 
       {/* Experience + Testimonials — connected */}
       <section className="w-full">
-        <div className="mx-auto w-full max-w-[1360px]">
+        <div className="mx-auto w-full max-w-[1600px]">
           <Experience />
           <SectionDivider />
 
