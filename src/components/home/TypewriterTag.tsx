@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 
 const PROMPT = "> "
-const COMMAND = "Now building: SideNook v2"
+const COMMAND = "Now building SideNook v2"
 const SPEED = 72
 
 export function TypewriterTag() {
@@ -38,20 +38,8 @@ export function TypewriterTag() {
   return (
     <span className="inline-flex items-center gap-2 px-3 py-1.5
                     bg-chartreuse text-chartreuse-foreground
-                    font-mono text-[14px] md:text-[16px] md:font-bold leading-tight select-none
-                    rounded-md whitespace-nowrap">
-      {/* Status dot — pulsing when typing, steady when done */}
-      <span className="relative w-2 h-2 shrink-0">
-        <span
-          className="absolute inset-0 rounded-full bg-chartreuse-foreground"
-          style={{
-            opacity: typing ? 0.25 : 0.12,
-            animation: typing ? "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite" : "none",
-          }}
-        />
-        <span className="absolute inset-0.5 rounded-full bg-chartreuse-foreground" />
-      </span>
-
+                    font-mono text-xs font-semibold md:font-bold leading-tight select-none
+                    rounded-[12px] whitespace-nowrap">
       {/* Prompt prefix */}
       <span className="text-chartreuse-foreground/40 font-medium">{PROMPT}</span>
 

@@ -1,78 +1,58 @@
-const experience = [
-  {
-    period: "NOV '25 - APRIL 2026",
-    role: "AI Product Designer",
-    company: "XY.AI Labs",
-    description:
-      "Agentified a healthcare SaaS platform into a chat-driven product for self-serve onboarding and repeat daily use.",
-  },
-  {
-    period: "MAY - NOV, 2025",
-    role: "AI Product Designer",
-    company: "Waldo",
-    description:
-      "Co-led the dual-platform healthcare experience across staff workflows, patient ordering, and prescription management.",
-  },
-  {
-    period: "JUN - SEP, 2026",
-    role: "AI Product Designer",
-    company: "Reail",
-    description:
-      "Designed a desktop-first MVP for landlord risk intelligence and the investor-facing marketing site around it.",
-  },
-  {
-    period: "APRIL - JUNE, 2026",
-    role: "UX Designer",
-    company: "Exelcius",
-    description:
-      "Reshaped the post-MVP product into modular widgets and a customizable layout system the team could extend.",
-  },
-]
+import { EXPERIENCE } from "@/lib/data/home"
 
 export function Experience() {
   return (
-    <div className="mx-auto w-full max-w-[940px] rounded-[30px] border border-black/5 bg-white/70 px-6 py-8 shadow-[0_20px_60px_rgba(25,25,30,0.04)] backdrop-blur-sm sm:px-8 sm:py-10">
-      <div className="flex flex-col gap-3 border-b border-black/5 pb-7 md:flex-row md:items-end md:justify-between">
-        <div className="max-w-[480px]">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-hero-muted">
-            Experience
-          </p>
-          <h2 className="mt-3 text-[28px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[34px]">
-            Product work with a bias toward shipping systems, not just screens.
-          </h2>
+    <div className="dark">
+      <div className="bg-[#485bfc] px-6 py-10 sm:py-12">
+        <div className="border-b border-white/15 pb-8">
+          <div className="max-w-[1000px]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
+              Experience
+            </p>
+            <h2 className="mt-3 font-heading text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[54px]">
+              Product work with a bias toward shipping systems, not just screens.
+            </h2>
+          </div>
         </div>
-        <p className="max-w-[280px] text-sm leading-relaxed text-hero-muted">
-          Mostly early-stage and zero-to-one teams where design had to clarify the product as much as the UI.
-        </p>
-      </div>
 
-      <div className="mt-8 space-y-6">
-        {experience.map((entry, i) => (
-          <div
-            key={i}
-            className="grid gap-4 border-b border-black/5 pb-6 last:border-b-0 last:pb-0 md:grid-cols-[170px_minmax(0,1fr)]"
-          >
-            <div className="flex items-start gap-3">
-              <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-accent" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-hero-muted">
-                {entry.period}
-              </span>
-            </div>
-
-            <div className="grid gap-2 md:grid-cols-[minmax(0,260px)_minmax(0,1fr)] md:gap-6">
-              <div>
-                <h3 className="text-[17px] font-semibold leading-tight text-hero-text-dark">
-                  {entry.role}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-brand-accent">{entry.company}</p>
+        <div className="mt-10 md:mt-14 lg:mt-16 space-y-8 md:space-y-10">
+          {EXPERIENCE.map((entry, i) => (
+            <div
+              key={i}
+              className="grid border-b border-white/15 pb-6 md:pb-8 last:border-b-0 last:pb-0 md:grid-cols-[160px_minmax(0,1fr)] md:gap-x-16"
+            >
+              <div className="flex items-start gap-3 pt-1">
+                <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-chartreuse" />
+                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white/85">
+                  {entry.period}
+                </span>
               </div>
 
-              <p className="max-w-[60ch] text-sm leading-relaxed text-hero-muted sm:text-body-sm">
-                {entry.description}
-              </p>
+              <div className="grid gap-3 md:gap-6 lg:gap-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:gap-x-12 lg:gap-x-16">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="mt-0.5 flex h-12 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90 shadow-sm border border-black/5 md:h-14 md:w-24 lg:h-16 lg:w-28">
+                    <img
+                      src={entry.logo}
+                      alt={entry.company}
+                      className="dropdown-logo h-full w-full object-contain p-1.5 md:p-2"
+                      style={{ filter: "none" }}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-body-lg font-semibold leading-tight text-white">
+                      {entry.role}
+                    </h3>
+                    <p className="text-body font-medium text-white/95">{entry.company}</p>
+                  </div>
+                </div>
+
+                <p className="max-w-[60ch] text-body-lg leading-relaxed text-white">
+                  {entry.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )

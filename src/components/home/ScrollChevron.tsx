@@ -22,8 +22,8 @@ export function ScrollChevron() {
       aria-hidden="true"
     >
       <ChevronDown
-        className="w-5 h-5 text-hero-muted animate-chevron-bounce"
-        strokeWidth={2}
+        className="w-5 h-5 text-hero-muted animate-pulse"
+        strokeWidth={1.5}
       />
     </div>
   );

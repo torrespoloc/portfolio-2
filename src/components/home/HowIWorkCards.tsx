@@ -18,7 +18,7 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   useLayoutEffect(() => {
     const measure = () => {
       const containerWidth = containerRef.current?.clientWidth ?? window.innerWidth
-      setCardW(Math.min(containerWidth - 64, 320))
+      setCardW(Math.min(containerWidth - 40, 340))
     }
     measure()
     window.addEventListener("resize", measure)
@@ -67,14 +67,14 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   return (
     <>
       {/* Mobile: horizontal carousel with peek */}
-      <div className="md:hidden mt-10 relative left-1/2 -translate-x-1/2 w-screen select-none overflow-x-clip" ref={containerRef}>
+      <div className="md:hidden mt-16 relative left-1/2 -translate-x-1/2 w-screen select-none overflow-x-clip" ref={containerRef}>
         <div
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
           <div
-            className="flex gap-0.5"
+            className="flex gap-0"
             style={{
               transform: `translateX(${translateX}px)`,
               transition: isDragging
@@ -115,8 +115,8 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
         </div>
       </div>
 
-      {/* Desktop/Tablet: original flex row layout */}
-      <div className="hidden md:flex flex-wrap justify-center items-center gap-6 mt-10">
+      {/* Desktop/Tablet: centerpiece grid — center column wider, zero gap with border dividers */}
+      <div className="hidden md:grid grid-cols-[1fr_1.14fr_1fr] gap-0 mt-0 items-stretch w-full">
         {children}
       </div>
     </>

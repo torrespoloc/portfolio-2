@@ -20,6 +20,7 @@ export function NavBar() {
   const [isWorkMenuOpen, setIsWorkMenuOpen] = useState(false)
   const [mobileWorkExpanded, setMobileWorkExpanded] = useState(true)
   const [isDarkTheme, setDarkTheme] = useState(true)
+  const visibleStudies = WORK_CASE_STUDIES.filter((s) => s.href !== "/work/7dish")
   const workMenuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -112,7 +113,7 @@ export function NavBar() {
           left: mobileResting ? 0 : navLeft,
           x: mobileResting ? 0 : "-50%",
           y: 12,
-          borderRadius: mobileResting ? 0 : 50,
+          borderRadius: mobileResting ? 0 : 12,
           paddingLeft: tightScreen ? (mobileResting ? 24 : 16) : isScrolled ? 16 : 24,
           paddingRight: tightScreen ? (mobileResting ? 24 : 16) : isScrolled ? 16 : 24,
           paddingTop: 8,
@@ -144,7 +145,7 @@ export function NavBar() {
           {/* Desktop nav — always centered */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
-              className={`flex items-center gap-1 rounded-full border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
+              className={`flex items-center gap-1 rounded-[12px] border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
                 isDarkTheme
                   ? "border-white/10 bg-white/[0.06]"
                   : "border-foreground/[0.08] bg-background/75"
@@ -164,7 +165,7 @@ export function NavBar() {
               >
                 <Link
                   href={isHome ? "#work" : "/#work"}
-                  className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
+                  className={`inline-flex items-center gap-1 rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
                     isDarkTheme
                       ? "text-white/60 hover:bg-white/10 hover:text-white"
                       : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
@@ -188,7 +189,7 @@ export function NavBar() {
                       className="absolute left-0 top-full z-50 pt-2"
                     >
                       <div
-                        className={`relative w-[176px] overflow-hidden rounded-[16px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
+                        className={`relative w-[176px] overflow-hidden rounded-[12px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
                           isDarkTheme
                             ? "border-white/10 bg-navy-900/88"
                             : "border-foreground/[0.08] bg-background/92"
@@ -199,11 +200,11 @@ export function NavBar() {
                           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,255,0,0.10),transparent_44%),radial-gradient(circle_at_85%_0%,rgba(255,255,255,0.06),transparent_26%)]"
                         />
                         <div className="relative space-y-0.5">
-                          {WORK_CASE_STUDIES.map((study, index) => (
+                          {visibleStudies.map((study, index) => (
                             <Link
                               key={study.href}
                               href={study.href}
-                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-[13px] transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
+                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-xs transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
                                 isDarkTheme
                                   ? "text-white/78 hover:text-white"
                                   : "text-foreground/78 hover:text-foreground"
@@ -222,7 +223,7 @@ export function NavBar() {
                                     style={{ filter: "none" }}
                                   />
                                 ) : (
-                                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
                                     7
                                   </span>
                                 )}
@@ -240,7 +241,7 @@ export function NavBar() {
               </div>
               <Link
                 href="/about"
-                className={`rounded-full px-3 py-1.5 transition-colors duration-300 ease-out ${
+                className={`rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
                   isDarkTheme
                     ? "text-white/60 hover:bg-white/10 hover:text-white"
                     : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
@@ -252,7 +253,7 @@ export function NavBar() {
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-0 shrink-0">
             {/* Theme toggle */}
             <ThemeToggle />
 
@@ -342,7 +343,7 @@ export function NavBar() {
                           className="overflow-hidden"
                         >
                           <div className="flex flex-col gap-0.5 pl-3 pr-1 py-1">
-                            {WORK_CASE_STUDIES.map((study: { label: string; href: string; meta?: string; logo?: string }) => (
+                            {visibleStudies.map((study: { label: string; href: string; meta?: string; logo?: string }) => (
                               <Link
                                 key={study.href}
                                 href={study.href}
@@ -359,7 +360,7 @@ export function NavBar() {
                                     style={{ filter: "none" }}
                                     />
                                   ) : (
-                                    <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                                       {study.label?.charAt(0) || "?"}
                                     </span>
                                   )}

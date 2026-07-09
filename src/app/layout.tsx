@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/layout/NavBar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CustomCursor } from "@/components/CustomCursor";
+import { SplashScreen } from "@/components/SplashScreen";
+import Script from "next/script";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-sans",
@@ -24,14 +26,14 @@ const siteUrl = "https://www.jackelinetorres.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Jackeline Torres -  AI Product Designer",
+  title: "J A C K I – AI Product Designer",
   description:
     " AI Product Designer crafting apps and systems that users love.",
   icons: {
     icon: "/logo.svg",
   },
   openGraph: {
-    title: "Jackeline Torres -  AI Product Designer",
+    title: "J A C K I – AI Product Designer",
     description:
       " AI Product Designer crafting apps and systems that users love.",
     url: siteUrl,
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackeline Torres -  AI Product Designer",
+    title: "J A C K I – AI Product Designer",
     description:
       " AI Product Designer crafting apps and systems that users love.",
     images: [`${siteUrl}/og-image.png`],
@@ -71,12 +73,15 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", bricolage.variable, monaSans.variable, "font-sans")}
     >
       <body className="min-h-screen flex flex-col">
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("dark")}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("light")}})()`,
           }}
         />
         <CustomCursor />
+        <SplashScreen showOnce />
           <header className="relative z-50 bg-transparent">
             <NavBar />
           </header>

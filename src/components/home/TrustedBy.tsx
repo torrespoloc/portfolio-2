@@ -1,20 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ALL_LOGOS } from "@/lib/data/home";
+import { cn } from "@/lib/utils";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0 },
 };
 
-const allLogos = [
-  { src: "/logos/tedai.png", alt: "TEDAI" },
-  { src: "/logos/waldo.svg", alt: "Waldo" },
-  { src: "/logos/XY.svg", alt: "XY" },
-  { src: "/logos/Reail.svg", alt: "Reail" },
-  { src: "/logos/fundr-logo.svg", alt: "Fundr" },
-  { src: "/logos/7dish.svg", alt: "7dish" },
-];
+// Tailwind requires static class names, so we map alt text to height overrides
+const logoHeightOverrides: Record<string, string> = {
+  XY: "sm:h-[37px]",
+  TEDAI: "sm:h-[26px]",
+  Waldo: "sm:h-[26px]",
+};
 
 type Props = {
   className?: string;
@@ -35,39 +35,36 @@ export function TrustedBy({ className = "" }: Props) {
       <motion.div
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="rounded-[28px] border border-black/5 dark:border-white/[0.08] bg-white/75 dark:bg-[#1a1d28] shadow-[0_20px_60px_rgba(25,25,30,0.05)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-sm dark:backdrop-blur-none overflow-hidden"
+        className="rounded-none bg-white/75 dark:bg-[#1a1d28] backdrop-blur-sm dark:backdrop-blur-none overflow-hidden"
       >
         <div className="sm:grid sm:grid-cols-2">
-          <div className="px-6 py-8 sm:px-8">
+          <div className="px-5 py-10 sm:px-6 sm:py-12">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-hero-muted">
               I&apos;m grateful for their trust
             </p>
-            <h2 className="mt-3 text-[24px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[30px]">
+            <h2 className="mt-4 text-[24px] font-semibold leading-[1.15] tracking-[-0.03em] text-hero-text-dark sm:text-[30px] sm:leading-[1.05]">
               I&apos;ve found ways to bump up my UX journey. The Start-up way.
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-hero-muted sm:text-body-sm">
+            <p className="mt-4 text-sm leading-relaxed text-hero-muted sm:text-body-sm">
               A mix of healthtech, fintech, AI tooling, and founder-led products where the work had to ship.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 border-l-2 border-dashed border-black/15 dark:border-white/15 w-full h-full">
-            {allLogos.map((logo, i) => {
+          <div className="grid grid-cols-2 sm:border-l border-hero-border w-full h-full">
+            {ALL_LOGOS.map((logo, i) => {
               const isLastInRow = (i + 1) % 2 === 0;
-              const isLastRow = i >= allLogos.length - 2;
+              const isLastRow = i >= ALL_LOGOS.length - 2;
               return (
                 <div
                   key={logo.alt}
                   className={`flex h-full items-center justify-center px-4 ${
-                    !isLastInRow ? "border-r-2 border-dashed border-black/15 dark:border-white/15" : ""
-                  } ${!isLastRow ? "border-b-2 border-dashed border-black/15 dark:border-white/15" : ""}`}
+                    !isLastInRow ? "border-r border-hero-border" : ""
+                  } ${!isLastRow ? "border-b border-hero-border" : ""}`}
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className={`h-7 w-auto object-contain sm:h-8 trusted-logo ${
-                      logo.alt === "XY" ? "sm:h-[37px]" :
-                      logo.alt === "TEDAI" || logo.alt === "Waldo" ? "sm:h-[26px]" : ""
-                    }`}
+                    className={cn("h-7 w-auto object-contain sm:h-8 trusted-logo", logoHeightOverrides[logo.alt])}
                   />
                 </div>
               );

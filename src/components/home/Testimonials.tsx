@@ -2,64 +2,34 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { TESTIMONIALS, type Testimonial } from "@/lib/data/home";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0 },
 };
 
-type Testimonial = {
-  quote: string;
-  name: string;
-  title: string;
-  image?: string;
-  highlights?: string[];
-  featured?: boolean;
-};
-
-const testimonials: Testimonial[] = [
-  {
-    quote:
-      "The best AI Product Designers share one quality: their work feels inevitable. You use it and think — of course it works this way. Jacki designs like that.",
-    name: "Christopher Miller",
-    title: "Enterprise UX · Design Career Coach",
-    image: "/headshots/miller.png",
-    highlights: ["work feels inevitable"],
-  },
-  {
-    quote:
-      "Jacki's passion, creative flair, and adaptability stood out immediately. Her work ethic and collaboration made her a standout contributor.",
-    name: "Earl Friedberg",
-    title: "UX Manager at Google",
-    image: "/headshots/friedberg.png",
-    highlights: ["passion, creative flair, and adaptability"],
-  },
-  {
-    quote:
-      "I was always impressed by her strong visual design instinct and thoughtful approach to UX. She has a solid ability to create designs that not only look excellent, but also make for a delightful user experience.",
-    name: "Scott Cressman",
-    title: "CPO + AI Leader at XY",
-    image: "/headshots/cressman.png",
-    highlights: ["strong visual design instinct", "delightful user experience"],
-    featured: true,
-  },
-  {
-    quote:
-      "You're a thoughtful and resourceful UX designer. She's a natural at collaborating and shipping great work. I'd recommend her to anyone.",
-    name: "Vincent Trepnier",
-    title: "CEO of 7dish",
-    image: "/headshots/vincent.jpeg",
-    highlights: ["thoughtful and resourceful"],
-  },
-  {
-    quote:
-      "Jacki is an ambitious talent — always willing to learn, solve tough problems, and deliver strong results. I'd work with her again in a heartbeat.",
-    name: "Jonathan Brink",
-    title: "UX Manager at IBM",
-    image: "/headshots/brink.png",
-    highlights: ["ambitious talent"],
-  },
-];
+function LinkedInLink({ url }: { url?: string }) {
+  if (!url) return null;
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile"
+      className="inline-flex items-center justify-center shrink-0 transition-colors hover:opacity-70"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="h-4 w-4"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    </a>
+  );
+}
 
 function Avatar({ name, image, light }: { name: string; image?: string; light?: boolean }) {
   const initials = name
@@ -87,7 +57,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
         light ? "bg-white/10 ring-1 ring-white/20" : "bg-muted ring-1 ring-black/5"
       }`}
     >
-      <span className={`text-[14px] font-semibold ${light ? "text-white/70" : "text-hero-muted"}`}>
+      <span className={`text-xs font-semibold ${light ? "text-white/70" : "text-hero-muted"}`}>
         {initials}
       </span>
     </div>
@@ -120,12 +90,10 @@ type Props = {
   className?: string;
 };
 
-const leftRotations = ["rotate-[-1deg]", "rotate-[1.5deg]"];
-const rightRotations = ["rotate-[1deg]", "rotate-[-1.5deg]"];
 
 export function Testimonials({ className = "" }: Props) {
-  const featured = testimonials.find((testimonial) => testimonial.featured);
-  const supporting = testimonials.filter((testimonial) => !testimonial.featured);
+  const featured = TESTIMONIALS.find((testimonial) => testimonial.featured);
+  const supporting = TESTIMONIALS.filter((testimonial) => !testimonial.featured);
   const leftColumn = supporting.slice(0, 2);
   const rightColumn = supporting.slice(2);
 
@@ -145,22 +113,22 @@ export function Testimonials({ className = "" }: Props) {
       <motion.div
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-10 flex flex-col items-center text-center"
+        className="py-10 sm:py-12 mb-6 flex flex-col items-center text-center px-6"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-hero-muted">
           Testimonials
         </p>
-        <h2 className="mt-3 max-w-[560px] text-[28px] font-semibold leading-[1.05] tracking-[-0.03em] text-hero-text-dark sm:text-[36px]">
+        <h2 className="mt-3 w-full font-heading text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark sm:text-[40px] lg:text-[54px]">
           Community &amp; relationships matter. Endorsements are proof of that.
         </h2>
       </motion.div>
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)]">
-        <div className="grid gap-4">
+      <div className="grid gap-0 border-t border-hero-border -mt-px lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)]">
+        <div className="grid gap-0 border-r border-hero-border">
           <motion.article
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-full rotate-[-1deg] flex-col overflow-hidden rounded-[28px] bg-burgundy p-7 text-white shadow-[0_24px_80px_rgba(48,18,36,0.18)] transition-transform duration-300 hover:rotate-0 sm:p-8"
+            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border bg-burgundy p-7 text-white shadow-[0_24px_80px_rgba(48,18,36,0.18)] sm:p-8"
           >
             <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/40 to-transparent" />
             <span
@@ -173,7 +141,7 @@ export function Testimonials({ className = "" }: Props) {
             <div className="relative z-10 flex h-full flex-1 flex-col">
               <div className="mb-6 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-chartreuse" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-chartreuse/80">
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-chartreuse/80">
                   Featured Quote
                 </span>
               </div>
@@ -184,8 +152,11 @@ export function Testimonials({ className = "" }: Props) {
 
               <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-5">
                 <Avatar name={featured.name} image={featured.image} light />
-                <div>
-                  <p className="text-body-sm font-medium text-white">{featured.name}</p>
+                <div className="min-w-0">
+                  <p className="text-body-sm font-medium text-white inline-flex items-center gap-1.5">
+                    {featured.name}
+                    <LinkedInLink url={featured.linkedin} />
+                  </p>
                   <p className="mt-0.5 text-sm text-white/65">{featured.title}</p>
                 </div>
               </div>
@@ -195,21 +166,24 @@ export function Testimonials({ className = "" }: Props) {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.04 }}
-            className="grid gap-4 sm:grid-cols-2"
+            className="grid gap-0 sm:grid-cols-2"
           >
             {leftColumn.map((testimonial, index) => (
               <article
                 key={testimonial.name}
-                className={`${leftRotations[index] ?? ""} flex h-full flex-col rounded-[22px] border border-black/5 bg-white/85 p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0`}
+                className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-r border-hero-border" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
               >
-                <p className="flex-1 text-body-sm sm:text-body leading-[1.65] text-hero-text-dark">
+                <p className="flex-1 text-body-lg leading-[1.65] text-hero-text-dark">
                   &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
                 </p>
 
-                <div className="mt-5 flex items-center gap-3 border-t border-black/5 pt-4">
+                <div className="mt-5 flex items-center gap-3 border-t border-black/5 dark:border-white/5 pt-4">
                   <Avatar name={testimonial.name} image={testimonial.image} />
-                  <div>
-                    <p className="text-body-sm font-medium text-hero-text-dark">{testimonial.name}</p>
+                  <div className="min-w-0">
+                    <p className="text-body-sm font-medium text-hero-text-dark inline-flex items-center gap-1.5">
+                      {testimonial.name}
+                      <LinkedInLink url={testimonial.linkedin} />
+                    </p>
                     <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
                   </div>
                 </div>
@@ -221,21 +195,24 @@ export function Testimonials({ className = "" }: Props) {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1"
+          className="grid gap-0 sm:grid-cols-2 lg:grid-cols-1"
         >
           {rightColumn.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`${rightRotations[index] ?? ""} flex h-full flex-col rounded-[22px] border border-black/5 bg-white/85 p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0`}
+              className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-b border-hero-border sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
             >
-              <p className="flex-1 text-body-sm sm:text-body leading-[1.65] text-hero-text-dark">
+              <p className="flex-1 text-body-lg leading-[1.65] text-hero-text-dark">
                 &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
               </p>
 
-              <div className="mt-5 flex items-center gap-3 border-t border-black/5 pt-4">
+              <div className="mt-5 flex items-center gap-3 border-t border-black/5 dark:border-white/5 pt-4">
                 <Avatar name={testimonial.name} image={testimonial.image} />
-                <div>
-                  <p className="text-body-sm font-medium text-hero-text-dark">{testimonial.name}</p>
+                <div className="min-w-0">
+                  <p className="text-body-sm font-medium text-hero-text-dark inline-flex items-center gap-1.5">
+                    {testimonial.name}
+                    <LinkedInLink url={testimonial.linkedin} />
+                  </p>
                   <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
                 </div>
               </div>

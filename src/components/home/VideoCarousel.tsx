@@ -31,12 +31,18 @@ export function VideoCarousel({ videos, interval = 4000, gradient, className = "
     }
   }, [activeIndex, advance, interval])
 
+  // Only load active + adjacent videos; lazily load the rest
   useEffect(() => {
-    videos.forEach((_, i) => {
+    const adjacent = new Set([
+      activeIndex,
+      (activeIndex - 1 + videos.length) % videos.length,
+      (activeIndex + 1) % videos.length,
+    ])
+    adjacent.forEach((i) => {
       const vid = videoRefs.current.get(i)
       if (vid) vid.load()
     })
-  }, [videos])
+  }, [videos, activeIndex])
 
   if (videos.length === 0) return null
 
