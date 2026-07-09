@@ -16,7 +16,7 @@ export default function Home() {
       <div className="fixed inset-y-0 right-0 w-px bg-hero-border pointer-events-none" aria-hidden="true" />
 
       {/* Content container with its own vertical borders */}
-      <div className="mx-auto w-full max-w-[1360px] border-x border-hero-border min-h-screen px-5">
+      <div className="mx-auto w-full max-w-[1360px] border-x border-hero-border min-h-screen px-5 md:px-0">
 
       <HeroContent />
 
