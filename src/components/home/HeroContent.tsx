@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
 import { motion, type Variants } from "framer-motion"
 import { HowIWorkCards } from "./HowIWorkCards"
@@ -43,7 +44,7 @@ export function HeroContent() {
   const closeOverlay = () => setIsOverlayOpen(false)
 
   return (
-    <section className="relative flex flex-col justify-center min-h-[100svh] pt-[76px] sm:py-20 lg:py-24 overflow-hidden">
+    <section className="relative flex flex-col justify-center min-h-[100svh] pt-24 sm:py-20 lg:py-24 overflow-hidden">
       {/* Blur blobs */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <BlurBlob top="-60px" left="clamp(-60px, -4vw, 40px)" animation="animate-float-geometric" blur={70} />
@@ -72,7 +73,7 @@ export function HeroContent() {
           {/* Centered heading */}
           <motion.h1
             variants={sectionUp}
-            className="font-heading text-[clamp(30px,5.8vw,68px)] leading-[1.1] tracking-tight text-center text-hero-text-dark font-semibold"
+            className="font-heading text-hero-heading tracking-tight text-center text-hero-text-dark font-semibold"
           >
             <span>Hi! I&apos;m Jacki.{" "}</span>
             <HeroVideoInline onOpenOverlay={openOverlay} />
@@ -94,19 +95,16 @@ export function HeroContent() {
               Toolkit
             </p>
             <div className="flex items-center gap-2 flex-wrap">
-              <img src="/logos/cursor.png" alt="Cursor" className="h-6 w-auto" />
-              <img src="/logos/claude-code.png" alt="Claude Code" className="h-7 w-auto" />
-              <img src="/logos/figma.png" alt="Figma" className="h-6 w-auto rounded" />
-              <img src="/logos/hermes.png" alt="Hermes" className="h-6 w-auto" />
+              <Image src="/logos/cursor.png" alt="Cursor" width={24} height={24} className="h-6 w-auto" />
+              <Image src="/logos/claude-code.png" alt="Claude Code" width={28} height={28} className="h-7 w-auto" />
+              <Image src="/logos/figma.png" alt="Figma" width={24} height={24} className="h-6 w-auto rounded" />
+              <Image src="/logos/hermes.png" alt="Hermes" width={24} height={24} className="h-6 w-auto" />
               <img src="/logos/granola.svg" alt="Granola" className="h-6 w-auto rounded" />
               <img src="/logos/obsidian.svg" alt="Obsidian" className="h-6 w-auto" />
-              <img src="/logos/github.png" alt="GitHub" className="h-6 w-auto" />
+              <Image src="/logos/github.png" alt="GitHub" width={24} height={24} className="h-6 w-auto" />
               <img src="/logos/sidenook.svg" alt="SideNook" className="h-6 w-auto" />
             </div>
-            <p className="text-hero-muted text-sm leading-snug mt-2.5">
-
-            </p>
-            <p className="text-hero-muted text-sm leading-snug mt-2">
+            <p className="text-hero-muted text-xs leading-snug mt-2">
               My design process evolves with new tools and AI-first workflows.
             </p>
           </div>
@@ -118,7 +116,7 @@ export function HeroContent() {
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
               Community
             </p>
-            <p className="text-hero-text text-sm leading-relaxed font-semibold">
+            <p className="text-hero-text text-xs leading-relaxed font-semibold">
               200+ members
             </p>
             <div className="relative z-10">
@@ -127,7 +125,7 @@ export function HeroContent() {
                 alt="The UX Chats logo"
                 className="absolute bottom-0 right-0 w-12 h-12 object-contain rotate-6"
               />
-              <p className="text-hero-muted text-sm leading-snug mt-1 relative pr-14">
+              <p className="text-hero-muted text-xs leading-snug mt-1 relative pr-14">
                 I founded The UX Chats — where UXers connect and grow.
               </p>
             </div>

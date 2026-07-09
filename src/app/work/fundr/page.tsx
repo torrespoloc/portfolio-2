@@ -84,7 +84,7 @@ export default function FundrCaseStudy() {
               SaaS
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Replacing a sales-call funnel with a paywall users can navigate themselves.
           </h1>
         </div>
@@ -120,7 +120,7 @@ export default function FundrCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Fundr needed to monetize without alienating users — but the product had no upgrade path.
             </motion.h3>
@@ -206,7 +206,7 @@ export default function FundrCaseStudy() {
               — {quote.cite}
             </figcaption>
           </figure>
-          <p className="mt-6 text-body lg:text-base text-ink-muted leading-relaxed max-w-2xl border-t border-hairline pt-6">
+          <p className="mt-6 text-body-sm lg:text-body text-ink-muted leading-relaxed max-w-2xl border-t border-hairline pt-6">
             This reframed the project from “UI cleanup” to a{" "}
             <span className="text-case-highlight font-semibold">business-critical decision</span>.
             Pricing surface was <span className="text-case-highlight font-semibold">the lever</span> — not polish.
@@ -242,7 +242,7 @@ export default function FundrCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Every path leads to checkout — here’s the full picture.
             </motion.h3>
@@ -353,7 +353,7 @@ export default function FundrCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Users who wanted to upgrade hit a wall.
               </h3>
             </div>
@@ -386,7 +386,7 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Research
                 </p>
-                <p className="text-body lg:text-base text-foreground/75 leading-relaxed">
+                <p className="text-body-sm lg:text-body text-foreground/75 leading-relaxed">
                   Systems with <span className="text-case-highlight font-semibold">combined CTA methods</span> outperform
                   single-method approaches — and the most effective pattern bridges the gap between
                   the CTA and the conversion point with the right information at the right time.
@@ -461,7 +461,7 @@ export default function FundrCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               What users are upgrading for — SPVs, explained.
             </motion.h3>
@@ -582,7 +582,7 @@ export default function FundrCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A single pricing table that mixed investor and startup features — making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
               </h3>
             </div>
@@ -666,7 +666,7 @@ export default function FundrCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               One pricing page or two?
             </motion.h3>
@@ -731,7 +731,7 @@ export default function FundrCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 The free tier was a demo, not a product — so limited that users couldn’t evaluate whether Fundr was right for them.
               </h3>
             </div>
@@ -764,7 +764,7 @@ export default function FundrCaseStudy() {
                 <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
                   Why this approach
                 </p>
-                <ul className="text-body lg:text-base text-foreground/75 leading-relaxed list-disc pl-5 space-y-1.5">
+                <ul className="text-body-sm lg:text-body text-foreground/75 leading-relaxed list-disc pl-5 space-y-1.5">
                   <li>SaaS users convert when they <span className="text-case-highlight font-semibold">experience value firsthand</span>.</li>
                   <li>A <span className="text-case-highlight font-semibold">free tier worth using</span> builds trust.</li>
                   <li>A <span className="text-case-highlight font-semibold">premium tier worth paying for</span> converts without pressure.</li>
@@ -905,7 +905,7 @@ export default function FundrCaseStudy() {
                 whileHover={{ y: -2, scale: 1.005 }}
                 className="flex gap-5 p-6 lg:p-7 rounded-xl bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
-                <span className="text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-body lg:text-lg text-foreground/85 leading-relaxed">{o}</p>
@@ -1042,7 +1042,7 @@ export default function FundrCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
         >
-          <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">

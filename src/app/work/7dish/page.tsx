@@ -60,7 +60,7 @@ export default function SevenDishCaseStudy() {
           <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1.5">
             7dish &middot; Quebec startup
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Redesigning 3 Core Tasks for 7Dish&rsquo;s Meal Planning App
           </h1>
           <div className="flex items-center gap-2 mt-3 text-label font-mono uppercase tracking-[0.18em] text-muted-foreground">
@@ -110,7 +110,7 @@ export default function SevenDishCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               A native mobile app opened the door to tackling design debt.
             </motion.h3>
@@ -202,7 +202,7 @@ export default function SevenDishCaseStudy() {
           {/* Intro */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 I started by auditing and pinpointing existing usability issues, giving a strong foundation to my design decisions.
               </h3>
             </div>
@@ -287,7 +287,7 @@ export default function SevenDishCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Creating a meal plan was laborious and adding recipes lacked order.
               </h3>
             </div>
@@ -330,7 +330,7 @@ export default function SevenDishCaseStudy() {
                   Concept A/B Testing
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Two concepts went head-to-head. Flexibility lost.
               </h3>
             </div>
@@ -413,7 +413,7 @@ export default function SevenDishCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Users consistently browse and save recipes, but the original flow lacked a clear connection between &lsquo;Saved&rsquo; and &lsquo;Meal Planner.&rsquo;
               </h3>
             </div>
@@ -523,7 +523,7 @@ export default function SevenDishCaseStudy() {
                   The problem
                 </p>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Three glaring usability flaws in the original shopping list.
               </h3>
             </div>
@@ -605,7 +605,7 @@ export default function SevenDishCaseStudy() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Major UX changes often introduce internal controversy.
               </h3>
             </div>
@@ -722,7 +722,7 @@ export default function SevenDishCaseStudy() {
           {/* Intro + metrics */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Testing all three redesigned core tasks together revealed a vastly improved end-to-end ecosystem.
               </h3>
             </div>
@@ -830,7 +830,7 @@ export default function SevenDishCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
         >
-          <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5">
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">

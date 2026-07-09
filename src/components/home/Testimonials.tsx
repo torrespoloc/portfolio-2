@@ -118,7 +118,7 @@ export function Testimonials({ className = "" }: Props) {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-hero-muted">
           Testimonials
         </p>
-        <h2 className="mt-3 w-full font-heading text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark sm:text-[40px] lg:text-[54px]">
+        <h2 className="mt-3 w-full font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark sm:text-[36px] lg:text-[54px]">
           Community &amp; relationships matter. Endorsements are proof of that.
         </h2>
       </motion.div>
@@ -146,7 +146,7 @@ export function Testimonials({ className = "" }: Props) {
                 </span>
               </div>
 
-              <p className="max-w-[40ch] flex-1 text-body sm:text-[1.375rem] leading-[1.6] text-white/92">
+              <p className="max-w-[40ch] flex-1 text-sm sm:text-[1.375rem] leading-[1.6] text-white/92">
                 &ldquo;{highlightText(featured.quote, featured.highlights ?? [], true)}&rdquo;
               </p>
 
@@ -157,7 +157,7 @@ export function Testimonials({ className = "" }: Props) {
                     {featured.name}
                     <LinkedInLink url={featured.linkedin} />
                   </p>
-                  <p className="mt-0.5 text-sm text-white/65">{featured.title}</p>
+                  <p className="mt-0.5 text-xs text-white/65">{featured.title}</p>
                 </div>
               </div>
             </div>
@@ -173,7 +173,7 @@ export function Testimonials({ className = "" }: Props) {
                 key={testimonial.name}
                 className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-r border-hero-border" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
               >
-                <p className="flex-1 text-body-lg leading-[1.65] text-hero-text-dark">
+                <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                   &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
                 </p>
 
@@ -184,7 +184,7 @@ export function Testimonials({ className = "" }: Props) {
                       {testimonial.name}
                       <LinkedInLink url={testimonial.linkedin} />
                     </p>
-                    <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
+                    <p className="mt-0.5 text-xs text-hero-muted">{testimonial.title}</p>
                   </div>
                 </div>
               </article>
@@ -202,7 +202,7 @@ export function Testimonials({ className = "" }: Props) {
               key={testimonial.name}
               className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-b border-hero-border sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
             >
-              <p className="flex-1 text-body-lg leading-[1.65] text-hero-text-dark">
+              <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                 &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
               </p>
 
@@ -213,7 +213,7 @@ export function Testimonials({ className = "" }: Props) {
                     {testimonial.name}
                     <LinkedInLink url={testimonial.linkedin} />
                   </p>
-                  <p className="mt-0.5 text-sm text-hero-muted">{testimonial.title}</p>
+                  <p className="mt-0.5 text-xs text-hero-muted">{testimonial.title}</p>
                 </div>
               </div>
             </article>

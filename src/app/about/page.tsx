@@ -72,7 +72,7 @@ export default function AboutPage() {
             <div className="border-b border-hero-border px-6 md:px-10 py-10 sm:py-12">
               <div className="flex flex-col md:flex-row md:gap-12 lg:gap-20 items-center">
                 <div className="flex-1">
-                  <h3 className="font-heading text-[30px] sm:text-[40px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
+                  <h3 className="font-heading text-[24px] sm:text-[36px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
                     UX events, TED talks, <span className="text-accent">networking</span>
                     —you name it
                   </h3>
@@ -102,7 +102,7 @@ export default function AboutPage() {
             <div className="border-b border-hero-border px-6 md:px-10 py-10 sm:py-12">
               <div className="flex flex-col md:flex-row-reverse md:gap-12 lg:gap-20 items-center">
                 <div className="flex-1">
-                  <h3 className="font-heading text-[30px] sm:text-[40px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
+                  <h3 className="font-heading text-[24px] sm:text-[36px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
                     I&apos;m <span className="text-accent">competitive</span> and know
                     how to work in teams
                   </h3>
@@ -134,7 +134,7 @@ export default function AboutPage() {
             {/* Section 3 — Public speaking */}
             <div className="border-b border-hero-border px-6 md:px-10 py-10 sm:py-12">
               <div className="max-w-[600px]">
-                <h3 className="font-heading text-[30px] sm:text-[40px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
+                <h3 className="font-heading text-[24px] sm:text-[36px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
                   I broke through a barrier and got good at{" "}
                   <span className="text-accent">public speaking</span>
                 </h3>
@@ -199,7 +199,7 @@ export default function AboutPage() {
             <div className="border-b border-hero-border px-6 md:px-10 py-10 sm:py-12">
               <div className="flex flex-col md:flex-row-reverse md:gap-12 lg:gap-20 items-center">
                 <div className="flex-1">
-                  <h3 className="font-heading text-[30px] sm:text-[40px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
+                  <h3 className="font-heading text-[24px] sm:text-[36px] lg:text-[54px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
                     Other creative outlets—they make me a{" "}
                     <span className="text-accent">better designer</span>
                   </h3>

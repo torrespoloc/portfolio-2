@@ -67,7 +67,7 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
   return (
     <>
       {/* Mobile: horizontal carousel with peek */}
-      <div className="md:hidden mt-16 relative left-1/2 -translate-x-1/2 w-screen select-none overflow-x-clip" ref={containerRef}>
+      <div className="md:hidden mt-0 relative left-1/2 -translate-x-1/2 w-screen select-none overflow-x-clip" ref={containerRef}>
         <div
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -83,9 +83,9 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
             }}
           >
             {childrenArray.map((child, i) => (
-              <div key={i} className="shrink-0 flex flex-col justify-center" style={{ width: `${cardW}px` }}>
+              <div key={i} className="shrink-0 flex flex-col h-full" style={{ width: `${cardW}px` }}>
                 <div
-                  className={`transition-all duration-500 ease-out ${
+                  className={`h-full transition-all duration-500 ease-out ${
                     i === current
                       ? "scale-100 opacity-100"
                       : "scale-[0.92] opacity-50"

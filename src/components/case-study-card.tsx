@@ -55,7 +55,7 @@ export function CaseStudyCard({
       rel={isExternal ? "noopener noreferrer" : undefined}
       aria-label={href && !isExternal ? `View case study: ${tag}` : undefined}
       className={cn(
-        "group block w-full h-full rounded-none overflow-hidden bg-card flex flex-col shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
+        "group block w-full h-full min-h-0 rounded-none overflow-hidden bg-card flex flex-col shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_-1px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-6px_rgba(0,0,0,0.05)] transition-all duration-300",
         href && "cursor-pointer",
         className
       )}
@@ -101,7 +101,7 @@ export function CaseStudyCard({
         <div className="absolute top-0 left-0 right-0 p-6 sm:p-8">
           <div className="flex items-center gap-2">
             {tag && (
-              <span className="text-sm font-medium text-white/90 bg-white/15 backdrop-blur-md px-4 py-1">
+              <span className="text-xs font-medium text-white/90 bg-white/15 backdrop-blur-md px-4 py-1">
                 {tag}
               </span>
             )}
@@ -128,11 +128,11 @@ export function CaseStudyCard({
 
       {/* Info banner */}
       <div className="flex flex-col flex-1 p-6 sm:p-7">
-        <h3 className="font-heading text-[21px] sm:text-[24px] lg:text-[28px] font-semibold leading-[1.25] text-hero-text-dark">
+        <h3 className="font-heading text-[18px] sm:text-[21px] lg:text-[28px] font-semibold leading-[1.25] text-hero-text-dark">
           {headline}
         </h3>
 
-        <p className="text-body-lg leading-[1.5] text-hero-text mt-2 flex-1">
+        <p className="text-xs sm:text-body-lg leading-[1.5] text-hero-text mt-2 flex-1">
           {description}
         </p>
 
@@ -156,7 +156,7 @@ export function CaseStudyCard({
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
                 {metric1Label}
               </span>
-              <span className="text-body font-bold text-hero-text-dark leading-none mt-0.5">
+              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-0.5">
                 {metric1Value}
               </span>
             </div>
@@ -164,7 +164,7 @@ export function CaseStudyCard({
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
                 {metric2Label}
               </span>
-              <span className="text-body font-bold text-hero-text-dark leading-none mt-0.5">
+              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-0.5">
                 {metric2Value}
               </span>
             </div>

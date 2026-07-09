@@ -96,7 +96,7 @@ export default function XYCaseStudy() {
               NDA-friendly
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Turning a suite of AI agents into a platform anyone can orchestrate.
           </h1>
         </div>
@@ -149,7 +149,7 @@ export default function XYCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               XY's platform runs on <span className="text-case-highlight font-semibold">AI agents</span> — but configuring them required a <span className="text-case-highlight font-semibold">sales call</span>.
             </motion.h3>
@@ -241,7 +241,7 @@ export default function XYCaseStudy() {
                 Research snapshot
               </p>
             </div>
-            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
               Nurses and admin staff both needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
             </h3>
             <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -308,7 +308,7 @@ export default function XYCaseStudy() {
                 Product direction
               </p>
             </div>
-            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
               I reframed setup as <span className="text-case-highlight font-semibold">conversation</span>, not configuration.
             </h3>
             <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -374,7 +374,7 @@ export default function XYCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Before scaling the product, I built the <span className="text-case-highlight font-semibold">design foundations</span> the company needed.
             </motion.h3>
@@ -489,7 +489,7 @@ export default function XYCaseStudy() {
                       {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
                     </p>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                     {s.title}
                   </h3>
                 </div>
@@ -601,7 +601,7 @@ export default function XYCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Before committing to chat-first, the <span className="text-case-highlight font-semibold">CEO ran three rounds of demos</span> to validate the self-serve AI experience with enterprise prospects.
             </motion.h3>
@@ -686,7 +686,7 @@ export default function XYCaseStudy() {
               &rdquo;
             </span>
             <figure className="relative z-10">
-              <blockquote className="text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
+              <blockquote className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
                 &ldquo;{cpoQuote.body}&rdquo;
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-2 text-body-sm font-mono uppercase tracking-[0.18em] text-case-eyebrow">
@@ -765,7 +765,7 @@ export default function XYCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
         >
-          <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed max-w-2xl">

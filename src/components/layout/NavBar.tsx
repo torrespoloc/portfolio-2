@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -71,38 +71,43 @@ export function NavBar() {
     return () => window.removeEventListener("themechange", handler)
   }, [])
 
-  const isMobile = viewportWidth !== null && viewportWidth < 768
-  const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true
-  const tightScreen = viewportWidth !== null && viewportWidth < 1024
-  const isScrolled = scrolled || (!isHome && !isMobile)
-  const mobileResting = isMobile && !isScrolled
-  const useDarkStyle = isScrolled && !tightScreen
-  const expandedWidth = viewportWidth
-    ? Math.min(tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
-    : 800
-  const defaultWidth = viewportWidth
-    ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - (tightScreen ? 88 : 64), 1200)
-    : "calc(100vw - 88px)"
-  const navWidth = tightScreen ? defaultWidth : (isScrolled ? expandedWidth : defaultWidth)
-  const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
+  const derived = useMemo(() => {
+    const isMobile = viewportWidth !== null && viewportWidth < 768
+    const leftPanelVisible = viewportWidth ? viewportWidth >= 1024 : true
+    const tightScreen = viewportWidth !== null && viewportWidth < 1024
+    const isScrolled = scrolled || (!isHome && !isMobile)
+    const mobileResting = isMobile && !isScrolled
+    const expandedWidth = viewportWidth
+      ? Math.min(tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
+      : 800
+    const defaultWidth = viewportWidth
+      ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - (tightScreen ? 88 : 64), 1200)
+      : "calc(100vw - 88px)"
+    const navWidth = tightScreen ? defaultWidth : (isScrolled ? expandedWidth : defaultWidth)
+    const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
+    const isNavGlassed = !mobileResting && (tightScreen || isScrolled)
+    const navBgColor = isNavGlassed
+      ? isDarkTheme
+        ? (tightScreen ? "rgba(0,0,0,0.75)" : "rgba(0,0,0,0.55)")
+        : (tightScreen ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.85)")
+      : "rgba(255,255,255,0)"
+    const navShadow = isNavGlassed
+      ? (isDarkTheme
+        ? "0 8px 32px rgba(0,0,0,0.3)"
+        : tightScreen
+          ? "0 2px 12px rgba(0,0,0,0.06)"
+          : "0 8px 32px rgba(0,0,0,0.1)")
+      : "0 0 0 rgba(0,0,0,0)"
+    const navBorder = isNavGlassed
+      ? (isDarkTheme ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)")
+      : "rgba(0,0,0,0)"
+    return {
+      tightScreen, isScrolled, mobileResting,
+      navWidth, navLeft, navBgColor, navShadow, navBorder,
+    }
+  }, [scrolled, viewportWidth, isHome, isWorkPage, isDarkTheme])
 
-  // Theme-aware glass colors for the nav background
-  const isNavGlassed = !mobileResting && (tightScreen || isScrolled)
-  const navBgColor = isNavGlassed
-    ? isDarkTheme
-      ? (tightScreen ? "rgba(0,0,0,0.75)" : "rgba(0,0,0,0.55)")
-      : (tightScreen ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.85)")
-    : "rgba(255,255,255,0)"
-  const navShadow = isNavGlassed
-    ? (isDarkTheme
-      ? "0 8px 32px rgba(0,0,0,0.3)"
-      : tightScreen
-        ? "0 2px 12px rgba(0,0,0,0.06)"
-        : "0 8px 32px rgba(0,0,0,0.1)")
-    : "0 0 0 rgba(0,0,0,0)"
-  const navBorder = isNavGlassed
-    ? (isDarkTheme ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)")
-    : "rgba(0,0,0,0)"
+  const { tightScreen, isScrolled, mobileResting, navWidth, navLeft, navBgColor, navShadow, navBorder } = derived
 
   return (
     <>

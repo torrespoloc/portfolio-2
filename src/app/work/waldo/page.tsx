@@ -119,7 +119,7 @@ export default function WaldoCaseStudy() {
               Mobile
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Designed the patient mobile app that closed the last mile for independent eye doctors.
           </h1>
         </div>
@@ -155,7 +155,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Eye care clinics lose contact lens sales to Amazon. iDoc had six months to change that.
             </motion.h3>
@@ -192,7 +192,7 @@ export default function WaldoCaseStudy() {
                   key={m.label}
                   className="flex flex-col items-center justify-center text-center p-5 lg:p-6 bg-background"
                 >
-                  <span className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
                     {m.value}
                   </span>
                   <span className="text-body-sm font-mono text-ink-muted leading-snug max-w-[12ch]">
@@ -286,7 +286,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               The real users were front-desk staff, not the doctors
             </motion.h3>
@@ -430,7 +430,7 @@ export default function WaldoCaseStudy() {
                       {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
                     </p>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                     {s.title}
                   </h3>
                 </div>
@@ -513,7 +513,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               <span className="text-case-highlight font-semibold">$5</span> in V0 credits. Twelve checkout iterations. The team found out later.
             </motion.h3>
@@ -545,7 +545,7 @@ export default function WaldoCaseStudy() {
                 &rdquo;
               </span>
               <figure className="relative z-10">
-                <blockquote className="text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
+                <blockquote className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl leading-[1.2] text-foreground font-medium tracking-tight">
                   &ldquo;{quote.body}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-2 text-body-sm font-mono uppercase tracking-[0.18em] text-case-eyebrow">
@@ -607,7 +607,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               An acquisition brought a completely new identity. I applied it across every screen without delaying dev handoff.
             </motion.h3>
@@ -767,7 +767,7 @@ export default function WaldoCaseStudy() {
                 whileHover={{ y: -2, scale: 1.005 }}
                 className="flex gap-5 p-6 lg:p-7 rounded-xl bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
-                <span className="text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-body lg:text-lg text-foreground/85 leading-relaxed">{o}</p>
@@ -805,7 +805,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               The constraints were real. The prototype-first approach carried us through.
             </motion.h3>
@@ -875,7 +875,7 @@ export default function WaldoCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               Shipping isn&rsquo;t the finish line. It&rsquo;s the starting point.
             </motion.h3>
@@ -921,7 +921,7 @@ export default function WaldoCaseStudy() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
         >
-          <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
           </h3>
           <p className="text-base lg:text-lg text-background/75 leading-relaxed mb-6 max-w-2xl">

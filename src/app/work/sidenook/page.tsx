@@ -130,7 +130,7 @@ function PhaseHeader({ p, idx }: { p: Phase; idx: number }) {
             {String(idx + 1).padStart(2, "0")} · {p.eyebrow}
           </p>
         </div>
-        <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
           {p.title}
         </h3>
       </div>
@@ -169,7 +169,7 @@ export default function SideNookCaseStudy() {
               Building V2
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             A terminal that&rsquo;s a support character, not the main event.
           </h1>
           <p className="max-w-2xl text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -213,7 +213,7 @@ export default function SideNookCaseStudy() {
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
               A terminal that stays out of the way — until you need it.
             </motion.h3>
@@ -381,7 +381,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Status Indicator</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A subtle indicator. A surprisingly hard problem.
               </h4>
             </div>
@@ -403,7 +403,7 @@ export default function SideNookCaseStudy() {
                   Panel visibility and auto-hide state at a glance
                 </li>
               </ul>
-              <p className="text-body lg:text-base text-ink-muted italic leading-relaxed">
+              <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
                 <strong className="text-foreground not-italic">Why:</strong> <span className="text-case-highlight font-semibold">Nothing blocks silently.</span> That principle made the status indicator the hardest feature. The states looked simple on paper; making them reliable was not.
               </p>
             </div>
@@ -457,7 +457,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">CL Notes</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A notepad that lives where your terminal is.
               </h4>
             </div>
@@ -479,7 +479,7 @@ export default function SideNookCaseStudy() {
                   Auto-saved on every change
                 </li>
               </ul>
-              <p className="text-body lg:text-base text-ink-muted italic leading-relaxed">
+              <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
                 <strong className="text-foreground not-italic">Why:</strong> When Claude Code generates a command you&rsquo;ll reuse, you <span className="text-case-highlight font-semibold">shouldn&rsquo;t need another app</span> to save it.
               </p>
             </div>
@@ -498,7 +498,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Command Line Help</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A command reference you never have to go search for.
               </h4>
             </div>
@@ -520,7 +520,7 @@ export default function SideNookCaseStudy() {
                   Click-to-send to active terminal
                 </li>
               </ul>
-              <p className="text-body lg:text-base text-ink-muted italic leading-relaxed">
+              <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
                 <strong className="text-foreground not-italic">Why:</strong> Claude Code generates commands I don&rsquo;t know yet. Googling them <span className="text-case-highlight font-semibold">breaks flow</span>. A local reference <span className="text-case-highlight font-semibold">keeps me in the terminal</span>.
               </p>
             </div>
@@ -544,7 +544,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Multitask</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Split views. Independent sessions. One panel.
               </h4>
             </div>
@@ -566,7 +566,7 @@ export default function SideNookCaseStudy() {
                   Drag to resize — keyboard shortcuts for quick-switch
                 </li>
               </ul>
-              <p className="text-body lg:text-base text-ink-muted italic leading-relaxed">
+              <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
                 <strong className="text-foreground not-italic">Why:</strong> Running Claude Code, watching builds, editing configs — one session isn&rsquo;t enough. Split panes <span className="text-case-highlight font-semibold">keep context without spawning more windows</span>.
               </p>
             </div>
@@ -585,7 +585,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Personalize</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Every visual element is tunable. Light and dark are both first-class.
               </h4>
             </div>
@@ -607,7 +607,7 @@ export default function SideNookCaseStudy() {
                   Adjustable panel opacity, blur, and font controls
                 </li>
               </ul>
-              <p className="text-body lg:text-base text-ink-muted italic leading-relaxed">
+              <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
                 <strong className="text-foreground not-italic">Why:</strong> Coordinating SideNook&rsquo;s accents with Claude Code&rsquo;s own color system — across both appearances — required a full token architecture. <span className="text-case-highlight font-semibold">No hex values in any component.</span>
               </p>
             </div>
@@ -626,7 +626,7 @@ export default function SideNookCaseStudy() {
           >
             <div className={sectionLeft}>
               <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Scope growth</p>
-              <h4 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 The original plan called for 9 features. By ship day, 14 made it in.
               </h4>
             </div>
@@ -801,7 +801,7 @@ export default function SideNookCaseStudy() {
       5. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
       <BurgundySection className="pb-32">
-        <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5 text-white">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5 text-white">
           Designed &amp; built side by side.
         </h3>
         <p className="text-base lg:text-lg text-white/75 leading-relaxed mb-6 max-w-2xl">

@@ -3,13 +3,13 @@ import { EXPERIENCE } from "@/lib/data/home"
 export function Experience() {
   return (
     <div className="dark">
-      <div className="bg-[#485bfc] px-6 py-10 sm:py-12">
+      <div className="bg-accent px-6 py-10 sm:py-12">
         <div className="border-b border-white/15 pb-8">
           <div className="max-w-[1000px]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
               Experience
             </p>
-            <h2 className="mt-3 font-heading text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[54px]">
+            <h2 className="mt-3 font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[54px]">
               Product work with a bias toward shipping systems, not just screens.
             </h2>
           </div>
@@ -23,7 +23,7 @@ export function Experience() {
             >
               <div className="flex items-start gap-3 pt-1">
                 <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-chartreuse" />
-                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white/85">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white/85">
                   {entry.period}
                 </span>
               </div>
@@ -46,7 +46,7 @@ export function Experience() {
                   </div>
                 </div>
 
-                <p className="max-w-[60ch] text-body-lg leading-relaxed text-white">
+                <p className="max-w-[60ch] text-xs sm:text-body-lg leading-relaxed text-white">
                   {entry.description}
                 </p>
               </div>

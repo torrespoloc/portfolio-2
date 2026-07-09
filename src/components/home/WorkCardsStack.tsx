@@ -74,7 +74,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={headingVariants}
-            className="font-heading text-[30px] sm:text-[40px] lg:text-[54px] font-semibold leading-[1.1] text-hero-text-dark"
+            className="font-heading text-[24px] sm:text-[36px] lg:text-[54px] font-semibold leading-[1.1] text-hero-text-dark"
           >
             Works
           </motion.h2>
@@ -92,8 +92,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px 0px -80px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch [&>:nth-child(odd)]:border-r [&>:nth-child(odd)]:border-hero-border"
-            style={{ gridAutoRows: "1fr" }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch [&>:nth-child(odd)]:border-r [&>:nth-child(odd)]:border-hero-border [&>*]:min-h-0"
           >
             {visibleWorkCards.map((card, index) => {
               const offsetClass = "lg:translate-y-0"

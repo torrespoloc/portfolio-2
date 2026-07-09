@@ -25,7 +25,7 @@ function FrontFace() {
       <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/80 mb-3 relative z-10">
         MY JAM
       </p>
-      <p className="text-sm text-white/90 leading-relaxed font-semibold relative z-10">
+      <p className="text-xs text-white/90 leading-relaxed font-semibold relative z-10">
         &ldquo;I focus on <strong className="font-extrabold text-chartreuse">AI workflow automation</strong>, B2B, SaaS, &amp; design systems. 0-1. Healthtech, Fintech.&rdquo;
       </p>
       <div className="mt-5 relative z-10 flex justify-center">
@@ -40,7 +40,7 @@ function BackFace({ progress }: { progress: number }) {
     <div
       className="p-5 md:p-6 rounded-none flex flex-col overflow-hidden h-full"
       style={{
-        background: "linear-gradient(135deg, #111 0%, #2a1a2e 50%, #1a1a2e 100%)",
+        background: "linear-gradient(135deg, var(--flip-gradient-start) 0%, var(--flip-gradient-mid) 50%, var(--flip-gradient-end) 100%)",
       }}
     >
       {/* Dot grid overlay */}
@@ -136,7 +136,7 @@ export function MyJamFlipCard() {
         front={<FrontFace />}
         back={<BackFace progress={progress} />}
         className="relative"
-        style={isFlipped ? {} : { boxShadow: "0 4px 24px rgba(72, 91, 252, 0.15), 0 1px 4px rgba(72, 91, 252, 0.08)" }}
+        style={isFlipped ? {} : { boxShadow: "var(--flip-shadow-accent)" }}
       />
     </div>
   )
