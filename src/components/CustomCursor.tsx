@@ -5,14 +5,13 @@ import { useEffect, useState } from "react";
 export function CustomCursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
-  const [isTouch, setIsTouch] = useState(true); // assume touch until proven otherwise
+  const [pressed, setPressed] = useState(false);
 
   useEffect(() => {
-    // Only activate on devices with a fine pointer (mouse)
     const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!hasFinePointer) return;
 
-    setIsTouch(false);
+    document.documentElement.classList.add("custom-cursor-active");
 
     const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
 
@@ -26,35 +25,44 @@ export function CustomCursor() {
       );
     };
 
-    document.body.style.cursor = "none";
+    const onDown = () => setPressed(true);
+    const onUp = () => setPressed(false);
 
-    window.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseover", onOver);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mouseover", onOver, { passive: true });
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
 
     return () => {
-      document.body.style.cursor = "";
+      document.documentElement.classList.remove("custom-cursor-active");
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onOver);
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
     };
   }, []);
 
-  if (isTouch) return null;
-
   return (
     <>
-      {/* Expanding ring on hover */}
+      {/* Outer ring — always visible, expands on hover, contracts on press */}
       <div
         className="pointer-events-none fixed z-[9999]"
         style={{
           left: pos.x,
           top: pos.y,
-          width: hovering ? 56 : 0,
-          height: hovering ? 56 : 0,
+          width: pressed ? 28 : hovering ? 48 : 36,
+          height: pressed ? 28 : hovering ? 48 : 36,
           borderRadius: "50%",
-          border: "1.5px solid var(--accent)",
-          opacity: hovering ? 1 : 0,
+          border: pressed
+            ? "2px solid var(--accent)"
+            : "2px solid var(--accent)",
+          backgroundColor: pressed ? "var(--accent)" : "transparent",
+          opacity: pressed ? 0.5 : 0.85,
           transform: "translate(-50%, -50%)",
-          transition: "width 0.3s ease, height 0.3s ease, opacity 0.2s ease",
+          transition:
+            "width 0.12s ease, height 0.12s ease, background-color 0.12s ease, opacity 0.12s ease",
+          willChange: "transform, width, height",
+          boxShadow: "0 0 0 1.5px rgba(255,255,255,0.5)",
         }}
       />
       {/* Core dot */}
@@ -63,13 +71,13 @@ export function CustomCursor() {
         style={{
           left: pos.x,
           top: pos.y,
-          width: 20,
-          height: 20,
+          width: pressed ? 6 : 10,
+          height: pressed ? 6 : 10,
           borderRadius: "50%",
-          backgroundColor: "var(--accent)",
-          filter: "blur(2px)",
+          backgroundColor: pressed ? "white" : "var(--accent)",
           transform: "translate(-50%, -50%)",
-          transition: "width 0.15s, height 0.15s",
+          transition: "width 0.12s ease, height 0.12s ease, background-color 0.12s ease",
+          willChange: "transform",
         }}
       />
     </>
