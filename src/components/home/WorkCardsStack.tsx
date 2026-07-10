@@ -30,7 +30,6 @@ const gridVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08,
       delayChildren: 0.06,
     },
   },
@@ -79,7 +78,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
             Works
           </motion.h2>
           <p className="text-hero-muted text-body-sm sm:text-body mt-2 max-w-[480px]">
-            
+
           </p>
         </div>
       </section>
@@ -92,25 +91,42 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px 0px -80px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch [&>:nth-child(odd)]:border-r [&>:nth-child(odd)]:border-hero-border [&>*]:min-h-0"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-y-0 items-stretch [&>*]:min-h-0"
           >
-            {visibleWorkCards.map((card, index) => {
-              const offsetClass = "lg:translate-y-0"
+            {visibleWorkCards.flatMap((card, index) => {
+              const isLast = index === visibleWorkCards.length - 1
+              const isFirstInRow = index % 2 === 0
 
-              return (
+              const cardEl = (
                 <motion.div
                   key={card.href}
                   custom={index}
                   variants={cardShellVariants}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 260, damping: 24, mass: 0.7 }}
-                  className={`h-full ${offsetClass}`}
+                  className={`h-full lg:translate-y-0 ${isFirstInRow ? "lg:border-r lg:border-hero-border" : ""}`}
                 >
                   <motion.div variants={cardVariants} className="h-full">
                     <CaseStudyCard {...card} />
                   </motion.div>
                 </motion.div>
               )
+
+              if (isLast) return [cardEl]
+
+              const isRowEnd = (index + 1) % 2 === 0
+
+              return [
+                cardEl,
+                <div
+                  key={`sep-${card.href}`}
+                  className={`border-y border-hero-border h-4 ${
+                    isRowEnd
+                      ? "lg:col-span-2 lg:h-6"
+                      : "lg:hidden"
+                  }`}
+                />,
+              ]
             })}
           </motion.div>
         </div>
