@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, type Variants } from "framer-motion"
 import { HowIWorkCards } from "./HowIWorkCards"
 import { MyJamFlipCard } from "./MyJamFlipCard"
@@ -35,6 +35,72 @@ const sectionUp: Variants = {
       mass: 0.8,
     },
   },
+}
+
+/* ── Ux Chats Logo (desktop interactive) ── */
+function UxChatsLogoInteractive() {
+  const [isDesktop, setIsDesktop] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
+  const openSite = () => {
+    if (!isDesktop) return
+    window.open("https://www.theuxchats.co", "_blank", "noopener,noreferrer")
+  }
+
+  // Non-interactive on mobile/tablet
+  if (!isDesktop) {
+    return (
+      <img
+        src="/the-ux-chats-logo.png"
+        alt="The UX Chats logo"
+        className="absolute bottom-0 right-0 w-12 h-12 object-contain rotate-6 pointer-events-none"
+      />
+    )
+  }
+
+  return (
+    <div
+      className="absolute bottom-0 right-0"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Hover tag — similar to "Play me!" tag */}
+      {hovered && (
+        <motion.span
+          className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2 py-1 text-[10px] font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-sm -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
+          initial={{ opacity: 0, y: 4, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.12 }}
+        >
+          theuxchats.co
+        </motion.span>
+      )}
+      <button
+        type="button"
+        onClick={openSite}
+        className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm"
+        aria-label="Visit The UX Chats website"
+      >
+        <img
+          src="/the-ux-chats-logo.png"
+          alt=""
+          aria-hidden="true"
+          className="object-contain rotate-6 transition-all duration-200 ease-out"
+          style={{
+            width: hovered ? "72px" : "60px",
+            height: hovered ? "72px" : "60px",
+          }}
+        />
+      </button>
+    </div>
+  )
 }
 
 export function HeroContent() {
@@ -138,12 +204,8 @@ export function HeroContent() {
               200+ members
             </p>
             <div className="relative z-10">
-              <img
-                src="/the-ux-chats-logo.png"
-                alt="The UX Chats logo"
-                className="absolute bottom-0 right-0 w-12 h-12 object-contain rotate-6"
-              />
-              <p className="text-hero-muted text-xs leading-snug mt-1 relative pr-14">
+              <UxChatsLogoInteractive />
+              <p className="text-hero-muted text-xs leading-snug mt-1 relative pr-14 md:pr-[68px]">
                 I founded The UX Chats — where UXers connect and grow.
               </p>
             </div>

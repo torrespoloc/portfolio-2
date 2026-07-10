@@ -25,20 +25,24 @@ export function CustomCursor() {
       );
     };
 
-    const onDown = () => setPressed(true);
-    const onUp = () => setPressed(false);
+    let pressTimer: ReturnType<typeof setTimeout>;
+
+    const onClick = () => {
+      clearTimeout(pressTimer);
+      setPressed(true);
+      pressTimer = setTimeout(() => setPressed(false), 150);
+    };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseover", onOver, { passive: true });
-    window.addEventListener("mousedown", onDown);
-    window.addEventListener("mouseup", onUp);
+    document.addEventListener("click", onClick);
 
     return () => {
       document.documentElement.classList.remove("custom-cursor-active");
+      clearTimeout(pressTimer);
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onOver);
-      window.removeEventListener("mousedown", onDown);
-      window.removeEventListener("mouseup", onUp);
+      document.removeEventListener("click", onClick);
     };
   }, []);
 

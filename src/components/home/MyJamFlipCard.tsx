@@ -59,10 +59,18 @@ function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolea
       </p>
       <div className="w-full h-px bg-black/20 mt-1.5 mb-3 relative z-10" />
 
-      {/* Metrics — column headers with values below */}
+      {/* Metrics — column headers with values below, fade in one by one */}
       <div className="grid grid-cols-3 px-3 md:px-6 relative z-10">
         {METRICS.map((metric, index) => (
-          <div key={metric.label} className={`flex flex-col items-center gap-0.5 ${progress <= index ? "invisible" : ""}`}>
+          <div
+            key={metric.label}
+            className="flex flex-col items-center gap-0.5"
+            style={{
+              opacity: progress > index ? 1 : 0,
+              transform: progress > index ? "translateY(0)" : "translateY(6px)",
+              transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
+            }}
+          >
             <span className="text-label uppercase tracking-wide text-gray-700 font-semibold">{metric.label}</span>
             <span className="text-gray-900 font-bold text-sm tracking-tight">{metric.value}</span>
           </div>
@@ -70,17 +78,30 @@ function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolea
       </div>
 
       {/* Flex line */}
-      <p className="font-label text-subtitle font-bold text-gray-700 mt-5 pt-2 pb-1 relative z-10 leading-snug text-center">
-        {progress > METRICS.length ? "My flex: communication + charisma" : ""}
+      <p
+        className="font-label text-subtitle font-bold text-gray-700 mt-5 pt-2 pb-1 relative z-10 leading-snug text-center"
+        style={{
+          opacity: progress > METRICS.length ? 1 : 0,
+          transform: progress > METRICS.length ? "translateY(0)" : "translateY(4px)",
+          transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
+        }}
+      >
+        My flex: communication + charisma
         {progress > METRICS.length && (
           <span className="inline-block w-[2px] h-[1em] bg-gray-900 ml-0.5 animate-pulse" />
         )}
       </p>
-      {progress > METRICS.length && (
-        <p className="font-label text-subtitle font-bold text-gray-700 text-center relative z-10 leading-snug">
-          Let&rsquo;s chat.
-        </p>
-      )}
+      <p
+        className="font-label text-subtitle font-bold text-gray-700 text-center relative z-10 leading-snug"
+        style={{
+          opacity: progress > METRICS.length ? 1 : 0,
+          transform: progress > METRICS.length ? "translateY(0)" : "translateY(4px)",
+          transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
+          transitionDelay: progress > METRICS.length ? "0.1s" : "0s",
+        }}
+      >
+        Let&rsquo;s chat.
+      </p>
 
       {/* Turtle — flipped over Y axis (horizontal mirror), tilted -2deg */}
       <div className="absolute bottom-3 right-3 z-10">
