@@ -44,6 +44,7 @@ export function FlipCard({
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
+            visibility: isFlipped ? "hidden" : "visible",
           }}
         >
           {front}
@@ -56,6 +57,7 @@ export function FlipCard({
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
+            visibility: isFlipped ? "visible" : "hidden",
           }}
         >
           {back}

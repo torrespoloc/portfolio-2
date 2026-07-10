@@ -399,6 +399,13 @@ export function NavBar() {
                 <div className="border-t border-border" />
                 <div className="flex flex-col gap-2">
                   <a
+                    href="mailto:torrespoloc@gmail.com"
+                    onClick={() => setMobileOpen(false)}
+                    className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-1.5 px-2.5 w-full bg-accent text-white hover:opacity-85"
+                  >
+                    Email me
+                  </a>
+                  <a
                     href={LINKS.resume ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"

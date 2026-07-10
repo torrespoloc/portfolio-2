@@ -42,7 +42,9 @@ export function HeroCTAButtons() {
           LinkedIn
         </Button>
       </div>
-      <CopyEmail />
+      <div className="hidden md:flex">
+        <CopyEmail />
+      </div>
     </motion.div>
   )
 }

@@ -113,14 +113,14 @@ export function HeroContent() {
               Toolkit
             </p>
             <div className="flex items-center gap-2 flex-wrap">
-              <Image src="/logos/cursor.png" alt="Cursor" width={24} height={24} className="h-6 w-auto" />
-              <Image src="/logos/claude-code.png" alt="Claude Code" width={28} height={28} className="h-7 w-auto" />
-              <Image src="/logos/figma.png" alt="Figma" width={24} height={24} className="h-6 w-auto rounded" />
-              <Image src="/logos/hermes.png" alt="Hermes" width={24} height={24} className="h-6 w-auto" />
-              <img src="/logos/granola.svg" alt="Granola" className="h-6 w-auto rounded" />
-              <img src="/logos/obsidian.svg" alt="Obsidian" className="h-6 w-auto" />
-              <Image src="/logos/github.png" alt="GitHub" width={24} height={24} className="h-6 w-auto" />
-              <img src="/logos/sidenook.svg" alt="SideNook" className="h-6 w-auto" />
+              <Image src="/logos/cursor.png" alt="Cursor" width={24} height={24} className="h-6 sm:h-[32px] w-auto" />
+              <Image src="/logos/claude-code.png" alt="Claude Code" width={28} height={28} className="h-7 sm:h-[36px] w-auto" />
+              <Image src="/logos/figma.png" alt="Figma" width={24} height={24} className="h-6 sm:h-[32px] w-auto rounded-sm" />
+              <Image src="/logos/hermes.png" alt="Hermes" width={24} height={24} className="h-6 sm:h-[32px] w-auto" />
+              <img src="/logos/granola.svg" alt="Granola" className="h-6 sm:h-[32px] w-auto rounded" />
+              <img src="/logos/obsidian.svg" alt="Obsidian" className="h-6 sm:h-[32px] w-auto" />
+              <Image src="/logos/github.png" alt="GitHub" width={24} height={24} className="h-6 sm:h-[32px] w-auto" />
+              <img src="/logos/sidenook.svg" alt="SideNook" className="h-6 sm:h-[32px] w-auto" />
             </div>
             <p className="text-hero-muted text-xs leading-snug mt-2">
               My design process evolves with new tools and AI-first workflows.

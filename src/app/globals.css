@@ -472,10 +472,13 @@ section[id] {
 }
 
 /* Hero card tool logos — invert only black silhouettes on dark bg */
-.dark img[src*="/logos/cursor"] {
+.dark img[src*="cursor.png"], .dark img[src*="cursor-png"] {
   filter: brightness(0) invert(0.82) grayscale(1);
 }
-.dark img[src*="/logos/github"] {
+.dark img[src*="github.png"], .dark img[src*="github-png"] {
+  filter: invert(0.88) grayscale(1);
+}
+.dark img[src*="hermes.png"], .dark img[src*="hermes-png"] {
   filter: brightness(0) invert(0.82) grayscale(1);
 }
 
