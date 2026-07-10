@@ -182,7 +182,7 @@ export default function AboutPage() {
                 }`}
               >
                 <iframe
-                  src={`https://www.youtube.com/embed/${v.src}?mute=1&autoplay=0&controls=1&modestbranding=1&playsinline=1`}
+                  src={`https://www.youtube.com/embed/${v.src}?mute=1&autoplay=1&controls=0&loop=1&playlist=${v.src}&rel=0&iv_load_policy=3&playsinline=1`}
                   className="w-full h-full"
                   allow="autoplay; encrypted-media; fullscreen"
                   allowFullScreen

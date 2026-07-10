@@ -60,7 +60,7 @@ function UxChatsLogoInteractive() {
       <img
         src="/the-ux-chats-logo.png"
         alt="The UX Chats logo"
-        className="absolute bottom-0 right-0 w-12 h-12 object-contain rotate-6 pointer-events-none"
+        className="absolute bottom-0 right-0 w-12 h-12 object-contain pointer-events-none"
       />
     )
   }
@@ -74,7 +74,7 @@ function UxChatsLogoInteractive() {
       {/* Hover tag — similar to "Play me!" tag */}
       {hovered && (
         <motion.span
-          className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2 py-1 text-[10px] font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-sm -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
+          className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
           initial={{ opacity: 0, y: 4, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.12 }}
@@ -92,7 +92,7 @@ function UxChatsLogoInteractive() {
           src="/the-ux-chats-logo.png"
           alt=""
           aria-hidden="true"
-          className="object-contain rotate-6 transition-all duration-200 ease-out"
+          className="object-contain transition-all duration-200 ease-out"
           style={{
             width: hovered ? "72px" : "60px",
             height: hovered ? "72px" : "60px",
