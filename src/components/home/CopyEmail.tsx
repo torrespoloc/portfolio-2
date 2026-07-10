@@ -24,7 +24,7 @@ export function CopyEmail() {
     <div className="relative flex items-center gap-2 text-sm text-hero-text">
       <button
         onClick={handleCopy}
-        className="flex items-center justify-center w-7 h-7 rounded-[12px] hover:bg-hero-border transition-colors"
+        className="flex items-center justify-center w-11 h-11 rounded-[12px] hover:bg-hero-border transition-colors"
         aria-label={copied ? "Copied" : "Copy email address"}
       >
         {copied ? (

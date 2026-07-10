@@ -188,10 +188,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --flip-gradient-start: #111;
-  --flip-gradient-mid: #2a1a2e;
-  --flip-gradient-end: #1a1a2e;
-  --flip-shadow-accent: 0 4px 24px rgba(72, 91, 252, 0.15), 0 1px 4px rgba(72, 91, 252, 0.08);
+  --flip-bg: #FFB0FA;
+  --flip-shadow-accent: 0 4px 24px rgba(255, 176, 250, 0.25), 0 1px 4px rgba(255, 176, 250, 0.12);
 }
 
 .dark {

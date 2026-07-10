@@ -1,12 +1,19 @@
 "use client"
 
-import { Children, useState, useCallback, useRef, useLayoutEffect, type ReactNode } from "react"
+import { Children, useCallback, useRef, useLayoutEffect, useState, type ReactNode } from "react"
 
-export function HowIWorkCards({ children }: { children: ReactNode }) {
+export function HowIWorkCards({
+  children,
+  currentIdx,
+  onIdxChange,
+}: {
+  children: ReactNode
+  currentIdx: number
+  onIdxChange: (idx: number) => void
+}) {
   const childrenArray = Children.toArray(children)
   const total = childrenArray.length
   const containerRef = useRef<HTMLDivElement>(null)
-  const [current, setCurrent] = useState(0)
   const [cardW, setCardW] = useState(0)
   const gap = 2
   const dragOffRef = useRef(0)
@@ -27,16 +34,16 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
 
   // Start with "My Jam" card (index 1) once measured
   useLayoutEffect(() => {
-    if (cardW > 0) setCurrent(1)
-  }, [cardW])
+    if (cardW > 0) onIdxChange(1)
+  }, [cardW, onIdxChange])
 
   const goNext = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % total)
-  }, [total])
+    onIdxChange((currentIdx + 1) % total)
+  }, [currentIdx, total, onIdxChange])
 
   const goPrev = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + total) % total)
-  }, [total])
+    onIdxChange((currentIdx - 1 + total) % total)
+  }, [currentIdx, total, onIdxChange])
 
   // Touch/swipe
   const onTouchStart = (e: React.TouchEvent) => {
@@ -49,17 +56,23 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
     dragOffRef.current = e.touches[0].clientX - touchStartRef.current
     setDragOff(dragOffRef.current)
   }
-  const onTouchEnd = () => {
+  const onTouchEnd = (e: React.TouchEvent) => {
     setIsDragging(false)
     setDragOff(0)
-    if (dragOffRef.current < -50) goNext()
-    else if (dragOffRef.current > 50) goPrev()
+    if (dragOffRef.current < -50) {
+      goNext()
+      e.preventDefault()
+    }
+    else if (dragOffRef.current > 50) {
+      goPrev()
+      e.preventDefault()
+    }
   }
 
   // Calculate translateX to center current card
   const baseTranslate =
     cardW > 0 && containerRef.current
-      ? containerRef.current.clientWidth / 2 - current * (cardW + gap) - cardW / 2
+      ? containerRef.current.clientWidth / 2 - currentIdx * (cardW + gap) - cardW / 2
       : 0
 
   const translateX = baseTranslate + (isDragging ? dragOff : 0)
@@ -72,9 +85,10 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          className="flex items-stretch"
         >
           <div
-            className="flex gap-0"
+            className="flex gap-0 items-stretch"
             style={{
               transform: `translateX(${translateX}px)`,
               transition: isDragging
@@ -83,10 +97,10 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
             }}
           >
             {childrenArray.map((child, i) => (
-              <div key={i} className="shrink-0 flex flex-col h-full" style={{ width: `${cardW}px` }}>
+              <div key={i} className="shrink-0 flex flex-col" style={{ width: `${cardW}px` }}>
                 <div
                   className={`h-full transition-all duration-500 ease-out ${
-                    i === current
+                    i === currentIdx
                       ? "scale-100 opacity-100"
                       : "scale-[0.92] opacity-50"
                   }`}
@@ -96,22 +110,6 @@ export function HowIWorkCards({ children }: { children: ReactNode }) {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-4">
-          {Array.from({ length: total }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current
-                  ? "bg-brand-accent w-6"
-                  : "bg-hairline-strong hover:bg-hero-muted"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
         </div>
       </div>
 

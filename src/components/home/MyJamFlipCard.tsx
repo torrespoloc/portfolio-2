@@ -5,11 +5,12 @@ import { TypewriterTag } from "./TypewriterTag"
 import { METRICS } from "@/lib/data/home"
 import { FlipCard } from "@/components/ui/flip-card"
 
-function FrontFace() {
+function FrontFace({ isFlipped }: { isFlipped: boolean }) {
   return (
     <div
       className="relative p-5 md:p-6 rounded-none min-h-[135px] md:min-h-[150px]"
       style={{ background: "var(--accent)" }}
+      aria-hidden={isFlipped}
     >
       {/* Subtle dot overlay */}
       <div
@@ -35,46 +36,61 @@ function FrontFace() {
   )
 }
 
-function BackFace({ progress }: { progress: number }) {
+function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolean }) {
   return (
     <div
       className="p-5 md:p-6 rounded-none flex flex-col overflow-hidden h-full"
       style={{
-        background: "linear-gradient(135deg, var(--flip-gradient-start) 0%, var(--flip-gradient-mid) 50%, var(--flip-gradient-end) 100%)",
+        background: "var(--flip-bg)",
       }}
+      aria-hidden={!isFlipped}
     >
       {/* Dot grid overlay */}
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(204,255,0,0.5) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #0A7385 1px, transparent 1px)",
           backgroundSize: "14px 14px",
         }}
       />
 
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-chartreuse/80 relative z-10">
+      <p className="text-label font-bold uppercase tracking-[0.2em] text-[#242424] relative z-10">
         Recruiter? HM? Mom!?
       </p>
-      <div className="w-full h-px bg-white/20 mt-2 mb-4 relative z-10" />
+      <div className="w-full h-px bg-black/20 mt-1.5 mb-3 relative z-10" />
 
-      {/* Metrics row */}
-      <div className="flex items-center gap-3 relative z-10">
+      {/* Metrics — column headers with values below */}
+      <div className="grid grid-cols-3 px-3 md:px-6 relative z-10">
         {METRICS.map((metric, index) => (
-          <div key={metric.label} className={`flex items-center gap-1.5 ${progress <= index ? "invisible" : ""}`}>
-            {index > 0 && <span className="text-chartreuse/40 text-xs">|</span>}
-            <span className="text-white font-bold text-sm tracking-tight">{metric.value}</span>
-            <span className="text-xs uppercase tracking-wide text-chartreuse/60 font-semibold">{metric.label}</span>
+          <div key={metric.label} className={`flex flex-col items-center gap-0.5 ${progress <= index ? "invisible" : ""}`}>
+            <span className="text-label uppercase tracking-wide text-gray-700 font-semibold">{metric.label}</span>
+            <span className="text-gray-900 font-bold text-sm tracking-tight">{metric.value}</span>
           </div>
         ))}
       </div>
 
       {/* Flex line */}
-      <p className="font-mono text-xs text-white/90 mt-auto pt-4 pb-2 relative z-10">
+      <p className="font-label text-subtitle font-bold text-gray-700 mt-5 pt-2 pb-1 relative z-10 leading-snug text-center">
         {progress > METRICS.length ? "My flex: communication + charisma" : ""}
         {progress > METRICS.length && (
-          <span className="inline-block w-[2px] h-[1em] bg-chartreuse ml-0.5 animate-pulse" />
+          <span className="inline-block w-[2px] h-[1em] bg-gray-900 ml-0.5 animate-pulse" />
         )}
       </p>
+      {progress > METRICS.length && (
+        <p className="font-label text-subtitle font-bold text-gray-700 text-center relative z-10 leading-snug">
+          Let&rsquo;s chat.
+        </p>
+      )}
+
+      {/* Turtle — flipped over Y axis (horizontal mirror), tilted -2deg */}
+      <div className="absolute bottom-3 right-3 z-10">
+        <img
+          src="/logos/turtle.svg"
+          alt=""
+          className="w-[52px] h-auto opacity-100"
+          style={{ transform: "scaleX(-1) rotate(-2deg)" }}
+        />
+      </div>
     </div>
   )
 }
@@ -104,7 +120,7 @@ export function MyJamFlipCard() {
           }
           return prev + 1
         })
-      }, 120)
+      }, 300)
       return () => clearInterval(timer)
     } else {
       setProgress(0)
@@ -115,13 +131,13 @@ export function MyJamFlipCard() {
 
   return (
     <div
-      className="w-full cursor-pointer border-x border-hero-border"
+      className="w-full h-full cursor-pointer border-x border-hero-border"
       style={{ WebkitTapHighlightColor: "transparent" }}
       onClick={toggle}
       onMouseEnter={() => { if (isDesktop) setIsFlipped(true) }}
       onMouseLeave={() => { if (isDesktop) setIsFlipped(false) }}
       role="button"
-      aria-pressed={isFlipped}
+      aria-label={isFlipped ? "Hide details about my jam" : "View details about my jam"}
       tabIndex={0}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -133,8 +149,8 @@ export function MyJamFlipCard() {
       <FlipCard
         isFlipped={isFlipped}
         onToggle={toggle}
-        front={<FrontFace />}
-        back={<BackFace progress={progress} />}
+        front={<FrontFace isFlipped={isFlipped} />}
+        back={<BackFace progress={progress} isFlipped={isFlipped} />}
         className="relative"
         style={isFlipped ? {} : { boxShadow: "var(--flip-shadow-accent)" }}
       />

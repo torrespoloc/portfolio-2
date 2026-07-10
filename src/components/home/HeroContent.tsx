@@ -39,6 +39,7 @@ const sectionUp: Variants = {
 
 export function HeroContent() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
+  const [carouselIdx, setCarouselIdx] = useState(0)
 
   const openOverlay = () => setIsOverlayOpen(true)
   const closeOverlay = () => setIsOverlayOpen(false)
@@ -64,7 +65,7 @@ export function HeroContent() {
       </div>
 
       <motion.div
-        className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12 mb-12"
+        className="mx-auto w-full max-w-[1248px] relative z-10 md:px-12 mb-6 sm:mb-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -87,8 +88,25 @@ export function HeroContent() {
 
       {/* Full-width hero cards section */}
       <SectionDivider />
+
+      {/* Dot indicators — outside the cards container, below the separator */}
+      <div className="md:hidden flex justify-center gap-2 py-4">
+        {[0, 1, 2].map((i) => (
+          <button
+            key={i}
+            onClick={() => setCarouselIdx(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === carouselIdx
+                ? "bg-brand-accent w-6"
+                : "bg-hairline-strong hover:bg-hero-muted"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
       <motion.div variants={sectionUp} className="my-0 relative mx-auto w-full max-w-[1248px] md:px-12">
-        <HowIWorkCards>
+        <HowIWorkCards currentIdx={carouselIdx} onIdxChange={setCarouselIdx}>
           {/* Card 1 — Toolkit Pillar */}
           <div className="bg-hero-card p-5 h-full border-l border-hero-border">
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
