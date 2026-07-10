@@ -11,9 +11,10 @@ const fadeUp = {
 
 // Tailwind requires static class names, so we map alt text to height overrides
 const logoHeightOverrides: Record<string, string> = {
-  XY: "sm:h-[37px]",
-  TEDAI: "sm:h-[26px]",
-  Waldo: "sm:h-[26px]",
+  XY: "h-[38px] sm:h-[39px]",
+  Fundr: "h-[27px] sm:h-[30px]",
+  TEDAI: "h-[24px] sm:h-[22px]",
+  Waldo: "h-[20px] sm:h-[18px]",
 };
 
 type Props = {
