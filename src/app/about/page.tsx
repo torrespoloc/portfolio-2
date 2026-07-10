@@ -14,12 +14,12 @@ const youtubeVideos = [
 ] as const
 
 const watercolors = [
-  { src: "/About/watercolor-azul.jpg", alt: "Azul watercolor" },
-  { src: "/About/watercolor-cat.jpg", alt: "Cat watercolor" },
-  { src: "/About/watercolor-circle.jpg", alt: "Circle watercolor" },
-  { src: "/About/watercolor-deer.jpg", alt: "Deer watercolor" },
-  { src: "/About/watercolor-goose.jpg", alt: "Goose watercolor" },
-  { src: "/About/watercolor-jerry.jpg", alt: "Jerry watercolor" },
+  { src: "/about/watercolor-azul.jpg", alt: "Azul watercolor" },
+  { src: "/about/watercolor-cat.jpg", alt: "Cat watercolor" },
+  { src: "/about/watercolor-circle.jpg", alt: "Circle watercolor" },
+  { src: "/about/watercolor-deer.jpg", alt: "Deer watercolor" },
+  { src: "/about/watercolor-goose.jpg", alt: "Goose watercolor" },
+  { src: "/about/watercolor-jerry.jpg", alt: "Jerry watercolor" },
 ] as const
 
 export default function AboutPage() {
@@ -103,7 +103,7 @@ export default function AboutPage() {
             <div className="w-full md:w-1/2 shrink-0">
               <div className="overflow-hidden border border-hero-border">
                 <img
-                  src="/About/adplist-swag.png"
+                  src="/about/adplist-swag.png"
                   alt="ADPList mentoring swag"
                   className="w-full block"
                 />
@@ -141,12 +141,12 @@ export default function AboutPage() {
               <div className="overflow-hidden border border-hero-border">
                 <div className="grid grid-cols-2">
                   <img
-                    src="/About/networking-ted-volunteer.jpg"
+                    src="/about/networking-ted-volunteer.jpg"
                     alt="Volunteering at TED AI San Francisco"
                     className="w-full h-full object-cover block"
                   />
                   <img
-                    src="/About/networking-event-card.jpg"
+                    src="/about/networking-event-card.jpg"
                     alt="Networking event at TED AI"
                     className="w-full h-full object-cover block"
                   />

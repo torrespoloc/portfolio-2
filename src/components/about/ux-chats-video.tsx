@@ -36,7 +36,7 @@ export function UxChatsVideo() {
       >
         <video
           ref={videoRef}
-          src="/About/the-ux-chats.mp4"
+          src="/about/the-ux-chats.mp4"
           autoPlay
           muted
           loop
