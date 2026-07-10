@@ -68,7 +68,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
     <MotionConfig reducedMotion="user">
       {/* Heading */}
       <section className="pt-16 pb-12 relative z-10">
-        <div className="mx-auto w-full max-w-[1600px] px-6">
+        <div className="mx-auto w-full max-w-[1504px] px-6">
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -86,7 +86,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
 
       {/* Two-up case study grid */}
       <section id="work" className="relative">
-        <div className="mx-auto w-full max-w-[1600px]">
+        <div className="mx-auto w-full max-w-[1504px]">
           <motion.div
             variants={gridVariants}
             initial="hidden"
@@ -104,9 +104,9 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
                   variants={cardShellVariants}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 260, damping: 24, mass: 0.7 }}
-                  className={offsetClass}
+                  className={`h-full ${offsetClass}`}
                 >
-                  <motion.div variants={cardVariants}>
+                  <motion.div variants={cardVariants} className="h-full">
                     <CaseStudyCard {...card} />
                   </motion.div>
                 </motion.div>

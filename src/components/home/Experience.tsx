@@ -2,7 +2,7 @@ import { EXPERIENCE } from "@/lib/data/home"
 
 export function Experience() {
   return (
-    <div className="dark">
+    <div>
       <div className="bg-accent px-6 py-10 sm:py-12">
         <div className="border-b border-white/15 pb-8">
           <div className="max-w-[1000px]">
@@ -23,7 +23,7 @@ export function Experience() {
             >
               <div className="flex items-start gap-3 pt-1">
                 <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-chartreuse" />
-                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white/85">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white">
                   {entry.period}
                 </span>
               </div>
@@ -42,7 +42,7 @@ export function Experience() {
                     <h3 className="text-body-lg font-semibold leading-tight text-white">
                       {entry.role}
                     </h3>
-                    <p className="text-body font-medium text-white/95">{entry.company}</p>
+                    <p className="text-body font-medium text-white">{entry.company}</p>
                   </div>
                 </div>
 

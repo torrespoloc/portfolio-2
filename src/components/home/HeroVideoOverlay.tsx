@@ -219,7 +219,7 @@ export function HeroVideoOverlay({
 
           {/* Custom controls bar */}
           <div
-            className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-12 pb-3 px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-12 pb-3 px-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2">

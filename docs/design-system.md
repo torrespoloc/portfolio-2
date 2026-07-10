@@ -12,7 +12,7 @@ The portfolio uses a **clean, editorial, border-based visual language**. Every s
 | **Borders as dividers** | Sections and items are separated by solid `border-hero-border` lines, not shadows or gaps. |
 | **Full-bleed sections** | Background colors span edge-to-edge with no inner padding constraints at the section level. |
 | **Grid layout** | Content uses CSS Grid with `minmax()` columns and `gap-0` — relying on borders between cells. |
-| **Monochrome frame** | The page has a `border-x border-hero-border` container at `max-w-[1360px]` — the content lives between two vertical lines. |
+| **Monochrome frame** | The page has a `border-x border-hero-border` container at `max-w-[1504px]` — the content lives between two vertical lines. |
 
 ---
 
@@ -21,7 +21,7 @@ The portfolio uses a **clean, editorial, border-based visual language**. Every s
 ```
 ┌──────────────────────────────────────┐  ← viewport edge
 │                                      │
-│  │  ┌──────────────────────────┐  │  │  ← border-x container (max-w-[1360px])
+│  │  ┌──────────────────────────┐  │  │  ← border-x container (max-w-[1504px])
 │  │  │  Section                 │  │  │
 │  │  │  (full-width within      │  │  │
 │  │  │   container)             │  │  │
@@ -36,10 +36,10 @@ The portfolio uses a **clean, editorial, border-based visual language**. Every s
 
 ### Page Container
 
-Every page wraps content in a `border-x border-hero-border` div with `max-w-[1360px] mx-auto`:
+Every page wraps content in a `border-x border-hero-border` div with `max-w-[1504px] mx-auto`:
 
 ```tsx
-<div className="mx-auto w-full max-w-[1360px] border-x border-hero-border min-h-screen">
+<div className="mx-auto w-full max-w-[1504px] border-x border-hero-border min-h-screen">
   {/* sections */}
 </div>
 ```
@@ -84,7 +84,7 @@ A section with a saturated background color spanning the full width. Used for th
 **Pattern:**
 ```tsx
 <div className="w-full">
-  <div className="mx-auto w-full max-w-[1360px]">
+  <div className="mx-auto w-full max-w-[1504px]">
     <div className="bg-[#485bfc] px-6 py-10 sm:py-12">
       {/* Content */}
     </div>
@@ -232,7 +232,7 @@ Images are placed in `border border-hero-border overflow-hidden` containers (no 
 
 | Context | Max Width |
 |---------|-----------|
-| Page container | `max-w-[1360px]` |
+| Page container | `max-w-[1504px]` |
 | Content blocks | `max-w-[940px]` |
 | Section headings | `max-w-[1000px]` |
 | Body text | `max-w-[60ch]` / `max-w-[600px]` |

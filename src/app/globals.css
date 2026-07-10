@@ -77,6 +77,18 @@
   --text-body-lg--line-height: 1.55;
   --text-hero-heading: clamp(30px, 4.5vw, 68px);
   --text-hero-heading--line-height: 1.1;
+  --text-about-hero: 28px;
+  --text-about-hero--line-height: 1.1;
+  --text-about-hero-sm: 40px;
+  --text-about-hero-sm--line-height: 1.1;
+  --text-about-hero-lg: 58px;
+  --text-about-hero-lg--line-height: 1.1;
+  --text-about-h2: 26px;
+  --text-about-h2--line-height: 1.15;
+  --text-about-h2-sm: 30px;
+  --text-about-h2-sm--line-height: 1.15;
+  --text-about-h2-lg: 36px;
+  --text-about-h2-lg--line-height: 1.15;
   --color-chartreuse: var(--chartreuse);
   --color-chartreuse-foreground: var(--chartreuse-foreground);
   --color-brand-blue: var(--brand-blue);

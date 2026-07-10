@@ -61,7 +61,7 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
     <div
       tabIndex={0}
       role="button"
-      aria-label="Open Jacki video"
+      aria-labelledby="play-me-label"
       className="group relative inline-flex shrink-0 align-middle -mt-1 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-[width,height] duration-200 ease-out w-[calc(1.35em+20px)] h-[calc(1.35em+20px)] max-md:w-[calc(1.35em+28px)] max-md:h-[calc(1.35em+28px)] md:hover:w-[calc(1.35em+68px)] md:hover:h-[calc(1.35em+68px)]"
       onClick={onOpenOverlay}
       onMouseEnter={handleMouseEnter}
@@ -77,7 +77,7 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
       }}
     >
       {/* "Play me!" tag */}
-      <motion.span
+      <motion.span id="play-me-label"
         className="absolute -top-3 -right-3 z-20 inline-flex items-center gap-1 max-md:gap-0.5 px-3 py-1.5 max-md:px-1.5 max-md:py-1 text-sm max-md:text-[11px] font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md rotate-12 shadow-sm pointer-events-none select-none whitespace-nowrap"
         animate={reducedMotion ? {} : {
           y: [0, -8, 0, -4, 0],

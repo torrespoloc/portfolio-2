@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
       {/* Content container */}
-      <div className="mx-auto w-full max-w-[1600px] min-h-screen px-5 md:px-0 relative">
+      <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative">
         {/* Vertical projection lines — at content padding edge on mobile, container edge on desktop */}
         <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none md:left-0 z-10" aria-hidden="true" />
         <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none md:right-0 z-10" aria-hidden="true" />
@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Trusted By */}
       <section className="w-full">
-        <div className="mx-auto w-full max-w-[1600px]">
+        <div className="mx-auto w-full max-w-[1504px]">
           <TrustedBy />
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* Experience + Testimonials — connected */}
       <section className="w-full">
-        <div className="mx-auto w-full max-w-[1600px]">
+        <div className="mx-auto w-full max-w-[1504px]">
           <Experience />
           <SectionDivider />
 

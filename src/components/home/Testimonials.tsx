@@ -128,7 +128,7 @@ export function Testimonials({ className = "" }: Props) {
           <motion.article
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border bg-burgundy p-7 text-white shadow-[0_24px_80px_rgba(48,18,36,0.18)] sm:p-8"
+            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border bg-burgundy p-7 text-white sm:p-8"
           >
             <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/40 to-transparent" />
             <span
@@ -171,7 +171,7 @@ export function Testimonials({ className = "" }: Props) {
             {leftColumn.map((testimonial, index) => (
               <article
                 key={testimonial.name}
-                className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-r border-hero-border" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
+                className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-r border-hero-border" : ""} bg-white/85 dark:bg-hero-card p-5 transition-transform duration-300 hover:-translate-y-1`}
               >
                 <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                   &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
@@ -200,7 +200,7 @@ export function Testimonials({ className = "" }: Props) {
           {rightColumn.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-b border-hero-border sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-5 shadow-[0_10px_30px_rgba(25,25,30,0.05)] transition-transform duration-300 hover:-translate-y-1`}
+              className={`flex h-full flex-col rounded-none border-b border-hero-border ${index === 0 ? "border-b border-hero-border sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-5 transition-transform duration-300 hover:-translate-y-1`}
             >
               <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                 &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;

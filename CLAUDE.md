@@ -108,6 +108,43 @@ Used in Waldo for a demo video. Wrapped in a `bg-black aspect-[4/3]` container w
 
 Place `.mp4` files in `public/<project>/` (e.g. `public/fundr/video-explain.mp4`). No import needed — reference via `src="/fundr/video-explain.mp4"`.
 
+## Layout & Padding Conventions
+
+### Container System
+All pages use a shared container pattern:
+```tsx
+<div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0">
+```
+- `px-5` on mobile keeps content off screen edges
+- `md:px-0` on desktop — edges are defined by vertical projection lines (`left-5 w-px bg-hero-border`)
+- Page top padding: `pt-24 md:pt-32` (accounts for fixed nav)
+- Page bottom padding: `pb-12 md:pb-16`
+
+### About Page Section Padding Logic
+**Rule**: Section outer divs carry zero vertical padding. Only inner content containers (text, media) get `py-*`.
+
+| Section Type | Text Container | Media Container | Section Div |
+|---|---|---|---|
+| Hero (first) | `px-6 md:px-10 py-6 md:py-10` | No padding (headshot fills height) | `border-b only` |
+| Flex sections (UX Chats, ADPList, TED, Sports) | `px-6 md:px-10 py-6 md:py-8` | `w-full md:w-[440px] shrink-0 py-6 md:py-8` | `border-b only` |
+| Full-width (Public speaking, Watercolor) | `px-6 md:px-10 py-6 md:py-8` + `mb-4` | Flush — fills width, no padding | `border-b only` |
+| Close | `px-6 md:px-10` only | — | — |
+
+This means images and videos always fill the full height of each section (the tallest element in the flex row determines section height).
+
+### Playground Page Padding
+- Hero heading/subheading: `max-w-[680px] md:ml-10` — left padding on desktop only
+- Grid and right panel: full-width, no hero padding
+- Right detail panel (accent blue bg): `px-8` horizontal, `pt-8 pb-4` (header) / `px-8 py-8` (body)
+
+### Visual Design Identity
+- **Border-only separation**: Sections are divided by `border-b border-hero-border` — no gap/margin between sections
+- **Projection lines**: Hairline vertical lines at max-width container edges, creating an architectural-tech aesthetic
+- **Full-height media**: Images and videos stretch to section height (driven by tallest text neighbor) for a magazine-like editorial feel
+- **Consistent horizontal gutter**: Text content always `px-6 md:px-10` from section edges
+- **Media width**: Flex sections use fixed `md:w-[440px]` for consistent media column sizing
+- **Token-driven colors**: All section colors use `hero-*` tokens — no hardcoded hex in page markup
+
 ## Case Study Card Tags
 
 Tags are used on homepage case study cards. Available tags: fintech, healthtech, macOS, desktop, mobile, SaaS.

@@ -81,13 +81,19 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("light")}})()`,
           }}
         />
+        <a
+          href="#main-content"
+          className="fixed -top-full left-4 z-[9999] rounded-b-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all focus:top-0 focus:outline-none"
+        >
+          Skip to content
+        </a>
         <CustomCursor />
         <SplashScreen showOnce />
         <BackToTop />
           <header className="relative z-50 bg-transparent">
             <NavBar />
           </header>
-          <main className="flex-1">
+          <main id="main-content" className="flex-1">
             {children}
           </main>
           <SiteFooter />

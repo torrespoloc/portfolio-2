@@ -18,7 +18,7 @@ export function SiteFooter() {
         </p>
 
         {/* Reach out row */}
-        <p className="mt-6 text-center text-sm leading-relaxed text-hero-muted">
+        <p className="mt-6 text-center text-sm leading-relaxed text-hero-text">
           Reach out,{" "}
           <a
             href={LINKS.linkedin}
@@ -39,7 +39,7 @@ export function SiteFooter() {
           </a>
         </p>
 
-        <p className="mt-2 text-center text-xs text-hero-muted">
+        <p className="mt-2 text-center text-xs text-hero-text">
           Jackeline Torres © 2026. All Rights Reserved. SF, Bay Area
         </p>
 

@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ExternalLink, Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { LINKS, SITE, WORK_CASE_STUDIES } from "@/lib/constants"
 import { ThemeToggle } from "@/components/ThemeToggle"
 
@@ -16,7 +15,6 @@ export function NavBar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [viewportWidth, setViewportWidth] = useState<number | null>(null)
-  const [isWorkSectionVisible, setIsWorkSectionVisible] = useState(false)
   const [isWorkMenuOpen, setIsWorkMenuOpen] = useState(false)
   const [mobileWorkExpanded, setMobileWorkExpanded] = useState(true)
   const [isDarkTheme, setDarkTheme] = useState(true)
@@ -43,32 +41,20 @@ export function NavBar() {
     }
   }, [])
 
-  useEffect(() => {
-    if (!isHome) return
-
-    const workSection = document.getElementById("work")
-    if (!workSection) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsWorkSectionVisible(entry.isIntersecting)
-      },
-      { threshold: 0.15 }
-    )
-
-    observer.observe(workSection)
-    return () => observer.disconnect()
-  }, [isHome, pathname])
-
   // Theme reactivity via custom event
   useEffect(() => {
     const initial = document.documentElement.classList.contains("dark") ? "dark" : "light"
-    setDarkTheme(initial === "dark")
+    const frame = window.requestAnimationFrame(() => {
+      setDarkTheme(initial === "dark")
+    })
     const handler = (e: Event) => {
       setDarkTheme((e as CustomEvent<"dark" | "light">).detail === "dark")
     }
     window.addEventListener("themechange", handler)
-    return () => window.removeEventListener("themechange", handler)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener("themechange", handler)
+    }
   }, [])
 
   const derived = useMemo(() => {
@@ -77,13 +63,16 @@ export function NavBar() {
     const tightScreen = viewportWidth !== null && viewportWidth < 1024
     const isScrolled = scrolled || (!isHome && !isMobile)
     const mobileResting = isMobile && !isScrolled
-    const expandedWidth = viewportWidth
-      ? Math.min(tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60, 800)
+    const collapsedWidth = viewportWidth
+      ? Math.min(
+          (tightScreen ? viewportWidth - 88 : isWorkPage ? (viewportWidth - 60) * 0.85 : viewportWidth - 60) + 48,
+          848
+        )
       : 800
     const defaultWidth = viewportWidth
       ? Math.min(isWorkPage ? (viewportWidth - 40) * 0.85 : viewportWidth - (tightScreen ? 88 : 64), 1200)
       : "calc(100vw - 88px)"
-    const navWidth = tightScreen ? defaultWidth : (isScrolled ? expandedWidth : defaultWidth)
+    const navWidth = tightScreen ? defaultWidth : (isScrolled ? collapsedWidth : defaultWidth)
     const navLeft = isWorkPage && leftPanelVisible ? "calc(50% + 7.5vw)" : "50%"
     const isNavGlassed = !mobileResting && (tightScreen || isScrolled)
     const navBgColor = isNavGlassed
@@ -151,9 +140,13 @@ export function NavBar() {
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
               className={`flex items-center gap-1 rounded-[12px] border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
-                isDarkTheme
-                  ? "border-white/10 bg-white/[0.06]"
-                  : "border-foreground/[0.08] bg-background/75"
+                isScrolled
+                  ? isDarkTheme
+                    ? "border-white/10 bg-white/[0.06]"
+                    : "border-foreground/[0.08] bg-background/75"
+                  : isDarkTheme
+                    ? "border-white/10 bg-transparent"
+                    : "border-foreground/[0.08] bg-transparent"
               }`}
             >
               <div
@@ -194,7 +187,7 @@ export function NavBar() {
                       className="absolute left-0 top-full z-50 pt-2"
                     >
                       <div
-                        className={`relative w-[176px] overflow-hidden rounded-[12px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
+                        className={`relative overflow-hidden rounded-[12px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
                           isDarkTheme
                             ? "border-white/10 bg-navy-900/88"
                             : "border-foreground/[0.08] bg-background/92"
@@ -233,7 +226,7 @@ export function NavBar() {
                                   </span>
                                 )}
                               </span>
-                              <span className="relative z-10 truncate font-medium leading-none">
+                              <span className="relative z-10 font-medium leading-none whitespace-nowrap">
                                 {study.label}
                               </span>
                             </Link>
@@ -253,6 +246,16 @@ export function NavBar() {
                 }`}
               >
                 About
+              </Link>
+              <Link
+                href="/playground"
+                className={`rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
+                  isDarkTheme
+                    ? "text-white/60 hover:bg-white/10 hover:text-white"
+                    : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
+                }`}
+              >
+                Playground
               </Link>
             </div>
           </nav>
@@ -355,7 +358,7 @@ export function NavBar() {
                                 onClick={() => setMobileOpen(false)}
                                 className="flex items-center gap-3 px-2.5 py-2 text-sm rounded-lg hover:bg-muted transition-colors"
                               >
-                                <span className="flex h-7 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-muted">
+                                <span className="flex h-7 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90">
                                   {study.logo ? (
                                     <img
                                       src={study.logo}
@@ -384,6 +387,13 @@ export function NavBar() {
                     className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
                   >
                     About
+                  </Link>
+                  <Link
+                    href="/playground"
+                    onClick={() => setMobileOpen(false)}
+                    className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Playground
                   </Link>
                 </nav>
                 <div className="border-t border-border" />

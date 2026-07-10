@@ -46,7 +46,7 @@
   --radius: 0.625rem;
 
   /* ── Themed values ── */
-  --burgundy: #7E0000;
+  --burgundy: #880000;
   --cream: #FFFCF9;
   --forest: #1a4a3f;
   --sage: #6b8a79;
@@ -128,7 +128,7 @@
   --chart-5: oklch(0.269 0 0);
 
   /* ── Themed values ── */
-  --burgundy: #8a2e5a;
+  --burgundy: #880000;
   --cream: #1a1d28;
   --forest: #2a5a4f;
   --sage: #5a7a69;
