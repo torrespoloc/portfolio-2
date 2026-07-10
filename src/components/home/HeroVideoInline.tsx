@@ -7,7 +7,12 @@ import { Play } from "lucide-react"
 export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const reducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches)
+  }, [])
 
   useEffect(() => {
     const video = videoRef.current
@@ -17,8 +22,14 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
 
     const handleLoadedMetadata = () => {
       video.currentTime = 1
-      video.pause()
-      setIsPlaying(false)
+      if (isTouchDevice) {
+        // Auto-play muted on mobile so the user sees the loop until they tap
+        video.play().catch(() => {})
+        setIsPlaying(true)
+      } else {
+        video.pause()
+        setIsPlaying(false)
+      }
     }
 
     const handlePause = () => setIsPlaying(false)
@@ -33,7 +44,7 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
       video.removeEventListener("pause", handlePause)
       video.removeEventListener("play", handlePlay)
     }
-  }, [])
+  }, [isTouchDevice])
 
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
