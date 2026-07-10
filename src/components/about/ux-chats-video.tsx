@@ -22,9 +22,9 @@ export function UxChatsVideo() {
   }
 
   return (
-    <div className="w-full md:w-[40%] shrink-0">
+    <div className="w-full md:w-[40%] shrink-0 self-stretch">
       <div
-        className="relative overflow-hidden border border-hero-border bg-black"
+        className="relative overflow-hidden border border-hero-border bg-black h-full"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false)
@@ -42,7 +42,7 @@ export function UxChatsVideo() {
           loop
           playsInline
           controls={hovered}
-          className="w-full block"
+          className="w-full h-full object-cover"
         />
 
         {/* Unmute overlay — visible on hover when muted */}

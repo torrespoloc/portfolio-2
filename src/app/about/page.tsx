@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { UxChatsVideo } from "@/components/about/ux-chats-video"
 
 export const metadata: Metadata = {
@@ -41,27 +43,26 @@ export default function AboutPage() {
 
         {/* ── The UX Chats ── */}
         <div>
-          <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12 items-start">
-            <div className="flex-1 px-6 md:px-10 py-6 md:py-8 relative">
+          <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 items-stretch">
+            <div className="flex-1 px-5 md:px-8 py-5 md:py-6 relative">
               <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
-                I started <span className="text-accent">The UX Chats</span>
-                &mdash;and 30 strangers showed up
+                I started <span className="text-accent">The UX Chats</span>.
+                Then 30 strangers showed up
               </h2>
               <p className="text-hero-text text-body mb-4">
                 Before UX, I was an architectural designer making the leap into product
-                design. Like most career switchers, I had no clue what I was doing&mdash;so
+                design. Like most career switchers, I had no clue what I was doing, so
                 I started talking to people. Those conversations gave me energy, clarity,
                 and human connection. I posted on LinkedIn inviting people to share, vent,
                 and connect. 30 strangers showed up. And it was magic.
               </p>
-              <a
-                href="https://www.theuxchats.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full border border-hero-border bg-hero-bg px-5 py-2 text-sm font-semibold text-hero-text-dark transition-colors hover:bg-hero-border hover:text-hero-text-dark"
+              <Button
+                render={<a href="https://www.theuxchats.co" target="_blank" rel="noopener noreferrer" />}
+                variant="outline"
+                className="rounded-[12px] h-11 px-5"
               >
-                Visit theuxchats.co ↗
-              </a>
+                Visit theuxchats.co <ExternalLink className="h-3.5 w-3.5 inline-block" />
+              </Button>
 
               {/* Logo in the corner — mirrors the hero community card treatment */}
               <img
@@ -80,27 +81,25 @@ export default function AboutPage() {
 
         {/* ── ADPList ── */}
         <div>
-          <div className="flex flex-col md:flex-row-reverse md:gap-6 items-start">
-            <div className="flex-1 px-6 md:px-10 py-6 md:py-8">
+          <div className="flex flex-col md:flex-row-reverse md:gap-4 items-stretch">
+            <div className="flex-1 px-5 md:px-8 py-5 md:py-6">
               <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
-                I&rsquo;m also a <span className="text-accent">mentor</span>
-                &mdash;ADPList, Cal&rsquo;s career center, and more
+                I&rsquo;m also a <span className="text-accent">mentor</span> on ADPList and more
               </h2>
               <p className="text-hero-text text-body mb-4">
                 Giving back is a huge part of who I am. I help aspiring designers navigate
-                portfolio reviews, interview prep, and career strategy&mdash;because the
-                best way to grow is to help others grow too.
+                portfolio reviews, interview prep, and career strategy.
+                Because the best way to grow is to help others grow too.
               </p>
-              <a
-                href="https://adplist.org/mentors/jackeline-torres"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full border border-hero-border bg-hero-bg px-5 py-2 text-sm font-semibold text-hero-text-dark transition-colors hover:bg-hero-border hover:text-hero-text-dark"
+              <Button
+                render={<a href="https://adplist.org/mentors/jackeline-torres" target="_blank" rel="noopener noreferrer" />}
+                variant="outline"
+                className="rounded-[12px] h-11 px-5"
               >
-                Book a session ↗
-              </a>
+                Book a session <ExternalLink className="h-3.5 w-3.5 inline-block" />
+              </Button>
             </div>
-            <div className="w-full md:w-1/2 shrink-0">
+            <div className="w-full md:w-[40%] shrink-0">
               <div className="overflow-hidden border border-hero-border">
                 <img
                   src="/about/adplist-swag.png"
@@ -117,16 +116,16 @@ export default function AboutPage() {
 
         {/* ── TED / Events ── */}
         <div>
-          <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12 items-start">
-            <div className="flex-1 px-6 md:px-10 py-6 md:py-8">
+          <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 items-stretch">
+            <div className="flex-1 px-5 md:px-8 py-5 md:py-6">
               <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
-                TED talks, UX events, <span className="text-accent">networking</span>
-                &mdash;you name it
+                TED talks, UX events, and lots of
+                <span className="text-accent">networking</span>
               </h2>
               <p className="text-hero-text text-body">
                 I&rsquo;ve volunteered at TED AI San Francisco, attended countless UX
-                events, and networked my way through product design. And yes&mdash;I apply
-                to speak at TED every year since 2024.
+                events, and networked my way through product design. My goal is to
+                speak on a TED stage one day.
               </p>
               <a
                 href="https://www.youtube.com/watch?v=4VdO7LuoBzM&ab_channel=TEDxTalks"
@@ -134,7 +133,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-block text-sm font-semibold text-case-eyebrow underline underline-offset-4 decoration-2 transition-colors hover:text-accent"
               >
-                My favorite TED talk ↗
+                My favorite TED talk <ExternalLink className="h-3.5 w-3.5 inline-block" />
               </a>
             </div>
             <div className="w-full md:w-[440px] shrink-0">
@@ -151,6 +150,44 @@ export default function AboutPage() {
                     className="w-full h-full object-cover block"
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Spacer ── */}
+        <section className="py-20" />
+
+        {/* ── Sports & Teamwork ── */}
+        <div>
+          <div className="flex flex-col md:flex-row-reverse md:gap-4 items-stretch">
+            <div className="flex-1 px-5 md:px-8 py-5 md:py-6">
+              <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
+                I&rsquo;m <span className="text-accent">competitive</span> and I
+                know how to{" "}
+                <span className="text-accent">work in teams</span>
+              </h2>
+              <p className="text-hero-text text-body">
+                Not to sound corny, but in sports,{" "}
+                <strong className="text-hero-text-dark font-semibold">communication</strong>{" "}
+                and{" "}
+                <strong className="text-hero-text-dark font-semibold">work strategy</strong>{" "}
+                are everything.
+              </p>
+              <p className="text-hero-text text-body mt-4">
+                My teamwork skills don&rsquo;t just happen at work or on a sports
+                court. They&rsquo;ve become{" "}
+                <em className="text-hero-text-dark">a part of my character and
+                personality.</em>
+              </p>
+            </div>
+            <div className="w-full md:w-[440px] shrink-0">
+              <div className="overflow-hidden border border-hero-border">
+                <img
+                  src="/about/sports-work-in-teams.png"
+                  alt="Pickleball team photo"
+                  className="w-full block"
+                />
               </div>
             </div>
           </div>
@@ -201,7 +238,7 @@ export default function AboutPage() {
         <div>
           <div className="px-6 md:px-10 py-6 md:py-8 mb-4">
             <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark">
-              Creative outlets&mdash;they make me a{" "}
+              Creative outlets that make me a{" "}
               <span className="text-accent">better designer</span>
             </h2>
             <p className="text-hero-text text-body mt-2 max-w-[700px]">
@@ -230,15 +267,16 @@ export default function AboutPage() {
           <div className="px-6 md:px-10 py-6 md:py-8">
             <p className="text-hero-text text-body mb-4 max-w-[700px]">
               Thanks for getting to know me. I bring the same team-first,
-              competitive drive into every product I design — on the court
+              competitive drive into every product I design, on the court
               and in the browser.
             </p>
-            <a
-              href="/#work"
-              className="inline-block rounded-full border border-hero-border bg-hero-bg px-5 py-2 text-sm font-semibold text-hero-text-dark transition-colors hover:bg-hero-border hover:text-hero-text-dark"
+            <Button
+              render={<a href="/#work" />}
+              variant="outline"
+              className="rounded-[12px] h-11 px-5"
             >
               Browse case studies →
-            </a>
+            </Button>
           </div>
         </div>
       </div>
