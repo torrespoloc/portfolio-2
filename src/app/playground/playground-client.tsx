@@ -3,6 +3,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { PlaygroundCard } from "@/components/playground-card"
+import { SectionDivider } from "@/components/ui/section-divider"
 import { cn } from "@/lib/utils"
 import type { PlaygroundItem } from "@/lib/playground-data"
 
@@ -82,6 +83,11 @@ const detailVariants: Variants = {
   },
 }
 
+const slotHoverTransition = {
+  duration: 0.48,
+  ease: [0.22, 1, 0.36, 1] as const,
+}
+
 /* ── Component ── */
 
 const GRID_SIZE = 6
@@ -159,7 +165,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
 
         {/* Card area — grid ↔ split layout */}
         <section className={cn("relative", isSplit && "flex flex-col flex-1 min-h-0")}>
-          <div className={cn("border-b border-hero-border", isSplit && "flex flex-col flex-1 min-h-0")}>
+          <div className={cn(isSplit && "flex flex-col flex-1 min-h-0")}>
             <div className={`flex ${isSplit ? "flex-row flex-1 min-h-0" : "flex-row flex-wrap"}`}>
               {/* Cards column — grid in default, sidebar in split */}
               <motion.div
@@ -194,37 +200,49 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                         role="button"
                         tabIndex={0}
                       >
-                        {/* Floating "Idea time!" tag */}
-                        {ideaTags[item.index] && (
-                          <motion.span
-                            className="absolute top-16 z-20 inline-flex items-center gap-1 px-3 py-1.5 text-sm font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
-                            initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                            animate={{ opacity: 1, y: [0, -48, 0], scale: 1 }}
-                            transition={{ duration: 0.05, ease: [0.34, 1.56, 0.64, 1] }}
-                          >
-                            Idea time!
-                          </motion.span>
-                        )}
                         <span className="text-base font-semibold text-hero-text-dark select-none">
                           {fillerPhrases[item.index % fillerPhrases.length]}
                         </span>
-                        <img
-                          src="/logos/turtle.svg"
-                          alt=""
-                          className={`w-12 h-12 pointer-events-none ${
-                            clickedTurtles[item.index]
-                              ? "transition-transform duration-700 [transform:scaleX(-1)_rotate(360deg)]"
-                              : "[transform:scaleX(-1)_rotate(2deg)]"
-                          }`}
-                          onTransitionEnd={() =>
-                            setClickedTurtles((prev) => ({ ...prev, [item.index]: false }))
-                          }
-                        />
+                        <div className="relative flex items-center justify-center">
+                          <AnimatePresence initial={false}>
+                            {ideaTags[item.index] && (
+                              <motion.span
+                                className="absolute bottom-[28px] left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-md bg-chartreuse px-3 py-1.5 text-sm font-semibold leading-tight text-chartreuse-foreground shadow-sm pointer-events-none select-none -rotate-6"
+                                style={{ transformOrigin: "center bottom" }}
+                                initial={{ opacity: 0, y: 24, scale: 0.12 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 8, scale: 0.2 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 180,
+                                  damping: 20,
+                                  mass: 0.45,
+                                }}
+                              >
+                                Idea time!
+                              </motion.span>
+                            )}
+                          </AnimatePresence>
+                          <img
+                            src="/logos/turtle.svg"
+                            alt=""
+                            className={`w-12 h-12 pointer-events-none ${
+                              clickedTurtles[item.index]
+                                ? "transition-transform duration-700 [transform:scaleX(-1)_rotate(360deg)]"
+                                : "[transform:scaleX(-1)_rotate(2deg)]"
+                            }`}
+                            onTransitionEnd={() =>
+                              setClickedTurtles((prev) => ({ ...prev, [item.index]: false }))
+                            }
+                          />
+                        </div>
                       </div>
                     )
                   }
 
                   const isActive = selectedId === item.title
+                  const isSmRowEnd = index % 2 === 1
+                  const isLgRowEnd = index % 3 === 2
                   return (
                     <motion.div
                       key={item.title}
@@ -234,7 +252,11 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       viewport={isSplit ? undefined : { once: true, margin: "-80px 0px -80px" }}
                       custom={index}
                       variants={isSplit ? undefined : gridCardVariants}
-                      whileHover={isSplit ? { x: 4 } : { y: -6 }}
+                      whileHover={
+                        isSplit
+                          ? { x: 4, transition: slotHoverTransition }
+                          : { y: -6, transition: slotHoverTransition }
+                      }
                       transition={{ type: "spring", stiffness: 260, damping: 24, mass: 0.7 }}
                       onClick={() => handleSelect(item.title)}
                       onKeyDown={(e: React.KeyboardEvent) => {
@@ -248,7 +270,9 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       className={`cursor-pointer select-none ${
                         isSplit
                           ? "w-full border-b border-hero-border last:border-b-0"
-                          : "w-full sm:w-1/2 lg:w-1/3 border-b sm:border-r lg:border-r border-hero-border"
+                          : `w-full sm:w-1/2 lg:w-1/3 border-b border-hero-border ${
+                              isSmRowEnd ? "sm:border-r-0" : "sm:border-r"
+                            } ${isLgRowEnd ? "lg:border-r-0" : "lg:border-r"}`
                       }`}
                     >
                       <PlaygroundCard
@@ -308,6 +332,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                           />
                         </div>
                       )}
+
+                      {selectedItem.videoSrc && <SectionDivider />}
 
                       <div className="px-8 py-8">
                         <h2 className="font-heading text-[28px] sm:text-[36px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
@@ -411,6 +437,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       />
                     </div>
                   )}
+
+                  {selectedItem.videoSrc && <SectionDivider />}
 
                   <div className="px-5 py-6">
                     <h2 className="font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
