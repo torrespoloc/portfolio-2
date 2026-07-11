@@ -9,6 +9,9 @@ import { LINKS, TOOL_LOGOS } from "@/lib/constants"
 import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
+  CaseStudySection,
+  CaseStudySectionFullBleed,
+  EmptySection,
   sectionGrid,
   sectionLeft,
   sectionRight,
@@ -77,14 +80,14 @@ export default function FundrCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Fintech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               SaaS
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Replacing a sales-call funnel with a paywall users can navigate themselves.
           </h1>
         </div>
@@ -95,16 +98,9 @@ export default function FundrCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY FUNDR NEEDED A REDESIGN
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Why Fundr needed a redesign
-        </motion.h2>
+      <CaseStudySection id="problem">
+
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Context</p>
 
         <motion.div
           initial="hidden"
@@ -149,26 +145,23 @@ export default function FundrCaseStudy() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={`${sectionFull} space-y-6`}
+            className={`${sectionFull} space-y-0`}
           >
-            <div className="p-6 lg:p-8">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
-                Three things standing in the way
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center gap-3">
+            <div className="p-0">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="flex flex-col items-center text-center gap-3 p-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">01</span>
                   </div>
                   <p className="text-body font-semibold text-foreground">Sales calls for every upgrade</p>
                 </div>
-                <div className="flex flex-col items-center text-center gap-3">
+                <div className="flex flex-col items-center text-center gap-3 p-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">02</span>
                   </div>
                   <p className="text-body font-semibold text-foreground">Confusing pricing structure</p>
                 </div>
-                <div className="flex flex-col items-center text-center gap-3">
+                <div className="flex flex-col items-center text-center gap-3 p-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">03</span>
                   </div>
@@ -185,19 +178,20 @@ export default function FundrCaseStudy() {
             </blockquote>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       2. PULL QUOTE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <motion.section
+      <CaseStudySection>
+      <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="pb-20"
       >
-        <div className="rounded-xl bg-secondary/60 ring-1 ring-hairline p-8 lg:p-10">
+        <div className=" bg-secondary/60 ring-1 ring-hairline p-8 lg:p-10">
           <figure>
             <blockquote className="text-xl lg:text-2xl xl:text-3xl leading-[1.25] text-foreground/90 font-medium tracking-tight">
               “{quote.body}”
@@ -212,21 +206,15 @@ export default function FundrCaseStudy() {
             Pricing surface was <span className="text-case-highlight font-semibold">the lever</span> — not polish.
           </p>
         </div>
-      </motion.section>
+      </motion.div>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       3. THE UPGRADE FLOW
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="solution" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          The Upgrade Flow
-        </motion.h2>
+      <CaseStudySection id="solution">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Solution</p>
 
         <motion.div
           initial="hidden"
@@ -267,7 +255,7 @@ export default function FundrCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={`${sectionFull} space-y-4`}
           >
-            <div className="overflow-hidden rounded-xl ring-1 ring-hairline">
+            <div className="overflow-hidden  ring-1 ring-hairline">
               <iframe
                 src="/fundr/diagram.html"
                 title="Fundr upgrade flow — from CTA to checkout"
@@ -285,20 +273,20 @@ export default function FundrCaseStudy() {
                 }}
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   How all three CTA paths converge into a single checkout
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Multiple entry points, one consistent upgrade experience
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">The result</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Users can enter from any surface and complete in under a minute
@@ -307,21 +295,14 @@ export default function FundrCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       4. CTA STRATEGY
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="cta-strategy" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
-        >
-          CTA Strategy
-        </motion.h2>
+      <CaseStudySection id="cta-strategy">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Strategy</p>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -345,27 +326,16 @@ export default function FundrCaseStudy() {
           {/* The problem + What I did + Research */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Users who wanted to upgrade hit a wall.
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                Users who wanted to upgrade <span className="text-case-highlight font-semibold">hit a wall</span> — a generic “Contact Sales” link and days of waiting.
+                Users who wanted to upgrade <span className="text-case-highlight font-semibold">hit a wall</span> — a generic "Contact Sales" link and days of waiting.
               </p>
 
               <div>
-                <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
-                  What I did
-                </p>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -383,9 +353,6 @@ export default function FundrCaseStudy() {
               </div>
 
               <div>
-                <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                  Research
-                </p>
                 <p className="text-body-sm lg:text-body text-foreground/75 leading-relaxed">
                   Systems with <span className="text-case-highlight font-semibold">combined CTA methods</span> outperform
                   single-method approaches — and the most effective pattern bridges the gap between
@@ -400,7 +367,7 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className={`${sectionFull} space-y-4`}
             >
-              <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+              <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/fundr/cta-types.png"
@@ -408,20 +375,20 @@ export default function FundrCaseStudy() {
                   className="w-full h-auto"
                 />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Three CTA types layered by user intent — glance, browse, and act
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Each surface serves a different moment without overwhelming the interface
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">The result</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Self-serve upgrades that don’t interrupt the user’s flow
@@ -431,21 +398,14 @@ export default function FundrCaseStudy() {
             </motion.div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5. THE CORE MECHANISM
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="spv-infographic" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          The Core Mechanism
-        </motion.h2>
+      <CaseStudySection id="spv-infographic">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Design</p>
 
         <motion.div
           initial="hidden"
@@ -469,9 +429,6 @@ export default function FundrCaseStudy() {
 
           <div className={`${sectionRight} space-y-5`}>
             <div>
-              <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                The problem
-              </p>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Fundr’s platform centers on Special Purpose Vehicles — the investment structure
                 that lets investors pool capital into a single startup. Most users <span className="text-case-highlight font-semibold">didn’t understand what an SPV was</span> or how capital flowed through it.{" "}
@@ -481,9 +438,6 @@ export default function FundrCaseStudy() {
             </div>
 
             <div>
-              <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
-                What I did
-              </p>
               <ul className="space-y-2 text-body text-foreground/75">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -507,7 +461,7 @@ export default function FundrCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={`${sectionFull} space-y-4`}
           >
-            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+            <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/fundr/SPVs-infographic.png"
@@ -515,20 +469,20 @@ export default function FundrCaseStudy() {
                 className="w-full h-auto"
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   The SPV structure — investors, capital flow, and the startup relationship
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Users understand the core mechanism before they consider paying for premium access
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">The result</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Upgrade prompts now carry context — users know exactly what they’re unlocking
@@ -537,21 +491,14 @@ export default function FundrCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       6. PRICING REDESIGN
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="pricing" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
-        >
-          Pricing Redesign
-        </motion.h2>
+      <CaseStudySection id="pricing">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Design</p>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -574,14 +521,6 @@ export default function FundrCaseStudy() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A single pricing table that mixed investor and startup features — making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
               </h3>
@@ -593,9 +532,6 @@ export default function FundrCaseStudy() {
               </p>
 
               <div>
-                <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
-                  What I did
-                </p>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -619,7 +555,7 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className={`${sectionFull} space-y-5`}
             >
-              <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+              <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/fundr/pricing-page.png"
@@ -636,21 +572,14 @@ export default function FundrCaseStudy() {
             </motion.div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       7. THE CONTROVERSY
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="controversy" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          The Controversy
-        </motion.h2>
+      <CaseStudySection id="controversy">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Problem</p>
 
         <motion.div
           initial="hidden"
@@ -675,7 +604,7 @@ export default function FundrCaseStudy() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-xl bg-burgundy/[0.06] ring-1 ring-burgundy/20 p-5 lg:p-6"
+	              className="bg-burgundy/[0.06] ring-1 ring-burgundy/20 p-0"
             >
               <p className="text-body text-foreground/85 leading-relaxed">
                 The CEO wanted one unified pricing page — simplicity was a core value, and two paths
@@ -686,21 +615,14 @@ export default function FundrCaseStudy() {
             </motion.div>
           </div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       8. TIERED DASHBOARD
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="dashboard" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
-        >
-          Tiered Dashboard
-        </motion.h2>
+      <CaseStudySection id="dashboard">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Design</p>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -723,14 +645,6 @@ export default function FundrCaseStudy() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 The free tier was a demo, not a product — so limited that users couldn’t evaluate whether Fundr was right for them.
               </h3>
@@ -741,9 +655,6 @@ export default function FundrCaseStudy() {
               </p>
 
               <div>
-                <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-2">
-                  What I did
-                </p>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -761,9 +672,6 @@ export default function FundrCaseStudy() {
               </div>
 
               <div>
-                <p className="text-label font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                  Why this approach
-                </p>
                 <ul className="text-body-sm lg:text-body text-foreground/75 leading-relaxed list-disc pl-5 space-y-1.5">
                   <li>SaaS users convert when they <span className="text-case-highlight font-semibold">experience value firsthand</span>.</li>
                   <li>A <span className="text-case-highlight font-semibold">free tier worth using</span> builds trust.</li>
@@ -776,10 +684,10 @@ export default function FundrCaseStudy() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className={`${sectionFull} space-y-4`}
-            >
-              <div className="grid grid-cols-1 gap-6">
-                <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+            className={`${sectionFull} space-y-0`}
+          >
+              <div className="grid grid-cols-1 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="relative w-full overflow-hidden ring-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fundr/dashboard-basic.png"
@@ -792,7 +700,7 @@ export default function FundrCaseStudy() {
                     </p>
                   </div>
                 </div>
-                <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+                <div className="relative w-full overflow-hidden ring-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fundr/dashboard-premium.png"
@@ -806,14 +714,14 @@ export default function FundrCaseStudy() {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Side-by-side comparison of free vs paid dashboard experience
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Users see exactly what they gain — not just what they’re missing
@@ -823,21 +731,14 @@ export default function FundrCaseStudy() {
             </motion.div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       9. BEFORE → AFTER
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="before-after" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Before → After
-        </motion.h2>
+      <CaseStudySection id="before-after">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Results</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -856,16 +757,16 @@ export default function FundrCaseStudy() {
             ] as const).map((pair, i) => (
               <div
                 key={i}
-                className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 sm:gap-6 items-center p-4 lg:p-5 rounded-xl bg-background ring-1 ring-hairline"
-              >
-                <div className="text-body text-ink-muted leading-snug">
+	                className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-px sm:gap-px items-center p-0 bg-background ring-1 ring-hairline"
+	              >
+                <div className="text-body text-ink-muted leading-snug p-3">
                   <span className="text-label font-mono uppercase tracking-[0.12em] text-destructive/70 block mb-1">Before</span>
                   {pair.before}
                 </div>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center p-3">
                   <span className="text-case-eyebrow text-lg font-semibold leading-none">→</span>
                 </div>
-                <div className="text-body text-foreground leading-snug">
+                <div className="text-body text-foreground leading-snug p-3">
                   <span className="text-label font-mono uppercase tracking-[0.12em] text-status-success-text/70 block mb-1">After</span>
                   {pair.after}
                 </div>
@@ -873,21 +774,14 @@ export default function FundrCaseStudy() {
             ))}
           </div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       10. IMPACT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="impact" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Impact
-        </motion.h2>
+      <CaseStudySection id="impact">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Impact</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -903,7 +797,7 @@ export default function FundrCaseStudy() {
               <motion.li
                 key={i}
                 whileHover={{ y: -2, scale: 1.005 }}
-                className="flex gap-5 p-6 lg:p-7 rounded-xl bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
+                className="flex gap-5 p-6 lg:p-7  bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
                 <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
@@ -920,21 +814,14 @@ export default function FundrCaseStudy() {
             </span>
           </blockquote>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       11. WHAT I'D DO DIFFERENTLY
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="reflection" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          What I’d Do Differently
-        </motion.h2>
+      <CaseStudySection id="reflection">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Reflection</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -946,7 +833,7 @@ export default function FundrCaseStudy() {
             Hindsight and the next version.
           </p>
           <ul className="space-y-4">
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-4 bg-background">
               <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">01</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
@@ -956,7 +843,7 @@ export default function FundrCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-4 bg-background">
               <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">02</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
@@ -966,7 +853,7 @@ export default function FundrCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-4 bg-background">
               <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">03</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
@@ -978,21 +865,14 @@ export default function FundrCaseStudy() {
             </li>
           </ul>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       VIDEO EXPLAINER
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="walkthrough" className="pb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          The full story in ~4-min
-        </motion.h2>
+      <CaseStudySection id="walkthrough">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Overview</p>
 
         <motion.div
           initial="hidden"
@@ -1009,7 +889,7 @@ export default function FundrCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-black">
+            <div className="relative w-full overflow-hidden  ring-1 ring-hairline bg-black">
               <video
                 src="/fundr/video-explain.mp4"
                 controls
@@ -1029,12 +909,13 @@ export default function FundrCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       12. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16">
+      <CaseStudySectionFullBleed>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1077,7 +958,7 @@ export default function FundrCaseStudy() {
             ))}
           </div>
         </motion.div>
-      </section>
+      </CaseStudySectionFullBleed>
 
     </div>
     </CaseStudyTemplatePra>

@@ -15,6 +15,9 @@ import { LINKS, TOOL_LOGOS } from "@/lib/constants"
 import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
+  CaseStudySection,
+  CaseStudySectionFullBleed,
+  EmptySection,
   sectionGrid,
   sectionHeader,
   sectionLeft,
@@ -50,17 +53,17 @@ export default function SevenDishCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Food Tech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Consumer mobile
             </span>
           </div>
           <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1.5">
             7dish &middot; Quebec startup
           </p>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Redesigning 3 Core Tasks for 7Dish&rsquo;s Meal Planning App
           </h1>
           <div className="flex items-center gap-2 mt-3 text-label font-mono uppercase tracking-[0.18em] text-muted-foreground">
@@ -71,9 +74,9 @@ export default function SevenDishCaseStudy() {
         </div>
       }
       heroImage={
-        <div className="relative w-full aspect-[16/10] lg:aspect-[21/9] overflow-hidden rounded-xl">
+        <div className="relative w-full aspect-[16/10] lg:aspect-[21/9] overflow-hidden ">
           <img
-            src="/7dish/hero"
+            src="/7dish/hero.png"
             alt="7dish meal planning app hero"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -85,7 +88,8 @@ export default function SevenDishCaseStudy() {
         {/* ══════════════════════════════════════════════════════════════════════
         1. BACKGROUND & PROJECT GOALS
         ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
+      <CaseStudySection id="problem">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Context</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -161,9 +165,9 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/homepage-comparision.png"
+                src="/7dish/homepage-comparison.png"
                 alt="Homepage before and after comparison showing improved layout, contrast, and navigation"
                 className="w-full h-auto"
               />
@@ -173,12 +177,15 @@ export default function SevenDishCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       2. PROCESS & USABILITY AUDIT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="audit" className="pb-24 lg:pb-28">
+      <CaseStudySection id="audit">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Analysis</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -211,9 +218,6 @@ export default function SevenDishCaseStudy() {
                 Research based on 7dish&rsquo;s <span className="text-case-highlight font-semibold">analytics and user interviews</span> revealed users often did a &ldquo;back and forth&rdquo; in completing core tasks and reported confusion.
               </p>
               <div>
-                <p className="text-sm font-mono uppercase tracking-[0.18em] text-case-eyebrow font-semibold mb-2">
-                  Main reasons identified
-                </p>
                 <ul className="list-disc list-inside text-base lg:text-lg text-ink-muted leading-relaxed space-y-1">
                   <li>Unclear instructions</li>
                   <li>Icon and common pattern inconsistencies</li>
@@ -228,7 +232,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/existing-design.png"
                 alt="Existing design overview showing the original 7dish experience"
@@ -241,18 +245,21 @@ export default function SevenDishCaseStudy() {
           </motion.div>
 
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       3. CORE TASK #1: CREATE A MEAL PLAN
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="solution" className="pb-24 lg:pb-28">
+      <CaseStudySection id="solution">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Design</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
+          className={`${sectionHeader} mb-6`}
         >
           Redesigning Core Task #1
         </motion.h2>
@@ -279,14 +286,6 @@ export default function SevenDishCaseStudy() {
           {/* Problem + solution */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <CalendarDays className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Creating a meal plan was laborious and adding recipes lacked order.
               </h3>
@@ -303,7 +302,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline bg-black">
+            <div className=" overflow-hidden ring-1 ring-hairline bg-black">
               <img
                 src="/7dish/user-flow.png"
                 alt="User flow diagram showing the redesigned 7dish task journeys"
@@ -322,14 +321,6 @@ export default function SevenDishCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  Concept A/B Testing
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Two concepts went head-to-head. Flexibility lost.
               </h3>
@@ -355,7 +346,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/a-b-testing.png"
                 alt="A/B testing comparison &mdash; Concept A (flexible) vs Concept B (controlled)"
@@ -367,18 +358,21 @@ export default function SevenDishCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       4. CORE TASK #2: SAVING A RECIPE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="task-2" className="pb-24 lg:pb-28">
+      <CaseStudySection id="task-2">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Design</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
+          className={`${sectionHeader} mb-6`}
         >
           Redesigning Core Task #2
         </motion.h2>
@@ -405,14 +399,6 @@ export default function SevenDishCaseStudy() {
           {/* Problem */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Search className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Users consistently browse and save recipes, but the original flow lacked a clear connection between &lsquo;Saved&rsquo; and &lsquo;Meal Planner.&rsquo;
               </h3>
@@ -427,14 +413,6 @@ export default function SevenDishCaseStudy() {
           {/* Solutions */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <FolderHeart className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The streamlined Saved solutions
-                </p>
-              </div>
             </div>
             <div className={sectionRight}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -448,7 +426,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/saved-pages.png"
                 alt="Saved Recipes screens showing the new Saved Folders feature"
@@ -465,11 +443,11 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/saved-feature.png"
                 alt="Close-up of the Saved Folders feature with fixed and custom folders"
-                className="w-full h-auto max-w-[55%] mx-auto"
+                className="w-full h-auto"
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center">
@@ -477,18 +455,21 @@ export default function SevenDishCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5. CORE TASK #3: MAKING A SHOPPING LIST
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="task-3" className="pb-24 lg:pb-28">
+      <CaseStudySection id="task-3">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Design</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
+          className={`${sectionHeader} mb-6`}
         >
           Redesigning Core Task #3
         </motion.h2>
@@ -515,20 +496,12 @@ export default function SevenDishCaseStudy() {
           {/* The 3 flaws */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <ListChecks className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The problem
-                </p>
-              </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Three glaring usability flaws in the original shopping list.
               </h3>
             </div>
             <div className={`${sectionRight} space-y-4`}>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                   The original design had three issues:
                 </p>
@@ -544,14 +517,6 @@ export default function SevenDishCaseStudy() {
           {/* The redesign elements */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-accent/10 ring-1 ring-accent/20 text-case-eyebrow">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  The redesign elements
-                </p>
-              </div>
             </div>
             <div className={sectionRight}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -565,7 +530,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/core-task-3_shopping-list.png"
                 alt="Core Task #3 shopping list redesign — testing and iteration artifacts"
@@ -577,12 +542,15 @@ export default function SevenDishCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       6. TEAM COLLABORATION & STAKEHOLDER ALIGNMENT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="reflection" className="pb-24 lg:pb-28">
+      <CaseStudySection id="reflection">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Process</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -620,17 +588,9 @@ export default function SevenDishCaseStudy() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline"
           >
-            <div className="rounded-2xl p-6 lg:p-8 bg-background ring-1 ring-hairline">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  Controversial decision
-                </p>
-              </div>
+            <div className="h-full bg-background">
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Eliminating the legacy &ldquo;Inspiration&rdquo; page
               </h4>
@@ -639,15 +599,7 @@ export default function SevenDishCaseStudy() {
               </p>
             </div>
 
-            <div className="rounded-2xl p-6 lg:p-8 bg-background ring-1 ring-hairline">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                  <FolderHeart className="h-4 w-4" />
-                </span>
-                <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                  Scope expansion
-                </p>
-              </div>
+            <div className="h-full bg-background">
               <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
                 Adding the &ldquo;Saved Recipes Folders&rdquo; feature
               </h4>
@@ -661,16 +613,8 @@ export default function SevenDishCaseStudy() {
           <motion.aside
             variants={fadeUp}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl p-6 lg:p-8 bg-secondary/40 ring-1 ring-hairline border-l-2 border-highlight"
+            className="h-full bg-secondary/40 border-l-2 border-highlight"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center justify-center h-7 w-7 rounded-md bg-case-highlight/10 ring-1 ring-case-highlight/20 text-case-highlight">
-                <Sparkles className="h-3.5 w-3.5" />
-              </span>
-              <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                How we aligned
-              </p>
-            </div>
             <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
               Positive user testing results helped convince my client of these major changes. I shared quotes and data from concept tests with 3 stakeholders. Hearing about the value and utility from our prospective users was enough to convince them that these features should be developed.
             </p>
@@ -681,9 +625,9 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/zoom-team"
+                src="/7dish/zoom-team.png"
                 alt="Jacki working with the 7dish team on Zoom &mdash; design collaboration session"
                 className="w-full h-auto"
               />
@@ -693,12 +637,15 @@ export default function SevenDishCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       7. FINAL TESTING & EXPECTED IMPACT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="impact" className="pb-24 lg:pb-28">
+      <CaseStudySection id="impact">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">Impact</p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -735,10 +682,7 @@ export default function SevenDishCaseStudy() {
 
           {/* Final metrics */}
           <motion.div variants={fadeUp} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}>
-            <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-5">
-              Final Metrics
-            </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
               {[
                 "10/10 of users rated the new app design an 8 or above across Functionality, User-Friendliness, and Aesthetics.",
                 "8/10 users gave positive feedback pointing to higher overall satisfaction and word-of-mouth recommendations.",
@@ -747,7 +691,7 @@ export default function SevenDishCaseStudy() {
               ].map((item, i) => (
                 <li
                   key={i}
-                  className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline"
+                  className="flex h-full gap-4 bg-background"
                 >
                   <span className="text-body-sm font-mono text-case-highlight shrink-0 pt-0.5">
                     {String(i + 1).padStart(2, "0")}
@@ -763,7 +707,7 @@ export default function SevenDishCaseStudy() {
             variants={fadeUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+            <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/survey.png"
                 alt="User testing survey results showing high satisfaction scores"
@@ -795,9 +739,6 @@ export default function SevenDishCaseStudy() {
           {/* Projected business impact */}
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
-              <p className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">
-                Projected Business &amp; User Impact
-              </p>
             </div>
             <div className={`${sectionRight} space-y-3`}>
               <ul className="space-y-2 text-body text-ink-muted">
@@ -817,18 +758,20 @@ export default function SevenDishCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16">
+      <CaseStudySectionFullBleed>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
+          className=" p-8 lg:p-10 bg-foreground text-background"
         >
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5">
             Want a walkthrough?
@@ -853,7 +796,7 @@ export default function SevenDishCaseStudy() {
             </a>
           </div>
         </motion.div>
-      </section>
+      </CaseStudySectionFullBleed>
       </div>
     </CaseStudyTemplatePra>
   )

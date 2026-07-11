@@ -16,6 +16,10 @@ import { LINKS, TOOL_LOGOS } from "@/lib/constants"
 import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
+  CaseStudySection,
+  CaseStudySectionFullBleed,
+  EmptySection,
+  SectionReveal,
   sectionGrid,
   sectionLeft,
   sectionRight,
@@ -45,7 +49,6 @@ const meta = {
 
 type Shipped = {
   icon: React.ComponentType<{ className?: string }>
-  eyebrow: string
   title: string
   body: ReactNode
 }
@@ -53,7 +56,6 @@ type Shipped = {
 const shipped: Shipped[] = [
   {
     icon: Smartphone,
-    eyebrow: "Patient mobile app",
     title: "Prescription-aware dashboard with real-time validity and sync.",
     body: <>
       Prescription dashboard with <span className="text-case-highlight font-semibold">color-coded badges</span>, supply bars, and 3-state validity logic (valid, expiring, expired).<br /><br />
@@ -63,7 +65,6 @@ const shipped: Shipped[] = [
   },
   {
     icon: Users,
-    eyebrow: "Family ordering",
     title: "One account. The whole household.",
     body: <>
       Named sub-patient profiles with their own prescription cards and order history.<br /><br />
@@ -112,14 +113,14 @@ export default function WaldoCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Healthtech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Mobile
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Designed the patient mobile app that closed the last mile for independent eye doctors.
           </h1>
         </div>
@@ -130,16 +131,8 @@ export default function WaldoCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY IDOC NEEDED A BETTER PATIENT EXPERIENCE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Why iDoc needed a better patient experience
-        </motion.h2>
+      <CaseStudySection id="problem">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Context</p>
 
         <motion.div
           initial="hidden"
@@ -173,47 +166,15 @@ export default function WaldoCaseStudy() {
             </motion.p>
           </div>
 
-          {/* iDoc at a glance — impact metrics */}
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={sectionFull}
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px rounded-xl overflow-hidden ring-1 ring-hairline bg-secondary/70">
-              {[
-                { value: "3,000+", label: "Independent practices" },
-                { value: "100%", label: "Manufacturer-neutral" },
-                { value: "$0", label: "Added cost to members" },
-                { value: "60%+", label: "In-clinic conversion" },
-                { value: "40%", label: "Faster checkout" },
-                { value: "1st", label: "iDoc tech platform" },
-              ].map((m) => (
-                <div
-                  key={m.label}
-                  className="flex flex-col items-center justify-center text-center p-5 lg:p-6 bg-background"
-                >
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
-                    {m.value}
-                  </span>
-                  <span className="text-body-sm font-mono text-ink-muted leading-snug max-w-[12ch]">
-                    {m.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
 
           {/* Constraints cards */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={`${sectionFull} space-y-6`}
+            className={`${sectionFull} space-y-0`}
           >
-            <div className="p-6 lg:p-8">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-hero-muted mb-5">
-                Three things standing in the way
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="p-0">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-20 h-20 rounded-full bg-accent/[0.08] flex items-center justify-center">
                     <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">01</span>
@@ -242,7 +203,7 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[480px]">
+            <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[480px]">
               <Image
                 src="/waldo/order-deskp.png"
                 alt="Desktop order management interface showing the complexity staff navigate daily"
@@ -256,21 +217,14 @@ export default function WaldoCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       2. RESEARCH THAT SHAPED THE PRODUCT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="research" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Research that shaped the product
-        </motion.h2>
+      <CaseStudySection id="research">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Research</p>
 
         <motion.div
           initial="hidden"
@@ -318,7 +272,7 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-accent/[0.04] p-8 lg:p-10">
+            <div className="relative overflow-hidden  border border-accent/20 bg-accent/[0.04] p-8 lg:p-10">
               <figure>
                 <blockquote className="text-xl lg:text-2xl leading-[1.3] text-foreground font-medium tracking-tight space-y-3">
                   <p>&ldquo;Hallelujah.&rdquo;</p>
@@ -338,7 +292,7 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline">
+            <div className="relative overflow-hidden  ring-1 ring-hairline">
               <Image
                 src="/waldo/brainstorming.png"
                 alt="FigJam board showing early brainstorming and problem-solving for the checkout flow connecting to the doctor's desktop app"
@@ -362,7 +316,7 @@ export default function WaldoCaseStudy() {
               href="/waldo/journey-map.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block relative overflow-hidden rounded-xl ring-1 ring-hairline hover:ring-accent/40 transition-all duration-500"
+              className="group block relative overflow-hidden  ring-1 ring-hairline hover:ring-accent/40 transition-all duration-500"
             >
               <Image
                 src="/waldo/journey-map-preview.png"
@@ -386,21 +340,14 @@ export default function WaldoCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       3. WHAT I SHIPPED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="solution" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          What I Shipped
-        </motion.h2>
+      <CaseStudySection id="solution">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Solution</p>
 
         <motion.div
           initial="hidden"
@@ -416,20 +363,12 @@ export default function WaldoCaseStudy() {
             const Icon = s.icon
             return (
               <motion.div
-                key={s.eyebrow}
+                key={idx}
                 variants={fadeUp}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className={sectionGrid}
               >
                 <div className={sectionLeft}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-ink-muted">
-                      {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
-                    </p>
-                  </div>
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                     {s.title}
                   </h3>
@@ -450,8 +389,8 @@ export default function WaldoCaseStudy() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           className={`${sectionFull} mt-12`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[560px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+            <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[560px]">
               <Image
                 src="/waldo/dashboard.png"
                 alt="Patient dashboard showing prescription status and quick-order actions"
@@ -460,7 +399,7 @@ export default function WaldoCaseStudy() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[560px]">
+            <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[560px]">
               <Image
                 src="/waldo/prescriptions-list.png"
                 alt="Prescription management screen with color-coded validity states"
@@ -469,7 +408,7 @@ export default function WaldoCaseStudy() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[560px]">
+            <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[560px]">
               <Image
                 src="/waldo/cart-review.png"
                 alt="Mobile checkout flow with prescription-aware cart review"
@@ -483,21 +422,14 @@ export default function WaldoCaseStudy() {
             Patient mobile app: dashboard with prescription status, prescription management, and checkout
           </p>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       3. THE $5 CONSTRAINT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="constraint" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          The $5 Constraint
-        </motion.h2>
+      <CaseStudySection id="constraint">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Constraint</p>
 
         <motion.div
           initial="hidden"
@@ -537,7 +469,7 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/[0.06] to-background ring-1 ring-accent/[0.08] p-8 lg:p-12">
+            <div className="relative overflow-hidden  bg-gradient-to-br from-accent/[0.06] to-background ring-1 ring-accent/[0.08] p-8 lg:p-12">
               <span
                 aria-hidden
                 className="absolute top-2 right-4 lg:top-0 lg:right-8 text-[12rem] lg:text-[18rem] font-bold leading-none text-case-eyebrow/[0.04] select-none pointer-events-none"
@@ -562,7 +494,7 @@ export default function WaldoCaseStudy() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={sectionFull}
           >
-            <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline bg-black aspect-[4/3]">
+            <div className="relative overflow-hidden  ring-1 ring-hairline bg-black aspect-[4/3]">
               <iframe
                 src="/waldo/project-bits.mp4"
                 className="absolute inset-0 w-full h-full"
@@ -577,21 +509,14 @@ export default function WaldoCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5. LATE-STAGE CHALLENGE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="challenge" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          A new brand arrived two weeks before we shipped
-        </motion.h2>
+      <CaseStudySection id="challenge">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Challenge</p>
 
         <motion.div
           initial="hidden"
@@ -637,21 +562,40 @@ export default function WaldoCaseStudy() {
             </motion.p>
           </div>
         </motion.div>
-      </section>
+
+        {/* Visual: Migration scope — illustrates the breadth of the rebrand */}
+        <SectionReveal className="mt-8">
+          <div className="bg-secondary/40 rounded-xl ring-1 ring-hero-border overflow-hidden">
+            <div className="px-6 py-3 border-b border-hero-border flex items-center gap-2">
+              <span className="inline-block h-2 w-2 rounded-full bg-highlight" />
+              <span className="text-xs font-mono uppercase tracking-[0.15em] text-hero-muted">
+                Brand Migration — Scope Summary
+              </span>
+            </div>
+            <div className="p-0 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              {[
+                { count: "12+", label: "Patient Screens", desc: "Orders, Rx, Cart, Profile, and more", color: "text-amber-500" },
+                { count: "4", label: "States per Screen", desc: "Loading, Error, Empty, Success", color: "text-blue-500" },
+                { count: "3", label: "Token Categories", desc: "Colors, Typography, Components", color: "text-emerald-500" },
+                { count: "0", label: "Timeline Impact", desc: "No delay to dev handoff", color: "text-violet-500" },
+              ].map((item) => (
+                <div key={item.label} className="text-center">
+                  <div className={`text-4xl font-bold ${item.color} mb-1 leading-none`}>{item.count}</div>
+                  <div className="text-sm font-semibold text-foreground mb-0.5">{item.label}</div>
+                  <div className="text-xs text-hero-muted leading-relaxed">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5b. BRAND EVOLUTION ARTIFACT
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="brand-evolution" className="pb-24 lg:pb-28">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="text-base lg:text-lg text-ink-muted leading-relaxed mb-4"
-        >
-          Three brand identities. Five months. Same timeline.
-        </motion.p>
+      <CaseStudySection id="brand-evolution">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Process</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -661,7 +605,7 @@ export default function WaldoCaseStudy() {
           className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 lg:gap-6"
         >
           {/* First — earliest brand */}
-          <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-01.png"
               alt="Earliest brand identity — Fern"
@@ -680,7 +624,7 @@ export default function WaldoCaseStudy() {
           </div>
 
           {/* Second — mid evolution */}
-          <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-02.png"
               alt="Mid-evolution brand identity — Olive"
@@ -699,7 +643,7 @@ export default function WaldoCaseStudy() {
           </div>
 
           {/* Third — final brand */}
-          <div className="relative overflow-hidden rounded-xl ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-03.png"
               alt="Final brand identity — Bridge"
@@ -726,30 +670,50 @@ export default function WaldoCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="mt-8 p-6 lg:p-8 rounded-2xl bg-accent/[0.04] ring-1 ring-accent/20 max-w-2xl mx-auto"
+          className="mt-8 p-0 bg-accent/[0.04] ring-1 ring-accent/20 max-w-2xl mx-auto"
         >
-          <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-case-eyebrow mb-3">
-            Fun fact
-          </p>
           <p className="text-base lg:text-lg text-foreground leading-relaxed">
             The product name changed over five times throughout the process — from <span className="text-foreground font-semibold">Fern</span>, to <span className="text-foreground font-semibold">Olive</span>, to <span className="text-foreground font-semibold">Indigo</span>, and finally to <span className="text-foreground font-semibold">Bridge</span>.
           </p>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5. OUTCOMES
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="impact" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
+      <CaseStudySection id="impact">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Impact</p>
+
+        {/* iDoc at a glance — impact metrics */}
+        <motion.div
+          variants={fadeUp}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className={sectionFull}
         >
-          Outcomes
-        </motion.h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px overflow-hidden ring-1 ring-hairline bg-secondary/70 mb-8">
+            {[
+              { value: "3,000+", label: "Independent practices" },
+              { value: "100%", label: "Manufacturer-neutral" },
+              { value: "$0", label: "Added cost to members" },
+              { value: "60%+", label: "In-clinic conversion" },
+              { value: "40%", label: "Faster checkout" },
+              { value: "1st", label: "iDoc tech platform" },
+            ].map((m) => (
+              <div
+                key={m.label}
+                className="flex h-full flex-col items-center justify-center text-center bg-background"
+              >
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
+                  {m.value}
+                </span>
+                <span className="text-body-sm font-mono text-ink-muted leading-snug max-w-[12ch]">
+                  {m.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -765,7 +729,7 @@ export default function WaldoCaseStudy() {
               <motion.li
                 key={i}
                 whileHover={{ y: -2, scale: 1.005 }}
-                className="flex gap-5 p-6 lg:p-7 rounded-xl bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
+                className="flex gap-5 bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
                 <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
@@ -775,21 +739,14 @@ export default function WaldoCaseStudy() {
             ))}
           </ul>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       6. REFLECTIONS
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="reflections" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          What I learned designing my first healthcare product
-        </motion.h2>
+      <CaseStudySection id="reflections">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Reflection</p>
 
         <motion.div
           initial="hidden"
@@ -845,81 +802,20 @@ export default function WaldoCaseStudy() {
             </motion.p>
           </div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+      <EmptySection />
 
-      {/* ══════════════════════════════════════════════════════════════════════
-      REAL TALK
-      ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="real-talk" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Real Talk
-        </motion.h2>
-
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-          }}
-          className={sectionGrid}
-        >
-          <div className={sectionLeft}>
-            <motion.h3
-              variants={fadeUp}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
-            >
-              Shipping isn&rsquo;t the finish line. It&rsquo;s the starting point.
-            </motion.h3>
-          </div>
-
-          <div className={`${sectionRight} space-y-4`}>
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed"
-            >
-              The product is live at idocbridge.com. No direct user access for months. The analytics dashboard didn&rsquo;t make V1. My white-label work is in the V2 backlog.
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed"
-            >
-              That is product design. Make good decisions within real constraints, keep the team moving, ship something that works, even when it isn&rsquo;t everything you originally designed.
-            </motion.p>
-          </div>
-
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={sectionFull}
-          >
-            <p className="mx-auto max-w-2xl text-center text-base font-semibold leading-relaxed text-case-highlight lg:text-lg">
-              One staff member said &ldquo;Hallelujah&rdquo; the first time she saw the prototype work. <span className="text-case-highlight font-semibold">That is enough</span>.
-            </p>
-          </motion.div>
-        </motion.div>
-      </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
       7. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16">
+      <CaseStudySectionFullBleed>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
+          className=" p-8 lg:p-10 bg-foreground text-background"
         >
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
@@ -966,7 +862,7 @@ export default function WaldoCaseStudy() {
             ))}
           </div>
         </motion.div>
-      </section>
+      </CaseStudySectionFullBleed>
     </div>
     </CaseStudyTemplatePra>
   )

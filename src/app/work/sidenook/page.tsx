@@ -16,7 +16,7 @@ import {
   AlertTriangle,
 } from "lucide-react"
 import { LINKS } from "@/lib/constants"
-import { CaseStudyTemplatePra } from "@/components/case-study/cs-template_2"
+import { CaseStudyTemplatePra, CaseStudySection, EmptySection } from "@/components/case-study/cs-template_2"
 import { BurgundySection } from "@/components/case-study/BurgundySection"
 import {
   sectionGrid,
@@ -50,7 +50,6 @@ const meta = {
 
 type Phase = {
   icon: React.ComponentType<{ className?: string }>
-  eyebrow: string
   title: string
   body: React.ReactNode
 }
@@ -58,19 +57,16 @@ type Phase = {
 const phases: Phase[] = [
   {
     icon: Sparkles,
-    eyebrow: "Phase 1",
     title: "Validate the feel before the function.",
     body: <>First milestone: <span className="text-case-highlight font-semibold">the animation with no terminal</span> behind it — just the pill, the spring, the collapse. A sluggish animation would&rsquo;ve undermined the promise from the first interaction. Spring parameters (stiffness 280, damping 22) were iterated in Figma first, then tuned in code. The <span className="text-case-highlight font-semibold">hit area is 14pt</span> — wider than the visible 6pt pill — so the interaction catches without requiring precision.</>,
   },
   {
     icon: Terminal,
-    eyebrow: "Phase 2",
     title: "Terminal backend with invisible focus handoff.",
     body: <>Focus routes to the terminal on expand, back to your app on collapse. Making that handoff <span className="text-case-highlight font-semibold">invisible and reliable</span> was the <span className="text-case-highlight font-semibold">hardest design + engineering problem</span> in the project. Users will never notice it &mdash; and that&rsquo;s the point.</>,
   },
   {
     icon: Layers,
-    eyebrow: "Phase 3",
     title: "Interactive features that share one mental model.",
     body: <>Drag to any edge (panel adapts geometry automatically), multi-tab, resize handles, pin-to-stay. A panel dragged to the right edge and pinned open while resizing is still <span className="text-case-highlight font-semibold">one mental model</span>. <span className="text-case-highlight font-semibold">Everything composes; nothing surprises.</span></>,
   },
@@ -106,30 +102,15 @@ function PhaseHeader({ p, idx }: { p: Phase; idx: number }) {
       className={sectionGrid}
     >
       <div className={sectionLeft}>
-        <div className="flex items-center gap-3 mb-3">
-          <motion.span
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ type: "spring", stiffness: 320, damping: 18 }}
-            className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted"
-          >
-            <Icon className="h-4 w-4" />
-          </motion.span>
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground inline-flex items-center gap-2">
-            <span className="relative inline-flex h-1.5 w-1.5">
-              <motion.span
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: [0, 1.6, 1], opacity: [0, 0.5, 0] }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="absolute inline-flex h-full w-full rounded-full bg-accent"
-              />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-            </span>
-            {String(idx + 1).padStart(2, "0")} · {p.eyebrow}
-          </p>
-        </div>
+        <motion.span
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ type: "spring", stiffness: 320, damping: 18 }}
+          className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted"
+        >
+          <Icon className="h-4 w-4" />
+        </motion.span>
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
           {p.title}
         </h3>
@@ -159,17 +140,17 @@ export default function SideNookCaseStudy() {
       headline={
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Developer Tools
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               macOS · personal
             </span>
             <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2.5 py-1 rounded-full">
               Building V2
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             A terminal that&rsquo;s a support character, not the main event.
           </h1>
           <p className="max-w-2xl text-base lg:text-lg text-ink-muted leading-relaxed">
@@ -188,16 +169,10 @@ export default function SideNookCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY THIS PRODUCT EXISTS
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Why this product exists
-        </motion.h2>
+      <CaseStudySection id="problem">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Background &amp; context
+        </p>
 
         <motion.div
           initial="hidden"
@@ -219,7 +194,7 @@ export default function SideNookCaseStudy() {
             </motion.h3>
           </div>
 
-          <div className={`${sectionRight} space-y-3`}>
+          <div className={`${sectionRight} space-y-4`}>
             <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -235,7 +210,7 @@ export default function SideNookCaseStudy() {
           <motion.div
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className={`${sectionFull} space-y-3`}
+            className={`${sectionFull} space-y-4`}
           >
             <BeforeAfterSlider
               beforeLabel="macOS Terminal"
@@ -272,29 +247,20 @@ export default function SideNookCaseStudy() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className={`${sectionFull}`}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="rounded-xl p-4 bg-background ring-1 ring-hairline">
-                <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1">
-                  Problem 01
-                </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              <div className="h-full bg-background">
                 <p className="text-body font-medium text-foreground">Constant context-switching</p>
                 <p className="text-body text-ink-muted mt-1">
                   Alt-tabbing breaks flow. Full terminal windows steal space.
                 </p>
               </div>
-              <div className="rounded-xl p-4 bg-background ring-1 ring-hairline">
-                <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1">
-                  Problem 02
-                </p>
+              <div className="h-full bg-background">
                 <p className="text-body font-medium text-foreground">Desktop-bound</p>
                 <p className="text-body text-ink-muted mt-1">
                   Terminals assume a stationary setup. They don&apos;t follow you.
                 </p>
               </div>
-              <div className="rounded-xl p-4 bg-background ring-1 ring-hairline">
-                <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1">
-                  Problem 03
-                </p>
+              <div className="h-full bg-background">
                 <p className="text-body font-medium text-foreground">No ambient mode exists</p>
                 <p className="text-body text-ink-muted mt-1">
                   Every terminal demands attention. None were designed to be secondary.
@@ -303,22 +269,13 @@ export default function SideNookCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-      2. PROCESS
-      ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="solution" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-3`}
-        >
+      </CaseStudySection>
+      <EmptySection />
+      <CaseStudySection id="phase-1" className="space-y-12 lg:space-y-16">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
           Process
-        </motion.h2>
-        <motion.p
+        </p>
+<motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -329,10 +286,9 @@ export default function SideNookCaseStudy() {
         </motion.p>
 
         {/* ── Phase 1: Feel-first ── */}
-        <section className="space-y-12 lg:space-y-16 pb-16 lg:pb-20">
-          <PhaseHeader p={phases[0]} idx={0} />
+        <PhaseHeader p={phases[0]} idx={0} />
 
-          {/* Before/After mockups */}
+        {/* Before/After mockups */}
           <motion.figure
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -340,15 +296,15 @@ export default function SideNookCaseStudy() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-0">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-label font-mono uppercase tracking-[0.2em] text-muted-foreground/80 px-2 py-0.5 rounded-full ring-1 ring-hairline-strong">
+                  <span className="text-label font-mono uppercase tracking-[0.2em] text-muted-foreground/80 px-2 py-0.5 ring-1 ring-hero-border">
                     Before · early concept
                   </span>
                   <span className="text-xs text-muted-foreground/70">Top-bar layout, single-row tabs.</span>
                 </div>
-                <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+                <div className="overflow-hidden ring-1 ring-hairline">
                   <SideNookMockBefore />
                 </div>
               </div>
@@ -361,7 +317,7 @@ export default function SideNookCaseStudy() {
                     Left-rail layout, vertical tab list, CL Notes + Help footer.
                   </span>
                 </div>
-                <div className="rounded-2xl overflow-hidden ring-1 ring-hairline">
+                <div className="overflow-hidden ring-1 ring-hairline">
                   <SideNookMockAfter />
                 </div>
               </div>
@@ -380,12 +336,11 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Status Indicator</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A subtle indicator. A surprisingly hard problem.
               </h4>
             </div>
-            <div className={`${sectionRight} space-y-3`}>
+            <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A subtle dot shows connection status, running processes, and available updates — <span className="text-case-highlight font-semibold">visible even when fully collapsed</span>.
               </p>
@@ -407,15 +362,19 @@ export default function SideNookCaseStudy() {
                 <strong className="text-foreground not-italic">Why:</strong> <span className="text-case-highlight font-semibold">Nothing blocks silently.</span> That principle made the status indicator the hardest feature. The states looked simple on paper; making them reliable was not.
               </p>
             </div>
-            <div className={`${sectionFull} rounded-2xl overflow-hidden ring-1 ring-hairline bg-background`}>
+            <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
               <video src="/sidenook/status-indicator.mp4" autoPlay muted loop playsInline className="w-full h-auto" />
             </div>
           </motion.article>
-        </section>
+      </CaseStudySection>
+      <EmptySection />
+      <CaseStudySection id="phase-2" className="space-y-12 lg:space-y-16">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Process
+        </p>
 
         {/* ── Phase 2: Terminal backend + focus handoff ── */}
-        <section className="space-y-12 lg:space-y-16 pb-16 lg:pb-20">
-          <PhaseHeader p={phases[1]} idx={1} />
+        <PhaseHeader p={phases[1]} idx={1} />
 
           {/* Constraint callout */}
           <motion.aside
@@ -423,16 +382,8 @@ export default function SideNookCaseStudy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl p-6 lg:p-8 bg-secondary/40 ring-1 ring-hairline"
+            className="p-0 bg-secondary/40 ring-1 ring-hairline"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center justify-center h-7 w-7 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                <Sparkles className="h-3.5 w-3.5" />
-              </span>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                Memorable constraint
-              </p>
-            </div>
             <p className="text-base lg:text-lg text-ink-muted leading-relaxed mb-5">
               A terminal that <span className="text-case-highlight font-semibold">never steals focus</span> sounds obvious &mdash; until <span className="text-case-highlight font-semibold">AppKit</span> disagrees. On macOS, window activation is deeply assumed by the framework. Every interaction had to pass one test: <em>did clicking this cause an app switch?</em> The non-activating panel required deliberate, non-default technical choices across <span className="text-case-highlight font-semibold">every edge case</span> &mdash; Spaces, fullscreen, Mission Control.
             </p>
@@ -456,12 +407,11 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">CL Notes</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A notepad that lives where your terminal is.
               </h4>
             </div>
-            <div className={`${sectionRight} space-y-3`}>
+            <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A persistent monospaced notepad built into the panel. Jot commands without leaving your terminal.
               </p>
@@ -483,7 +433,7 @@ export default function SideNookCaseStudy() {
                 <strong className="text-foreground not-italic">Why:</strong> When Claude Code generates a command you&rsquo;ll reuse, you <span className="text-case-highlight font-semibold">shouldn&rsquo;t need another app</span> to save it.
               </p>
             </div>
-            <div className={`${sectionFull} rounded-2xl overflow-hidden ring-1 ring-hairline bg-background`}>
+            <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
               <video src="/sidenook/notes-feature.mp4" autoPlay muted loop playsInline className="w-full h-auto" />
             </div>
           </motion.article>
@@ -497,12 +447,11 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Command Line Help</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 A command reference you never have to go search for.
               </h4>
             </div>
-            <div className={`${sectionRight} space-y-3`}>
+            <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A searchable command reference from a markdown file. Click any row to run it in the active terminal.
               </p>
@@ -524,15 +473,19 @@ export default function SideNookCaseStudy() {
                 <strong className="text-foreground not-italic">Why:</strong> Claude Code generates commands I don&rsquo;t know yet. Googling them <span className="text-case-highlight font-semibold">breaks flow</span>. A local reference <span className="text-case-highlight font-semibold">keeps me in the terminal</span>.
               </p>
             </div>
-            <div className={`${sectionFull} rounded-2xl overflow-hidden ring-1 ring-hairline bg-background`}>
+            <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
               <video src="/sidenook/command-lines-feature.mp4" autoPlay muted loop playsInline className="w-full h-auto" />
             </div>
           </motion.article>
-        </section>
+      </CaseStudySection>
+      <EmptySection />
+      <CaseStudySection id="phase-3" className="space-y-12 lg:space-y-16">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Process
+        </p>
 
         {/* ── Phase 3: Interactive features ── */}
-        <section className="space-y-12 lg:space-y-16 pb-16 lg:pb-20">
-          <PhaseHeader p={phases[2]} idx={2} />
+        <PhaseHeader p={phases[2]} idx={2} />
 
           {/* Feature: Multitask */}
           <motion.article
@@ -543,12 +496,11 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Multitask</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Split views. Independent sessions. One panel.
               </h4>
             </div>
-            <div className={`${sectionRight} space-y-3`}>
+            <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Run multiple terminal sessions side by side. Watch logs, edit configs, run commands <span className="text-case-highlight font-semibold">without juggling windows</span>.
               </p>
@@ -570,7 +522,7 @@ export default function SideNookCaseStudy() {
                 <strong className="text-foreground not-italic">Why:</strong> Running Claude Code, watching builds, editing configs — one session isn&rsquo;t enough. Split panes <span className="text-case-highlight font-semibold">keep context without spawning more windows</span>.
               </p>
             </div>
-            <div className={`${sectionFull} rounded-2xl overflow-hidden ring-1 ring-hairline bg-background`}>
+            <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
               <video src="/sidenook/multitask.mp4" autoPlay muted loop playsInline className="w-full h-auto" />
             </div>
           </motion.article>
@@ -584,12 +536,11 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Personalize</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 Every visual element is tunable. Light and dark are both first-class.
               </h4>
             </div>
-            <div className={`${sectionRight} space-y-3`}>
+            <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Curated themes or custom color palettes. Adjustable opacity, blur, and font controls — <span className="text-case-highlight font-semibold">every visual element is tunable</span>.
               </p>
@@ -611,7 +562,7 @@ export default function SideNookCaseStudy() {
                 <strong className="text-foreground not-italic">Why:</strong> Coordinating SideNook&rsquo;s accents with Claude Code&rsquo;s own color system — across both appearances — required a full token architecture. <span className="text-case-highlight font-semibold">No hex values in any component.</span>
               </p>
             </div>
-            <div className={`${sectionFull} rounded-2xl overflow-hidden ring-1 ring-hairline bg-background`}>
+            <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
               <video src="/sidenook/color-custom.mp4" autoPlay muted loop playsInline className="w-full h-auto" />
             </div>
           </motion.article>
@@ -625,7 +576,6 @@ export default function SideNookCaseStudy() {
             className={sectionGrid}
           >
             <div className={sectionLeft}>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Scope growth</p>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                 The original plan called for 9 features. By ship day, 14 made it in.
               </h4>
@@ -637,7 +587,7 @@ export default function SideNookCaseStudy() {
                 <li>The PRD was a starting point, <span className="text-case-highlight font-semibold">not a contract</span>.</li>
               </ul>
             </div>
-            <div className={`${sectionFull} w-full overflow-hidden rounded-xl`}>
+            <div className={`${sectionFull} w-full overflow-hidden`}>
               <iframe
                 src="/sidenook/prd-evolution.html"
                 className="w-full"
@@ -646,22 +596,12 @@ export default function SideNookCaseStudy() {
               />
             </div>
           </motion.div>
-        </section>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-      3. OUTCOMES
-      ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="impact" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Outcomes
-        </motion.h2>
+      </CaseStudySection>
+      <EmptySection />
+      <CaseStudySection id="impact">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Impact
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -669,9 +609,9 @@ export default function SideNookCaseStudy() {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
             {outcomes.map((o, i) => (
-              <li key={i} className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+              <li key={i} className="flex gap-4 bg-background">
                 <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-0.5">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -680,21 +620,12 @@ export default function SideNookCaseStudy() {
             ))}
           </ul>
         </motion.div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-      4. BEHIND THE BUILD
-      ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="reflection" className="pb-24 lg:pb-28 space-y-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={sectionHeader}
-        >
-          Behind the build
-        </motion.h2>
+      </CaseStudySection>
+      <EmptySection />
+      <CaseStudySection id="behind-the-build" className="space-y-16">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Reflection
+        </p>
 
         {/* AI-native workflow */}
         <motion.div
@@ -709,7 +640,7 @@ export default function SideNookCaseStudy() {
               <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
                 <Lightbulb className="h-4 w-4" />
               </span>
-              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">AI-native workflow</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-accent">Workflow overview</h3>
             </div>
           </div>
           <div className={sectionRight}>
@@ -719,7 +650,7 @@ export default function SideNookCaseStudy() {
               <span className="text-foreground/85 font-medium">Figma MCP</span> for design-to-code. <span className="text-case-highlight font-semibold">Not AI as autocomplete &mdash; AI as a collaborator</span> across every phase: design system decisions, interaction logic, implementation, iteration. The project is as much a proof of concept for AI-native development as it is a terminal tool.
             </p>
           </div>
-          <div className={`${sectionFull} w-full overflow-hidden rounded-xl ring-1 ring-hairline`}>
+          <div className={`${sectionFull} w-full overflow-hidden ring-1 ring-hairline`}>
             <iframe
               src="/sidenook/toolchain.html"
               className="w-full"
@@ -740,10 +671,10 @@ export default function SideNookCaseStudy() {
             <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
               <Lightbulb className="h-4 w-4" />
             </span>
-            <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">Paths I chose not to take</h3>
+            <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-accent">Alternatives considered</h3>
           </div>
-          <ul className="space-y-4">
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+          <ul className="space-y-0">
+            <li className="flex gap-4 bg-background">
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">01</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Ship as a VS Code extension</p>
@@ -752,7 +683,7 @@ export default function SideNookCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-4 bg-background">
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">02</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Make it paid from day one</p>
@@ -761,7 +692,7 @@ export default function SideNookCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-4 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-4 bg-background">
               <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">03</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Over-engineer the plugin system before shipping</p>
@@ -772,20 +703,22 @@ export default function SideNookCaseStudy() {
             </li>
           </ul>
         </motion.div>
+      </CaseStudySection>
 
-        {/* What I'd do differently */}
+      <EmptySection />
+
+      <CaseStudySection id="what-id-do-differently">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
+          Learnings
+        </p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-              <AlertTriangle className="h-4 w-4" />
-            </span>
-            <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">What I&rsquo;d do differently</h3>
-          </div>
           <ul className="space-y-6">
             {differently.map((d) => (
               <li key={d.title} className="space-y-1.5">
@@ -795,11 +728,7 @@ export default function SideNookCaseStudy() {
             ))}
           </ul>
         </motion.div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-      5. CLOSING
-      ═══════════════════════════════════════════════════════════════════════ */}
+      </CaseStudySection>
       <BurgundySection className="pb-32">
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-5 text-white">
           Designed &amp; built side by side.

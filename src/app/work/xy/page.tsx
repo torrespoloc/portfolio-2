@@ -10,6 +10,9 @@ import { LINKS, TOOL_LOGOS } from "@/lib/constants"
 import { TooltipIcon } from "@/components/ui/tooltip-icon"
 import {
   CaseStudyTemplatePra,
+  CaseStudySection,
+  CaseStudySectionFullBleed,
+  EmptySection,
   sectionGrid,
   sectionLeft,
   sectionRight,
@@ -39,7 +42,6 @@ const meta = {
 
 type Shipped = {
   icon: React.ComponentType<{ className?: string }>
-  eyebrow: string
   title: string
   body: React.ReactNode
 }
@@ -47,13 +49,11 @@ type Shipped = {
 const shipped: Shipped[] = [
   {
     icon: Layers,
-    eyebrow: "Organism-level components",
     title: "60+ components built for AI workflows.",
     body: <>Agent configuration cards, workflow status indicators, data extraction previews — built for <span className="text-case-highlight font-semibold">fullscreen, sidebar, or embedded</span>. Alongside the company&rsquo;s <span className="text-case-highlight font-semibold">first design system</span>: 8px grid, semantic tokens, language &amp; tone, motion docs.</>,
   },
   {
     icon: Sparkles,
-    eyebrow: "AI-native pipeline",
     title: "Figma to engineering in hours.",
     body: <>Figma Design → Figma Make / Magic Patterns → GitHub → Engineering. <span className="text-case-highlight font-semibold">Prototype-to-production</span> in hours when a customer demo needed it. Storybook gave engineers <span className="text-case-highlight font-semibold">direct access</span> — no design handoff wait.</>,
   },
@@ -82,10 +82,10 @@ export default function XYCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               Healthcare AI
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 rounded-full ring-1 ring-hairline-strong">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
               SaaS
             </span>
             <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground inline-flex items-center gap-1">
@@ -96,13 +96,13 @@ export default function XYCaseStudy() {
               NDA-friendly
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
             Turning a suite of AI agents into a platform anyone can orchestrate.
           </h1>
         </div>
       }
       heroImage={
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-xl">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden ">
           <VideoCarousel
             videos={[
               "/xy/IntegrationsHub.mp4",
@@ -124,16 +124,8 @@ export default function XYCaseStudy() {
       {/* ══════════════════════════════════════════════════════════════════════
       1. WHY XY NEEDED A SELF-SERVE AI EXPERIENCE
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="problem" className="pt-16 lg:pt-24 pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Why XY needed a self-serve AI experience
-        </motion.h2>
+      <CaseStudySection id="problem">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Context</p>
 
         <motion.div
           initial="hidden"
@@ -145,7 +137,7 @@ export default function XYCaseStudy() {
           }}
           className={`${sectionGrid} gap-8 lg:gap-10`}
         >
-          <div className={sectionFull}>
+          <div className={sectionLeft}>
             <motion.h3
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -153,10 +145,12 @@ export default function XYCaseStudy() {
             >
               XY's platform runs on <span className="text-case-highlight font-semibold">AI agents</span> — but configuring them required a <span className="text-case-highlight font-semibold">sales call</span>.
             </motion.h3>
+          </div>
+          <div className={`${sectionRight} space-y-4`}>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 text-base lg:text-lg text-ink-muted leading-relaxed"
+              className="text-base lg:text-lg text-ink-muted leading-relaxed"
             >
               Verification, scheduling, claims — the agents could handle it all. But every hour sales spent walking users through setup was an hour they couldn&rsquo;t sell. I had four months to change that.
             </motion.p>
@@ -165,26 +159,23 @@ export default function XYCaseStudy() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className={`${sectionFull} space-y-6`}
+            className={`${sectionFull} space-y-0`}
           >
-            <div className="p-6 lg:p-8">
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
-                Three things standing in the way
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background ring-1 ring-hairline">
+            <div className="p-0">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="flex items-center gap-3 bg-background p-3">
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-case-eyebrow font-semibold text-sm font-mono">01</span>
                   </div>
                   <p className="text-sm text-foreground leading-snug">AI agents required a <span className="text-case-highlight">human to configure</span></p>
                 </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background ring-1 ring-hairline">
+                <div className="flex items-center gap-3 bg-background p-3">
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-case-eyebrow font-semibold text-sm font-mono">02</span>
                   </div>
                   <p className="text-sm text-foreground leading-snug">UI <span className="text-case-highlight">built for engineers</span>, not healthcare teams</p>
                 </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-background ring-1 ring-hairline">
+                <div className="flex items-center gap-3 bg-background p-3">
                   <div className="w-10 h-10 rounded-full bg-accent/[0.08] flex items-center justify-center shrink-0">
                     <span className="text-case-eyebrow font-semibold text-sm font-mono">03</span>
                   </div>
@@ -202,21 +193,15 @@ export default function XYCaseStudy() {
 
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       2. DISCOVERY & RESEARCH
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="discovery" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Discovery &amp; Research
-        </motion.h2>
+      <CaseStudySection id="discovery">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Research</p>
 
         <motion.div
           initial="hidden"
@@ -228,39 +213,43 @@ export default function XYCaseStudy() {
           }}
           className={`${sectionGrid} space-y-0`}
         >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl"
+            >
+              Nurses and admin staff both needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
+            </motion.h3>
+          </div>
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-ink-muted leading-relaxed"
+            >
+              Two main user groups emerged from research: <span className="text-case-highlight font-semibold">nurses</span> managing patient workflows and <span className="text-case-highlight font-semibold">admin staff</span> handling scheduling, claims, and verifications. The recurring blocker wasn&rsquo;t trust. It was abstraction. Both groups needed examples before setup.
+            </motion.p>
+          </div>
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={`${sectionFull} space-y-4`}
           >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                <Sparkles className="h-4 w-4" />
-              </span>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                Research snapshot
-              </p>
-            </div>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
-              Nurses and admin staff both needed the same thing: a way to <span className="text-case-highlight font-semibold">see what AI could do</span> before they were asked to configure it.
-            </h3>
-            <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
-              Two main user groups emerged from research: <span className="text-case-highlight font-semibold">nurses</span> managing patient workflows and <span className="text-case-highlight font-semibold">admin staff</span> handling scheduling, claims, and verifications. The recurring blocker wasn&rsquo;t trust. It was abstraction. Both groups needed examples before setup.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">What I learned</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Users couldn&rsquo;t describe an agent setup until they saw one.
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Shared blocker</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Different roles, same friction: configuration was too abstract.
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Why it mattered</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Every workflow still depended on a sales-led demo.
@@ -269,21 +258,15 @@ export default function XYCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       3. ITERATION
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="iteration" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Iteration
-        </motion.h2>
+      <CaseStudySection id="iteration">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Iteration</p>
 
         <motion.div
           initial="hidden"
@@ -295,47 +278,50 @@ export default function XYCaseStudy() {
           }}
           className={`${sectionGrid} gap-8 lg:gap-10`}
         >
+          <div className={sectionLeft}>
+            <motion.h3
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl"
+            >
+              I reframed setup as <span className="text-case-highlight font-semibold">conversation</span>, not configuration.
+            </motion.h3>
+          </div>
+          <div className={`${sectionRight} space-y-4`}>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base lg:text-lg text-ink-muted leading-relaxed"
+            >
+              I explored forms, a guided wizard, and chat. Chat won because it let users discover possibilities while they configured.
+            </motion.p>
+          </div>
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className={`${sectionFull} space-y-4`}
           >
-            <div className="flex items-center gap-3 mb-1">
-              <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                <Layers className="h-4 w-4" />
-              </span>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                Product direction
-              </p>
-            </div>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground max-w-4xl">
-              I reframed setup as <span className="text-case-highlight font-semibold">conversation</span>, not configuration.
-            </h3>
-            <p className="max-w-3xl text-base lg:text-lg text-ink-muted leading-relaxed">
-              I explored forms, a guided wizard, and chat. Chat won because it let users discover possibilities while they configured.
-            </p>
-
-            <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-background">
+            <div className="relative w-full overflow-hidden  ring-1 ring-hairline bg-background">
               <img
                 src="/xy/xy-platform.png"
                 alt="XY platform concept showing a chat-first assistant beside the product workspace"
                 className="w-full h-auto"
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Discarded</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Forms-first felt familiar, but it still assumed users knew what to ask for.
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Also tested</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   A wizard improved onboarding, but it was too rigid for ongoing use.
                 </p>
               </div>
-              <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">Chosen</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Chat let users explore, clarify, and self-serve in the same flow.
@@ -344,21 +330,15 @@ export default function XYCaseStudy() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       4. BUILDING THE FOUNDATION
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="building-the-foundation" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Building the Foundation
-        </motion.h2>
+      <CaseStudySection id="building-the-foundation">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Design</p>
 
         <motion.div
           initial="hidden"
@@ -403,10 +383,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className={`${sectionFull} space-y-4`}
             >
-              <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-                Color system study
-              </p>
-              <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline bg-black">
+              <div className="relative w-full overflow-hidden  ring-1 ring-hairline bg-black">
                 <video
                   src="/xy/color-system.mp4"
                   autoPlay
@@ -416,20 +393,20 @@ export default function XYCaseStudy() {
                   className="w-full h-auto"
                 />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">What this is</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     The complete color token system — primitives, semantic tokens, accessibility audit, and proposed system
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     Every component, every agent status, every interaction maps to this semantic system — no more guessing hex values
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">The result</p>
                   <p className="text-body text-ink-muted leading-relaxed">
                     A three-tier token system that lets engineers theme any new component without design input
@@ -445,21 +422,15 @@ export default function XYCaseStudy() {
               </span>
             </blockquote>
           </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       4. WHAT I SHIPPED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="solution" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          What I Shipped
-        </motion.h2>
+      <CaseStudySection id="solution">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Solution</p>
 
         <motion.div
           initial="hidden"
@@ -475,20 +446,12 @@ export default function XYCaseStudy() {
             const Icon = s.icon
             return (
               <motion.div
-                key={s.eyebrow}
+                key={idx}
                 variants={fadeUp}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className={sectionGrid}
               >
                 <div className={sectionLeft}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-secondary/70 ring-1 ring-hairline text-ink-muted">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-ink-muted">
-                      {String(idx + 1).padStart(2, "0")} · {s.eyebrow}
-                    </p>
-                  </div>
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
                     {s.title}
                   </h3>
@@ -504,7 +467,7 @@ export default function XYCaseStudy() {
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                     className={`${sectionFull} space-y-4`}
                   >
-                    <div className="relative w-full overflow-hidden rounded-xl ring-1 ring-hairline">
+                    <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/xy/storybook.png"
@@ -512,20 +475,20 @@ export default function XYCaseStudy() {
                         className="w-full h-auto"
                       />
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+                      <div className="p-3 rounded-none bg-background">
                         <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                         <p className="text-body text-ink-muted leading-relaxed">
                           The 60+ component library, documented and ready for engineering
                         </p>
                       </div>
-                      <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                      <div className="p-3 rounded-none bg-background">
                         <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                         <p className="text-body text-ink-muted leading-relaxed">
                           Components designed for AI-agent interaction patterns — not generic UI
                         </p>
                       </div>
-                      <div className="p-3 rounded-lg bg-background ring-1 ring-foreground/[0.04]">
+                      <div className="p-3 rounded-none bg-background">
                         <p className="text-label font-semibold text-foreground mb-1">The result</p>
                         <p className="text-body text-ink-muted leading-relaxed">
                           Engineers pulled components directly from Storybook without designer intervention
@@ -548,21 +511,21 @@ export default function XYCaseStudy() {
               AI-native design stack
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-6 py-6 flex-wrap">
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
                 <img src="/logos/figma.png" alt="Figma" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
                 <img src="/logos/cursor.png" alt="Cursor" className="h-full w-full object-contain" />
               </div>
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
                 <img src="/logos/claude-code.png" alt="Claude Code" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
                 <img src="/logos/github.png" alt="GitHub" className="h-full w-full object-contain" />
               </div>
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
                 <img src="/logos/storybook.svg" alt="Storybook" className="h-full w-full object-contain" />
               </div>
             </div>
@@ -571,21 +534,15 @@ export default function XYCaseStudy() {
             </p>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       5. TESTING & VALIDATION
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="testing" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Testing &amp; Validation
-        </motion.h2>
+      <CaseStudySection id="testing">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Validation</p>
 
         <motion.div
           initial="hidden"
@@ -623,7 +580,7 @@ export default function XYCaseStudy() {
             className={`${sectionFull} space-y-6`}
           >
             <div className="flex justify-center">
-              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-background ring-1 ring-hairline">
+              <div className="inline-flex items-center gap-3 px-6 py-4  bg-background ring-1 ring-hairline">
                 <span className="text-3xl font-bold text-case-highlight">10 demos</span>
                 <span className="text-body text-ink-muted">across 3 rounds — each validated the chat-first approach</span>
               </div>
@@ -637,21 +594,15 @@ export default function XYCaseStudy() {
               </blockquote>
           </motion.div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       6. IMPACT & RESULTS
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="impact" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Impact &amp; Results
-        </motion.h2>
+      <CaseStudySection id="impact">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Impact</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -678,7 +629,7 @@ export default function XYCaseStudy() {
           </blockquote>
 
           {/* CPO quote */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/[0.06] to-background ring-1 ring-accent/[0.08] p-8 lg:p-12">
+          <div className="relative overflow-hidden  bg-gradient-to-br from-accent/[0.06] to-background ring-1 ring-accent/[0.08] pt-8 lg:pt-12">
             <span
               aria-hidden
               className="absolute top-2 right-4 lg:top-0 lg:right-8 text-[12rem] lg:text-[18rem] font-bold leading-none text-case-eyebrow/[0.04] select-none pointer-events-none"
@@ -696,21 +647,15 @@ export default function XYCaseStudy() {
             </figure>
           </div>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       7. INTERNAL PRACTICES INTRODUCED
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section id="reflection" className="pb-24 lg:pb-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`${sectionHeader} mb-6`}
-        >
-          Internal Practices Introduced
-        </motion.h2>
+      <CaseStudySection id="reflection">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Reflection</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -723,7 +668,7 @@ export default function XYCaseStudy() {
           </p>
 
           <ul className="space-y-5">
-            <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-5 bg-background">
               <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">01</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Design-to-engineering pipeline ownership</p>
@@ -732,7 +677,7 @@ export default function XYCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-5 bg-background">
               <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">02</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Rigorous design standards</p>
@@ -741,7 +686,7 @@ export default function XYCaseStudy() {
                 </p>
               </div>
             </li>
-            <li className="flex gap-5 p-5 rounded-xl bg-background ring-1 ring-hairline">
+            <li className="flex gap-5 bg-background">
               <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">03</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">AI-powered workflow tracking via Claude MCP</p>
@@ -752,19 +697,24 @@ export default function XYCaseStudy() {
             </li>
           </ul>
         </motion.div>
-      </section>
+      </CaseStudySection>
+
+      <EmptySection />
 
       {/* ══════════════════════════════════════════════════════════════════════
       8. CLOSING
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16">
+      <CaseStudySectionFullBleed>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
+          className=" p-8 lg:p-10 bg-foreground text-background"
         >
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1 mb-3">
+            NDA-friendly
+          </span>
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?
           </h3>
@@ -805,7 +755,7 @@ export default function XYCaseStudy() {
             ))}
           </div>
         </motion.div>
-      </section>
+      </CaseStudySectionFullBleed>
 
       </div>
       {/* end purple + orange override */}
