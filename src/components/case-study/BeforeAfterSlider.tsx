@@ -44,7 +44,7 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden rounded-2xl ring-1 ring-foreground/[0.06] select-none bg-zinc-950"
+      className="relative w-full overflow-hidden ring-1 ring-foreground/[0.06] select-none bg-zinc-950"
       style={{ aspectRatio: "16 / 10" }}
       onTouchMove={(e) => {
         if (dragging) handleMove(e.touches[0].clientX)
