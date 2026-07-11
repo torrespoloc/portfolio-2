@@ -84,14 +84,14 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
       </section>
 
       {/* Two-up case study grid */}
-      <section id="work" className="relative">
+      <section id="work" className="relative border-t border-hero-border">
         <div className="mx-auto w-full max-w-[1504px]">
           <motion.div
             variants={gridVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px 0px -80px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-y-0 items-stretch [&>*]:min-h-0"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-y-0 items-stretch [&>*]:min-h-0"
           >
             {visibleWorkCards.flatMap((card, index) => {
               const isLast = index === visibleWorkCards.length - 1
@@ -104,7 +104,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
                   variants={cardShellVariants}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 260, damping: 24, mass: 0.7 }}
-                  className={`h-full lg:translate-y-0 ${isFirstInRow ? "lg:border-r lg:border-hero-border" : ""}`}
+                  className="h-full lg:translate-y-0"
                 >
                   <motion.div variants={cardVariants} className="h-full">
                     <CaseStudyCard {...card} />
@@ -116,17 +116,30 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
 
               const isRowEnd = (index + 1) % 2 === 0
 
-              return [
-                cardEl,
+              const elements = [cardEl]
+
+              // Column separator between left/right cards (desktop only)
+              if (isFirstInRow && !isLast) {
+                elements.push(
+                  <div
+                    key={`col-sep-${card.href}`}
+                    className="hidden lg:block border-x border-hero-border w-6 self-stretch"
+                  />
+                )
+              }
+
+              elements.push(
                 <div
                   key={`sep-${card.href}`}
                   className={`border-y border-hero-border h-4 ${
                     isRowEnd
-                      ? "lg:col-span-2 lg:h-6"
+                      ? "lg:col-span-3 lg:h-6"
                       : "lg:hidden"
                   }`}
-                />,
-              ]
+                />
+              )
+
+              return elements
             })}
           </motion.div>
         </div>
