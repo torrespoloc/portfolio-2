@@ -119,7 +119,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 items-stretch">
             <div className="flex-1 px-5 md:px-8 py-5 md:py-6">
               <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
-                TED talks, UX events, and lots of
+                TED talks, UX events, and lots of{' '}
                 <span className="text-accent">networking</span>
               </h2>
               <p className="text-hero-text text-body">
