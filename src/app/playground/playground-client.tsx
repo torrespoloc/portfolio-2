@@ -226,6 +226,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                           <img
                             src="/logos/turtle.svg"
                             alt=""
+                            loading="lazy"
                             className={`w-12 h-12 pointer-events-none ${
                               clickedTurtles[item.index]
                                 ? "transition-transform duration-700 [transform:scaleX(-1)_rotate(360deg)]"

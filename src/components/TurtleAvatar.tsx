@@ -10,6 +10,7 @@ export function TurtleAvatar({ size = 40, className = "" }: TurtleAvatarProps) {
     <img
       src="/logos/turtle.svg"
       alt="Turtle — the portfolio mascot"
+      loading="lazy"
       width={size}
       height={Math.round((size * 241) / 319)}
       className={className}

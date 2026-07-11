@@ -113,7 +113,7 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
         playsInline
         poster="/hero-video-poster.png"
         aria-hidden="true"
-        preload="auto"
+        preload="metadata"
         className="block w-full h-full rounded-full object-cover object-center ring-1 ring-foreground/[0.06] scale-x-[-1]"
         onClick={onOpenOverlay}
       />

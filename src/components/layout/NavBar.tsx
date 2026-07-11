@@ -217,6 +217,7 @@ export function NavBar() {
                                     src={study.logo}
                                     alt=""
                                     aria-hidden="true"
+                                    loading="lazy"
                                     className="dropdown-logo h-full w-full object-contain p-1"
                                     style={{ filter: "none" }}
                                   />
@@ -364,6 +365,7 @@ export function NavBar() {
                                       src={study.logo}
                                       alt=""
                                       aria-hidden="true"
+                                      loading="lazy"
                                       className="dropdown-logo h-full w-full object-contain p-1"
                                     style={{ filter: "none" }}
                                     />

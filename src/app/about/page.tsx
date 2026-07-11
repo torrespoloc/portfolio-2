@@ -16,12 +16,12 @@ const youtubeVideos = [
 ] as const
 
 const watercolors = [
-  { src: "/about/watercolor-azul.jpg", alt: "Azul watercolor" },
-  { src: "/about/watercolor-cat.jpg", alt: "Cat watercolor" },
-  { src: "/about/watercolor-circle.jpg", alt: "Circle watercolor" },
-  { src: "/about/watercolor-deer.jpg", alt: "Deer watercolor" },
-  { src: "/about/watercolor-goose.jpg", alt: "Goose watercolor" },
-  { src: "/about/watercolor-jerry.jpg", alt: "Jerry watercolor" },
+  { src: "/about/webp/watercolor-azul.webp", alt: "Azul watercolor" },
+  { src: "/about/webp/watercolor-cat.webp", alt: "Cat watercolor" },
+  { src: "/about/webp/watercolor-circle.webp", alt: "Circle watercolor" },
+  { src: "/about/webp/watercolor-deer.webp", alt: "Deer watercolor" },
+  { src: "/about/webp/watercolor-goose.webp", alt: "Goose watercolor" },
+  { src: "/about/webp/watercolor-jerry.webp", alt: "Jerry watercolor" },
 ] as const
 
 export default function AboutPage() {
@@ -69,6 +69,7 @@ export default function AboutPage() {
                 src="/the-ux-chats-logo.png"
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
                 className="absolute bottom-0 right-6 md:right-10 w-12 h-12 object-contain rotate-6 pointer-events-none"
               />
             </div>
@@ -102,8 +103,9 @@ export default function AboutPage() {
             <div className="w-full md:w-[40%] shrink-0">
               <div className="overflow-hidden border border-hero-border">
                 <img
-                  src="/about/adplist-swag.png"
+                  src="/about/webp/adplist-swag.webp"
                   alt="ADPList mentoring swag"
+                  loading="lazy"
                   className="w-full block"
                 />
               </div>
@@ -140,13 +142,15 @@ export default function AboutPage() {
               <div className="overflow-hidden border border-hero-border">
                 <div className="grid grid-cols-2">
                   <img
-                    src="/about/networking-ted-volunteer.jpg"
+                    src="/about/webp/networking-ted-volunteer.webp"
                     alt="Volunteering at TED AI San Francisco"
+                    loading="lazy"
                     className="w-full h-full object-cover block"
                   />
                   <img
-                    src="/about/networking-event-card.jpg"
+                    src="/about/webp/networking-event-card.webp"
                     alt="Networking event at TED AI"
+                    loading="lazy"
                     className="w-full h-full object-cover block"
                   />
                 </div>
@@ -184,8 +188,9 @@ export default function AboutPage() {
             <div className="w-full md:w-[440px] shrink-0">
               <div className="overflow-hidden border border-hero-border">
                 <img
-                  src="/about/sports-work-in-teams.png"
+                  src="/about/webp/sports-work-in-teams.webp"
                   alt="Pickleball team photo"
+                  loading="lazy"
                   className="w-full block"
                 />
               </div>
@@ -254,6 +259,7 @@ export default function AboutPage() {
                   <img
                     src={img.src}
                     alt={img.alt}
+                    loading="lazy"
                     className="w-full h-full object-cover block"
                   />
                 </div>

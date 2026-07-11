@@ -34,6 +34,7 @@ export function Experience() {
                     <img
                       src={entry.logo}
                       alt={entry.company}
+                      loading="lazy"
                       className="dropdown-logo h-full w-full object-contain p-1.5 md:p-2"
                       style={{ filter: "none" }}
                     />

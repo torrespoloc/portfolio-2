@@ -65,6 +65,7 @@ export function TrustedBy({ className = "" }: Props) {
                   <img
                     src={logo.src}
                     alt={logo.alt}
+                    loading="lazy"
                     className={cn("h-7 w-auto object-contain sm:h-8 trusted-logo", logoHeightOverrides[logo.alt])}
                   />
                 </div>

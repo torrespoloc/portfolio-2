@@ -303,8 +303,9 @@ export default function XYCaseStudy() {
           >
             <div className="relative w-full overflow-hidden  ring-1 ring-hairline bg-background">
               <img
-                src="/xy/xy-platform.png"
+                src="/xy/webp/xy-platform.webp"
                 alt="XY platform concept showing a chat-first assistant beside the product workspace"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -470,8 +471,9 @@ export default function XYCaseStudy() {
                     <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="/xy/storybook.png"
+                        src="/xy/webp/storybook.webp"
                         alt="XY.AI Storybook component library — 60+ production-ready components for AI workflows"
+                        loading="lazy"
                         className="w-full h-auto"
                       />
                     </div>
@@ -512,21 +514,21 @@ export default function XYCaseStudy() {
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-6 py-6 flex-wrap">
               <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
-                <img src="/logos/figma.png" alt="Figma" className="h-full w-full object-contain" />
+                <img src="/logos/figma.png" alt="Figma" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
               <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
-                <img src="/logos/cursor.png" alt="Cursor" className="h-full w-full object-contain" />
+                <img src="/logos/cursor.png" alt="Cursor" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
-                <img src="/logos/claude-code.png" alt="Claude Code" className="h-full w-full object-contain" />
+                <img src="/logos/claude-code.png" alt="Claude Code" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
               <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
-                <img src="/logos/github.png" alt="GitHub" className="h-full w-full object-contain" />
+                <img src="/logos/github.png" alt="GitHub" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
-                <img src="/logos/storybook.svg" alt="Storybook" className="h-full w-full object-contain" />
+                <img src="/logos/storybook.svg" alt="Storybook" loading="lazy" className="h-full w-full object-contain" />
               </div>
             </div>
             <p className="text-center text-xs font-mono uppercase tracking-[0.12em] text-ink-muted">

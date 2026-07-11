@@ -370,8 +370,9 @@ export default function FundrCaseStudy() {
               <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/fundr/cta-types.png"
+                  src="/fundr/webp/cta-types.webp"
                   alt="Fundr CTA types — collapsible menu, static buttons, and popup upgrade cards"
+                  loading="lazy"
                   className="w-full h-auto"
                 />
               </div>
@@ -464,8 +465,9 @@ export default function FundrCaseStudy() {
             <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/fundr/SPVs-infographic.png"
+                src="/fundr/webp/SPVs-infographic.webp"
                 alt="Fundr SPV infographic — breakdown of Special Purpose Vehicle structure and capital flow"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -558,8 +560,9 @@ export default function FundrCaseStudy() {
               <div className="relative w-full overflow-hidden  ring-1 ring-hairline">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/fundr/pricing-page.png"
+                  src="/fundr/webp/pricing-page.webp"
                   alt="Fundr pricing page — separate investor and startup paths"
+                  loading="lazy"
                   className="w-full h-auto"
                 />
               </div>
@@ -690,8 +693,9 @@ export default function FundrCaseStudy() {
                 <div className="relative w-full overflow-hidden ring-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/fundr/dashboard-basic.png"
+                    src="/fundr/webp/dashboard-basic.webp"
                     alt="Fundr Basic dashboard — core features at the free tier"
+                    loading="lazy"
                     className="w-full h-auto"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
@@ -703,8 +707,9 @@ export default function FundrCaseStudy() {
                 <div className="relative w-full overflow-hidden ring-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/fundr/dashboard-premium.png"
+                    src="/fundr/webp/dashboard-premium.webp"
                     alt="Fundr Premium dashboard — advanced graphs, expanded data"
+                    loading="lazy"
                     className="w-full h-auto"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">

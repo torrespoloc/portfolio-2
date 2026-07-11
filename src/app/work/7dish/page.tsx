@@ -76,8 +76,9 @@ export default function SevenDishCaseStudy() {
       heroImage={
         <div className="relative w-full aspect-[16/10] lg:aspect-[21/9] overflow-hidden ">
           <img
-            src="/7dish/hero.png"
+            src="/7dish/webp/hero.webp"
             alt="7dish meal planning app hero"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -167,8 +168,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/homepage-comparison.png"
+                src="/7dish/webp/homepage-comparison.webp"
                 alt="Homepage before and after comparison showing improved layout, contrast, and navigation"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -234,8 +236,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/existing-design.png"
+                src="/7dish/webp/existing-design.webp"
                 alt="Existing design overview showing the original 7dish experience"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -304,8 +307,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline bg-black">
               <img
-                src="/7dish/user-flow.png"
+                src="/7dish/webp/user-flow.webp"
                 alt="User flow diagram showing the redesigned 7dish task journeys"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -348,8 +352,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/a-b-testing.png"
+                src="/7dish/webp/a-b-testing.webp"
                 alt="A/B testing comparison &mdash; Concept A (flexible) vs Concept B (controlled)"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -428,8 +433,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/saved-pages.png"
+                src="/7dish/webp/saved-pages.webp"
                 alt="Saved Recipes screens showing the new Saved Folders feature"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -445,8 +451,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/saved-feature.png"
+                src="/7dish/webp/saved-feature.webp"
                 alt="Close-up of the Saved Folders feature with fixed and custom folders"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -532,8 +539,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/core-task-3_shopping-list.png"
+                src="/7dish/webp/core-task-3_shopping-list.webp"
                 alt="Core Task #3 shopping list redesign — testing and iteration artifacts"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -627,8 +635,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/zoom-team.png"
+                src="/7dish/webp/zoom-team.webp"
                 alt="Jacki working with the 7dish team on Zoom &mdash; design collaboration session"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
@@ -709,8 +718,9 @@ export default function SevenDishCaseStudy() {
           >
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
-                src="/7dish/survey.png"
+                src="/7dish/webp/survey.webp"
                 alt="User testing survey results showing high satisfaction scores"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>
