@@ -111,7 +111,7 @@ export function HeroContent() {
   const closeOverlay = () => setIsOverlayOpen(false)
 
   return (
-    <section className="relative flex flex-col justify-center min-h-[100svh] pt-24 sm:py-20 lg:py-24 overflow-hidden">
+    <section className="relative flex flex-col justify-center min-h-[100svh] pt-24 sm:py-20 lg:pt-36 lg:pb-24 overflow-hidden">
       {/* Blur blobs */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <BlurBlob top="-60px" left="clamp(-60px, -4vw, 40px)" animation="animate-float-geometric" blur={70} />
