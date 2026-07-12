@@ -21,13 +21,11 @@ function FrontFace({ isFlipped }: { isFlipped: boolean }) {
         }}
       />
 
-      {/* Chartreuse accent dot */}
-      <div className="w-2 h-2 rounded-full bg-chartreuse mb-2.5 relative z-10" />
       <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/80 mb-3 relative z-10">
         MY JAM
       </p>
       <p className="text-xs text-white/90 leading-relaxed font-semibold relative z-10">
-        &ldquo;I focus on <strong className="font-extrabold text-chartreuse">AI workflow automation</strong>, B2B, SaaS, &amp; design systems. 0-1. Healthtech, Fintech.&rdquo;
+        &ldquo;I focus on <strong className="font-extrabold text-chartreuse">AI workflow automation</strong>, B2B, SaaS, &amp; design systems. 0-1. healthtech, fintech, real estate.&rdquo;
       </p>
       <div className="mt-5 relative z-10 flex justify-center">
         <TypewriterTag />

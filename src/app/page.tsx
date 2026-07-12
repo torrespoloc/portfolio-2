@@ -29,7 +29,7 @@ export default function Home() {
 
       <WorkCardsStack show7dish={false} />
 
-      <section className="py-20 border-y border-hero-border" />
+      <section className="py-10 sm:py-20 border-y border-hero-border" />
 
       {/* Experience + Testimonials — connected */}
       <section className="w-full">
@@ -37,7 +37,7 @@ export default function Home() {
           <Experience />
           <SectionDivider />
 
-          <section className="py-20 border-y border-hero-border" />
+          <section className="py-10 sm:py-20 border-y border-hero-border" />
 
           <Testimonials />
         </div>

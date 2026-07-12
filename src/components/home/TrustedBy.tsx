@@ -39,15 +39,15 @@ export function TrustedBy({ className = "" }: Props) {
         className="rounded-none bg-white/75 dark:bg-[#1a1d28] backdrop-blur-sm dark:backdrop-blur-none overflow-hidden"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border sm:px-8 sm:py-14">
+          <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border sm:px-8 sm:pt-12 sm:pb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-hero-muted">
-              I&apos;m grateful for their trust
+              grateful for their trust
             </p>
             <h2 className="mt-4 text-[24px] font-semibold leading-[1.15] tracking-[-0.03em] text-hero-text-dark sm:text-[30px] sm:leading-[1.05]">
-              I&apos;ve found ways to bump up my UX journey. The Start-up way.
+              Fast-tracked my UX in startups — healthtech, fintech, real estate.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-hero-muted sm:text-body-sm">
-              A mix of healthtech, fintech, AI tooling, and founder-led products where the work had to ship.
+              AI tools, founder-led, ship-or-die.
             </p>
           </div>
 

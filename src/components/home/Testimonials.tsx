@@ -118,7 +118,7 @@ export function Testimonials({ className = "" }: Props) {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-hero-muted">
           Testimonials
         </p>
-        <h2 className="mt-3 w-full font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark sm:text-[36px] lg:text-[54px]">
+        <h2 className="mt-3 w-full font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark sm:text-[30px] lg:text-[54px]">
           Community &amp; relationships matter. Endorsements are proof of that.
         </h2>
       </motion.div>

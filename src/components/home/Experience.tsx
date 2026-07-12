@@ -30,7 +30,7 @@ export function Experience() {
 
               <div className="grid gap-3 md:gap-6 lg:gap-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:gap-x-12 lg:gap-x-16">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="mt-0.5 flex h-12 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90 shadow-sm border border-black/5 md:h-14 md:w-24 lg:h-16 lg:w-28">
+                  <div className="mt-0.5 flex h-11 w-[76px] shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90 shadow-sm border border-black/5 md:h-14 md:w-24 lg:h-16 lg:w-28">
                     <img
                       src={entry.logo}
                       alt={entry.company}
@@ -40,7 +40,7 @@ export function Experience() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-body-lg font-semibold leading-tight text-white">
+                    <h3 className="text-lg sm:text-body-lg font-semibold leading-tight text-white">
                       {entry.role}
                     </h3>
                     <p className="text-body font-medium text-white">{entry.company}</p>
