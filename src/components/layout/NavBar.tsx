@@ -165,8 +165,12 @@ export function NavBar() {
                   href={isHome ? "#work" : "/#work"}
                   className={`inline-flex items-center gap-1 rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
                     isDarkTheme
-                      ? "text-white/60 hover:bg-white/10 hover:text-white"
-                      : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
+                      ? isWorkPage
+                        ? "text-white bg-white/[0.08]"
+                        : "text-white/60 hover:bg-white/10 hover:text-white"
+                      : isWorkPage
+                        ? "text-foreground bg-foreground/[0.06]"
+                        : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
                   }`}
                 >
                   Work
@@ -198,20 +202,28 @@ export function NavBar() {
                           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,255,0,0.10),transparent_44%),radial-gradient(circle_at_85%_0%,rgba(255,255,255,0.06),transparent_26%)]"
                         />
                         <div className="relative space-y-0.5">
-                          {visibleStudies.map((study, index) => (
+                          {visibleStudies.map((study, index) => {
+                            const isActive = pathname === study.href
+                            return (
                             <Link
                               key={study.href}
                               href={study.href}
-                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border border-transparent px-2 py-1.5 text-xs transition-all duration-300 ease-out hover:border-white/[0.12] hover:bg-white/[0.08] hover:scale-[1.02] hover:-translate-y-[1px] ${
-                                isDarkTheme
-                                  ? "text-white/78 hover:text-white"
-                                  : "text-foreground/78 hover:text-foreground"
+                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border px-2 py-1.5 text-xs transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-[1px] ${
+                                isActive
+                                  ? isDarkTheme
+                                    ? "border-white/[0.12] bg-white/[0.08] text-white"
+                                    : "border-foreground/[0.08] bg-foreground/[0.05] text-foreground"
+                                  : isDarkTheme
+                                    ? "border-transparent text-white/78 hover:border-white/[0.12] hover:bg-white/[0.08] hover:text-white"
+                                    : "border-transparent text-foreground/78 hover:border-foreground/[0.08] hover:bg-foreground/[0.05] hover:text-foreground"
                               }`}
                               style={{
                                 animationDelay: `${index * 40}ms`,
                               }}
                             >
-                              <span className="relative z-10 flex h-8 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/90 transition-all duration-300 ease-out group-hover:bg-white group-hover:scale-105">
+                              <span className={`relative z-10 flex h-8 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 ease-out group-hover:scale-105 ${
+                                isActive ? "bg-white" : "bg-white/90 group-hover:bg-white"
+                              }`}>
                                 {study.logo ? (
                                   <img
                                     src={study.logo}
@@ -230,8 +242,11 @@ export function NavBar() {
                               <span className="relative z-10 font-medium leading-none whitespace-nowrap">
                                 {study.label}
                               </span>
+                              {isActive && (
+                                <span className="relative z-10 ml-auto h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                              )}
                             </Link>
-                          ))}
+                          )})}
                         </div>
                       </div>
                     </motion.div>
