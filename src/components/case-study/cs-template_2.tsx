@@ -164,11 +164,11 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
   return (
     <div className="min-h-screen bg-hero-bg text-foreground relative">
       <div className="mx-auto w-full max-w-[1400px] min-h-screen lg:flex relative">
-        {/* Outer projection lines */}
-        <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none z-10" aria-hidden="true" />
+        {/* Outer projection lines — z-40 stays above the side nav's z-30 fill */}
+        <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none z-40" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 w-px bg-hero-border pointer-events-none z-10" aria-hidden="true" />
-        {/* Between sidebar and content */}
-        <div className="absolute inset-y-0 left-[268px] w-px bg-hero-border pointer-events-none z-10 hidden lg:block" aria-hidden="true" />
+        {/* Between sidebar and content — z-40 stays above the side nav's z-30 fill */}
+        <div className="absolute inset-y-0 left-[268px] w-px bg-hero-border pointer-events-none z-40 hidden lg:block" aria-hidden="true" />
 
       {/* ─── SIDE NAV ─── */}
       <nav

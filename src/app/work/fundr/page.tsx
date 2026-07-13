@@ -926,7 +926,7 @@ export default function FundrCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-2xl p-8 lg:p-10 bg-foreground text-background"
+          className="p-8 lg:p-10 bg-foreground text-background"
         >
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
             Want a walkthrough?

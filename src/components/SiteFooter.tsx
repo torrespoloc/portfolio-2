@@ -1,14 +1,8 @@
-"use client"
-
-import { usePathname } from "next/navigation"
 import { LINKS } from "@/lib/constants"
 
 export function SiteFooter() {
-  const pathname = usePathname()
-  const isWorkPage = pathname.startsWith("/work/")
-
   return (
-    <footer className={`border-t border-hairline ${isWorkPage ? "lg:ml-[15vw]" : ""}`}>
+    <footer className="border-t border-hairline">
       <div className="mx-auto w-full max-w-[1000px] px-4 py-20">
         {/* Headline */}
         <p
