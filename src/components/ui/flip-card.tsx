@@ -20,11 +20,11 @@ export function FlipCard({
 }) {
   return (
     <div
-      className={className}
+      className={`h-full ${className}`}
       style={{ perspective: "1200px" }}
     >
       <motion.div
-        className="relative rounded-none"
+        className="relative h-full rounded-none"
         style={{
           transformStyle: "preserve-3d",
           WebkitTransformStyle: "preserve-3d",

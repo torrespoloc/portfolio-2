@@ -68,8 +68,8 @@ export type Metric = {
 
 export const METRICS: Metric[] = [
   { value: "4 yrs", label: "Product Design" },
-  { value: "Arch & Sales", label: "Background" },
-  { value: "5+", label: "Apps shipped" },
+  { value: "5+ Prods.", label: "Shipped" },
+  { value: "Arch. & Sales", label: "Background" },
 ];
 
 // ── Testimonials ──

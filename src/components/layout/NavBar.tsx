@@ -130,7 +130,7 @@ export function NavBar() {
               <p className="text-sm font-semibold text-foreground transition-colors duration-300 ease-out">
                 {SITE.name}
               </p>
-              <p className="text-subtitle sm:text-base text-muted-foreground transition-colors duration-300 ease-out">
+              <p className="hidden sm:block text-subtitle sm:text-base text-muted-foreground transition-colors duration-300 ease-out">
                  AI-Native Product Designer
               </p>
             </div>
