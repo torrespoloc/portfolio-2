@@ -121,7 +121,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
     const update = () => {
       const panel = detailPanelRef.current
       if (!panel) return
-      const header = panel.querySelector(".border-hero-border")
+      const header = panel.querySelector("[data-panel-header]")
       if (!header) return
       const panelRect = panel.getBoundingClientRect()
       const headerRect = header.getBoundingClientRect()
@@ -183,8 +183,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
         <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
 
         {/* Hero area */}
-        <section className="border-b border-hero-border pt-28 md:pt-36 pb-16 md:pb-20">
-          <div className="max-w-[680px] md:ml-10">
+        <section className="border-b border-hero-border/70 pt-28 md:pt-36 pb-16 md:pb-20">
+          <div className="max-w-[680px] px-6 md:px-0 md:ml-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-case-eyebrow mb-4">
               Playground
             </p>
@@ -207,8 +207,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                 layout
                 className={
                   isSplit
-                    ? "flex flex-col w-full md:w-[280px] md:min-w-[280px] border-b md:border-b-0 md:border-r border-hero-border bg-hero-bg overflow-y-auto"
-                    : "flex flex-row flex-wrap w-full"
+                    ? "flex flex-col w-full md:w-[280px] md:min-w-[280px] divide-y divide-hero-border/70 md:border-r md:border-hero-border/70 bg-hero-bg overflow-y-auto"
+                    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-px bg-hero-border/70 border-b border-hero-border/70"
                 }
               >
                 {displayItems.map((item, index) => {
@@ -218,7 +218,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     return (
                       <div
                         key={`filler-${item.index}`}
-                        className="relative hidden sm:flex w-full sm:w-1/2 lg:w-1/3 min-h-[380px] flex-col items-center justify-center gap-3 bg-transparent dark:bg-hero-card outline outline-1 outline-hero-border outline-offset-[-1px] hover:bg-muted/40 transition-colors duration-200 cursor-pointer"
+                        className="relative hidden sm:flex min-h-[380px] flex-col items-center justify-center gap-3 bg-hero-bg dark:bg-hero-card hover:bg-muted/40 transition-colors duration-200 cursor-pointer"
                         onClick={() => {
                           setClickedTurtles((prev) => ({ ...prev, [item.index]: true }))
                           setIdeaTags((prev) => ({ ...prev, [item.index]: true }))
@@ -277,8 +277,6 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                   }
 
                   const isActive = selectedId === item.title
-                  const isSmRowEnd = index % 2 === 1
-                  const isLgRowEnd = index % 3 === 2
                   return (
                     <motion.div
                       key={item.title}
@@ -304,11 +302,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       role="button"
                       tabIndex={0}
                       className={`cursor-pointer select-none ${
-                        isSplit
-                          ? "w-full border-b border-hero-border last:border-b-0"
-                          : `w-full sm:w-1/2 lg:w-1/3 border-b border-hero-border ${
-                              isSmRowEnd ? "sm:border-r-0" : "sm:border-r"
-                            } ${isLgRowEnd ? "lg:border-r-0" : "lg:border-r"}`
+                        isSplit ? "w-full" : ""
                       }`}
                     >
                       <PlaygroundCard
@@ -338,7 +332,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     ref={detailPanelRef}
                   >
                     {/* Detail header */}
-                    <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border">
+                    <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border/70" data-panel-header>
                       <button
                         onClick={handleClose}
                         className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -402,7 +396,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                         </div>
 
                         {selectedItem.href && (
-                          <div className="mt-8 pt-8 border-t border-hero-border">
+                          <div className="mt-8 pt-8 border-t border-hero-border/70">
                             <a
                               href={selectedItem.href}
                               target="_blank"
@@ -440,7 +434,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
             >
               <div className="flex flex-col h-full">
                 {/* Mobile detail header */}
-                <div className="flex items-center px-5 py-4 border-b border-hero-border">
+                <div className="flex items-center px-5 py-4 border-b border-hero-border/70">
                   <button
                     onClick={handleClose}
                     className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -504,7 +498,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     </div>
 
                     {selectedItem.href && (
-                      <div className="mt-6 pt-6 border-t border-hero-border">
+                      <div className="mt-6 pt-6 border-t border-hero-border/70">
                         <a
                           href={selectedItem.href}
                           target="_blank"

@@ -24,7 +24,7 @@ export function UxChatsVideo() {
   return (
     <div className="w-full md:w-[40%] shrink-0 self-stretch">
       <div
-        className="relative overflow-hidden border border-hero-border bg-black h-full"
+        className="relative overflow-hidden border border-hero-border/70 bg-black h-full"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false)

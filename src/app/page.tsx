@@ -11,8 +11,8 @@ export default function Home() {
       {/* Content container */}
       <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative">
         {/* Vertical projection lines at content padding edge on mobile, container edge on desktop */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-50 md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-50 md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
 
       <HeroContent />
 
@@ -29,7 +29,7 @@ export default function Home() {
 
       <WorkCardsStack show7dish={false} />
 
-      <section className="py-10 sm:py-20 border-y border-hero-border" />
+      <section className="py-10 sm:py-20 border-y border-hero-border/70" />
 
       {/* Experience + Testimonials, connected */}
       <section className="w-full">
@@ -37,7 +37,7 @@ export default function Home() {
           <Experience />
           <SectionDivider />
 
-          <section className="py-10 sm:py-20 border-y border-hero-border" />
+          <section className="py-10 sm:py-20 border-y border-hero-border/70" />
 
           <Testimonials />
         </div>

@@ -27,7 +27,7 @@ const watercolors = [
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
-      <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border">
+      <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border/70">
         {/* Vertical projection lines */}
         <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
         <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
@@ -101,7 +101,7 @@ export default function AboutPage() {
               </Button>
             </div>
             <div className="w-full md:w-[40%] shrink-0">
-              <div className="overflow-hidden border border-hero-border">
+              <div className="overflow-hidden border border-hero-border/70">
                 <img
                   src="/about/webp/adplist-swag.webp"
                   alt="ADPList mentoring swag"
@@ -139,7 +139,7 @@ export default function AboutPage() {
               </a>
             </div>
             <div className="w-full md:w-[440px] shrink-0">
-              <div className="overflow-hidden border border-hero-border">
+              <div className="overflow-hidden border border-hero-border/70">
                 <div className="grid grid-cols-2">
                   <img
                     src="/about/webp/networking-ted-volunteer.webp"
@@ -186,7 +186,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="w-full md:w-[440px] shrink-0">
-              <div className="overflow-hidden border border-hero-border">
+              <div className="overflow-hidden border border-hero-border/70">
                 <img
                   src="/about/webp/sports-work-in-teams.webp"
                   alt="Pickleball team photo"
@@ -215,12 +215,12 @@ export default function AboutPage() {
           </div>
 
           {/* Full-width flush video row, 1px border between videos */}
-          <div className="flex flex-col sm:flex-row border-y border-hero-border">
+          <div className="flex flex-col sm:flex-row border-y border-hero-border/70">
             {youtubeVideos.map((v, i) => (
               <div
                 key={v.src}
                 className={`flex-1 min-w-0 bg-black aspect-video ${
-                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border" : ""
+                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border/70" : ""
                 }`}
               >
                 <iframe
@@ -252,8 +252,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="border border-hero-border overflow-hidden mb-8">
-            <div className="grid grid-cols-3 gap-px bg-hero-border">
+          <div className="border border-hero-border/70 overflow-hidden mb-8">
+            <div className="grid grid-cols-3 gap-px bg-hero-border/70">
               {watercolors.map((img) => (
                 <div key={img.src} className="overflow-hidden bg-hero-bg">
                   <img

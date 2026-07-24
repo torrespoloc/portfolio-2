@@ -61,69 +61,71 @@ export function CaseStudyCard({
       )}
     >
       {/* Media area */}
-      <div className="relative w-full aspect-video overflow-hidden bg-muted">
-        {mediaSrcs && mediaSrcs.length > 0 ? (
-          <VideoCarousel
-            videos={mediaSrcs}
-            interval={4000}
-            className="absolute inset-0 w-full h-full [&_video]:group-hover:scale-[1.04] [&_video]:transition-transform [&_video]:duration-200 [&_video]:ease-out"
-          />
-        ) : mediaSrc && mediaType === "video" ? (
-          <video
-            src={mediaSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-200 ease-out"
-          />
-        ) : mediaSrc && mediaType === "image" ? (
-          <Image
-            src={mediaSrc}
-            alt={mediaAlt}
-            fill
-            className="object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <path d="m21 15-5-5L5 21" />
-            </svg>
-          </div>
-        )}
+      <div className="relative w-full aspect-video overflow-hidden bg-muted p-6 sm:p-7">
+        <div className="relative w-full h-full overflow-hidden">
+          {mediaSrcs && mediaSrcs.length > 0 ? (
+            <VideoCarousel
+              videos={mediaSrcs}
+              interval={4000}
+              className="absolute inset-0 w-full h-full [&_video]:group-hover:scale-[1.04] [&_video]:transition-transform [&_video]:duration-200 [&_video]:ease-out"
+            />
+          ) : mediaSrc && mediaType === "video" ? (
+            <video
+              src={mediaSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-200 ease-out"
+            />
+          ) : mediaSrc && mediaType === "image" ? (
+            <Image
+              src={mediaSrc}
+              alt={mediaAlt}
+              fill
+              className="object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="m21 15-5-5L5 21" />
+              </svg>
+            </div>
+          )}
 
-        {/* Gradient overlay for tag readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+          {/* Gradient overlay for tag readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
 
-        {/* Tag + badges on media, top-left */}
-        <div className="absolute top-0 left-0 right-0 p-6 sm:p-8">
-          <div className="flex items-center gap-2">
-            {tag && (
-              <span className="text-xs font-medium text-white/90 bg-white/15 backdrop-blur-md px-4 py-1">
-                {tag}
-              </span>
-            )}
-            {ndaBadge && (
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
-                NDA-friendly
-              </span>
-            )}
-            {badge && (
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
-                {badge}
-              </span>
-            )}
+          {/* Tag + badges on media, top-left */}
+          <div className="absolute top-0 left-0 right-0 p-4 sm:p-5">
+            <div className="flex items-center gap-2">
+              {tag && (
+                <span className="text-xs font-medium text-white/90 bg-white/15 backdrop-blur-md px-4 py-1">
+                  {tag}
+                </span>
+              )}
+              {ndaBadge && (
+                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
+                  NDA-friendly
+                </span>
+              )}
+              {badge && (
+                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
+                  {badge}
+                </span>
+              )}
+            </div>
           </div>
+
+          {/* Year badge, bottom-left of media */}
+          {year && (
+            <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
+              {year}
+            </span>
+          )}
         </div>
-
-        {/* Year badge, bottom-left of media */}
-        {year && (
-          <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
-            {year}
-          </span>
-        )}
       </div>
 
       {/* Info banner */}

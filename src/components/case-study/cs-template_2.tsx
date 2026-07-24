@@ -258,7 +258,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
           >
             {/* Meta grid, pill-style tags with accent colors */}
             <SectionReveal className={metaStripWidth}>
-              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 overflow-hidden divide-x divide-hero-border bg-background">
+              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 overflow-hidden divide-x divide-hero-border/70 bg-background">
                 {metaFields.map((m, i) => {
                   const colorSet =
                     metaTheme === "purple-orange" ? { dot: "bg-highlight", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :

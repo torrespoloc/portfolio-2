@@ -566,7 +566,7 @@ export default function WaldoCaseStudy() {
         {/* Visual: Migration scope, illustrates the breadth of the rebrand */}
         <SectionReveal className="mt-8">
           <div className="bg-secondary/40 rounded-xl ring-1 ring-hero-border overflow-hidden">
-            <div className="px-6 py-3 border-b border-hero-border flex items-center gap-2">
+            <div className="px-6 py-3 border-b border-hero-border/70 flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-highlight" />
               <span className="text-xs font-mono uppercase tracking-[0.15em] text-hero-muted">
                 Brand Migration, Scope Summary
