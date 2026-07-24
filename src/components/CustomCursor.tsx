@@ -48,7 +48,7 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring — always visible, expands on hover, contracts on press */}
+      {/* Outer ring: always visible, expands on hover, contracts on press */}
       <div
         className="pointer-events-none fixed z-[9999]"
         style={{

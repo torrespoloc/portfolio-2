@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useCallback, useMemo, useEffect } from "react"
+import { useState, useCallback, useMemo, useEffect, useRef } from "react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { PlaygroundCard } from "@/components/playground-card"
 import { SectionDivider } from "@/components/ui/section-divider"
+import { Semicircle } from "@/components/ui/semicircle"
 import { cn } from "@/lib/utils"
 import type { PlaygroundItem } from "@/lib/playground-data"
 
@@ -108,6 +109,40 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
   const [clickedTurtles, setClickedTurtles] = useState<Record<number, boolean>>({})
   const [ideaTags, setIdeaTags] = useState<Record<number, boolean>>({})
 
+  const detailPanelRef = useRef<HTMLDivElement>(null)
+  const [semicirclePos, setSemicirclePos] = useState<{ top: number; right: number } | null>(null)
+
+  // Track detail panel position for the semicircle overlay
+  useEffect(() => {
+    if (!isSplit || !detailPanelRef.current) {
+      setSemicirclePos(null)
+      return
+    }
+    const update = () => {
+      const panel = detailPanelRef.current
+      if (!panel) return
+      const header = panel.querySelector(".border-hero-border")
+      if (!header) return
+      const panelRect = panel.getBoundingClientRect()
+      const headerRect = header.getBoundingClientRect()
+      const pageEl = panel.closest(".relative.min-h-screen")
+      if (!pageEl) return
+      const pageRect = pageEl.getBoundingClientRect()
+      const headerCenterY = headerRect.top + headerRect.height / 2
+      setSemicirclePos({
+        top: headerCenterY - pageRect.top - 144, // 144 = half the 288px semicircle height
+        right: window.innerWidth - panelRect.right,
+      })
+    }
+    update()
+    window.addEventListener("resize", update)
+    window.addEventListener("scroll", update, { passive: true })
+    return () => {
+      window.removeEventListener("resize", update)
+      window.removeEventListener("scroll", update)
+    }
+  }, [isSplit, selectedId])
+
   const parsedDesc = useMemo(
     () => (selectedItem ? parseDesc(selectedItem.detail.description) : []),
     [selectedItem],
@@ -144,8 +179,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
       {/* Content container */}
       <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative flex flex-col">
         {/* Vertical projection lines */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
 
         {/* Hero area */}
         <section className="border-b border-hero-border pt-28 md:pt-36 pb-16 md:pb-20">
@@ -163,11 +198,11 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
           </div>
         </section>
 
-        {/* Card area — grid ↔ split layout */}
+        {/* Card area, grid ↔ split layout */}
         <section className={cn("relative", isSplit && "flex flex-col flex-1 min-h-0")}>
           <div className={cn(isSplit && "flex flex-col flex-1 min-h-0")}>
             <div className={`flex ${isSplit ? "flex-row flex-1 min-h-0" : "flex-row flex-wrap"}`}>
-              {/* Cards column — grid in default, sidebar in split */}
+              {/* Cards column, grid in default, sidebar in split */}
               <motion.div
                 layout
                 className={
@@ -290,7 +325,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                 })}
               </motion.div>
 
-              {/* Detail panel — desktop */}
+              {/* Detail panel, desktop */}
               <AnimatePresence>
                 {isSplit && selectedItem && (
                   <motion.div
@@ -300,9 +335,10 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     animate="visible"
                     exit="exit"
                     className="hidden md:flex flex-1 flex-col min-h-[500px]"
+                    ref={detailPanelRef}
                   >
                     {/* Detail header */}
-                    <div className="flex items-center justify-between px-8 pt-8 pb-4 border-b border-hero-border">
+                    <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border">
                       <button
                         onClick={handleClose}
                         className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -312,9 +348,6 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                         </svg>
                         Back
                       </button>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-hero-muted">
-                        {selectedItem.tag}
-                      </span>
                     </div>
 
                     {/* Detail body */}
@@ -394,7 +427,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
           </div>
         </section>
 
-        {/* Detail panel — mobile overlay */}
+        {/* Detail panel, mobile overlay */}
         <AnimatePresence>
           {isSplit && selectedItem && (
             <motion.div
@@ -407,7 +440,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
             >
               <div className="flex flex-col h-full">
                 {/* Mobile detail header */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-hero-border">
+                <div className="flex items-center px-5 py-4 border-b border-hero-border">
                   <button
                     onClick={handleClose}
                     className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -417,9 +450,6 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     </svg>
                     Back
                   </button>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-hero-muted">
-                    {selectedItem.tag}
-                  </span>
                 </div>
 
                 {/* Mobile detail body */}
@@ -497,8 +527,22 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
           )}
         </AnimatePresence>
 
-        {/* Grid mode — bottom inset from page container */}
+        {/* Grid mode, bottom inset from page container */}
       </div>
+
+      {/* Semicircle overlay, rendered at page root so nothing clips it */}
+      {semicirclePos && (
+        <Semicircle
+          size={288}
+          flatEdge="left"
+          className="z-50"
+          style={{
+            top: semicirclePos.top,
+            right: semicirclePos.right,
+            position: "absolute",
+          }}
+        />
+      )}
     </div>
   )
 }

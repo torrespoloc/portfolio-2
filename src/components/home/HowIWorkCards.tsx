@@ -113,7 +113,7 @@ export function HowIWorkCards({
         </div>
       </div>
 
-      {/* Desktop/Tablet: centerpiece grid — center column wider, zero gap with border dividers */}
+      {/* Desktop/Tablet: centerpiece grid: center column wider, zero gap with border dividers */}
       <div className="hidden md:grid grid-cols-[1fr_1.14fr_1fr] gap-0 mt-0 items-stretch w-full">
         {children}
       </div>

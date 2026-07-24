@@ -67,9 +67,9 @@ export type Metric = {
 };
 
 export const METRICS: Metric[] = [
-  { value: "7 yrs", label: "Design" },
-  { value: "4 yrs", label: "Product" },
-  { value: "5 apps", label: "Shipped" },
+  { value: "4 yrs", label: "Product Design" },
+  { value: "Arch & Sales", label: "Background" },
+  { value: "5+", label: "Apps shipped" },
 ];
 
 // ── Testimonials ──
@@ -86,7 +86,7 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "The best AI Product Designers share one quality: their work feels inevitable. You use it and think — of course it works this way. Jacki designs like that.",
+      "The best AI Product Designers share one quality: their work feels inevitable. You use it and think, of course it works this way. Jacki designs like that.",
     name: "Christopher Miller",
     title: "Enterprise UX · Design Career Coach",
     image: "/headshots/webp/miller.webp",
@@ -123,7 +123,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "Jacki is an ambitious talent — always willing to learn, solve tough problems, and deliver strong results. I'd work with her again in a heartbeat.",
+      "Jacki is an ambitious talent, always willing to learn, solve tough problems, and deliver strong results. I'd work with her again in a heartbeat.",
     name: "Jonathan Brink",
     title: "UX Manager at IBM",
     image: "/headshots/webp/brink.webp",
@@ -184,7 +184,7 @@ export function getWorkCards(): WorkCard[] {
       tag: "HEALTHTECH",
       headline: (
         <>
-          Designed End-to-End Mobile Patient App for{" "}
+          End-to-End Patient App for{" "}
           <span className="text-brand-accent">HIPAA-Compliant</span> Contact Lens
           Ordering
         </>
@@ -226,7 +226,7 @@ export function getWorkCards(): WorkCard[] {
       badge: "Building V2",
       headline: (
         <>
-          SideNook — A{" "}
+          SideNook, A{" "}
           <span className="text-brand-accent">macOS terminal emulator</span> that
           stays out of your way
         </>

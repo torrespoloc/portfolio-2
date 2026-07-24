@@ -1,7 +1,6 @@
 "use client"
 
 import { motion, type Variants } from "framer-motion"
-import { CopyEmail } from "./CopyEmail"
 import { Button } from "@/components/ui/button"
 
 const sectionUp: Variants = {
@@ -25,25 +24,15 @@ export function HeroCTAButtons() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="mt-10 sm:mt-14 flex flex-col items-center gap-6"
+      className="mt-10 sm:mt-14 flex flex-col items-center gap-4"
     >
       <div className="flex flex-wrap justify-center gap-4">
         <Button
-          render={<a href="/about" />}
+          render={<a href="mailto:torrespoloc@gmail.com" />}
           className="bg-accent text-white hover:opacity-85 hover:bg-accent rounded-[12px] h-11 px-5"
         >
-          About me
+          Contact me
         </Button>
-        <Button
-          render={<a href="https://www.linkedin.com/in/jackelinetorres/" target="_blank" rel="noopener noreferrer" />}
-          variant="outline"
-          className="rounded-[12px] h-11 px-5"
-        >
-          LinkedIn
-        </Button>
-      </div>
-      <div className="hidden md:flex">
-        <CopyEmail />
       </div>
     </motion.div>
   )

@@ -45,7 +45,7 @@ export function UxChatsVideo() {
           className="w-full h-full object-cover"
         />
 
-        {/* Unmute overlay — visible on hover when muted */}
+        {/* Unmute overlay, visible on hover when muted */}
         {hovered && (
           <div className="absolute inset-0 flex items-center justify-center">
             {!unmuted ? (

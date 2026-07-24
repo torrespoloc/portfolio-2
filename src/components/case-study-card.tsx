@@ -97,7 +97,7 @@ export function CaseStudyCard({
         {/* Gradient overlay for tag readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
 
-        {/* Tag + badges on media — top-left */}
+        {/* Tag + badges on media, top-left */}
         <div className="absolute top-0 left-0 right-0 p-6 sm:p-8">
           <div className="flex items-center gap-2">
             {tag && (
@@ -118,7 +118,7 @@ export function CaseStudyCard({
           </div>
         </div>
 
-        {/* Year badge — bottom-left of media */}
+        {/* Year badge, bottom-left of media */}
         {year && (
           <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
             {year}

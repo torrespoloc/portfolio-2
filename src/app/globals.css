@@ -482,14 +482,6 @@ section[id] {
   filter: brightness(0) invert(0.82) grayscale(1);
 }
 
-/* TrustedBy section logos — neutral grayscale that works on both themes */
-.trusted-logo {
-  filter: brightness(0) invert(0.5) grayscale(1);
-}
-
-.dark .trusted-logo {
-  filter: brightness(0) invert(0.85) grayscale(1);
-}
 
 /* Desktop font-size floor — nothing below 16px on large screens */
 @media (width >= 64rem) {

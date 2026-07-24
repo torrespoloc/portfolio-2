@@ -41,13 +41,13 @@ export function TrustedBy({ className = "" }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border sm:px-8 sm:pt-12 sm:pb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-hero-muted">
-              grateful for their trust
+              trusted by
             </p>
             <h2 className="mt-4 text-[24px] font-semibold leading-[1.15] tracking-[-0.03em] text-hero-text-dark sm:text-[30px] sm:leading-[1.05]">
-              Fast-tracked my UX in startups — healthtech, fintech, real estate.
+              Series A & early stage startups + enterprise clients.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-hero-muted sm:text-body-sm">
-              AI tools, founder-led, ship-or-die.
+              SaaS, B2B, health tech, AI chats.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export function TrustedBy({ className = "" }: Props) {
                     src={logo.src}
                     alt={logo.alt}
                     loading="lazy"
-                    className={cn("h-7 w-auto object-contain sm:h-8 trusted-logo", logoHeightOverrides[logo.alt])}
+                    className={cn("h-7 w-auto object-contain sm:h-8", logoHeightOverrides[logo.alt])}
                   />
                 </div>
               );

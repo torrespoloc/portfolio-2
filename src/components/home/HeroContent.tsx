@@ -71,7 +71,7 @@ function UxChatsLogoInteractive() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Hover tag — similar to "Play me!" tag */}
+      {/* Hover tag, similar to "Learn more" tag */}
       {hovered && (
         <motion.span
           className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
@@ -146,16 +146,22 @@ export function HeroContent() {
             <HeroVideoInline onOpenOverlay={openOverlay} />
             <span>
               <br className="md:hidden" />
-              I design psychologically smart AI products.
+              {" "}I design AI-native B2B products.
             </span>
           </motion.h1>
+          <motion.p
+            variants={sectionUp}
+            className="text-center text-hero-muted text-sm mt-3"
+          >
+            SF, Bay Area
+          </motion.p>
         </div>
       </motion.div>
 
       {/* Full-width hero cards section */}
-      <SectionDivider />
+      <SectionDivider className="opacity-50" />
 
-      {/* Dot indicators — outside the cards container, below the separator */}
+      {/* Dot indicators, outside the cards container, below the separator */}
       <div className="md:hidden flex justify-center gap-2 py-4">
         {[0, 1, 2].map((i) => (
           <button
@@ -173,7 +179,7 @@ export function HeroContent() {
 
       <motion.div variants={sectionUp} className="my-0 relative mx-auto w-full max-w-[1248px] md:px-12">
         <HowIWorkCards currentIdx={carouselIdx} onIdxChange={setCarouselIdx}>
-          {/* Card 1 — Toolkit Pillar */}
+          {/* Card 1: Toolkit Pillar */}
           <div className="bg-hero-card p-5 h-full border-l border-hero-border">
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
               Toolkit
@@ -192,10 +198,10 @@ export function HeroContent() {
               My design process evolves with new tools and AI-first workflows.
             </p>
           </div>
-          {/* Card 2 — My Jam (3D flip card) */}
+          {/* Card 2: My Jam (3D flip card) */}
           <MyJamFlipCard />
 
-          {/* Card 3 — Community Pillar */}
+          {/* Card 3: Community Pillar */}
           <div className="bg-hero-card p-5 relative overflow-hidden h-full border-r border-hero-border">
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
               Community
@@ -206,7 +212,7 @@ export function HeroContent() {
             <div className="relative z-10">
               <UxChatsLogoInteractive />
               <p className="text-hero-muted text-xs leading-snug mt-1 relative pr-14 md:pr-[68px]">
-                I founded The UX Chats — where UXers connect and grow.
+                I founded The UX Chats, helping 200+ UXers land roles and find mentors.
               </p>
             </div>
           </div>

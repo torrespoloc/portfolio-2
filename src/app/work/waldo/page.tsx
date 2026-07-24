@@ -68,7 +68,7 @@ const shipped: Shipped[] = [
     title: "One account. The whole household.",
     body: <>
       Named sub-patient profiles with their own prescription cards and order history.<br /><br />
-      <span className="text-case-highlight font-semibold">No multi-account architecture needed</span> — caregivers manage the whole household without juggling logins.
+      <span className="text-case-highlight font-semibold">No multi-account architecture needed</span>, caregivers manage the whole household without juggling logins.
     </>,
   },
 ]
@@ -306,7 +306,7 @@ export default function WaldoCaseStudy() {
             </p>
           </motion.div>
 
-          {/* Journey map — early research artifact */}
+          {/* Journey map, early research artifact */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -320,7 +320,7 @@ export default function WaldoCaseStudy() {
             >
               <Image
                 src="/waldo/journey-map-preview.png"
-                alt="Journey map — mapping the user journey from the moment the doctor or eyecare staff begins patient profile creation"
+                alt="Journey map, mapping the user journey from the moment the doctor or eyecare staff begins patient profile creation"
                 width={1200}
                 height={264}
                 className="w-full h-auto"
@@ -381,7 +381,7 @@ export default function WaldoCaseStudy() {
           })}
         </motion.div>
 
-        {/* Patient app screenshots — dashboard, prescriptions, checkout */}
+        {/* Patient app screenshots, dashboard, prescriptions, checkout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -488,7 +488,7 @@ export default function WaldoCaseStudy() {
             </div>
           </motion.div>
 
-          {/* Project Bits demo video — autoplay in iframe */}
+          {/* Project Bits demo video, autoplay in iframe */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -563,13 +563,13 @@ export default function WaldoCaseStudy() {
           </div>
         </motion.div>
 
-        {/* Visual: Migration scope — illustrates the breadth of the rebrand */}
+        {/* Visual: Migration scope, illustrates the breadth of the rebrand */}
         <SectionReveal className="mt-8">
           <div className="bg-secondary/40 rounded-xl ring-1 ring-hero-border overflow-hidden">
             <div className="px-6 py-3 border-b border-hero-border flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-highlight" />
               <span className="text-xs font-mono uppercase tracking-[0.15em] text-hero-muted">
-                Brand Migration — Scope Summary
+                Brand Migration, Scope Summary
               </span>
             </div>
             <div className="p-0 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
@@ -604,11 +604,11 @@ export default function WaldoCaseStudy() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 lg:gap-6"
         >
-          {/* First — earliest brand */}
+          {/* First, earliest brand */}
           <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-01.png"
-              alt="Earliest brand identity — Fern"
+              alt="Earliest brand identity, Fern"
               width={786}
               height={1974}
               className="w-full h-full object-cover object-top"
@@ -623,11 +623,11 @@ export default function WaldoCaseStudy() {
             </svg>
           </div>
 
-          {/* Second — mid evolution */}
+          {/* Second, mid evolution */}
           <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-02.png"
-              alt="Mid-evolution brand identity — Olive"
+              alt="Mid-evolution brand identity, Olive"
               width={786}
               height={1974}
               className="w-full h-full object-cover object-top"
@@ -642,11 +642,11 @@ export default function WaldoCaseStudy() {
             </svg>
           </div>
 
-          {/* Third — final brand */}
+          {/* Third, final brand */}
           <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-03.png"
-              alt="Final brand identity — Bridge"
+              alt="Final brand identity, Bridge"
               width={756}
               height={2000}
               className="w-full h-full object-cover object-top"
@@ -673,7 +673,7 @@ export default function WaldoCaseStudy() {
           className="mt-8 p-0 bg-accent/[0.04] ring-1 ring-accent/20 max-w-2xl mx-auto"
         >
           <p className="text-base lg:text-lg text-foreground leading-relaxed">
-            The product name changed over five times throughout the process — from <span className="text-foreground font-semibold">Fern</span>, to <span className="text-foreground font-semibold">Olive</span>, to <span className="text-foreground font-semibold">Indigo</span>, and finally to <span className="text-foreground font-semibold">Bridge</span>.
+            The product name changed over five times throughout the process, from <span className="text-foreground font-semibold">Fern</span>, to <span className="text-foreground font-semibold">Olive</span>, to <span className="text-foreground font-semibold">Indigo</span>, and finally to <span className="text-foreground font-semibold">Bridge</span>.
           </p>
         </motion.div>
       </CaseStudySection>
@@ -685,7 +685,7 @@ export default function WaldoCaseStudy() {
       <CaseStudySection id="impact">
         <p className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">Impact</p>
 
-        {/* iDoc at a glance — impact metrics */}
+        {/* iDoc at a glance, impact metrics */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}

@@ -131,12 +131,12 @@ export function NavBar() {
                 {SITE.name}
               </p>
               <p className="text-subtitle sm:text-base text-muted-foreground transition-colors duration-300 ease-out">
-                 AI Product Designer
+                 AI-Native Product Designer
               </p>
             </div>
           </Link>
 
-          {/* Desktop nav — always centered */}
+          {/* Desktop nav, always centered */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
               className={`flex items-center gap-1 rounded-[12px] border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
@@ -344,7 +344,7 @@ export function NavBar() {
               </div>
               <div className="px-3 pb-8 flex flex-col gap-6">
                 <nav className="flex flex-col gap-1">
-                  {/* Work — expandable section */}
+                  {/* Work, expandable section */}
                   <div className="flex flex-col">
                     <button
                       onClick={() => setMobileWorkExpanded(!mobileWorkExpanded)}

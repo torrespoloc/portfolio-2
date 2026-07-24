@@ -193,7 +193,7 @@ export function HeroVideoOverlay({
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
 
-          {/* Flipped video — no native controls */}
+          {/* Flipped video, no native controls */}
           <video
             ref={overlayVideoRef}
             src="/hero-video-jacki.mp4"
@@ -208,7 +208,7 @@ export function HeroVideoOverlay({
             onClick={toggleOverlayPlay}
           />
 
-          {/* Captions — below video, always reserving space */}
+          {/* Captions, below video, always reserving space */}
           <div className="px-4 py-3 min-h-[88px] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <div className="mx-auto w-full text-center">
               <span className={`inline-block text-white text-base md:text-lg font-semibold leading-relaxed ${!currentCaption ? "invisible" : ""}`}>

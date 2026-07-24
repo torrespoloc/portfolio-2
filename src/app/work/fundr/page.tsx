@@ -118,7 +118,7 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              Fundr needed to monetize without alienating users — but the product had no upgrade path.
+              Fundr needed to monetize without alienating users, but the product had no upgrade path.
             </motion.h3>
           </div>
 
@@ -128,7 +128,7 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
             >
-              <li>Every plan change ran through a <span className="text-case-highlight font-semibold">1:1 sales call</span> &mdash; users waited days for a human to flip a switch.</li>
+              <li>Every plan change ran through a <span className="text-case-highlight font-semibold">1:1 sales call</span>, users waited days for a human to flip a switch.</li>
               <li>The pricing was confusing, and the low tiers didn’t justify upgrading.</li>
               <li>There was no self-service path to upgrade.</li>
             </motion.ul>
@@ -173,7 +173,7 @@ export default function FundrCaseStudy() {
             <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
               “I didn’t even know there were paid plans. I’ve been on the same tier since I signed up.”
               <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                — User during discovery interviews
+, User during discovery interviews
               </span>
             </blockquote>
           </motion.div>
@@ -197,13 +197,13 @@ export default function FundrCaseStudy() {
               “{quote.body}”
             </blockquote>
             <figcaption className="mt-5 text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted">
-              — {quote.cite}
+, {quote.cite}
             </figcaption>
           </figure>
           <p className="mt-6 text-body-sm lg:text-body text-ink-muted leading-relaxed max-w-2xl border-t border-hairline pt-6">
             This reframed the project from “UI cleanup” to a{" "}
             <span className="text-case-highlight font-semibold">business-critical decision</span>.
-            Pricing surface was <span className="text-case-highlight font-semibold">the lever</span> — not polish.
+            Pricing surface was <span className="text-case-highlight font-semibold">the lever</span>, not polish.
           </p>
         </div>
       </motion.div>
@@ -232,7 +232,7 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              Every path leads to checkout — here’s the full picture.
+              Every path leads to checkout, here’s the full picture.
             </motion.h3>
           </div>
 
@@ -243,8 +243,8 @@ export default function FundrCaseStudy() {
               className="text-base lg:text-lg text-ink-muted leading-relaxed"
             >
               Before diving into individual surfaces, it’s worth seeing how the pieces connect.
-              The upgrade flow has <span className="text-case-highlight font-semibold">three entry points</span> — a
-              scrollable sales funnel, feature-specific popups, and situational upgrade prompts — all
+              The upgrade flow has <span className="text-case-highlight font-semibold">three entry points</span>, a
+              scrollable sales funnel, feature-specific popups, and situational upgrade prompts, all
               converging into a single checkout. Users can start from anywhere and finish in under a minute.
             </motion.p>
           </div>
@@ -258,7 +258,7 @@ export default function FundrCaseStudy() {
             <div className="overflow-hidden  ring-1 ring-hairline">
               <iframe
                 src="/fundr/diagram.html"
-                title="Fundr upgrade flow — from CTA to checkout"
+                title="Fundr upgrade flow, from CTA to checkout"
                 style={{ border: 0, display: "block" }}
                 ref={(el) => {
                   if (!el) return;
@@ -332,22 +332,22 @@ export default function FundrCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-5`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                Users who wanted to upgrade <span className="text-case-highlight font-semibold">hit a wall</span> — a generic "Contact Sales" link and days of waiting.
+                Users who wanted to upgrade <span className="text-case-highlight font-semibold">hit a wall</span>, a generic "Contact Sales" link and days of waiting.
               </p>
 
               <div>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Collapsible status menu</strong> — feature access at a glance, expanded by default</span>
+                    <span><strong className="text-foreground/80 font-medium">Collapsible status menu</strong>, feature access at a glance, expanded by default</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Static CTA buttons</strong> — accessible from every page so users never hunt for the upgrade path</span>
+                    <span><strong className="text-foreground/80 font-medium">Static CTA buttons</strong>, accessible from every page so users never hunt for the upgrade path</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Triggered popup cards</strong> — let users keep working without losing context</span>
+                    <span><strong className="text-foreground/80 font-medium">Triggered popup cards</strong>, let users keep working without losing context</span>
                   </li>
                 </ul>
               </div>
@@ -355,7 +355,7 @@ export default function FundrCaseStudy() {
               <div>
                 <p className="text-body-sm lg:text-body text-foreground/75 leading-relaxed">
                   Systems with <span className="text-case-highlight font-semibold">combined CTA methods</span> outperform
-                  single-method approaches — and the most effective pattern bridges the gap between
+                  single-method approaches, and the most effective pattern bridges the gap between
                   the CTA and the conversion point with the right information at the right time.
                 </p>
               </div>
@@ -371,7 +371,7 @@ export default function FundrCaseStudy() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/fundr/webp/cta-types.webp"
-                  alt="Fundr CTA types — collapsible menu, static buttons, and popup upgrade cards"
+                  alt="Fundr CTA types, collapsible menu, static buttons, and popup upgrade cards"
                   loading="lazy"
                   className="w-full h-auto"
                 />
@@ -380,7 +380,7 @@ export default function FundrCaseStudy() {
                 <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                   <p className="text-body text-ink-muted leading-relaxed">
-                    Three CTA types layered by user intent — glance, browse, and act
+                    Three CTA types layered by user intent, glance, browse, and act
                   </p>
                 </div>
                 <div className="p-3 rounded-none bg-background">
@@ -424,16 +424,16 @@ export default function FundrCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              What users are upgrading for — SPVs, explained.
+              What users are upgrading for, SPVs, explained.
             </motion.h3>
           </div>
 
           <div className={`${sectionRight} space-y-5`}>
             <div>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                Fundr’s platform centers on Special Purpose Vehicles — the investment structure
+                Fundr’s platform centers on Special Purpose Vehicles, the investment structure
                 that lets investors pool capital into a single startup. Most users <span className="text-case-highlight font-semibold">didn’t understand what an SPV was</span> or how capital flowed through it.{" "}
-                <span className="text-case-highlight font-semibold">Upgrade prompts had no context</span> — users
+                <span className="text-case-highlight font-semibold">Upgrade prompts had no context</span>, users
                 couldn’t value what they couldn’t visualize.
               </p>
             </div>
@@ -446,11 +446,11 @@ export default function FundrCaseStudy() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                  <span><strong className="text-foreground/80 font-medium">Connected it to upgrade triggers</strong> — premium unlocks more SPV data, deeper analytics, and priority access</span>
+                  <span><strong className="text-foreground/80 font-medium">Connected it to upgrade triggers</strong>, premium unlocks more SPV data, deeper analytics, and priority access</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                  <span><strong className="text-foreground/80 font-medium">Placed after CTAs</strong> — users see the infographic right after an upgrade prompt, bridging curiosity to understanding</span>
+                  <span><strong className="text-foreground/80 font-medium">Placed after CTAs</strong>, users see the infographic right after an upgrade prompt, bridging curiosity to understanding</span>
                 </li>
               </ul>
             </div>
@@ -466,7 +466,7 @@ export default function FundrCaseStudy() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/fundr/webp/SPVs-infographic.webp"
-                alt="Fundr SPV infographic — breakdown of Special Purpose Vehicle structure and capital flow"
+                alt="Fundr SPV infographic, breakdown of Special Purpose Vehicle structure and capital flow"
                 loading="lazy"
                 className="w-full h-auto"
               />
@@ -475,7 +475,7 @@ export default function FundrCaseStudy() {
               <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
                 <p className="text-body text-ink-muted leading-relaxed">
-                  The SPV structure — investors, capital flow, and the startup relationship
+                  The SPV structure, investors, capital flow, and the startup relationship
                 </p>
               </div>
               <div className="p-3 rounded-none bg-background">
@@ -487,7 +487,7 @@ export default function FundrCaseStudy() {
               <div className="p-3 rounded-none bg-background">
                 <p className="text-label font-semibold text-foreground mb-1">The result</p>
                 <p className="text-body text-ink-muted leading-relaxed">
-                  Upgrade prompts now carry context — users know exactly what they’re unlocking
+                  Upgrade prompts now carry context, users know exactly what they’re unlocking
                 </p>
               </div>
             </div>
@@ -524,28 +524,28 @@ export default function FundrCaseStudy() {
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
-                A single pricing table that mixed investor and startup features — making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
+                A single pricing table that mixed investor and startup features, making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Fundr’s pricing page was a single table that mixed investor features with startup
-                features — making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
+                features, making both segments feel the product <span className="text-case-highlight font-semibold">wasn’t built for them</span>.
               </p>
 
               <div>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Two separate pricing paths</strong> — investors and startups on different pages, each with tailored features</span>
+                    <span><strong className="text-foreground/80 font-medium">Two separate pricing paths</strong>, investors and startups on different pages, each with tailored features</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Best-value option highlighted</strong> — users see which plan gives them the most without guessing</span>
+                    <span><strong className="text-foreground/80 font-medium">Best-value option highlighted</strong>, users see which plan gives them the most without guessing</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Transparent fees up-front</strong> — annual plan incentives, clear per-user pricing, no hidden costs</span>
+                    <span><strong className="text-foreground/80 font-medium">Transparent fees up-front</strong>, annual plan incentives, clear per-user pricing, no hidden costs</span>
                   </li>
                 </ul>
               </div>
@@ -561,15 +561,15 @@ export default function FundrCaseStudy() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/fundr/webp/pricing-page.webp"
-                  alt="Fundr pricing page — separate investor and startup paths"
+                  alt="Fundr pricing page, separate investor and startup paths"
                   loading="lazy"
                   className="w-full h-auto"
                 />
               </div>
               <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
-                “Wait — I can actually see what each plan costs without guessing. That’s… clear.”
+                “Wait, I can actually see what each plan costs without guessing. That’s… clear.”
                 <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                  — User testing the pricing page prototype
+, User testing the pricing page prototype
                 </span>
               </blockquote>
             </motion.div>
@@ -610,7 +610,7 @@ export default function FundrCaseStudy() {
 	              className="bg-burgundy/[0.06] ring-1 ring-burgundy/20 p-0"
             >
               <p className="text-body text-foreground/85 leading-relaxed">
-                The CEO wanted one unified pricing page — simplicity was a core value, and two paths
+                The CEO wanted one unified pricing page, simplicity was a core value, and two paths
                 risked surface complexity. I mapped both user journeys, showed where investor and startup
                 needs diverged, and <span className="text-case-highlight font-semibold">the data won</span>.
                 We shipped two pricing paths.
@@ -649,27 +649,27 @@ export default function FundrCaseStudy() {
           <motion.div variants={fadeUp} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={sectionGrid}>
             <div className={sectionLeft}>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground">
-                The free tier was a demo, not a product — so limited that users couldn’t evaluate whether Fundr was right for them.
+                The free tier was a demo, not a product, so limited that users couldn’t evaluate whether Fundr was right for them.
               </h3>
             </div>
             <div className={`${sectionRight} space-y-5`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                The free tier was a demo, not a product — so limited that users <span className="text-case-highlight font-semibold">couldn’t evaluate whether Fundr was right for them</span>.
+                The free tier was a demo, not a product, so limited that users <span className="text-case-highlight font-semibold">couldn’t evaluate whether Fundr was right for them</span>.
               </p>
 
               <div>
                 <ul className="space-y-2 text-body text-foreground/75">
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Basic tier</strong> — genuinely useful features with upgrade triggers at natural ceilings</span>
+                    <span><strong className="text-foreground/80 font-medium">Basic tier</strong>, genuinely useful features with upgrade triggers at natural ceilings</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">Premium tier</strong> — advanced graphs, expanded data, and priority support that extends how you work in the free tier</span>
+                    <span><strong className="text-foreground/80 font-medium">Premium tier</strong>, advanced graphs, expanded data, and priority support that extends how you work in the free tier</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                    <span><strong className="text-foreground/80 font-medium">The trigger</strong> — users hit a natural ceiling in the free tier and decide for themselves whether the upgrade is worth it</span>
+                    <span><strong className="text-foreground/80 font-medium">The trigger</strong>, users hit a natural ceiling in the free tier and decide for themselves whether the upgrade is worth it</span>
                   </li>
                 </ul>
               </div>
@@ -683,7 +683,7 @@ export default function FundrCaseStudy() {
               </div>
             </div>
 
-            {/* Dashboard comparison — Basic vs Premium */}
+            {/* Dashboard comparison, Basic vs Premium */}
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -694,7 +694,7 @@ export default function FundrCaseStudy() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fundr/webp/dashboard-basic.webp"
-                    alt="Fundr Basic dashboard — core features at the free tier"
+                    alt="Fundr Basic dashboard, core features at the free tier"
                     loading="lazy"
                     className="w-full h-auto"
                   />
@@ -708,7 +708,7 @@ export default function FundrCaseStudy() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fundr/webp/dashboard-premium.webp"
-                    alt="Fundr Premium dashboard — advanced graphs, expanded data"
+                    alt="Fundr Premium dashboard, advanced graphs, expanded data"
                     loading="lazy"
                     className="w-full h-auto"
                   />
@@ -729,7 +729,7 @@ export default function FundrCaseStudy() {
                 <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                   <p className="text-body text-ink-muted leading-relaxed">
-                    Users see exactly what they gain — not just what they’re missing
+                    Users see exactly what they gain, not just what they’re missing
                   </p>
                 </div>
               </div>
@@ -758,7 +758,7 @@ export default function FundrCaseStudy() {
             {([
               { before: "Sales call required for every upgrade", after: "Self-service upgrade in 3 clicks" },
               { before: "Pricing hidden behind login and account settings", after: "Transparent pricing on every CTA surface" },
-              { before: "One confusing tier table for all user types", after: "Two tailored paths — investor and startup" },
+              { before: "One confusing tier table for all user types", after: "Two tailored paths, investor and startup" },
             ] as const).map((pair, i) => (
               <div
                 key={i}
@@ -815,7 +815,7 @@ export default function FundrCaseStudy() {
             “I just upgraded myself. It took like 20 seconds. Last time I had to email
             support and wait three days.”
             <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-              — Beta user, first week after launch
+, Beta user, first week after launch
             </span>
           </blockquote>
         </motion.div>
@@ -910,7 +910,7 @@ export default function FundrCaseStudy() {
             className={sectionFull}
           >
             <p className="text-body text-center text-ink-muted mt-1 leading-relaxed">
-              A high-level walkthrough of the Fundr upgrade flow — a deeper dive into specific decisions and trade-offs is available during a portfolio interview.
+              A high-level walkthrough of the Fundr upgrade flow, a deeper dive into specific decisions and trade-offs is available during a portfolio interview.
             </p>
           </motion.div>
         </motion.div>

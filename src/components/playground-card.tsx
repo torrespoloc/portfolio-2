@@ -24,7 +24,7 @@ export function PlaygroundCard({
   compact = false,
   active = false,
 }: PlaygroundCardProps) {
-  /* ── Compact mode — mini card thumbnail for sidebar ── */
+  /* ── Compact mode: mini card thumbnail for sidebar ── */
   if (compact) {
     return (
       <div
@@ -123,7 +123,7 @@ export function PlaygroundCard({
         {/* Gradient overlay for tag readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
 
-        {/* Tag on media — top-left */}
+        {/* Tag on media, top-left */}
         <div className="absolute top-0 left-0 right-0 p-4 sm:p-6">
           <span className="inline-block text-xs font-medium text-white/90 bg-white/15 backdrop-blur-md px-3 py-1">
             {tag}
@@ -131,7 +131,7 @@ export function PlaygroundCard({
         </div>
       </div>
 
-      {/* Info banner — minimal */}
+      {/* Info banner, minimal */}
       <div className="flex flex-col p-4 sm:p-5">
         <h3 className="font-heading text-base sm:text-lg font-semibold leading-snug text-hero-text-dark">
           {title}

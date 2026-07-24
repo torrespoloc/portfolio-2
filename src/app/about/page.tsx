@@ -29,8 +29,8 @@ export default function AboutPage() {
     <div className="relative min-h-screen bg-hero-bg font-sans">
       <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border">
         {/* Vertical projection lines */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
 
         {/* ── Hero ── */}
         <div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 Visit theuxchats.co <ExternalLink className="h-3.5 w-3.5 inline-block" />
               </Button>
 
-              {/* Logo in the corner — mirrors the hero community card treatment */}
+              {/* Logo in the corner, mirrors the hero community card treatment */}
               <img
                 src="/the-ux-chats-logo.png"
                 alt=""
@@ -214,7 +214,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Full-width flush video row — 1px border between videos */}
+          {/* Full-width flush video row, 1px border between videos */}
           <div className="flex flex-col sm:flex-row border-y border-hero-border">
             {youtubeVideos.map((v, i) => (
               <div

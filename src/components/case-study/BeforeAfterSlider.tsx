@@ -50,10 +50,10 @@ export function BeforeAfterSlider({
         if (dragging) handleMove(e.touches[0].clientX)
       }}
     >
-      {/* After — full width, underneath */}
+      {/* After: full width, underneath */}
       <div className="absolute inset-0">{after}</div>
 
-      {/* Before — clipped by divider */}
+      {/* Before: clipped by divider */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${position}%` }}

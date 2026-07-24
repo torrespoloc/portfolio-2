@@ -12,20 +12,20 @@ export const LINKS = {
 
 export const SITE = {
   name: "Jacki Torres",
-  title: "AI Product Designer",
-  tagline: "Designer who ships code, not mockups.",
+  title: "AI-Native Product Designer",
+  tagline: "I design B2B AI products that drive conversion and retention.",
   description:
-    "I design and build across health tech, fintech, and AI — from 0 to 1 and beyond. I care about systems, accessibility, and code that makes it to production.",
-  location: "Based in the US",
+    "AI-Native Product Designer with a sales background. I design AI-powered products that convert users and retain customers across health tech, fintech, and real estate.",
+  location: "SF, Bay Area",
   languages: "English & Spanish",
   status: "Currently building SideNook, a floating terminal app for Mac",
 }
 
-/** Shared SVG noise overlay for hero sections — identical fractal-noise filter used across all case studies */
+/** Shared SVG noise overlay for hero sections. Identical fractal-noise filter used across all case studies. */
 export const NOISE_OVERLAY =
   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")"
 
-/** Per-project hero gradient presets — brand-specific */
+/** Per-project hero gradient presets, brand-specific */
 export const HERO_GRADIENTS = {
   fundr: "linear-gradient(135deg, #0B3B2B 0%, #1A6B4E 40%, #072C1E 100%)",
   xy: "linear-gradient(135deg, #485bfc 0%, #7d8bff 30%, #1c1c1c 100%)",
@@ -54,7 +54,7 @@ export const NOW = {
   label: "Now",
   prefix: "Building",
   project: "SideNook",
-  suffix: "— a floating terminal app for Mac",
+  suffix: ", a floating terminal app for Mac",
   href: "/work/sidenook",
 }
 

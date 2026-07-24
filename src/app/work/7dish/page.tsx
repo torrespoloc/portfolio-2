@@ -67,7 +67,7 @@ export default function SevenDishCaseStudy() {
             Redesigning 3 Core Tasks for 7Dish&rsquo;s Meal Planning App
           </h1>
           <div className="flex items-center gap-2 mt-3 text-label font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            <span>2023 &mdash; 2024</span>
+            <span>2023 to 2024</span>
             <span className="text-foreground/20">&middot;</span>
             <span>12 weeks</span>
           </div>
@@ -175,7 +175,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 01 &mdash; Homepage before and after. The original design suffered from low contrast, unclear layout, and inconsistent navigation.
+              Fig. 01, Homepage before and after. The original design suffered from low contrast, unclear layout, and inconsistent navigation.
             </p>
           </motion.div>
         </motion.div>
@@ -243,7 +243,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 02 &mdash; Existing design overview. The original experience before redesign.
+              Fig. 02, Existing design overview. The original experience before redesign.
             </p>
           </motion.div>
 
@@ -314,7 +314,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 03 &mdash; User flow for creating a meal plan, mapped during the audit phase.
+              Fig. 03, User flow for creating a meal plan, mapped during the audit phase.
             </p>
           </motion.div>
 
@@ -331,13 +331,13 @@ export default function SevenDishCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-4`}>
               <div>
-                <p className="text-body font-semibold text-foreground/85 mb-1">Concept A (More Flexible) &mdash; Losing</p>
+                <p className="text-body font-semibold text-foreground/85 mb-1">Concept A (More Flexible), Losing</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Day-by-day planning with specific prep and cook times. Multi-day selection confused the majority of users, and large food cards felt &ldquo;overwhelming.&rdquo;
                 </p>
               </div>
               <div>
-                <p className="text-body font-semibold text-case-eyebrow mb-1">Concept B (More Controlled) &mdash; Winning</p>
+                <p className="text-body font-semibold text-case-eyebrow mb-1">Concept B (More Controlled), Winning</p>
                 <p className="text-body text-ink-muted leading-relaxed">
                   Single-day selection featuring a horizontal scroll combined with smaller images, plus an accessible, minimizable &ldquo;Unscheduled&rdquo; tab. Users valued quick choice elements and a high-level daily view.
                 </p>
@@ -353,13 +353,13 @@ export default function SevenDishCaseStudy() {
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/webp/a-b-testing.webp"
-                alt="A/B testing comparison &mdash; Concept A (flexible) vs Concept B (controlled)"
+                alt="A/B testing comparison, Concept A (flexible) vs Concept B (controlled)"
                 loading="lazy"
                 className="w-full h-auto"
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 04 &mdash; Concept A/B Testing. Users valued quick choices over granular control.
+              Fig. 04, Concept A/B Testing. Users valued quick choices over granular control.
             </p>
           </motion.div>
         </motion.div>
@@ -440,7 +440,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 05 &mdash; Saved Recipes screens with the new folder system, search bar, and consistent food cards.
+              Fig. 05, Saved Recipes screens with the new folder system, search bar, and consistent food cards.
             </p>
           </motion.div>
 
@@ -458,7 +458,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center">
-              Fig. 06 &mdash; Saved Folders feature detail. Fixed system folders + customizable user folders.
+              Fig. 06, Saved Folders feature detail. Fixed system folders + customizable user folders.
             </p>
           </motion.div>
         </motion.div>
@@ -540,13 +540,13 @@ export default function SevenDishCaseStudy() {
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/webp/core-task-3_shopping-list.webp"
-                alt="Core Task #3 shopping list redesign — testing and iteration artifacts"
+                alt="Core Task #3 shopping list redesign, testing and iteration artifacts"
                 loading="lazy"
                 className="w-full h-auto"
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 07 &mdash; Shopping list testing and iteration. 4/5 users preferred separating checked from unchecked items.
+              Fig. 07, Shopping list testing and iteration. 4/5 users preferred separating checked from unchecked items.
             </p>
           </motion.div>
         </motion.div>
@@ -603,7 +603,7 @@ export default function SevenDishCaseStudy() {
                 Eliminating the legacy &ldquo;Inspiration&rdquo; page
               </h4>
               <p className="text-body text-ink-muted leading-relaxed">
-                Removed to make room for a direct, intuitive homepage recipe-browsing workflow. <span className="text-case-highlight font-semibold">Stakeholders were hesitant</span> &mdash; the page had existed since launch.
+                Removed to make room for a direct, intuitive homepage recipe-browsing workflow. <span className="text-case-highlight font-semibold">Stakeholders were hesitant</span>, the page had existed since launch.
               </p>
             </div>
 
@@ -612,7 +612,7 @@ export default function SevenDishCaseStudy() {
                 Adding the &ldquo;Saved Recipes Folders&rdquo; feature
               </h4>
               <p className="text-body text-ink-muted leading-relaxed">
-                Added technical scope but drastically improved user organization. Not in the original brief &mdash; <span className="text-case-highlight font-semibold">had to be justified with evidence.</span>
+                Added technical scope but drastically improved user organization. Not in the original brief, <span className="text-case-highlight font-semibold">had to be justified with evidence.</span>
               </p>
             </div>
           </motion.div>
@@ -636,13 +636,13 @@ export default function SevenDishCaseStudy() {
             <div className=" overflow-hidden ring-1 ring-hairline">
               <img
                 src="/7dish/webp/zoom-team.webp"
-                alt="Jacki working with the 7dish team on Zoom &mdash; design collaboration session"
+                alt="Jacki working with the 7dish team on Zoom, design collaboration session"
                 loading="lazy"
                 className="w-full h-auto"
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 08 &mdash; Design collaboration session with the 7dish team. Aligning stakeholders with evidence, not taste.
+              Fig. 08, Design collaboration session with the 7dish team. Aligning stakeholders with evidence, not taste.
             </p>
           </motion.div>
         </motion.div>
@@ -725,7 +725,7 @@ export default function SevenDishCaseStudy() {
               />
             </div>
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center mt-4">
-              Fig. 09 &mdash; Final user testing survey results. 10/10 users rated the new design 8 or above.
+              Fig. 09, Final user testing survey results. 10/10 users rated the new design 8 or above.
             </p>
           </motion.div>
 
@@ -740,7 +740,7 @@ export default function SevenDishCaseStudy() {
                   &ldquo;{q.body}&rdquo;
                 </blockquote>
                 <figcaption className="mt-4 text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted">
-                  &mdash; {q.cite}
+, {q.cite}
                 </figcaption>
               </figure>
             ))}

@@ -50,12 +50,12 @@ const shipped: Shipped[] = [
   {
     icon: Layers,
     title: "60+ components built for AI workflows.",
-    body: <>Agent configuration cards, workflow status indicators, data extraction previews — built for <span className="text-case-highlight font-semibold">fullscreen, sidebar, or embedded</span>. Alongside the company&rsquo;s <span className="text-case-highlight font-semibold">first design system</span>: 8px grid, semantic tokens, language &amp; tone, motion docs.</>,
+    body: <>Agent configuration cards, workflow status indicators, data extraction previews, built for <span className="text-case-highlight font-semibold">fullscreen, sidebar, or embedded</span>. Alongside the company&rsquo;s <span className="text-case-highlight font-semibold">first design system</span>: 8px grid, semantic tokens, language &amp; tone, motion docs.</>,
   },
   {
     icon: Sparkles,
     title: "Figma to engineering in hours.",
-    body: <>Figma Design → Figma Make / Magic Patterns → GitHub → Engineering. <span className="text-case-highlight font-semibold">Prototype-to-production</span> in hours when a customer demo needed it. Storybook gave engineers <span className="text-case-highlight font-semibold">direct access</span> — no design handoff wait.</>,
+    body: <>Figma Design → Figma Make / Magic Patterns → GitHub → Engineering. <span className="text-case-highlight font-semibold">Prototype-to-production</span> in hours when a customer demo needed it. Storybook gave engineers <span className="text-case-highlight font-semibold">direct access</span>, no design handoff wait.</>,
   },
 ]
 
@@ -143,7 +143,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              XY's platform runs on <span className="text-case-highlight font-semibold">AI agents</span> — but configuring them required a <span className="text-case-highlight font-semibold">sales call</span>.
+              XY's platform runs on <span className="text-case-highlight font-semibold">AI agents</span>, but configuring them required a <span className="text-case-highlight font-semibold">sales call</span>.
             </motion.h3>
           </div>
           <div className={`${sectionRight} space-y-4`}>
@@ -152,7 +152,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-ink-muted leading-relaxed"
             >
-              Verification, scheduling, claims — the agents could handle it all. But every hour sales spent walking users through setup was an hour they couldn&rsquo;t sell. I had four months to change that.
+              Verification, scheduling, claims, the agents could handle it all. But every hour sales spent walking users through setup was an hour they couldn&rsquo;t sell. I had four months to change that.
             </motion.p>
           </div>
 
@@ -187,7 +187,7 @@ export default function XYCaseStudy() {
             <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
               &ldquo;{quote.body}&rdquo;
               <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                — {quote.cite}
+, {quote.cite}
               </span>
             </blockquote>
 
@@ -367,7 +367,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-ink-muted leading-relaxed"
             >
-              XY had never had a dedicated designer — just engineers making UI decisions. Before I could ship, I needed the foundations every screen would depend on:
+              XY had never had a dedicated designer, just engineers making UI decisions. Before I could ship, I needed the foundations every screen would depend on:
             </motion.p>
             <ul className="space-y-1.5 list-disc pl-5 text-base lg:text-lg text-ink-muted leading-relaxed">
               <li>A design system &amp; semantic token architecture</li>
@@ -378,7 +378,7 @@ export default function XYCaseStudy() {
           </div>
 
 
-            {/* Color system study — full-page iframe embed */}
+            {/* Color system study, full-page iframe embed */}
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -398,13 +398,13 @@ export default function XYCaseStudy() {
                 <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">What this is</p>
                   <p className="text-body text-ink-muted leading-relaxed">
-                    The complete color token system — primitives, semantic tokens, accessibility audit, and proposed system
+                    The complete color token system, primitives, semantic tokens, accessibility audit, and proposed system
                   </p>
                 </div>
                 <div className="p-3 rounded-none bg-background">
                   <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                   <p className="text-body text-ink-muted leading-relaxed">
-                    Every component, every agent status, every interaction maps to this semantic system — no more guessing hex values
+                    Every component, every agent status, every interaction maps to this semantic system, no more guessing hex values
                   </p>
                 </div>
                 <div className="p-3 rounded-none bg-background">
@@ -419,7 +419,7 @@ export default function XYCaseStudy() {
             <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
               Every design system decision was made with the same question: &ldquo;Does this make the next screen faster to ship?&rdquo; If the answer wasn&rsquo;t yes, it didn&rsquo;t go in.
               <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                — Design principle
+, Design principle
               </span>
             </blockquote>
           </motion.div>
@@ -461,7 +461,7 @@ export default function XYCaseStudy() {
                   <p className="text-base lg:text-lg text-ink-muted leading-relaxed">{s.body}</p>
                 </div>
 
-                {/* Storybook visual artifact — only on the components section */}
+                {/* Storybook visual artifact, only on the components section */}
                 {idx === 0 && (
                   <motion.div
                     variants={fadeUp}
@@ -472,7 +472,7 @@ export default function XYCaseStudy() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/xy/webp/storybook.webp"
-                        alt="XY.AI Storybook component library — 60+ production-ready components for AI workflows"
+                        alt="XY.AI Storybook component library, 60+ production-ready components for AI workflows"
                         loading="lazy"
                         className="w-full h-auto"
                       />
@@ -487,7 +487,7 @@ export default function XYCaseStudy() {
                       <div className="p-3 rounded-none bg-background">
                         <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
                         <p className="text-body text-ink-muted leading-relaxed">
-                          Components designed for AI-agent interaction patterns — not generic UI
+                          Components designed for AI-agent interaction patterns, not generic UI
                         </p>
                       </div>
                       <div className="p-3 rounded-none bg-background">
@@ -503,7 +503,7 @@ export default function XYCaseStudy() {
             )
           })}
 
-          {/* Tool logos — AI-native stack */}
+          {/* Tool logos, AI-native stack */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -572,7 +572,7 @@ export default function XYCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-ink-muted leading-relaxed"
             >
-              Three rounds of live demos with enterprise prospects, each building on the previous. I designed the experience but the CEO carried every conversation — I never talked to clients directly.
+              Three rounds of live demos with enterprise prospects, each building on the previous. I designed the experience but the CEO carried every conversation, I never talked to clients directly.
             </motion.p>
           </div>
 
@@ -584,14 +584,14 @@ export default function XYCaseStudy() {
             <div className="flex justify-center">
               <div className="inline-flex items-center gap-3 px-6 py-4  bg-background ring-1 ring-hairline">
                 <span className="text-3xl font-bold text-case-highlight">10 demos</span>
-                <span className="text-body text-ink-muted">across 3 rounds — each validated the chat-first approach</span>
+                <span className="text-body text-ink-muted">across 3 rounds, each validated the chat-first approach</span>
               </div>
             </div>
 
               <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
-                Every demo confirmed the same thing: once people saw the chat interface, the agent model clicked. The forms-based approach needed a guided walkthrough every time. The CEO didn&rsquo;t need me in the room — the design spoke for itself.
+                Every demo confirmed the same thing: once people saw the chat interface, the agent model clicked. The forms-based approach needed a guided walkthrough every time. The CEO didn&rsquo;t need me in the room, the design spoke for itself.
                 <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-                  — What the CEO reported back
+, What the CEO reported back
                 </span>
               </blockquote>
           </motion.div>
@@ -617,7 +617,7 @@ export default function XYCaseStudy() {
           </p>
 
           <ul className="space-y-3 mb-6 list-disc pl-5 text-base lg:text-lg text-ink-muted leading-relaxed">
-            <li>The <span className="text-case-highlight font-semibold">CEO pitched</span> the AI orchestration experience directly — no engineer needed.</li>
+            <li>The <span className="text-case-highlight font-semibold">CEO pitched</span> the AI orchestration experience directly, no engineer needed.</li>
             <li>Production-ready AI workflow components wired to Temporal for <span className="text-case-highlight font-semibold">live agent orchestration</span>.</li>
             <li>Self-serve AI experience became central to how the <span className="text-case-highlight font-semibold">sales team closes deals</span>.</li>
           </ul>
@@ -626,7 +626,7 @@ export default function XYCaseStudy() {
           <blockquote className="pl-5 border-l-2 border-accent/60 text-base lg:text-lg text-ink-muted italic leading-relaxed mb-6">
             &ldquo;{userFeedback.body}&rdquo;
             <span className="block mt-1.5 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-              — {userFeedback.cite}
+, {userFeedback.cite}
             </span>
           </blockquote>
 

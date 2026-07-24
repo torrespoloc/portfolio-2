@@ -73,7 +73,7 @@ function Divider() {
 }
 
 function PixelCrab() {
-  // Stylized 12×9 pixel critter — peach/coral, evokes the Claude Code mascot in screenshot
+  // Stylized 12×9 pixel critter, peach/coral, evokes the Claude Code mascot in screenshot
   const C = "#d99578"
   const D = "#a86852"
   const E = "#ffffff"
@@ -129,7 +129,7 @@ export function SideNookMockAfter() {
           className="mx-auto w-full max-w-[860px] rounded-[14px] overflow-hidden ring-1 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04)_inset] flex"
           style={{ background: tone.L0, ringColor: tone.stroke0 } as React.CSSProperties}
         >
-          {/* LEFT SIDEBAR — 180pt wide, L2 fill, 10pt rounded, with 8pt outer gutter */}
+          {/* LEFT SIDEBAR, 180pt wide, L2 fill, 10pt rounded, with 8pt outer gutter */}
           <div className="p-2 shrink-0">
             <div
               className="w-[180px] h-full flex flex-col rounded-[10px] ring-1"
@@ -144,7 +144,7 @@ export function SideNookMockAfter() {
               </div>
               <Divider />
 
-              {/* Action row — 4 buttons, + is CTA */}
+              {/* Action row, 4 buttons, + is CTA */}
               <div className="px-2 py-1 flex items-center gap-1">
                 <SidebarIconButton cta>
                   <Plus className="h-4 w-4" strokeWidth={2.4} />
@@ -220,7 +220,7 @@ export function SideNookMockAfter() {
             </div>
           </div>
 
-          {/* RIGHT — Terminal pane */}
+          {/* RIGHT, Terminal pane */}
           <div className="flex-1 min-w-0 flex flex-col pr-2 pt-4 pb-2 relative">
             <div className="font-mono text-label leading-[1.55]" style={{ color: tone.fg }}>
               {/* Splash header */}
@@ -239,7 +239,7 @@ export function SideNookMockAfter() {
                 </div>
               </div>
 
-              {/* Input bracket — top divider */}
+              {/* Input bracket, top divider */}
               <div className="mx-4 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
 
               {/* Input row */}

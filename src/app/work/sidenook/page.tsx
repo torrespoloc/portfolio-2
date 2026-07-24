@@ -58,12 +58,12 @@ const phases: Phase[] = [
   {
     icon: Sparkles,
     title: "Validate the feel before the function.",
-    body: <>First milestone: <span className="text-case-highlight font-semibold">the animation with no terminal</span> behind it — just the pill, the spring, the collapse. A sluggish animation would&rsquo;ve undermined the promise from the first interaction. Spring parameters (stiffness 280, damping 22) were iterated in Figma first, then tuned in code. The <span className="text-case-highlight font-semibold">hit area is 14pt</span> — wider than the visible 6pt pill — so the interaction catches without requiring precision.</>,
+    body: <>First milestone: <span className="text-case-highlight font-semibold">the animation with no terminal</span> behind it, just the pill, the spring, the collapse. A sluggish animation would&rsquo;ve undermined the promise from the first interaction. Spring parameters (stiffness 280, damping 22) were iterated in Figma first, then tuned in code. The <span className="text-case-highlight font-semibold">hit area is 14pt</span>, wider than the visible 6pt pill, so the interaction catches without requiring precision.</>,
   },
   {
     icon: Terminal,
     title: "Terminal backend with invisible focus handoff.",
-    body: <>Focus routes to the terminal on expand, back to your app on collapse. Making that handoff <span className="text-case-highlight font-semibold">invisible and reliable</span> was the <span className="text-case-highlight font-semibold">hardest design + engineering problem</span> in the project. Users will never notice it &mdash; and that&rsquo;s the point.</>,
+    body: <>Focus routes to the terminal on expand, back to your app on collapse. Making that handoff <span className="text-case-highlight font-semibold">invisible and reliable</span> was the <span className="text-case-highlight font-semibold">hardest design + engineering problem</span> in the project. Users will never notice it, and that&rsquo;s the point.</>,
   },
   {
     icon: Layers,
@@ -73,10 +73,10 @@ const phases: Phase[] = [
 ]
 
 const outcomes: React.ReactNode[] = [
-  <><span className="text-case-highlight font-semibold">v1.0 shipped April 23, 2026</span> &mdash; on timeline, now in testing with early users.</>,
+  <><span className="text-case-highlight font-semibold">v1.0 shipped April 23, 2026</span>, on timeline, now in testing with early users.</>,
   <>Zero screen space consumed when collapsed (<span className="text-case-highlight font-semibold">6pt pill</span>).</>,
   <><span className="text-case-highlight font-semibold">Hover-to-use in under 300ms.</span></>,
-  <>Works on all Spaces, fullscreen apps, and Mission Control &mdash; <span className="text-case-highlight font-semibold">no special configuration</span> needed.</>,
+  <>Works on all Spaces, fullscreen apps, and Mission Control, <span className="text-case-highlight font-semibold">no special configuration</span> needed.</>,
 ]
 
 const differently: { title: string; body: React.ReactNode }[] = [
@@ -86,7 +86,7 @@ const differently: { title: string; body: React.ReactNode }[] = [
   },
   {
     title: "User testing on collapse timing.",
-    body: <>The <span className="text-case-highlight font-semibold">300ms debounce</span> was tuned by feel. It works &mdash; but I&rsquo;d want real usage data before calling it final.</>,
+    body: <>The <span className="text-case-highlight font-semibold">300ms debounce</span> was tuned by feel. It works, but I&rsquo;d want real usage data before calling it final.</>,
   },
 ]
 
@@ -190,7 +190,7 @@ export default function SideNookCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.15] text-foreground"
             >
-              A terminal that stays out of the way — until you need it.
+              A terminal that stays out of the way, until you need it.
             </motion.h3>
           </div>
 
@@ -200,9 +200,9 @@ export default function SideNookCaseStudy() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
             >
-              <li>In AI-assisted workflows &mdash; Claude Code, Cursor, shell agents alongside Figma, Xcode, a browser &mdash; you alt-tab to a terminal <span className="text-case-highlight font-semibold">dozens of times a day</span>.</li>
+              <li>In AI-assisted workflows, Claude Code, Cursor, shell agents alongside Figma, Xcode, a browser, you alt-tab to a terminal <span className="text-case-highlight font-semibold">dozens of times a day</span>.</li>
               <li>Full windows eat screen space. No terminal was <span className="text-case-highlight font-semibold">designed to be ambient</span>.</li>
-              <li>SideNook is that terminal. <span className="text-case-highlight font-semibold">Always there, never in the way.</span> Inspired by the iOS volume HUD &mdash; same surfacing-when-needed, vanishing-when-not principle.</li>
+              <li>SideNook is that terminal. <span className="text-case-highlight font-semibold">Always there, never in the way.</span> Inspired by the iOS volume HUD, same surfacing-when-needed, vanishing-when-not principle.</li>
             </motion.ul>
           </div>
 
@@ -237,7 +237,7 @@ export default function SideNookCaseStudy() {
               }
             />
             <p className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted text-center">
-              Fig. 01 — macOS terminal vs. SideNook v1.0. One you tolerate. One that <span className="text-case-highlight font-semibold">feels designed for you</span>.
+              Fig. 01, macOS terminal vs. SideNook v1.0. One you tolerate. One that <span className="text-case-highlight font-semibold">feels designed for you</span>.
             </p>
           </motion.div>
 
@@ -282,7 +282,7 @@ export default function SideNookCaseStudy() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
           className="text-base lg:text-lg text-muted-foreground mb-6 max-w-2xl"
         >
-          Three phases. <span className="text-case-highlight font-semibold">The animation came before the terminal</span> — on purpose.
+          Three phases. <span className="text-case-highlight font-semibold">The animation came before the terminal</span>, on purpose.
         </motion.p>
 
         {/* ── Phase 1: Feel-first ── */}
@@ -323,7 +323,7 @@ export default function SideNookCaseStudy() {
               </div>
             </div>
             <figcaption className="text-body-sm font-mono uppercase tracking-[0.18em] text-ink-muted">
-              Fig. 01 — The layout <span className="text-case-highlight font-semibold">changed the product</span>. Vertical tabs gave room for features the top-bar concept never had.
+              Fig. 01, The layout <span className="text-case-highlight font-semibold">changed the product</span>. Vertical tabs gave room for features the top-bar concept never had.
             </figcaption>
           </motion.figure>
 
@@ -342,7 +342,7 @@ export default function SideNookCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                A subtle dot shows connection status, running processes, and available updates — <span className="text-case-highlight font-semibold">visible even when fully collapsed</span>.
+                A subtle dot shows connection status, running processes, and available updates, <span className="text-case-highlight font-semibold">visible even when fully collapsed</span>.
               </p>
               <ul className="space-y-1.5 text-body text-ink-muted">
                 <li className="flex gap-2">
@@ -385,7 +385,7 @@ export default function SideNookCaseStudy() {
             className="p-0 bg-secondary/40 ring-1 ring-hairline"
           >
             <p className="text-base lg:text-lg text-ink-muted leading-relaxed mb-5">
-              A terminal that <span className="text-case-highlight font-semibold">never steals focus</span> sounds obvious &mdash; until <span className="text-case-highlight font-semibold">AppKit</span> disagrees. On macOS, window activation is deeply assumed by the framework. Every interaction had to pass one test: <em>did clicking this cause an app switch?</em> The non-activating panel required deliberate, non-default technical choices across <span className="text-case-highlight font-semibold">every edge case</span> &mdash; Spaces, fullscreen, Mission Control.
+              A terminal that <span className="text-case-highlight font-semibold">never steals focus</span> sounds obvious, until <span className="text-case-highlight font-semibold">AppKit</span> disagrees. On macOS, window activation is deeply assumed by the framework. Every interaction had to pass one test: <em>did clicking this cause an app switch?</em> The non-activating panel required deliberate, non-default technical choices across <span className="text-case-highlight font-semibold">every edge case</span>, Spaces, fullscreen, Mission Control.
             </p>
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
               <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">User clicks panel</span>
@@ -462,7 +462,7 @@ export default function SideNookCaseStudy() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                  Resizable drawer — 80 to 384pt
+                  Resizable drawer, 80 to 384pt
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -515,11 +515,11 @@ export default function SideNookCaseStudy() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                  Drag to resize — keyboard shortcuts for quick-switch
+                  Drag to resize, keyboard shortcuts for quick-switch
                 </li>
               </ul>
               <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
-                <strong className="text-foreground not-italic">Why:</strong> Running Claude Code, watching builds, editing configs — one session isn&rsquo;t enough. Split panes <span className="text-case-highlight font-semibold">keep context without spawning more windows</span>.
+                <strong className="text-foreground not-italic">Why:</strong> Running Claude Code, watching builds, editing configs, one session isn&rsquo;t enough. Split panes <span className="text-case-highlight font-semibold">keep context without spawning more windows</span>.
               </p>
             </div>
             <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
@@ -542,12 +542,12 @@ export default function SideNookCaseStudy() {
             </div>
             <div className={`${sectionRight} space-y-4`}>
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
-                Curated themes or custom color palettes. Adjustable opacity, blur, and font controls — <span className="text-case-highlight font-semibold">every visual element is tunable</span>.
+                Curated themes or custom color palettes. Adjustable opacity, blur, and font controls, <span className="text-case-highlight font-semibold">every visual element is tunable</span>.
               </p>
               <ul className="space-y-1.5 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
-                  Curated light and dark themes — independent ANSI palettes
+                  Curated light and dark themes, independent ANSI palettes
                 </li>
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
@@ -559,7 +559,7 @@ export default function SideNookCaseStudy() {
                 </li>
               </ul>
               <p className="text-body-sm lg:text-body text-ink-muted italic leading-relaxed">
-                <strong className="text-foreground not-italic">Why:</strong> Coordinating SideNook&rsquo;s accents with Claude Code&rsquo;s own color system — across both appearances — required a full token architecture. <span className="text-case-highlight font-semibold">No hex values in any component.</span>
+                <strong className="text-foreground not-italic">Why:</strong> Coordinating SideNook&rsquo;s accents with Claude Code&rsquo;s own color system, across both appearances, required a full token architecture. <span className="text-case-highlight font-semibold">No hex values in any component.</span>
               </p>
             </div>
             <div className={`${sectionFull} overflow-hidden ring-1 ring-hairline bg-background`}>
@@ -583,7 +583,7 @@ export default function SideNookCaseStudy() {
             <div className={sectionRight}>
               <ul className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5">
                 <li>Scope grew organically as each phase revealed the next.</li>
-                <li>Features weren&rsquo;t added from a wishlist — they <span className="text-case-highlight font-semibold">earned their place through use</span>.</li>
+                <li>Features weren&rsquo;t added from a wishlist, they <span className="text-case-highlight font-semibold">earned their place through use</span>.</li>
                 <li>The PRD was a starting point, <span className="text-case-highlight font-semibold">not a contract</span>.</li>
               </ul>
             </div>
@@ -591,7 +591,7 @@ export default function SideNookCaseStudy() {
               <iframe
                 src="/sidenook/prd-evolution.html"
                 className="w-full"
-                title="SideNook PRD evolution — from original scope to shipped v1.0"
+                title="SideNook PRD evolution, from original scope to shipped v1.0"
                 style={{ border: 0, height: "760px", display: "block" }}
               />
             </div>
@@ -647,14 +647,14 @@ export default function SideNookCaseStudy() {
             <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
               Designed in Figma with <span className="text-foreground/85 font-medium">Claude Design</span>, built entirely with{" "}
               <span className="text-foreground/85 font-medium">Claude Code</span>, including{" "}
-              <span className="text-foreground/85 font-medium">Figma MCP</span> for design-to-code. <span className="text-case-highlight font-semibold">Not AI as autocomplete &mdash; AI as a collaborator</span> across every phase: design system decisions, interaction logic, implementation, iteration. The project is as much a proof of concept for AI-native development as it is a terminal tool.
+              <span className="text-foreground/85 font-medium">Figma MCP</span> for design-to-code. <span className="text-case-highlight font-semibold">Not AI as autocomplete, AI as a collaborator</span> across every phase: design system decisions, interaction logic, implementation, iteration. The project is as much a proof of concept for AI-native development as it is a terminal tool.
             </p>
           </div>
           <div className={`${sectionFull} w-full overflow-hidden ring-1 ring-hairline`}>
             <iframe
               src="/sidenook/toolchain.html"
               className="w-full"
-              title="AI-native toolchain — Figma → Claude Design → Claude Code + Figma MCP → SideNook v1.0"
+              title="AI-native toolchain, Figma → Claude Design → Claude Code + Figma MCP → SideNook v1.0"
               style={{ border: 0, height: "120px", display: "block" }}
             />
           </div>
@@ -679,7 +679,7 @@ export default function SideNookCaseStudy() {
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Ship as a VS Code extension</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
-                  Faster inside an existing app. But that ties SideNook to a single editor. The goal was a <span className="text-case-highlight font-semibold">system-level tool</span> that works with any terminal-based agent &mdash; Claude Code, Cursor, SSH, whatever comes next.
+                  Faster inside an existing app. But that ties SideNook to a single editor. The goal was a <span className="text-case-highlight font-semibold">system-level tool</span> that works with any terminal-based agent, Claude Code, Cursor, SSH, whatever comes next.
                 </p>
               </div>
             </li>
@@ -688,7 +688,7 @@ export default function SideNookCaseStudy() {
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Make it paid from day one</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
-                  <span className="text-case-highlight font-semibold">I built this to learn.</span> Charging before the interaction pattern was proven would&rsquo;ve been premature. Free now, donations welcome. A pro tier makes sense if the model proves out &mdash; but not until the core is undeniable.
+                  <span className="text-case-highlight font-semibold">I built this to learn.</span> Charging before the interaction pattern was proven would&rsquo;ve been premature. Free now, donations welcome. A pro tier makes sense if the model proves out, but not until the core is undeniable.
                 </p>
               </div>
             </li>
@@ -697,7 +697,7 @@ export default function SideNookCaseStudy() {
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Over-engineer the plugin system before shipping</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
-                  A plugin architecture would be powerful &mdash; custom commands, integrations, themes. But building infrastructure before knowing what people want <span className="text-case-highlight font-semibold">is how side projects die</span>. Ship the terminal, learn from usage, then open the platform.
+                  A plugin architecture would be powerful, custom commands, integrations, themes. But building infrastructure before knowing what people want <span className="text-case-highlight font-semibold">is how side projects die</span>. Ship the terminal, learn from usage, then open the platform.
                 </p>
               </div>
             </li>
@@ -734,7 +734,7 @@ export default function SideNookCaseStudy() {
           Designed &amp; built side by side.
         </h3>
         <p className="text-base lg:text-lg text-white/75 leading-relaxed mb-6 max-w-2xl">
-          The product <span className="text-case-highlight font-semibold">and</span> the marketing site — I designed both, end to end. Check it out at <span className="text-case-highlight font-semibold">sidenook.dev</span>.
+          The product <span className="text-case-highlight font-semibold">and</span> the marketing site, I designed both, end to end. Check it out at <span className="text-case-highlight font-semibold">sidenook.dev</span>.
         </p>
         <div className="flex flex-wrap gap-3">
           <a

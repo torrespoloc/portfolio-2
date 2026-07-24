@@ -27,16 +27,16 @@ const siteUrl = "https://www.jackelinetorres.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "J A C K I – AI Product Designer",
+  title: "J A C K I – AI-Native Product Designer",
   description:
-    " AI Product Designer crafting apps and systems that users love.",
+    " AI-Native Product Designer. I design AI-powered products that drive conversion and retention across health tech, fintech, and real estate.",
   icons: {
     icon: "/logo.svg",
   },
   openGraph: {
-    title: "J A C K I – AI Product Designer",
+    title: "J A C K I – AI-Native Product Designer",
     description:
-      " AI Product Designer crafting apps and systems that users love.",
+      " AI-Native Product Designer. I design AI-powered products that drive conversion and retention across health tech, fintech, and real estate.",
     url: siteUrl,
     siteName: "Jackeline Torres",
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 800,
-        alt: "Jackeline Torres -  AI Product Designer",
+        alt: "Jackeline Torres -  AI-Native Product Designer",
       },
     ],
     locale: "en_US",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "J A C K I – AI Product Designer",
+    title: "J A C K I – AI-Native Product Designer",
     description:
-      " AI Product Designer crafting apps and systems that users love.",
+      " AI-Native Product Designer. I design AI-powered products that drive conversion and retention across health tech, fintech, and real estate.",
     images: [`${siteUrl}/og-image.png`],
   },
   other: {

@@ -41,7 +41,7 @@ export function CopyEmail() {
       )}
       {copyError && (
         <span className="absolute -top-7 left-8 text-xs text-destructive bg-background px-2 py-0.5 rounded-none border border-border shadow-sm animate-in fade-in slide-in-from-bottom-1 duration-200">
-          Couldn&apos;t copy — select text instead
+          Couldn&apos;t copy. Select text instead
         </span>
       )}
     </div>

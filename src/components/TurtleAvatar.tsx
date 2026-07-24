@@ -9,7 +9,7 @@ export function TurtleAvatar({ size = 40, className = "" }: TurtleAvatarProps) {
   return (
     <img
       src="/logos/turtle.svg"
-      alt="Turtle — the portfolio mascot"
+      alt="Turtle, the portfolio mascot"
       loading="lazy"
       width={size}
       height={Math.round((size * 241) / 319)}

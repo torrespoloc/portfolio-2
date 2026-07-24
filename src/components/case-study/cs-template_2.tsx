@@ -39,9 +39,9 @@ export interface CaseStudyMeta {
 }
 
 export interface CaseStudyTemplatePraProps {
-  /** Project headline — rendered full-width at the top */
+  /** Project headline, rendered full-width at the top */
   headline: React.ReactNode
-  /** Hero visual (video or image) — full-width below the headline */
+  /** Hero visual (video or image), full-width below the headline */
   heroImage?: React.ReactNode
   /** Standardized project metadata */
   meta: CaseStudyMeta
@@ -53,7 +53,7 @@ export interface CaseStudyTemplatePraProps {
 // ─── Visual Placement Rule ───
 // Large visuals (screenshots, diagrams, flow charts) must be positioned at
 // the bottom of their section, spanning full width below all text content.
-// Do NOT place visuals in a side-by-side grid with supporting text — the text
+// Do NOT place visuals in a side-by-side grid with supporting text, the text
 // describes the problem; the visual shows the solution. Stack them vertically.
 // ─────────────────────────────
 
@@ -83,7 +83,7 @@ export function SectionReveal({ children, className, delay = 0 }: { children: Re
   )
 }
 
-// ─── Case study section — parent-managed spacing and dividers ───
+// ─── Case study section, parent-managed spacing and dividers ───
 // Consistent vertical padding + SectionDivider between sections.
 // The template owns spacing; pages just provide content.
 export function CaseStudySection({ id, children, className = "" }: { id?: string; children: React.ReactNode; className?: string }) {
@@ -97,7 +97,7 @@ export function CaseStudySection({ id, children, className = "" }: { id?: string
   )
 }
 
-// ─── Case study section — full bleed, no padding ───
+// ─── Case study section, full bleed, no padding ───
 // Use for sections where background colors need to fill edge-to-edge
 // (e.g., "Want a walkthrough?" closing CTA cards).
 // Omits contentWidth, px-*, and py-* so the background reaches full width.
@@ -113,7 +113,7 @@ export function CaseStudySectionFullBleed({ id, children, className = "" }: { id
 }
 // ─────────────────────────────────────────────
 
-// ─── Empty section — divider + spacing, no content ───
+// ─── Empty section, divider + spacing, no content ───
 // Use between content sections for visual breathing room.
 export function EmptySection({ divider = true }: { divider?: boolean }) {
   return (
@@ -164,11 +164,11 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
   return (
     <div className="min-h-screen bg-hero-bg text-foreground relative">
       <div className="mx-auto w-full max-w-[1400px] min-h-screen lg:flex relative">
-        {/* Outer projection lines — z-40 stays above the side nav's z-30 fill */}
-        <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none z-40" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-0 w-px bg-hero-border pointer-events-none z-10" aria-hidden="true" />
-        {/* Between sidebar and content — z-40 stays above the side nav's z-30 fill */}
-        <div className="absolute inset-y-0 left-[268px] w-px bg-hero-border pointer-events-none z-40 hidden lg:block" aria-hidden="true" />
+        {/* Outer projection lines, z-40 stays above the side nav's z-30 fill */}
+        <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none opacity-70 z-40" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-0 w-px bg-hero-border pointer-events-none opacity-70 z-10" aria-hidden="true" />
+        {/* Between sidebar and content, z-40 stays above the side nav's z-30 fill */}
+        <div className="absolute inset-y-0 left-[268px] w-px bg-hero-border pointer-events-none opacity-70 z-40 hidden lg:block" aria-hidden="true" />
 
       {/* ─── SIDE NAV ─── */}
       <nav
@@ -201,17 +201,17 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
       <main className="flex-1 min-w-0 relative px-6 lg:px-[160px]">
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-[160px] hidden lg:block w-px bg-hero-border pointer-events-none z-10"
+          className="absolute inset-y-0 left-[160px] hidden lg:block w-px bg-hero-border pointer-events-none opacity-70 z-10"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 right-[160px] hidden lg:block w-px bg-hero-border pointer-events-none z-10"
+          className="absolute inset-y-0 right-[160px] hidden lg:block w-px bg-hero-border pointer-events-none opacity-70 z-10"
         />
 
         <EmptySection divider={false} />
         <SectionDivider />
 
-        {/* Headline — hero width (content + 48px per side); color wash spans full-width */}
+        {/* Headline, hero width (content + 48px per side); color wash spans full-width */}
         <section id="hero" className="relative pt-20 lg:pt-12 pb-12 overflow-hidden">
           {/* Subtle color wash behind the headline */}
           <div aria-hidden className="absolute inset-0 pointer-events-none">
@@ -256,7 +256,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
               show: { opacity: 1, transition: { staggerChildren: 0.08 } },
             }}
           >
-            {/* Meta grid — pill-style tags with accent colors */}
+            {/* Meta grid, pill-style tags with accent colors */}
             <SectionReveal className={metaStripWidth}>
               <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 overflow-hidden divide-x divide-hero-border bg-background">
                 {metaFields.map((m, i) => {
