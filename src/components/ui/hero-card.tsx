@@ -73,7 +73,7 @@ function FlipBackFace({ progress, isFlipped }: { progress: number; isFlipped: bo
       <div
         className="grid h-full"
         style={{
-          gridTemplateColumns: "34.253% 37.011% 28.736%",
+          gridTemplateColumns: "repeat(3, 1fr)",
           gridTemplateRows: "29.167% 33.929% 36.905%",
         }}
       >
