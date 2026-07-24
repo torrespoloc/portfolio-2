@@ -37,7 +37,7 @@ const meta = {
   duration: "Concept → v1.0 · April 2026",
   team: "Self-managed, designed, and shipped",
   tools: (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       <span className="text-xs font-mono text-muted-foreground">SwiftUI</span>
       <TooltipIcon src="/logos/claude-chat.png" alt="Claude" tooltip="Claude" className="h-6 w-6 rounded-sm" />
       <TooltipIcon src="/logos/claude-code.png" alt="Claude Code" tooltip="Claude Code" className="h-6 w-6 rounded-sm" />
@@ -140,13 +140,13 @@ export default function SideNookCaseStudy() {
       headline={
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Developer Tools
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               macOS · personal
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2.5 py-1 rounded-full">
+            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse">
               Building V2
             </span>
           </div>
@@ -198,7 +198,7 @@ export default function SideNookCaseStudy() {
             <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
+              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-2"
             >
               <li>In AI-assisted workflows, Claude Code, Cursor, shell agents alongside Figma, Xcode, a browser, you alt-tab to a terminal <span className="text-case-highlight font-semibold">dozens of times a day</span>.</li>
               <li>Full windows eat screen space. No terminal was <span className="text-case-highlight font-semibold">designed to be ambient</span>.</li>
@@ -299,7 +299,7 @@ export default function SideNookCaseStudy() {
             <div className="grid grid-cols-1 gap-0">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-label font-mono uppercase tracking-[0.2em] text-muted-foreground/80 px-2 py-0.5 ring-1 ring-hero-border">
+                  <span className="text-label font-mono uppercase tracking-[0.2em] text-muted-foreground/80 px-2 py-1 ring-1 ring-hero-border">
                     Before · early concept
                   </span>
                   <span className="text-xs text-muted-foreground/70">Top-bar layout, single-row tabs.</span>
@@ -310,7 +310,7 @@ export default function SideNookCaseStudy() {
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-label font-mono uppercase tracking-[0.2em] text-white px-2 py-0.5 rounded-full bg-accent">
+                  <span className="text-label font-mono uppercase tracking-[0.2em] text-white px-2 py-1 rounded-full bg-accent">
                     After · v1.0 shipped
                   </span>
                   <span className="text-xs text-muted-foreground/70">
@@ -344,7 +344,7 @@ export default function SideNookCaseStudy() {
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A subtle dot shows connection status, running processes, and available updates, <span className="text-case-highlight font-semibold">visible even when fully collapsed</span>.
               </p>
-              <ul className="space-y-1.5 text-body text-ink-muted">
+              <ul className="space-y-2 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
                   Live connection status for SSH and local sessions
@@ -388,13 +388,13 @@ export default function SideNookCaseStudy() {
               A terminal that <span className="text-case-highlight font-semibold">never steals focus</span> sounds obvious, until <span className="text-case-highlight font-semibold">AppKit</span> disagrees. On macOS, window activation is deeply assumed by the framework. Every interaction had to pass one test: <em>did clicking this cause an app switch?</em> The non-activating panel required deliberate, non-default technical choices across <span className="text-case-highlight font-semibold">every edge case</span>, Spaces, fullscreen, Mission Control.
             </p>
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-              <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">User clicks panel</span>
+              <span className="px-3 py-2 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">User clicks panel</span>
               <span className="text-muted-foreground/40 text-base">→</span>
-              <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">AppKit activates window</span>
+              <span className="px-3 py-2 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">AppKit activates window</span>
               <span className="text-chartreuse/50 text-base">→</span>
-              <span className="px-3 py-1.5 rounded-md bg-chartreuse ring-1 ring-chartreuse-foreground/20 text-chartreuse-foreground font-medium">SideNook intercepts ✗</span>
+              <span className="px-3 py-2 rounded-md bg-chartreuse ring-1 ring-chartreuse-foreground/20 text-chartreuse-foreground font-medium">SideNook intercepts ✗</span>
               <span className="text-muted-foreground/40 text-base">→</span>
-              <span className="px-3 py-1.5 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">No app switch</span>
+              <span className="px-3 py-2 rounded-md bg-background ring-1 ring-hairline-strong text-ink-muted">No app switch</span>
             </div>
           </motion.aside>
 
@@ -415,7 +415,7 @@ export default function SideNookCaseStudy() {
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A persistent monospaced notepad built into the panel. Jot commands without leaving your terminal.
               </p>
-              <ul className="space-y-1.5 text-body text-ink-muted">
+              <ul className="space-y-2 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
                   Line-number gutter, up to 100 lines
@@ -455,7 +455,7 @@ export default function SideNookCaseStudy() {
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 A searchable command reference from a markdown file. Click any row to run it in the active terminal.
               </p>
-              <ul className="space-y-1.5 text-body text-ink-muted">
+              <ul className="space-y-2 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
                   Real-time filter as you type
@@ -504,7 +504,7 @@ export default function SideNookCaseStudy() {
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Run multiple terminal sessions side by side. Watch logs, edit configs, run commands <span className="text-case-highlight font-semibold">without juggling windows</span>.
               </p>
-              <ul className="space-y-1.5 text-body text-ink-muted">
+              <ul className="space-y-2 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
                   Vertical and horizontal split panes
@@ -544,7 +544,7 @@ export default function SideNookCaseStudy() {
               <p className="text-base lg:text-lg text-ink-muted leading-relaxed">
                 Curated themes or custom color palettes. Adjustable opacity, blur, and font controls, <span className="text-case-highlight font-semibold">every visual element is tunable</span>.
               </p>
-              <ul className="space-y-1.5 text-body text-ink-muted">
+              <ul className="space-y-2 text-body text-ink-muted">
                 <li className="flex gap-2">
                   <span className="text-ink-muted mt-1 shrink-0">▸</span>
                   Curated light and dark themes, independent ANSI palettes
@@ -581,7 +581,7 @@ export default function SideNookCaseStudy() {
               </h4>
             </div>
             <div className={sectionRight}>
-              <ul className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5">
+              <ul className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-2">
                 <li>Scope grew organically as each phase revealed the next.</li>
                 <li>Features weren&rsquo;t added from a wishlist, they <span className="text-case-highlight font-semibold">earned their place through use</span>.</li>
                 <li>The PRD was a starting point, <span className="text-case-highlight font-semibold">not a contract</span>.</li>
@@ -612,7 +612,7 @@ export default function SideNookCaseStudy() {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
             {outcomes.map((o, i) => (
               <li key={i} className="flex gap-4 bg-background">
-                <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-0.5">
+                <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-body-sm text-foreground/85 leading-relaxed">{o}</p>
@@ -675,7 +675,7 @@ export default function SideNookCaseStudy() {
           </div>
           <ul className="space-y-0">
             <li className="flex gap-4 bg-background">
-              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">01</span>
+              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-1">01</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Ship as a VS Code extension</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
@@ -684,7 +684,7 @@ export default function SideNookCaseStudy() {
               </div>
             </li>
             <li className="flex gap-4 bg-background">
-              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">02</span>
+              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-1">02</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Make it paid from day one</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
@@ -693,7 +693,7 @@ export default function SideNookCaseStudy() {
               </div>
             </li>
             <li className="flex gap-4 bg-background">
-              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-0.5">03</span>
+              <span className="text-xs font-mono text-muted-foreground/60 shrink-0 pt-1">03</span>
               <div>
                 <p className="text-body-sm font-semibold text-foreground/85 mb-1">Over-engineer the plugin system before shipping</p>
                 <p className="text-sm lg:text-base text-hero-muted leading-relaxed">
@@ -721,7 +721,7 @@ export default function SideNookCaseStudy() {
         >
           <ul className="space-y-6">
             {differently.map((d) => (
-              <li key={d.title} className="space-y-1.5">
+              <li key={d.title} className="space-y-2">
                 <h4 className="text-base lg:text-lg font-semibold tracking-tight text-foreground">{d.title}</h4>
                 <p className="text-body-sm text-ink-muted leading-relaxed">{d.body}</p>
               </li>
@@ -741,20 +741,20 @@ export default function SideNookCaseStudy() {
             href={LINKS.sidenookDev}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+            className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
           >
             View the site
             <ArrowUpRight className="ml-1 h-4 w-4" />
           </a>
           <a
             href={`mailto:${LINKS.email}?subject=SideNook%20case%20study`}
-            className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-white/30 text-sm font-medium whitespace-nowrap transition-all text-white hover:bg-white/10 hover:text-white"
+            className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-white/30 text-sm font-medium whitespace-nowrap transition-all text-white hover:bg-white/10 hover:text-white"
           >
             Email me
           </a>
           <a
             href="/#work"
-            className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-white/30 text-sm font-medium whitespace-nowrap transition-all text-white hover:bg-white/10 hover:text-white"
+            className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-white/30 text-sm font-medium whitespace-nowrap transition-all text-white hover:bg-white/10 hover:text-white"
           >
             More work
           </a>

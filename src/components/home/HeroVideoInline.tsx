@@ -89,7 +89,7 @@ export function HeroVideoInline({ onOpenOverlay }: { onOpenOverlay: () => void }
     >
       {/* "Learn more" tag */}
       <motion.span id="get-to-know-me-label"
-        className="absolute -top-7 -right-7 max-md:-top-5 max-md:-right-5 z-20 inline-flex items-center gap-1 max-md:gap-0.5 px-3 py-1.5 max-md:px-1.5 max-md:py-1 text-sm max-md:text-[11px] font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md rotate-12 shadow-sm pointer-events-none select-none whitespace-nowrap"
+        className="absolute -top-7 -right-7 max-md:-top-5 max-md:-right-5 z-20 inline-flex items-center gap-1 max-md:gap-1 px-3 py-2 max-md:px-2 max-md:py-1 text-sm max-md:text-[11px] font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md rotate-12 shadow-sm pointer-events-none select-none whitespace-nowrap"
         animate={reducedMotion ? {} : {
           y: [0, -8, 0, -4, 0],
           scale: [1, 1.08, 1, 1.04, 1],

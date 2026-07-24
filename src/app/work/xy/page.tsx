@@ -30,7 +30,7 @@ const meta = {
   duration: "4 months",
   team: "CPO, CEO, 4 Engineers",
   tools: (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       {["GitHub", "Cursor", "Claude Code", "Claude", "Figma"].map((tool) => {
         const logo = TOOL_LOGOS[tool]
         if (!logo) return null
@@ -82,17 +82,17 @@ export default function XYCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Healthcare AI
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               SaaS
             </span>
             <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground inline-flex items-center gap-1">
-              <Lock className="h-2.5 w-2.5" />
+              <Lock className="h-2 w-2" />
               NDA
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2.5 py-1 rounded-full">
+            <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-2 py-1 rounded-full">
               NDA-friendly
             </span>
           </div>
@@ -369,7 +369,7 @@ export default function XYCaseStudy() {
             >
               XY had never had a dedicated designer, just engineers making UI decisions. Before I could ship, I needed the foundations every screen would depend on:
             </motion.p>
-            <ul className="space-y-1.5 list-disc pl-5 text-base lg:text-lg text-ink-muted leading-relaxed">
+            <ul className="space-y-2 list-disc pl-5 text-base lg:text-lg text-ink-muted leading-relaxed">
               <li>A design system &amp; semantic token architecture</li>
               <li>Writing guidelines for AI-facing UI</li>
               <li>Light, dark, and agent theming</li>
@@ -513,21 +513,21 @@ export default function XYCaseStudy() {
               AI-native design stack
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-6 py-6 flex-wrap">
-              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2">
                 <img src="/logos/figma.png" alt="Figma" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
-              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2">
                 <img src="/logos/cursor.png" alt="Cursor" loading="lazy" className="h-full w-full object-contain" />
               </div>
-              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2">
                 <img src="/logos/claude-code.png" alt="Claude Code" loading="lazy" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl text-case-highlight/70 font-light select-none">→</span>
-              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2">
                 <img src="/logos/github.png" alt="GitHub" loading="lazy" className="h-full w-full object-contain" />
               </div>
-              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2.5">
+              <div className="flex items-center justify-center h-16 w-16  bg-accent/[0.08] ring-2 ring-accent/20 p-2">
                 <img src="/logos/storybook.svg" alt="Storybook" loading="lazy" className="h-full w-full object-contain" />
               </div>
             </div>
@@ -625,7 +625,7 @@ export default function XYCaseStudy() {
           {/* User feedback quote */}
           <blockquote className="pl-5 border-l-2 border-accent/60 text-base lg:text-lg text-ink-muted italic leading-relaxed mb-6">
             &ldquo;{userFeedback.body}&rdquo;
-            <span className="block mt-1.5 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
+            <span className="block mt-2 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
 , {userFeedback.cite}
             </span>
           </blockquote>
@@ -671,7 +671,7 @@ export default function XYCaseStudy() {
 
           <ul className="space-y-5">
             <li className="flex gap-5 bg-background">
-              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">01</span>
+              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-1">01</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Design-to-engineering pipeline ownership</p>
                 <p className="text-body text-ink-muted leading-relaxed">
@@ -680,7 +680,7 @@ export default function XYCaseStudy() {
               </div>
             </li>
             <li className="flex gap-5 bg-background">
-              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">02</span>
+              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-1">02</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">Rigorous design standards</p>
                 <p className="text-body text-ink-muted leading-relaxed">
@@ -689,7 +689,7 @@ export default function XYCaseStudy() {
               </div>
             </li>
             <li className="flex gap-5 bg-background">
-              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-0.5">03</span>
+              <span className="text-body-sm font-mono text-ink-muted shrink-0 pt-1">03</span>
               <div>
                 <p className="text-body font-semibold text-foreground mb-1">AI-powered workflow tracking via Claude MCP</p>
                 <p className="text-body text-ink-muted leading-relaxed">
@@ -723,7 +723,7 @@ export default function XYCaseStudy() {
           <p className="text-base lg:text-lg text-background/75 leading-relaxed max-w-2xl">
             Here&rsquo;s what I&rsquo;d love to walk you through:
           </p>
-          <ul className="space-y-1.5 list-disc pl-5 max-w-2xl text-base lg:text-lg text-background/75 leading-relaxed mb-6">
+          <ul className="space-y-2 list-disc pl-5 max-w-2xl text-base lg:text-lg text-background/75 leading-relaxed mb-6">
             <li>The AI agent orchestration flow</li>
             <li>The 60+ component library</li>
             <li>The AI-native pipeline from prototype to production</li>
@@ -731,7 +731,7 @@ export default function XYCaseStudy() {
           <div className="flex flex-wrap gap-3 mb-6">
             <a
               href={`mailto:${LINKS.email}?subject=XY.AI%20case%20study`}
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
             >
               Email me
               <Sparkles className="ml-1 h-4 w-4" />

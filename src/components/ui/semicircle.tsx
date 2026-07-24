@@ -39,10 +39,10 @@ export function Semicircle({
 
   // Text offset from the flat edge
   const textClass: Record<FlatEdge, string> = {
-    top: "mt-1.5",
-    bottom: "mb-1.5",
-    left: "ml-1.5",
-    right: "mr-1.5",
+    top: "mt-2",
+    bottom: "mb-2",
+    left: "ml-2",
+    right: "mr-2",
   }
 
   return (

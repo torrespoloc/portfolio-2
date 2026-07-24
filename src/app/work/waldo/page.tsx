@@ -37,7 +37,7 @@ const meta = {
   duration: "May–Nov 2025",
   team: "VPP, Design Lead,  Designer, dev team 3 continents",
   tools: (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       {["Figma", "V0 by Vercel", "ChatGPT", "Perplexity", "Loom"].map((tool) => {
         const logo = TOOL_LOGOS[tool]
         if (!logo) return null
@@ -113,10 +113,10 @@ export default function WaldoCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Healthtech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Mobile
             </span>
           </div>
@@ -257,7 +257,7 @@ export default function WaldoCaseStudy() {
             <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
+              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-2"
             >
               <li>Staff logged into <span className="text-case-highlight font-semibold">four systems</span> to complete one order.</li>
               <li>Family defaults saved the last patient who ordered, requiring manual corrections.</li>
@@ -581,7 +581,7 @@ export default function WaldoCaseStudy() {
               ].map((item) => (
                 <div key={item.label} className="text-center">
                   <div className={`text-4xl font-bold ${item.color} mb-1 leading-none`}>{item.count}</div>
-                  <div className="text-sm font-semibold text-foreground mb-0.5">{item.label}</div>
+                  <div className="text-sm font-semibold text-foreground mb-1">{item.label}</div>
                   <div className="text-xs text-hero-muted leading-relaxed">{item.desc}</div>
                 </div>
               ))}
@@ -605,7 +605,7 @@ export default function WaldoCaseStudy() {
           className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 lg:gap-6"
         >
           {/* First, earliest brand */}
-          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-image-md lg:max-h-card-min w-full max-w-[224px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-01.png"
               alt="Earliest brand identity, Fern"
@@ -624,7 +624,7 @@ export default function WaldoCaseStudy() {
           </div>
 
           {/* Second, mid evolution */}
-          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-image-md lg:max-h-card-min w-full max-w-[224px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-02.png"
               alt="Mid-evolution brand identity, Olive"
@@ -643,7 +643,7 @@ export default function WaldoCaseStudy() {
           </div>
 
           {/* Third, final brand */}
-          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-[460px] lg:max-h-[500px] w-full max-w-[220px] lg:max-w-[240px]">
+          <div className="relative overflow-hidden  ring-1 ring-hairline max-h-image-md lg:max-h-card-min w-full max-w-[224px] lg:max-w-[240px]">
             <Image
               src="/waldo/brand-system-03.png"
               alt="Final brand identity, Bridge"
@@ -704,7 +704,7 @@ export default function WaldoCaseStudy() {
                 key={m.label}
                 className="flex h-full flex-col items-center justify-center text-center bg-background"
               >
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-1.5">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-2">
                   {m.value}
                 </span>
                 <span className="text-body-sm font-mono text-ink-muted leading-snug max-w-[12ch]">
@@ -731,7 +731,7 @@ export default function WaldoCaseStudy() {
                 whileHover={{ y: -2, scale: 1.005 }}
                 className="flex gap-5 bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
-                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-1 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-body lg:text-lg text-foreground/85 leading-relaxed">{o}</p>
@@ -779,7 +779,7 @@ export default function WaldoCaseStudy() {
             <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
+              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-2"
             >
               <li>Limited budget</li>
               <li>A back injury mid-project</li>
@@ -829,14 +829,14 @@ export default function WaldoCaseStudy() {
               href={LINKS.idocbridge}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
             >
               Visit idocbridge.com
               <ArrowUpRight className="ml-1 h-4 w-4" />
             </a>
             <a
               href={`mailto:${LINKS.email}?subject=Waldo%20case%20study`}
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
             >
               Email me
               <Sparkles className="ml-1 h-4 w-4" />

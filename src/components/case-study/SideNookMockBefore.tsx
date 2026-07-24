@@ -97,11 +97,11 @@ export function SideNookMockBefore() {
           style={{ background: "#0f1115" }}
         >
           {/* NavBar */}
-          <div className="flex items-center gap-2 px-3 py-2.5 bg-white/[0.03] border-b border-white/[0.06]">
+          <div className="flex items-center gap-2 px-3 py-2 bg-white/[0.03] border-b border-white/[0.06]">
             {/* Drag grip */}
-            <div className="flex items-center gap-[3px] px-1.5 text-white/30">
-              <span className="block h-3.5 w-[2px] rounded-full bg-current" />
-              <span className="block h-3.5 w-[2px] rounded-full bg-current" />
+            <div className="flex items-center gap-1 px-2 text-white/30">
+              <span className="block h-4 w-[2px] rounded-full bg-current" />
+              <span className="block h-4 w-[2px] rounded-full bg-current" />
             </div>
 
             {/* Tabs */}
@@ -119,12 +119,12 @@ export function SideNookMockBefore() {
                   >
                     <span
                       aria-hidden
-                      className={`relative inline-flex h-1.5 w-1.5 shrink-0`}
+                      className={`relative inline-flex h-2 w-2 shrink-0`}
                     >
                       {t.status === "waiting" && (
                         <span className="absolute inline-flex h-full w-full rounded-full bg-[#facc15]/60 animate-ping" />
                       )}
-                      <span className={`relative inline-flex h-1.5 w-1.5 rounded-full ${statusColor[t.status]}`} />
+                      <span className={`relative inline-flex h-2 w-2 rounded-full ${statusColor[t.status]}`} />
                     </span>
                     <span
                       className={`text-label font-mono truncate ${
@@ -146,12 +146,12 @@ export function SideNookMockBefore() {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-0.5 text-white/35">
-              <button aria-label="Settings" className="p-1.5 hover:text-white/70 transition-colors">
-                <Settings className="h-3.5 w-3.5" />
+            <div className="flex items-center gap-1 text-white/35">
+              <button aria-label="Settings" className="p-2 hover:text-white/70 transition-colors">
+                <Settings className="h-4 w-4" />
               </button>
-              <button aria-label="About" className="p-1.5 hover:text-white/70 transition-colors">
-                <Info className="h-3.5 w-3.5" />
+              <button aria-label="About" className="p-2 hover:text-white/70 transition-colors">
+                <Info className="h-4 w-4" />
               </button>
             </div>
           </div>
@@ -202,7 +202,7 @@ export function SideNookMockBefore() {
             transition={spring}
             className="flex flex-col items-center gap-2"
           >
-            <div className="h-1.5 w-12 rounded-full bg-white/30 ring-1 ring-white/[0.06]" />
+            <div className="h-2 w-12 rounded-full bg-white/30 ring-1 ring-white/[0.06]" />
             <span className="text-label font-mono uppercase tracking-[0.2em] text-white/45">
               Collapsed · 6pt
             </span>

@@ -38,7 +38,7 @@ const tone = {
 
 function TrafficLights() {
   return (
-    <div className="flex items-center gap-[6px] pl-2">
+    <div className="flex items-center gap-2 pl-2">
       <span className="block h-[11px] w-[11px] rounded-full bg-[#ff5f57]" />
       <span className="block h-[11px] w-[11px] rounded-full bg-[#febc2e]" />
       <span className="block h-[11px] w-[11px] rounded-full bg-[#28c840]" />
@@ -126,20 +126,20 @@ export function SideNookMockAfter() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease }}
-          className="mx-auto w-full max-w-[860px] rounded-[14px] overflow-hidden ring-1 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04)_inset] flex"
+          className="mx-auto w-full max-w-[864px] rounded-[14px] overflow-hidden ring-1 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04)_inset] flex"
           style={{ background: tone.L0, ringColor: tone.stroke0 } as React.CSSProperties}
         >
           {/* LEFT SIDEBAR, 180pt wide, L2 fill, 10pt rounded, with 8pt outer gutter */}
           <div className="p-2 shrink-0">
             <div
-              className="w-[180px] h-full flex flex-col rounded-[10px] ring-1"
+              className="w-[184px] h-full flex flex-col rounded-[10px] ring-1"
               style={{ background: tone.L2, borderColor: tone.stroke1 }}
             >
               {/* Traffic lights row */}
               <div className="h-8 flex items-center justify-between pr-1">
                 <TrafficLights />
                 <span className="inline-flex items-center justify-center h-7 w-7 rounded-md text-white/35">
-                  <PanelTop className="h-3.5 w-3.5" />
+                  <PanelTop className="h-4 w-4" />
                 </span>
               </div>
               <Divider />
@@ -192,8 +192,8 @@ export function SideNookMockAfter() {
               <div className="flex-1" />
 
               {/* CL Notes section */}
-              <div className="px-3 py-2.5 flex items-center gap-2 text-label" style={{ color: tone.fgMid }}>
-                <MessageSquare className="h-3.5 w-3.5 shrink-0" />
+              <div className="px-3 py-2 flex items-center gap-2 text-label" style={{ color: tone.fgMid }}>
+                <MessageSquare className="h-4 w-4 shrink-0" />
                 <span className="font-semibold flex-1 truncate text-white/85">CL Notes</span>
                 <span className="text-label tabular-nums" style={{ color: tone.fgMute }}>
                   30/100
@@ -203,8 +203,8 @@ export function SideNookMockAfter() {
               <Divider />
 
               {/* Command Line Help */}
-              <div className="px-3 py-2.5 flex items-center gap-2 text-label" style={{ color: tone.fgMid }}>
-                <Info className="h-3.5 w-3.5 shrink-0" />
+              <div className="px-3 py-2 flex items-center gap-2 text-label" style={{ color: tone.fgMid }}>
+                <Info className="h-4 w-4 shrink-0" />
                 <span className="font-semibold flex-1 truncate text-white/85">Command Line Help</span>
                 <ChevronDown className="h-3 w-3" style={{ color: tone.fgMute }} />
               </div>
@@ -260,11 +260,11 @@ export function SideNookMockAfter() {
               {/* Status row */}
               <div className="px-4 pt-2 flex items-center gap-6 text-[13px]" style={{ color: tone.fgMute }}>
                 <span>? for shortcuts</span>
-                <span className="inline-flex items-center gap-1.5">
+                <span className="inline-flex items-center gap-2">
                   <CircleDot className="h-3 w-3" />
                   medium · /effort
                 </span>
-                <span className="ml-auto inline-flex items-center gap-1.5" style={{ color: tone.link }}>
+                <span className="ml-auto inline-flex items-center gap-2" style={{ color: tone.link }}>
                   <span className="inline-block h-3 w-3 rounded-sm border border-current" />
                   In TerminalSession.swift
                 </span>
@@ -277,13 +277,13 @@ export function SideNookMockAfter() {
                 className="h-7 w-7 rounded-full inline-flex items-center justify-center"
                 style={{ background: "rgba(255,255,255,0.05)", color: tone.fgMid }}
               >
-                <ChevronUp className="h-3.5 w-3.5" />
+                <ChevronUp className="h-4 w-4" />
               </span>
               <span
                 className="h-7 w-7 rounded-full inline-flex items-center justify-center"
                 style={{ background: "rgba(255,255,255,0.05)", color: tone.fgMid }}
               >
-                <ChevronDown className="h-3.5 w-3.5" />
+                <ChevronDown className="h-4 w-4" />
               </span>
             </div>
           </div>

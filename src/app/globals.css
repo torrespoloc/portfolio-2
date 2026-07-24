@@ -111,6 +111,17 @@
   --color-ink-tertiary: var(--ink-tertiary);
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
+  /* ── Spacing tokens (8pt grid) ── */
+  --spacing-container: 1504px;
+  --spacing-content: 944px;
+  --spacing-sidebar: 272px;
+  --spacing-media-col: 440px;
+  --spacing-playground-side: 280px;
+  --spacing-image-md: 464px;
+  --spacing-image-lg: 560px;
+  --spacing-card-min: 504px;
+  --spacing-hero-text: 688px;
+  --spacing-text-max: 704px;
 }
 
 :root {
@@ -423,6 +434,13 @@ section[id] {
 .animate-fade-in-up:nth-child(1) { animation-delay: 0.1s; }
 .animate-fade-in-up:nth-child(2) { animation-delay: 0.2s; }
 .animate-fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+
+/* Force light-mode tokens regardless of color-scheme */
+.force-light {
+  --hero-bg: #fafafa;
+  --hero-text-dark: #2f2e31;
+  --hero-muted: #757575;
+}
 
 /* Marquee — used by Trusted By section */
 @keyframes marquee {

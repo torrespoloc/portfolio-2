@@ -43,7 +43,7 @@ export function PlaygroundCard({
           {/* Mini media thumbnail */}
           <div
             className={cn(
-              "relative w-full overflow-hidden rounded-[6px] mb-1.5",
+              "relative w-full overflow-hidden rounded-[6px] mb-2",
               active
                 ? "bg-accent/[0.06] ring-1 ring-accent/20"
                 : "bg-muted ring-1 ring-black/[0.04]",
@@ -69,8 +69,8 @@ export function PlaygroundCard({
               </svg>
             </div>
             {/* Tag badge */}
-            <div className="absolute top-1.5 left-1.5">
-              <span className="text-[9px] font-medium text-white/80 bg-white/12 backdrop-blur-sm px-1.5 py-[2px] rounded-[3px] uppercase tracking-wider">
+            <div className="absolute top-2 left-1.5">
+              <span className="text-[9px] font-medium text-white/80 bg-white/12 backdrop-blur-sm px-2 py-[2px] rounded-[3px] uppercase tracking-wider">
                 {tag}
               </span>
             </div>
@@ -138,11 +138,11 @@ export function PlaygroundCard({
         </h3>
 
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-2.5">
+          <div className="flex flex-wrap gap-2 mt-2">
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-xs font-medium text-hero-muted bg-muted px-2 py-0.5"
+                className="text-xs font-medium text-hero-muted bg-muted px-2 py-1"
               >
                 {t}
               </span>

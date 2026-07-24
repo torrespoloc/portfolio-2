@@ -35,7 +35,7 @@ const meta = {
   duration: "12 weeks",
   team: "7-person startup, Quebec",
   tools: (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       {["Figma"].map((tool) => {
         const logo = TOOL_LOGOS[tool]
         if (!logo) return null
@@ -53,14 +53,14 @@ export default function SevenDishCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Food Tech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Consumer mobile
             </span>
           </div>
-          <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-1.5">
+          <p className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
             7dish &middot; Quebec startup
           </p>
           <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.05] max-w-4xl">
@@ -141,7 +141,7 @@ export default function SevenDishCaseStudy() {
                 "Creating a shopping list",
               ].map((task, i) => (
                 <li key={task} className="flex gap-3 items-start">
-                  <span className="text-sm font-mono text-case-highlight shrink-0 pt-0.5">
+                  <span className="text-sm font-mono text-case-highlight shrink-0 pt-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-base text-foreground/85">{task}</span>
@@ -702,7 +702,7 @@ export default function SevenDishCaseStudy() {
                   key={i}
                   className="flex h-full gap-4 bg-background"
                 >
-                  <span className="text-body-sm font-mono text-case-highlight shrink-0 pt-0.5">
+                  <span className="text-body-sm font-mono text-case-highlight shrink-0 pt-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-body text-ink-muted leading-relaxed">{item}</p>
@@ -793,14 +793,14 @@ export default function SevenDishCaseStudy() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`mailto:${LINKS.email}?subject=7dish%20case%20study`}
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
             >
               Email me
               <Sparkles className="ml-1 h-4 w-4" />
             </a>
             <a
               href="/#work"
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent text-sm font-medium whitespace-nowrap transition-all text-background hover:text-background hover:bg-background/10"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent text-sm font-medium whitespace-nowrap transition-all text-background hover:text-background hover:bg-background/10"
             >
               More work
             </a>

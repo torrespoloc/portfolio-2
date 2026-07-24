@@ -25,7 +25,7 @@ function LinkedInLink({ url }: { url?: string }) {
         fill="currentColor"
         aria-hidden="true"
       >
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        <path d="M20.447 20.452h-454v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     </a>
   );
@@ -42,9 +42,9 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
       <Image
         src={image}
         alt={name}
-        width={48}
-        height={48}
-        className={`h-12 w-12 rounded-full object-cover ${
+        width={72}
+        height={72}
+        className={`h-[72px] w-[72px] rounded-full object-cover ${
           light ? "ring-2 ring-white/15" : "ring-2 ring-black/5"
         } shrink-0`}
       />
@@ -53,7 +53,7 @@ function Avatar({ name, image, light }: { name: string; image?: string; light?: 
 
   return (
     <div
-      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
+      className={`flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full ${
         light ? "bg-white/10 ring-1 ring-white/20" : "bg-muted ring-1 ring-black/5"
       }`}
     >
@@ -128,7 +128,7 @@ export function Testimonials({ className = "" }: Props) {
           <motion.article
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border/70 bg-burgundy p-7 text-white sm:p-8"
+            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border/70 bg-burgundy p-8 text-white"
           >
             <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/40 to-transparent" />
             <span
@@ -140,24 +140,24 @@ export function Testimonials({ className = "" }: Props) {
 
             <div className="relative z-10 flex h-full flex-1 flex-col">
               <div className="mb-6 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-chartreuse" />
+                <span className="h-2 w-2 rounded-full bg-chartreuse" />
                 <span className="text-xs font-semibold uppercase tracking-[0.24em] text-chartreuse/80">
                   Featured Quote
                 </span>
               </div>
 
-              <p className="max-w-[40ch] flex-1 text-sm sm:text-[1.375rem] leading-[1.6] text-white/92">
+              <p className="flex-1 text-sm sm:text-[1.375rem] leading-[1.6] text-white/92">
                 &ldquo;{highlightText(featured.quote, featured.highlights ?? [], true)}&rdquo;
               </p>
 
               <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-5">
                 <Avatar name={featured.name} image={featured.image} light />
                 <div className="min-w-0">
-                  <p className="text-body-sm font-medium text-white inline-flex items-center gap-1.5">
+                  <p className="text-body font-medium text-white inline-flex items-center gap-2">
                     {featured.name}
                     <LinkedInLink url={featured.linkedin} />
                   </p>
-                  <p className="mt-0.5 text-xs text-white/65">{featured.title}</p>
+                  <p className="mt-1 text-body-sm text-white/65">{featured.title}</p>
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@ export function Testimonials({ className = "" }: Props) {
             {leftColumn.map((testimonial, index) => (
               <article
                 key={testimonial.name}
-                className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-r border-hero-border/70" : ""} bg-white/85 dark:bg-hero-card p-5 transition-transform duration-300 hover:-translate-y-1`}
+                className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-r border-hero-border/70" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
               >
                 <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                   &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
@@ -180,11 +180,11 @@ export function Testimonials({ className = "" }: Props) {
                 <div className="mt-5 flex items-center gap-3 border-t border-black/5 dark:border-white/5 pt-4">
                   <Avatar name={testimonial.name} image={testimonial.image} />
                   <div className="min-w-0">
-                    <p className="text-body-sm font-medium text-hero-text-dark inline-flex items-center gap-1.5">
+                    <p className="text-body font-medium text-hero-text-dark inline-flex items-center gap-2">
                       {testimonial.name}
                       <LinkedInLink url={testimonial.linkedin} />
                     </p>
-                    <p className="mt-0.5 text-xs text-hero-muted">{testimonial.title}</p>
+                    <p className="mt-1 text-body-sm text-hero-muted">{testimonial.title}</p>
                   </div>
                 </div>
               </article>
@@ -200,7 +200,7 @@ export function Testimonials({ className = "" }: Props) {
           {rightColumn.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-b border-hero-border/70 sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-5 transition-transform duration-300 hover:-translate-y-1`}
+              className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-b border-hero-border/70 sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
             >
               <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                 &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
@@ -209,11 +209,11 @@ export function Testimonials({ className = "" }: Props) {
               <div className="mt-5 flex items-center gap-3 border-t border-black/5 dark:border-white/5 pt-4">
                 <Avatar name={testimonial.name} image={testimonial.image} />
                 <div className="min-w-0">
-                  <p className="text-body-sm font-medium text-hero-text-dark inline-flex items-center gap-1.5">
+                  <p className="text-body font-medium text-hero-text-dark inline-flex items-center gap-2">
                     {testimonial.name}
                     <LinkedInLink url={testimonial.linkedin} />
                   </p>
-                  <p className="mt-0.5 text-xs text-hero-muted">{testimonial.title}</p>
+                  <p className="mt-1 text-body-sm text-hero-muted">{testimonial.title}</p>
                 </div>
               </div>
             </article>

@@ -37,7 +37,7 @@ function ToolkitContent() {
 function FlipFrontFace({ isFlipped }: { isFlipped: boolean }) {
   return (
     <div
-      className="relative p-5 md:p-6 rounded-none h-full flex flex-col justify-center"
+      className="relative p-5 rounded-none h-full"
       style={{ background: "var(--accent)" }}
       aria-hidden={isFlipped}
     >
@@ -52,7 +52,7 @@ function FlipFrontFace({ isFlipped }: { isFlipped: boolean }) {
         MY JAM
       </p>
       <p className="text-xs text-white/90 leading-relaxed font-semibold relative z-10">
-        &ldquo;I design AI-native B2B products. From 0 to 1 across healthtech, fintech, and real estate.&rdquo;
+        0-1, information architecture, and systems thinking.
       </p>
       <div className="mt-5 relative z-10 flex justify-center">
         <TypewriterTag />
@@ -130,7 +130,7 @@ function FlipBackFace({ progress, isFlipped }: { progress: number; isFlipped: bo
           >
             My flex: communication + charisma
             {progress > METRICS.length && (
-              <span className="inline-block w-[2px] h-[1em] bg-gray-900 ml-0.5 animate-pulse align-middle" />
+              <span className="inline-block w-[2px] h-[1em] bg-gray-900 ml-1 animate-pulse align-middle" />
             )}
           </p>
           <p
@@ -256,7 +256,7 @@ function UxChatsLogoInteractive() {
     >
       {hovered && (
         <motion.span
-          className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
+          className="absolute -top-2 right-0 z-20 inline-flex items-center gap-1 px-2 py-2 text-xs font-semibold leading-tight bg-chartreuse text-chartreuse-foreground rounded-md -rotate-6 shadow-sm pointer-events-none select-none whitespace-nowrap"
           initial={{ opacity: 0, y: 4, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.12 }}

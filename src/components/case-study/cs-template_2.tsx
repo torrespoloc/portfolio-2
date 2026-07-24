@@ -14,10 +14,10 @@ const fadeUp = {
 
 // ─── Content Width ───
 // Text-heavy sections use a centered reading width.
-const contentWidth = "max-w-[940px] mx-auto"
+const contentWidth = "max-w-content mx-auto"
 const metaStripWidth = "w-full"
 
-const heroWidth = "max-w-[940px] mx-auto px-6 md:px-10"
+const heroWidth = "max-w-content mx-auto px-6 md:px-10"
 
 // ─── Shared section layout classes ───
 // Single-column stack: heading, body, and visuals stack vertically
@@ -168,11 +168,11 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
         <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none opacity-70 z-40" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 w-px bg-hero-border pointer-events-none opacity-70 z-10" aria-hidden="true" />
         {/* Between sidebar and content, z-40 stays above the side nav's z-30 fill */}
-        <div className="absolute inset-y-0 left-[268px] w-px bg-hero-border pointer-events-none opacity-70 z-40 hidden lg:block" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-sidebar w-px bg-hero-border pointer-events-none opacity-70 z-40 hidden lg:block" aria-hidden="true" />
 
       {/* ─── SIDE NAV ─── */}
       <nav
-        className={`hidden lg:block w-[268px] shrink-0 sticky top-0 self-start z-30 transition-all duration-300 max-h-screen overflow-y-auto ${
+        className={`hidden lg:block w-sidebar shrink-0 sticky top-0 self-start z-30 transition-all duration-300 max-h-screen overflow-y-auto ${
           navActive ? "bg-background" : "bg-transparent"
         }`}
       >
@@ -185,7 +185,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
                   const el = document.getElementById(id)
                   el?.scrollIntoView({ behavior: "smooth", block: "start" })
                 }}
-                className={`w-full text-left px-4 py-2.5 text-sm font-mono uppercase tracking-[0.12em] transition-colors ${
+                className={`w-full text-left px-4 py-2 text-sm font-mono uppercase tracking-[0.12em] transition-colors ${
                   navActive
                     ? "text-hero-muted hover:text-foreground hover:bg-secondary/80"
                     : "text-hero-muted hover:text-foreground hover:bg-secondary/50"
@@ -215,9 +215,9 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
         <section id="hero" className="relative pt-20 lg:pt-12 pb-12 overflow-hidden">
           {/* Subtle color wash behind the headline */}
           <div aria-hidden className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-[10%] w-[500px] h-[500px] rounded-full bg-chartreuse/[0.04] blur-3xl" />
+            <div className="absolute top-0 right-[10%] w-[504px] h-[504px] rounded-full bg-chartreuse/[0.04] blur-3xl" />
             <div className="absolute top-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-brand-blue/[0.04] blur-3xl" />
-            <div className="absolute bottom-0 left-[40%] w-[300px] h-[300px] rounded-full bg-burgundy/[0.03] blur-3xl" />
+            <div className="absolute bottom-0 left-[40%] w-[304px] h-[304px] rounded-full bg-burgundy/[0.03] blur-3xl" />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -271,8 +271,8 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
                       key={m.label}
                       className={`p-4 ${colorSet.bg}`}
                     >
-                      <dt className="flex items-center gap-1.5 mb-1">
-                        <span className={`inline-block h-1.5 w-1.5 rounded-full ${colorSet.dot}`} />
+                      <dt className="flex items-center gap-2 mb-1">
+                        <span className={`inline-block h-2 w-2 rounded-full ${colorSet.dot}`} />
                         <span className={`font-bold font-mono uppercase tracking-[0.18em] ${colorSet.label}`}>
                           {m.label}
                         </span>

@@ -29,7 +29,7 @@ const meta = {
   duration: "10 weeks · Sep–Nov 2023",
   team: "CEO + 1 Engineer",
   tools: (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       {["Figma", "Notion", "ChatGPT"].map((tool) => {
         const logo = TOOL_LOGOS[tool]
         if (!logo) return null
@@ -80,10 +80,10 @@ export default function FundrCaseStudy() {
       headline={
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               Fintech
             </span>
-            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2.5 py-1 ring-1 ring-hero-border">
+            <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
               SaaS
             </span>
           </div>
@@ -126,7 +126,7 @@ export default function FundrCaseStudy() {
             <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-1.5"
+              className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-5 space-y-2"
             >
               <li>Every plan change ran through a <span className="text-case-highlight font-semibold">1:1 sales call</span>, users waited days for a human to flip a switch.</li>
               <li>The pricing was confusing, and the low tiers didn’t justify upgrading.</li>
@@ -675,7 +675,7 @@ export default function FundrCaseStudy() {
               </div>
 
               <div>
-                <ul className="text-body-sm lg:text-body text-foreground/75 leading-relaxed list-disc pl-5 space-y-1.5">
+                <ul className="text-body-sm lg:text-body text-foreground/75 leading-relaxed list-disc pl-5 space-y-2">
                   <li>SaaS users convert when they <span className="text-case-highlight font-semibold">experience value firsthand</span>.</li>
                   <li>A <span className="text-case-highlight font-semibold">free tier worth using</span> builds trust.</li>
                   <li>A <span className="text-case-highlight font-semibold">premium tier worth paying for</span> converts without pressure.</li>
@@ -804,7 +804,7 @@ export default function FundrCaseStudy() {
                 whileHover={{ y: -2, scale: 1.005 }}
                 className="flex gap-5 p-6 lg:p-7  bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
               >
-                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-0.5 font-mono tabular-nums">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-1 font-mono tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-body lg:text-lg text-foreground/85 leading-relaxed">{o}</p>
@@ -839,7 +839,7 @@ export default function FundrCaseStudy() {
           </p>
           <ul className="space-y-4">
             <li className="flex gap-4 bg-background">
-              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">01</span>
+              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-1">01</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
                   <strong className="text-foreground font-semibold">Push for <span className="text-case-highlight font-semibold">analytics instrumentation before shipping</span>.</strong>{" "}
@@ -849,7 +849,7 @@ export default function FundrCaseStudy() {
               </div>
             </li>
             <li className="flex gap-4 bg-background">
-              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">02</span>
+              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-1">02</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
                   <strong className="text-foreground font-semibold">Run a larger A/B test on the 3-CTA hierarchy.</strong>{" "}
@@ -859,7 +859,7 @@ export default function FundrCaseStudy() {
               </div>
             </li>
             <li className="flex gap-4 bg-background">
-              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-0.5">03</span>
+              <span className="text-case-eyebrow font-semibold text-sm shrink-0 mt-1">03</span>
               <div>
                 <p className="text-body text-foreground/85 leading-relaxed">
                   <strong className="text-foreground font-semibold">Involve <span className="text-case-highlight font-semibold">engineering earlier in the pricing IA</span>.</strong>{" "}
@@ -937,7 +937,7 @@ export default function FundrCaseStudy() {
           <div className="flex flex-wrap gap-3 mb-6">
             <a
               href={`mailto:${LINKS.email}?subject=Fundr%20case%20study`}
-              className="inline-flex shrink-0 items-center justify-center h-9 gap-1.5 px-2.5 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
+              className="inline-flex shrink-0 items-center justify-center h-9 gap-2 px-2 rounded-lg border border-transparent bg-secondary text-secondary-foreground text-sm font-medium whitespace-nowrap transition-all hover:bg-secondary/80"
             >
               Email me
               <Sparkles className="ml-1 h-4 w-4" />

@@ -121,7 +121,7 @@ export function CaseStudyCard({
 
           {/* Year badge, bottom-left of media */}
           {year && (
-            <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
+            <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-1 text-xs font-mono uppercase tracking-wider text-white/85 sm:text-sm">
               {year}
             </span>
           )}
@@ -139,11 +139,11 @@ export function CaseStudyCard({
         </p>
 
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-3">
+          <div className="flex flex-wrap gap-2 mt-3">
             {tags.map((t) => (
               <span
                 key={t}
-                className="text-xs font-medium text-hero-muted bg-muted px-2.5 py-1"
+                className="text-xs font-medium text-hero-muted bg-muted px-2 py-1"
               >
                 {t}
               </span>
@@ -158,7 +158,7 @@ export function CaseStudyCard({
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
                 {metric1Label}
               </span>
-              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-0.5">
+              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-1">
                 {metric1Value}
               </span>
             </div>
@@ -166,7 +166,7 @@ export function CaseStudyCard({
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
                 {metric2Label}
               </span>
-              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-0.5">
+              <span className="text-sm sm:text-body font-bold text-hero-text-dark leading-none mt-1">
                 {metric2Value}
               </span>
             </div>

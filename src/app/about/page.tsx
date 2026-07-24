@@ -27,7 +27,7 @@ const watercolors = [
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
-      <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border/70">
+      <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border/70">
         {/* Vertical projection lines */}
         <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
         <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="rounded-[12px] h-11 px-5"
               >
-                Visit theuxchats.co <ExternalLink className="h-3.5 w-3.5 inline-block" />
+                Visit theuxchats.co <ExternalLink className="h-4 w-4 inline-block" />
               </Button>
 
               {/* Logo in the corner, mirrors the hero community card treatment */}
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="rounded-[12px] h-11 px-5"
               >
-                Book a session <ExternalLink className="h-3.5 w-3.5 inline-block" />
+                Book a session <ExternalLink className="h-4 w-4 inline-block" />
               </Button>
             </div>
             <div className="w-full md:w-[40%] shrink-0">
@@ -135,10 +135,10 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-block text-sm font-semibold text-case-eyebrow underline underline-offset-4 decoration-2 transition-colors hover:text-accent"
               >
-                My favorite TED talk <ExternalLink className="h-3.5 w-3.5 inline-block" />
+                My favorite TED talk <ExternalLink className="h-4 w-4 inline-block" />
               </a>
             </div>
-            <div className="w-full md:w-[440px] shrink-0">
+            <div className="w-full md:w-media-col shrink-0">
               <div className="overflow-hidden border border-hero-border/70">
                 <div className="grid grid-cols-2">
                   <img
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 personality.</em>
               </p>
             </div>
-            <div className="w-full md:w-[440px] shrink-0">
+            <div className="w-full md:w-media-col shrink-0">
               <div className="overflow-hidden border border-hero-border/70">
                 <img
                   src="/about/webp/sports-work-in-teams.webp"
@@ -208,7 +208,7 @@ export default function AboutPage() {
               I broke through a barrier and got good at{" "}
               <span className="text-accent">public speaking</span>
             </h2>
-            <p className="text-hero-text text-body mt-2 max-w-[700px]">
+            <p className="text-hero-text text-body mt-2 max-w-text-max">
               Filming myself used to terrify me, so I joined the sales world and filmed
               myself a lot. Here&rsquo;s the proof.
             </p>
@@ -246,7 +246,7 @@ export default function AboutPage() {
               Creative outlets that make me a{" "}
               <span className="text-accent">better designer</span>
             </h2>
-            <p className="text-hero-text text-body mt-2 max-w-[700px]">
+            <p className="text-hero-text text-body mt-2 max-w-text-max">
               Racket sports, writing, and watercolor painting. This talent emerged in
               2020 and I&rsquo;ve been at it ever since.
             </p>
@@ -271,7 +271,7 @@ export default function AboutPage() {
         {/* ── Close ── */}
         <div>
           <div className="px-6 md:px-10 py-6 md:py-8">
-            <p className="text-hero-text text-body mb-4 max-w-[700px]">
+            <p className="text-hero-text text-body mb-4 max-w-text-max">
               Thanks for getting to know me. I bring the same team-first,
               competitive drive into every product I design, on the court
               and in the browser.

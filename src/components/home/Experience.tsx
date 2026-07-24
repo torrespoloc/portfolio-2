@@ -22,7 +22,7 @@ export function Experience() {
               className="grid border-b border-white/15 pb-6 md:pb-8 last:border-b-0 last:pb-0 md:grid-cols-[160px_minmax(0,1fr)] md:gap-x-16"
             >
               <div className="flex items-start gap-3 pt-1">
-                <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-chartreuse" />
+                <span className="mt-2 h-3 w-3 shrink-0 rounded-full bg-chartreuse" />
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white">
                   {entry.period}
                 </span>
@@ -30,12 +30,12 @@ export function Experience() {
 
               <div className="grid gap-3 md:gap-6 lg:gap-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:gap-x-12 lg:gap-x-16">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="mt-0.5 flex h-11 w-[76px] shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90 shadow-sm border border-black/5 md:h-14 md:w-24 lg:h-16 lg:w-28">
+                  <div className="mt-1 flex h-11 w-[76px] shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90 shadow-sm border border-black/5 md:h-14 md:w-24 lg:h-16 lg:w-28">
                     <img
                       src={entry.logo}
                       alt={entry.company}
                       loading="lazy"
-                      className="dropdown-logo h-full w-full object-contain p-1.5 md:p-2"
+                      className="dropdown-logo h-full w-full object-contain p-2 md:p-2"
                       style={{ filter: "none" }}
                     />
                   </div>

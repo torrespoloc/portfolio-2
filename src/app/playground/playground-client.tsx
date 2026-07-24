@@ -177,14 +177,14 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
       {/* Content container */}
-      <div className="mx-auto w-full max-w-[1504px] min-h-screen px-5 md:px-0 relative flex flex-col">
+      <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative flex flex-col">
         {/* Vertical projection lines */}
         <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
         <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
 
         {/* Hero area */}
         <section className="border-b border-hero-border/70 pt-28 md:pt-36 pb-16 md:pb-20">
-          <div className="max-w-[680px] px-6 md:px-0 md:ml-10">
+          <div className="max-w-hero-text px-6 md:px-0 md:ml-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-case-eyebrow mb-4">
               Playground
             </p>
@@ -207,7 +207,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                 layout
                 className={
                   isSplit
-                    ? "flex flex-col w-full md:w-[280px] md:min-w-[280px] divide-y divide-hero-border/70 md:border-r md:border-hero-border/70 bg-hero-bg overflow-y-auto"
+                    ? "flex flex-col w-full md:w-playground-side md:min-w-playground-side divide-y divide-hero-border/70 md:border-r md:border-hero-border/70 bg-hero-bg overflow-y-auto"
                     : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-px bg-hero-border/70 border-b border-hero-border/70"
                 }
               >
@@ -218,7 +218,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     return (
                       <div
                         key={`filler-${item.index}`}
-                        className="relative hidden sm:flex min-h-[380px] flex-col items-center justify-center gap-3 bg-hero-bg dark:bg-hero-card hover:bg-muted/40 transition-colors duration-200 cursor-pointer"
+                        className="relative hidden sm:flex min-h-[384px] flex-col items-center justify-center gap-3 bg-hero-bg dark:bg-hero-card hover:bg-muted/40 transition-colors duration-200 cursor-pointer"
                         onClick={() => {
                           setClickedTurtles((prev) => ({ ...prev, [item.index]: true }))
                           setIdeaTags((prev) => ({ ...prev, [item.index]: true }))
@@ -242,7 +242,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                           <AnimatePresence initial={false}>
                             {ideaTags[item.index] && (
                               <motion.span
-                                className="absolute bottom-[28px] left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-md bg-chartreuse px-3 py-1.5 text-sm font-semibold leading-tight text-chartreuse-foreground shadow-sm pointer-events-none select-none -rotate-6"
+                                className="absolute bottom-[28px] left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-md bg-chartreuse px-3 py-2 text-sm font-semibold leading-tight text-chartreuse-foreground shadow-sm pointer-events-none select-none -rotate-6"
                                 style={{ transformOrigin: "center bottom" }}
                                 initial={{ opacity: 0, y: 24, scale: 0.12 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -328,14 +328,14 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="hidden md:flex flex-1 flex-col min-h-[500px]"
+                    className="hidden md:flex flex-1 flex-col min-h-card-min"
                     ref={detailPanelRef}
                   >
                     {/* Detail header */}
                     <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border/70" data-panel-header>
                       <button
                         onClick={handleClose}
-                        className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
+                        className="flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="rotate-180">
                           <path d="M9 18l6-6-6-6" />
@@ -376,8 +376,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                           </h3>
                           <ul className="space-y-2">
                             {selectedItem.detail.highlights.map((h) => (
-                              <li key={h} className="flex items-start gap-2.5 text-hero-text text-body-sm">
-                                <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-hero-muted" />
+                              <li key={h} className="flex items-start gap-2 text-hero-text text-body-sm">
+                                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-hero-muted" />
                                 {h}
                               </li>
                             ))}
@@ -388,7 +388,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                           {selectedItem.tags.map((t) => (
                             <span
                               key={t}
-                              className="text-xs font-medium text-hero-muted bg-muted px-2.5 py-1"
+                              className="text-xs font-medium text-hero-muted bg-muted px-2 py-1"
                             >
                               {t}
                             </span>
@@ -437,7 +437,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                 <div className="flex items-center px-5 py-4 border-b border-hero-border/70">
                   <button
                     onClick={handleClose}
-                    className="flex items-center gap-1.5 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
+                    className="flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="rotate-180">
                       <path d="M9 18l6-6-6-6" />
@@ -478,8 +478,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       </h3>
                       <ul className="space-y-2">
                         {selectedItem.detail.highlights.map((h) => (
-                          <li key={h} className="flex items-start gap-2.5 text-hero-text text-body-sm">
-                            <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-hero-muted" />
+                          <li key={h} className="flex items-start gap-2 text-hero-text text-body-sm">
+                            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-hero-muted" />
                             {h}
                           </li>
                         ))}
@@ -490,7 +490,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                       {selectedItem.tags.map((t) => (
                         <span
                           key={t}
-                          className="text-xs font-medium text-hero-muted bg-muted px-2.5 py-1"
+                          className="text-xs font-medium text-hero-muted bg-muted px-2 py-1"
                         >
                           {t}
                         </span>

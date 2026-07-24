@@ -123,7 +123,7 @@ export function NavBar() {
         <div className="relative flex w-full items-center justify-between">
           {/* Identity */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full md:bg-white p-1.5">
+            <span className="inline-flex h-9 w-9 items-center justify-center shrink-0 rounded-full md:bg-white p-2">
               <img src="/logo.svg" alt="JT" className="h-full w-full" />
             </span>
             <div className="block leading-tight">
@@ -139,7 +139,7 @@ export function NavBar() {
           {/* Desktop nav, always centered */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:flex items-center text-sm font-mono">
             <div
-              className={`flex items-center gap-1 rounded-[12px] border px-1.5 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
+              className={`flex items-center gap-1 rounded-[12px] border px-2 py-1 backdrop-blur-md transition-colors duration-300 ease-out ${
                 isScrolled
                   ? isDarkTheme
                     ? "border-white/10 bg-white/[0.06]"
@@ -163,7 +163,7 @@ export function NavBar() {
               >
                 <Link
                   href={isHome ? "#work" : "/#work"}
-                  className={`inline-flex items-center gap-1 rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
+                  className={`inline-flex items-center gap-1 rounded-[12px] px-3 py-2 transition-colors duration-300 ease-out ${
                     isDarkTheme
                       ? isWorkPage
                         ? "text-white bg-white/[0.08]"
@@ -175,7 +175,7 @@ export function NavBar() {
                 >
                   Work
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-300 ease-out ${
+                    className={`h-4 w-4 transition-transform duration-300 ease-out ${
                       isWorkMenuOpen ? "rotate-180" : "rotate-0"
                     }`}
                   />
@@ -191,7 +191,7 @@ export function NavBar() {
                       className="absolute left-0 top-full z-50 pt-2"
                     >
                       <div
-                        className={`relative overflow-hidden rounded-[12px] border p-1.5 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
+                        className={`relative overflow-hidden rounded-[12px] border p-2 shadow-[0_18px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-2xl ${
                           isDarkTheme
                             ? "border-white/10 bg-navy-900/88"
                             : "border-foreground/[0.08] bg-background/92"
@@ -201,14 +201,14 @@ export function NavBar() {
                           aria-hidden
                           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,255,0,0.10),transparent_44%),radial-gradient(circle_at_85%_0%,rgba(255,255,255,0.06),transparent_26%)]"
                         />
-                        <div className="relative space-y-0.5">
+                        <div className="relative space-y-1">
                           {visibleStudies.map((study, index) => {
                             const isActive = pathname === study.href
                             return (
                             <Link
                               key={study.href}
                               href={study.href}
-                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border px-2 py-1.5 text-xs transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-[1px] ${
+                              className={`group relative flex items-center gap-3 overflow-hidden rounded-xl border px-2 py-2 text-xs transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-[1px] ${
                                 isActive
                                   ? isDarkTheme
                                     ? "border-white/[0.12] bg-white/[0.08] text-white"
@@ -243,7 +243,7 @@ export function NavBar() {
                                 {study.label}
                               </span>
                               {isActive && (
-                                <span className="relative z-10 ml-auto h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                                <span className="relative z-10 ml-auto h-2 w-2 rounded-full bg-brand-accent" />
                               )}
                             </Link>
                           )})}
@@ -255,7 +255,7 @@ export function NavBar() {
               </div>
               <Link
                 href="/about"
-                className={`rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
+                className={`rounded-[12px] px-3 py-2 transition-colors duration-300 ease-out ${
                   isDarkTheme
                     ? "text-white/60 hover:bg-white/10 hover:text-white"
                     : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
@@ -265,7 +265,7 @@ export function NavBar() {
               </Link>
               <Link
                 href="/playground"
-                className={`rounded-[12px] px-3 py-1.5 transition-colors duration-300 ease-out ${
+                className={`rounded-[12px] px-3 py-2 transition-colors duration-300 ease-out ${
                   isDarkTheme
                     ? "text-white/60 hover:bg-white/10 hover:text-white"
                     : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
@@ -300,13 +300,13 @@ export function NavBar() {
                 href={LINKS.resume ?? "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
+                className={`group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 ${
                   isScrolled && isDarkTheme
                     ? "text-white/70 hover:text-white hover:bg-white/10"
                     : "text-foreground/80 hover:text-foreground"
                 }`}
               >
-                <ExternalLink className="h-3.5 w-3.5 mr-1" /> Resume
+                <ExternalLink className="h-4 w-4 mr-1" /> Resume
               </a>
             </div>
           </div>
@@ -348,11 +348,11 @@ export function NavBar() {
                   <div className="flex flex-col">
                     <button
                       onClick={() => setMobileWorkExpanded(!mobileWorkExpanded)}
-                      className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
+                      className="flex items-center justify-between w-full px-3 py-2 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
                     >
                       <span>Work</span>
                       <ChevronDown
-                        className={`h-3.5 w-3.5 transition-transform duration-300 ease-out ${
+                        className={`h-4 w-4 transition-transform duration-300 ease-out ${
                           mobileWorkExpanded ? "rotate-180" : "rotate-0"
                         }`}
                       />
@@ -366,13 +366,13 @@ export function NavBar() {
                           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                           className="overflow-hidden"
                         >
-                          <div className="flex flex-col gap-0.5 pl-3 pr-1 py-1">
+                          <div className="flex flex-col gap-1 pl-3 pr-1 py-1">
                             {visibleStudies.map((study: { label: string; href: string; meta?: string; logo?: string }) => (
                               <Link
                                 key={study.href}
                                 href={study.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-3 px-2.5 py-2 text-sm rounded-lg hover:bg-muted transition-colors"
+                                className="flex items-center gap-3 px-2 py-2 text-sm rounded-lg hover:bg-muted transition-colors"
                               >
                                 <span className="flex h-7 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white/90">
                                   {study.logo ? (
@@ -401,14 +401,14 @@ export function NavBar() {
                   <Link
                     href="/about"
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
+                    className="px-3 py-2 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
                   >
                     About
                   </Link>
                   <Link
                     href="/playground"
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
+                    className="px-3 py-2 text-sm font-mono text-foreground hover:text-foreground/70 rounded-lg hover:bg-muted transition-colors"
                   >
                     Playground
                   </Link>
@@ -418,7 +418,7 @@ export function NavBar() {
                   <a
                     href="mailto:torrespoloc@gmail.com"
                     onClick={() => setMobileOpen(false)}
-                    className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-1.5 px-2.5 w-full bg-accent text-white hover:opacity-85"
+                    className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-2 px-2 w-full bg-accent text-white hover:opacity-85"
                   >
                     Email me
                   </a>
@@ -427,9 +427,9 @@ export function NavBar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMobileOpen(false)}
-                    className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-1.5 px-2.5 w-full border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
+                    className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 h-8 gap-2 px-2 w-full border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
                   >
-                    <ExternalLink className="h-3.5 w-3.5 mr-1" /> Resume
+                    <ExternalLink className="h-4 w-4 mr-1" /> Resume
                   </a>
                 </div>
               </div>
