@@ -52,7 +52,7 @@ function FlipFrontFace({ isFlipped }: { isFlipped: boolean }) {
         MY JAM
       </p>
       <p className="text-xs text-white/90 leading-relaxed font-semibold relative z-10">
-        0-1, information architecture, and systems thinking.
+        0-1, information architecture, and systems thinking. Healthtech, Fintech, Real Estate.
       </p>
       <div className="mt-5 relative z-10 flex justify-center">
         <TypewriterTag />
