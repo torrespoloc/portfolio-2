@@ -163,7 +163,7 @@ export function getWorkCards(): WorkCard[] {
         </>
       ),
       description:
-        "Conversational onboarding replaced hour-long demos with 3-step wizards. Built component factory to ship production-ready flows.",
+        "Replaced hour-long demos with 3-step conversational wizards.",
       year: "2025–2026",
       metric1Label: "Clicks to value",
       metric1Value: "3 steps",
@@ -184,13 +184,13 @@ export function getWorkCards(): WorkCard[] {
       tag: "HEALTHTECH",
       headline: (
         <>
-          End-to-End Patient App for{" "}
-          <span className="text-brand-accent">HIPAA-Compliant</span> Contact Lens
-          Ordering
+          A{" "}
+          <span className="text-brand-accent">HIPAA-compliant</span> contact lens
+          ordering experience
         </>
       ),
       description:
-        "Designed patient portal app MVP and full checkout experience in sync with Waldo's doctor portal.",
+        "Shipped a patient app MVP one month early, end-to-end from onboarding to checkout.",
       year: "2025",
       metric1Label: "Shipped",
       metric1Value: "1 month early",
@@ -205,12 +205,13 @@ export function getWorkCards(): WorkCard[] {
       tag: "FINTECH · AI",
       headline: (
         <>
-          Monetizing Fundr&apos;s SaaS platform with an{" "}
-          <span className="text-brand-accent">upgrade paywall system</span>
+          An{" "}
+          <span className="text-brand-accent">upgrade paywall</span> that monetized
+          Fundr
         </>
       ),
       description:
-        "The story of how I cut down the need for 1:1 sales calls by 50% in just 10 weeks for a Fintech stealth startup.",
+        "Cut 1:1 sales calls by 50% in 10 weeks with a self-serve upgrade paywall.",
       year: "2023",
       metric1Label: "Upgrade Conversions",
       metric1Value: "20%",
@@ -226,13 +227,13 @@ export function getWorkCards(): WorkCard[] {
       badge: "Building V2",
       headline: (
         <>
-          SideNook, A{" "}
-          <span className="text-brand-accent">macOS terminal emulator</span> that
-          stays out of your way
+          A{" "}
+          <span className="text-brand-accent">Mac terminal</span> that stays out of
+          your way
         </>
       ),
       description:
-        "An ambient terminal companion: always there when you need it, invisible when you don't.",
+        "Built a native Mac terminal that hides until you need it.",
       year: "2026",
       metric1Label: "App Type",
       metric1Value: "Native Mac",
@@ -247,12 +248,12 @@ export function getWorkCards(): WorkCard[] {
       tag: "FOODTECH",
       headline: (
         <>
-          Redesigned <span className="text-brand-accent">3 core flows</span> for
-          7dish&apos;s meal planning app
+          Redesigning <span className="text-brand-accent">3 core flows</span> for
+          7dish&apos;s meal planner
         </>
       ),
       description:
-        "Boosting user satisfaction by 50% through strategic redesigns and 7 new features for working parents.",
+        "Boosted user satisfaction by 50% with strategic redesigns and 7 new features.",
       year: "2023–2024",
       metric1Label: "User Satisfaction",
       metric1Value: "~50%",

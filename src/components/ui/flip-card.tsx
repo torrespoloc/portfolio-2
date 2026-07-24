@@ -40,7 +40,7 @@ export function FlipCard({
       >
         {/* Front face */}
         <div
-          className="relative"
+          className="relative h-full"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",

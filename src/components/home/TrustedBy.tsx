@@ -36,7 +36,7 @@ export function TrustedBy({ className = "" }: Props) {
       <motion.div
         variants={fadeUp}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="rounded-none bg-white/75 dark:bg-[#1a1d28] backdrop-blur-sm dark:backdrop-blur-none overflow-hidden"
+        className="rounded-none bg-white overflow-hidden force-light"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border/70 sm:px-8 sm:pt-12 sm:pb-14">
