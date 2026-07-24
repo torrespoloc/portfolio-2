@@ -25,7 +25,7 @@ function FrontFace({ isFlipped }: { isFlipped: boolean }) {
         MY JAM
       </p>
       <p className="text-xs text-white/90 leading-relaxed font-semibold relative z-10">
-        &ldquo;I focus on <strong className="font-extrabold text-chartreuse">AI workflow automation</strong>, B2B, SaaS, &amp; design systems. 0-1. healthtech, fintech, real estate.&rdquo;
+                &ldquo;I design AI-native B2B products. From 0 to 1 across healthtech, fintech, and real estate.&rdquo;
       </p>
       <div className="mt-5 relative z-10 flex justify-center">
         <TypewriterTag />
@@ -37,7 +37,7 @@ function FrontFace({ isFlipped }: { isFlipped: boolean }) {
 function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolean }) {
   return (
     <div
-      className="p-5 md:p-6 rounded-none flex flex-col overflow-hidden h-full"
+      className="p-5 md:p-6 rounded-none flex flex-col justify-center overflow-hidden h-full"
       style={{
         background: "var(--flip-bg)",
       }}
@@ -52,32 +52,29 @@ function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolea
         }}
       />
 
-      <p className="text-label font-bold uppercase tracking-[0.2em] text-[#242424] relative z-10">
-        Recruiter? HM? Mom!?
-      </p>
-      <div className="w-full h-px bg-black/20 mt-1.5 mb-3 relative z-10" />
-
-      {/* Metrics — column headers with values below, fade in one by one */}
-      <div className="grid grid-cols-3 px-3 md:px-6 relative z-10">
+      {/* Metrics: bold values with labels below, fade in one by one */}
+      <div className="grid grid-cols-3 gap-0 relative z-10">
         {METRICS.map((metric, index) => (
           <div
             key={metric.label}
-            className="flex flex-col items-center gap-0.5"
+            className={`flex flex-col items-center gap-1 px-4 py-1.5 ${
+              index < METRICS.length - 1 ? "border-r border-hero-border" : ""
+            }`}
             style={{
               opacity: progress > index ? 1 : 0,
               transform: progress > index ? "translateY(0)" : "translateY(6px)",
               transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
             }}
           >
-            <span className="text-label uppercase tracking-wide text-gray-700 font-semibold">{metric.label}</span>
-            <span className="text-gray-900 font-bold text-sm tracking-tight">{metric.value}</span>
+            <span className="text-label uppercase tracking-wide text-[#424242] font-semibold">{metric.label}</span>
+            <span className="text-[#242424] font-bold text-xs tracking-tight">{metric.value}</span>
           </div>
         ))}
       </div>
 
       {/* Flex line */}
       <p
-        className="font-label text-subtitle font-bold text-gray-700 mt-5 pt-2 pb-1 relative z-10 leading-snug text-center"
+        className="font-label text-subtitle font-bold text-[#242424] mt-5 relative z-10 leading-snug text-center"
         style={{
           opacity: progress > METRICS.length ? 1 : 0,
           transform: progress > METRICS.length ? "translateY(0)" : "translateY(4px)",
@@ -90,7 +87,7 @@ function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolea
         )}
       </p>
       <p
-        className="font-label text-subtitle font-bold text-gray-700 text-center relative z-10 leading-snug"
+        className="font-label text-subtitle font-bold text-[#242424] mt-2 text-center relative z-10 leading-snug"
         style={{
           opacity: progress > METRICS.length ? 1 : 0,
           transform: progress > METRICS.length ? "translateY(0)" : "translateY(4px)",
@@ -101,8 +98,8 @@ function BackFace({ progress, isFlipped }: { progress: number; isFlipped: boolea
         Let&rsquo;s chat.
       </p>
 
-      {/* Turtle — flipped over Y axis (horizontal mirror), tilted -2deg */}
-      <div className="absolute bottom-3 right-3 z-10">
+      {/* Turtle, flipped over Y axis (horizontal mirror), tilted -2deg */}
+      <div className="absolute bottom-3 right-3 z-[5]">
         <img
           src="/logos/turtle.svg"
           alt=""
@@ -139,7 +136,7 @@ export function MyJamFlipCard() {
           }
           return prev + 1
         })
-      }, 300)
+      }, 200)
       return () => clearInterval(timer)
     } else {
       setProgress(0)
