@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { UxChatsVideo } from "@/components/about/ux-chats-video"
+import { SectionDivider } from "@/components/ui/section-divider"
 
 export const metadata: Metadata = {
   title: "About | Jackeline Torres",
@@ -27,10 +28,10 @@ const watercolors = [
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-hero-bg font-sans">
-      <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16 divide-y divide-hero-border/70">
+      <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16">
         {/* Vertical projection lines */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border pointer-events-none opacity-70 md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border pointer-events-none opacity-70 md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/35 pointer-events-none md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/35 pointer-events-none md:right-0 z-10" aria-hidden="true" />
 
         {/* ── Hero ── */}
         <div>
@@ -40,6 +41,7 @@ export default function AboutPage() {
             </h1>
           </div>
         </div>
+        <SectionDivider />
 
         {/* ── The UX Chats ── */}
         <div>
@@ -78,7 +80,9 @@ export default function AboutPage() {
         </div>
 
         {/* ── Spacer ── */}
+        <SectionDivider />
         <section className="py-20" />
+        <SectionDivider />
 
         {/* ── ADPList ── */}
         <div>
@@ -101,7 +105,7 @@ export default function AboutPage() {
               </Button>
             </div>
             <div className="w-full md:w-[40%] shrink-0">
-              <div className="overflow-hidden border border-hero-border/70">
+              <div className="overflow-hidden">
                 <img
                   src="/about/webp/adplist-swag.webp"
                   alt="ADPList mentoring swag"
@@ -114,7 +118,9 @@ export default function AboutPage() {
         </div>
 
         {/* ── Spacer ── */}
+        <SectionDivider />
         <section className="py-20" />
+        <SectionDivider />
 
         {/* ── TED / Events ── */}
         <div>
@@ -139,7 +145,7 @@ export default function AboutPage() {
               </a>
             </div>
             <div className="w-full md:w-media-col shrink-0">
-              <div className="overflow-hidden border border-hero-border/70">
+              <div className="overflow-hidden">
                 <div className="grid grid-cols-2">
                   <img
                     src="/about/webp/networking-ted-volunteer.webp"
@@ -160,7 +166,9 @@ export default function AboutPage() {
         </div>
 
         {/* ── Spacer ── */}
+        <SectionDivider />
         <section className="py-20" />
+        <SectionDivider />
 
         {/* ── Sports & Teamwork ── */}
         <div>
@@ -186,7 +194,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="w-full md:w-media-col shrink-0">
-              <div className="overflow-hidden border border-hero-border/70">
+              <div className="overflow-hidden">
                 <img
                   src="/about/webp/sports-work-in-teams.webp"
                   alt="Pickleball team photo"
@@ -199,7 +207,9 @@ export default function AboutPage() {
         </div>
 
         {/* ── Spacer ── */}
+        <SectionDivider />
         <section className="py-20" />
+        <SectionDivider />
 
         {/* ── Public speaking ── */}
         <div>
@@ -215,12 +225,12 @@ export default function AboutPage() {
           </div>
 
           {/* Full-width flush video row, 1px border between videos */}
-          <div className="flex flex-col sm:flex-row border-y border-hero-border/70">
+          <div className="flex flex-col sm:flex-row border-y border-hero-border/35">
             {youtubeVideos.map((v, i) => (
               <div
                 key={v.src}
                 className={`flex-1 min-w-0 bg-black aspect-video ${
-                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border/70" : ""
+                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border/35" : ""
                 }`}
               >
                 <iframe
@@ -237,7 +247,9 @@ export default function AboutPage() {
         </div>
 
         {/* ── Spacer ── */}
+        <SectionDivider />
         <section className="py-20" />
+        <SectionDivider />
 
         {/* ── Creative outlets (watercolor) ── */}
         <div>
@@ -252,8 +264,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="border border-hero-border/70 overflow-hidden mb-8">
-            <div className="grid grid-cols-3 gap-px bg-hero-border/70">
+          <div className="border border-hero-border/35 overflow-hidden mb-8">
+            <div className="grid grid-cols-3 gap-px bg-hero-border/35">
               {watercolors.map((img) => (
                 <div key={img.src} className="overflow-hidden bg-hero-bg">
                   <img

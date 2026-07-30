@@ -11,7 +11,7 @@ import { FlipCard } from "./flip-card"
 
 function ToolkitContent() {
   return (
-    <div className="bg-hero-card p-5 h-full border-l border-hero-border/70">
+    <div className="bg-hero-card p-5 h-full border-l border-hero-border/35">
       <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
         Toolkit
       </p>
@@ -193,7 +193,7 @@ function FlipContent() {
 
   return (
     <div
-      className="w-full h-full cursor-pointer border-x border-hero-border/70"
+      className="w-full h-full cursor-pointer border-x border-hero-border/35"
       style={{ WebkitTapHighlightColor: "transparent" }}
       onClick={toggle}
       onMouseEnter={() => { if (isDesktop) setIsFlipped(true) }}
@@ -287,7 +287,7 @@ function UxChatsLogoInteractive() {
 
 function CommunityContent() {
   return (
-    <div className="bg-hero-card p-5 relative overflow-hidden h-full border-r border-hero-border/70">
+    <div className="bg-hero-card p-5 relative overflow-hidden h-full border-r border-hero-border/35">
       <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
         Community
       </p>

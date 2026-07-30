@@ -165,10 +165,10 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
     <div className="min-h-screen bg-hero-bg text-foreground relative">
       <div className="mx-auto w-full max-w-[1400px] min-h-screen lg:flex relative">
         {/* Outer projection lines, z-40 stays above the side nav's z-30 fill */}
-        <div className="absolute inset-y-0 left-0 w-px bg-hero-border pointer-events-none opacity-70 z-40" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-0 w-px bg-hero-border pointer-events-none opacity-70 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-0 w-px bg-hero-border/35 pointer-events-none z-40" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-0 w-px bg-hero-border/35 pointer-events-none z-10" aria-hidden="true" />
         {/* Between sidebar and content, z-40 stays above the side nav's z-30 fill */}
-        <div className="absolute inset-y-0 left-sidebar w-px bg-hero-border pointer-events-none opacity-70 z-40 hidden lg:block" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-sidebar w-px bg-hero-border/35 pointer-events-none z-40 hidden lg:block" aria-hidden="true" />
 
       {/* ─── SIDE NAV ─── */}
       <nav
@@ -201,11 +201,11 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
       <main className="flex-1 min-w-0 relative px-6 lg:px-[160px]">
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-[160px] hidden lg:block w-px bg-hero-border pointer-events-none opacity-70 z-10"
+          className="absolute inset-y-0 left-[160px] hidden lg:block w-px bg-hero-border/35 pointer-events-none z-10"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 right-[160px] hidden lg:block w-px bg-hero-border pointer-events-none opacity-70 z-10"
+          className="absolute inset-y-0 right-[160px] hidden lg:block w-px bg-hero-border/35 pointer-events-none z-10"
         />
 
         <EmptySection divider={false} />
@@ -258,7 +258,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
           >
             {/* Meta grid, pill-style tags with accent colors */}
             <SectionReveal className={metaStripWidth}>
-              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 overflow-hidden divide-x divide-hero-border/70 bg-background">
+              <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 overflow-hidden divide-x divide-hero-border/35 bg-background">
                 {metaFields.map((m, i) => {
                   const colorSet =
                     metaTheme === "purple-orange" ? { dot: "bg-highlight", bg: "bg-secondary/70", label: "text-hero-muted", value: "text-foreground" } :

@@ -123,12 +123,12 @@ export function Testimonials({ className = "" }: Props) {
         </h2>
       </motion.div>
 
-      <div className="grid gap-0 border-t border-hero-border/70 -mt-px lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)]">
-        <div className="grid gap-0 border-r border-hero-border/70">
+      <div className="grid gap-0 border-t border-hero-border/35 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)]">
+        <div className="grid gap-0 border-r border-hero-border/35">
           <motion.article
             variants={fadeUp}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border/70 bg-burgundy p-8 text-white"
+            className="relative flex h-full flex-col overflow-hidden rounded-none border-b border-hero-border/35 bg-burgundy p-8 text-white"
           >
             <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/40 to-transparent" />
             <span
@@ -171,7 +171,7 @@ export function Testimonials({ className = "" }: Props) {
             {leftColumn.map((testimonial, index) => (
               <article
                 key={testimonial.name}
-                className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-r border-hero-border/70" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
+                className={`flex h-full flex-col rounded-none border-b border-hero-border/35 ${index === 0 ? "border-r border-hero-border/35" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
               >
                 <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                   &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;
@@ -200,7 +200,7 @@ export function Testimonials({ className = "" }: Props) {
           {rightColumn.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`flex h-full flex-col rounded-none border-b border-hero-border/70 ${index === 0 ? "border-b border-hero-border/70 sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
+              className={`flex h-full flex-col rounded-none border-b border-hero-border/35 ${index === 0 ? "border-b border-hero-border/35 sm:border-r lg:border-r-0 lg:border-b" : ""} bg-white/85 dark:bg-hero-card p-8 transition-transform duration-300 hover:-translate-y-1`}
             >
               <p className="flex-1 text-sm sm:text-body-lg leading-[1.65] text-hero-text-dark">
                 &ldquo;{highlightText(testimonial.quote, testimonial.highlights ?? [])}&rdquo;

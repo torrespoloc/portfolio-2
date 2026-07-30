@@ -39,7 +39,7 @@ export function TrustedBy({ className = "" }: Props) {
         className="rounded-none bg-white overflow-hidden force-light"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border/70 sm:px-8 sm:pt-12 sm:pb-14">
+          <div className="px-6 py-10 border-b sm:border-b-0 border-hero-border/35 sm:px-8 sm:pt-12 sm:pb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-hero-muted">
               trusted by
             </p>
@@ -51,7 +51,7 @@ export function TrustedBy({ className = "" }: Props) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:border-l border-hero-border/70 w-full h-full">
+          <div className="grid grid-cols-2 sm:border-l border-hero-border/35 w-full h-full">
             {ALL_LOGOS.map((logo, i) => {
               const isLastInRow = (i + 1) % 2 === 0;
               const isLastRow = i >= ALL_LOGOS.length - 2;
@@ -59,8 +59,8 @@ export function TrustedBy({ className = "" }: Props) {
                 <div
                   key={logo.alt}
                   className={`flex h-full items-center justify-center px-4 py-4 sm:py-0 ${
-                    !isLastInRow ? "border-r border-hero-border/70" : ""
-                  } ${!isLastRow ? "border-b border-hero-border/70" : ""}`}
+                    !isLastInRow ? "border-r border-hero-border/35" : ""
+                  } ${!isLastRow ? "border-b border-hero-border/35" : ""}`}
                 >
                   <img
                     src={logo.src}
