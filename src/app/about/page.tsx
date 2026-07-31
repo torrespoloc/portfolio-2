@@ -30,8 +30,8 @@ export default function AboutPage() {
     <div className="relative min-h-screen bg-hero-bg font-sans">
       <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative pt-24 md:pt-32 pb-12 md:pb-16">
         {/* Vertical projection lines */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/35 pointer-events-none md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/35 pointer-events-none md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/60 pointer-events-none md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/60 pointer-events-none md:right-0 z-10" aria-hidden="true" />
 
         {/* ── Hero ── */}
         <div>
@@ -225,12 +225,12 @@ export default function AboutPage() {
           </div>
 
           {/* Full-width flush video row, 1px border between videos */}
-          <div className="flex flex-col sm:flex-row border-y border-hero-border/35">
+          <div className="flex flex-col sm:flex-row border-y border-hero-border/60">
             {youtubeVideos.map((v, i) => (
               <div
                 key={v.src}
                 className={`flex-1 min-w-0 bg-black aspect-video ${
-                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border/35" : ""
+                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-hero-border/60" : ""
                 }`}
               >
                 <iframe
@@ -251,12 +251,59 @@ export default function AboutPage() {
         <section className="py-20" />
         <SectionDivider />
 
+        {/* ── Architectural Designer ── */}
+        <div>
+          <div className="flex flex-col md:flex-row items-stretch">
+            {/* Left photo */}
+            <div className="w-full md:w-[25%] shrink-0">
+              <div className="overflow-hidden h-full">
+                <img
+                  src="/about/webp/architectural-1.png"
+                  alt="Architectural design work"
+                  loading="lazy"
+                  className="w-full h-full object-cover block"
+                />
+              </div>
+            </div>
+
+            {/* Center text */}
+            <div className="flex-1 px-5 md:px-8 py-5 md:py-6">
+              <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
+                Did I tell you I used to be an{" "}
+                <span className="text-accent">Architectural Designer</span>?
+              </h2>
+              <p className="text-hero-text text-body">
+                I went to UC Berkeley for architecture and spent a couple of years
+                working on commercial buildings for large corporations like Google,
+                and designing small spaces for the International Apple Retail team.
+              </p>
+            </div>
+
+            {/* Right photo */}
+            <div className="w-full md:w-[25%] shrink-0">
+              <div className="overflow-hidden h-full">
+                <img
+                  src="/about/webp/architectural-2.png"
+                  alt="Architectural design work"
+                  loading="lazy"
+                  className="w-full h-full object-cover block"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Spacer ── */}
+        <SectionDivider />
+        <section className="py-20" />
+        <SectionDivider />
+
         {/* ── Creative outlets (watercolor) ── */}
         <div>
           <div className="px-6 md:px-10 py-6 md:py-8 mb-4">
             <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark">
-              Creative outlets that make me a{" "}
-              <span className="text-accent">better designer</span>
+              And lastly, check out my other{" "}
+              <span className="text-accent">creative outlets</span>.
             </h2>
             <p className="text-hero-text text-body mt-2 max-w-text-max">
               Racket sports, writing, and watercolor painting. This talent emerged in
@@ -264,8 +311,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="border border-hero-border/35 overflow-hidden mb-8">
-            <div className="grid grid-cols-3 gap-px bg-hero-border/35">
+          <div className="border border-hero-border/60 overflow-hidden mb-8">
+            <div className="grid grid-cols-3 gap-px bg-hero-border/60">
               {watercolors.map((img) => (
                 <div key={img.src} className="overflow-hidden bg-hero-bg">
                   <img
@@ -279,6 +326,11 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        {/* ── Spacer ── */}
+        <SectionDivider />
+        <section className="py-20" />
+        <SectionDivider />
 
         {/* ── Close ── */}
         <div>
