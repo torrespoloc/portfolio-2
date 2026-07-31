@@ -14,8 +14,8 @@ export default function Home() {
       {/* Content container */}
       <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative">
         {/* Vertical projection lines at content padding edge on mobile, container edge on desktop */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/35 pointer-events-none md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/35 pointer-events-none md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/60 pointer-events-none md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/60 pointer-events-none md:right-0 z-10" aria-hidden="true" />
 
       <HeroContent />
 
@@ -64,8 +64,8 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 items-stretch">
               <div className="flex-1 px-5 md:px-8 py-5 md:py-6 relative">
                 <h2 className="font-heading text-about-h2 sm:text-about-h2-sm lg:text-about-h2-lg font-semibold tracking-[-0.03em] text-hero-text-dark mb-3">
-                  I started <span className="text-accent">The UX Chats</span>.
-                  Then 30 strangers showed up
+                  I founded <span className="text-accent">The UX Chats</span> in 2024.
+                  30 strangers showed up on the first meet.
                 </h2>
                 <p className="text-hero-text text-body mb-4">
                   Before UX, I was an architectural designer making the leap into product
@@ -85,7 +85,7 @@ export default function Home() {
                   <Button
                     render={<a href="/about" />}
                     variant="outline"
-                    className="rounded-[12px] h-11 px-5"
+                    className="rounded-[12px] h-11 px-5 text-accent border-accent"
                   >
                     More about me →
                   </Button>

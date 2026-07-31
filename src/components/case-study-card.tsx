@@ -61,7 +61,7 @@ export function CaseStudyCard({
       )}
     >
       {/* Media area */}
-      <div className="relative w-full aspect-video overflow-hidden bg-muted p-6 sm:p-7">
+      <div className="relative w-full aspect-video overflow-hidden bg-muted sm:p-7">
         <div className="relative w-full h-full overflow-hidden">
           {mediaSrcs && mediaSrcs.length > 0 ? (
             <VideoCarousel
