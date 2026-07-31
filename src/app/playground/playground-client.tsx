@@ -179,8 +179,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
       {/* Content container */}
       <div className="mx-auto w-full max-w-container min-h-screen px-5 md:px-0 relative flex flex-col">
         {/* Vertical projection lines */}
-        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/35 pointer-events-none md:left-0 z-10" aria-hidden="true" />
-        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/35 pointer-events-none md:right-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-5 w-px bg-hero-border/60 pointer-events-none md:left-0 z-10" aria-hidden="true" />
+        <div className="absolute inset-y-0 right-5 w-px bg-hero-border/60 pointer-events-none md:right-0 z-10" aria-hidden="true" />
 
         {/* Hero area */}
         <section className="pt-28 md:pt-36 pb-16 md:pb-20">
@@ -208,8 +208,8 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                 layout
                 className={
                   isSplit
-                    ? "flex flex-col w-full md:w-playground-side md:min-w-playground-side divide-y divide-hero-border/35 md:border-r md:border-hero-border/35 bg-hero-bg overflow-y-auto"
-                    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-px bg-hero-border/35 bg-clip-padding border-y border-hero-border/35"
+                    ? "flex flex-col w-full md:w-playground-side md:min-w-playground-side divide-y divide-hero-border/60 md:border-r md:border-hero-border/60 bg-hero-bg overflow-y-auto"
+                    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-px bg-hero-border/60 bg-clip-padding border-y border-hero-border/60"
                 }
               >
                 {displayItems.map((item, index) => {
@@ -333,7 +333,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     ref={detailPanelRef}
                   >
                     {/* Detail header */}
-                    <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border/35" data-panel-header>
+                    <div className="flex items-center px-8 pt-8 pb-4 border-b border-hero-border/60" data-panel-header>
                       <button
                         onClick={handleClose}
                         className="flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -397,7 +397,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                         </div>
 
                         {selectedItem.href && (
-                          <div className="mt-8 pt-8 border-t border-hero-border/35">
+                          <div className="mt-8 pt-8 border-t border-hero-border/60">
                             <a
                               href={selectedItem.href}
                               target="_blank"
@@ -435,7 +435,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
             >
               <div className="flex flex-col h-full">
                 {/* Mobile detail header */}
-                <div className="flex items-center px-5 py-4 border-b border-hero-border/35">
+                <div className="flex items-center px-5 py-4 border-b border-hero-border/60">
                   <button
                     onClick={handleClose}
                     className="flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
@@ -499,7 +499,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
                     </div>
 
                     {selectedItem.href && (
-                      <div className="mt-6 pt-6 border-t border-hero-border/35">
+                      <div className="mt-6 pt-6 border-t border-hero-border/60">
                         <a
                           href={selectedItem.href}
                           target="_blank"

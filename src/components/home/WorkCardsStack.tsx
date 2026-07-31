@@ -84,7 +84,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
       </section>
 
       {/* Two-up case study grid */}
-      <section id="work" className="relative border-t border-hero-border/35">
+      <section id="work" className="relative border-t border-hero-border/60">
         <div className="mx-auto w-full max-w-container">
           <motion.div
             variants={gridVariants}
@@ -123,7 +123,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
                 elements.push(
                   <div
                     key={`col-sep-${card.href}`}
-                    className="hidden lg:block border-x border-hero-border/35 w-6 self-stretch"
+                    className="hidden lg:block border-x border-hero-border/60 w-6 self-stretch"
                   />
                 )
               }
@@ -131,7 +131,7 @@ export function WorkCardsStack({ show7dish = true }: WorkCardsStackProps) {
               elements.push(
                 <div
                   key={`sep-${card.href}`}
-                  className={`border-y border-hero-border/35 h-4 ${
+                  className={`border-y border-hero-border/60 h-4 ${
                     isRowEnd
                       ? "lg:col-span-3 lg:h-6"
                       : "lg:hidden"
