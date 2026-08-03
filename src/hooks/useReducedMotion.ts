@@ -10,16 +10,16 @@ import { useState, useEffect } from "react"
  * Initial render always returns false (matching server).
  *
  * Usage:
- *   const reducedMotion = useReducedMotion()
- *   className={reducedMotion ? "transition-none" : "transition-all duration-300"}
+ * const reducedMotion = useReducedMotion()
+ * className={reducedMotion ? "transition-none" : "transition-all duration-300"}
  */
 export function useReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false)
+ const [reduced, setReduced] = useState(false)
 
-  useEffect(() => {
-    if (window.location.search.includes("motion=force")) return
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-  }, [])
+ useEffect(() => {
+ if (window.location.search.includes("motion=force")) return
+ setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+ }, [])
 
-  return reduced
+ return reduced
 }

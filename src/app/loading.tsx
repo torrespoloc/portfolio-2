@@ -1,5 +1,5 @@
 import { SplashScreen } from "@/components/SplashScreen"
 
 export default function Loading() {
-  return <SplashScreen variant="loading" />
+ return <SplashScreen variant="loading" />
 }
