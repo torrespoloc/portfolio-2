@@ -81,6 +81,16 @@ export default function RootLayout({
  __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("light")}})()`,
  }}
  />
+ <Script
+ src="https://www.googletagmanager.com/gtag/js?id=G-3068XXDJ6M"
+ strategy="afterInteractive"
+ />
+ <Script id="google-analytics" strategy="afterInteractive">
+ {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3068XXDJ6M');`}
+ </Script>
  <a
  href="#main-content"
  className="fixed -top-full left-4 z-[9999] bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all focus:top-0 focus:outline-none"
