@@ -164,7 +164,7 @@ export function getWorkCards(): WorkCard[] {
  ),
  description:
  "Replaced hour-long demos with 3-step conversational wizards.",
- year: "2025–2026",
+ year: "2026",
  metric1Label: "Clicks to value",
  metric1Value: "3 steps",
  metric2Label: "Setup Reduction",
@@ -179,6 +179,28 @@ export function getWorkCards(): WorkCard[] {
  tags: ["healthtech", "SaaS", "B2B"],
  href: "/work/xy",
  ndaBadge: true,
+ },
+ {
+ tag: "MAC APP",
+ badge: "Building V2",
+ headline: (
+ <>
+ A{" "}
+ <span className="text-brand-accent">Mac terminal</span> that stays out of
+ your way
+ </>
+ ),
+ description:
+ "Built a native Mac terminal that hides until you need it.",
+ year: "2026",
+ metric1Label: "App Type",
+ metric1Value: "Native Mac",
+ metric2Label: "Tech",
+ metric2Value: "SwiftUI",
+ tags: ["macOS", "desktop"],
+ mediaSrc: "/case-studies/sidenook-hero.mp4",
+ mediaType: "video" as const,
+ href: "/work/sidenook",
  },
  {
  tag: "HEALTHTECH",
@@ -221,28 +243,6 @@ export function getWorkCards(): WorkCard[] {
  mediaSrc: "/case-studies/fundr-hero.mp4",
  mediaType: "video" as const,
  href: "/work/fundr",
- },
- {
- tag: "MAC APP",
- badge: "Building V2",
- headline: (
- <>
- A{" "}
- <span className="text-brand-accent">Mac terminal</span> that stays out of
- your way
- </>
- ),
- description:
- "Built a native Mac terminal that hides until you need it.",
- year: "2026",
- metric1Label: "App Type",
- metric1Value: "Native Mac",
- metric2Label: "Tech",
- metric2Value: "SwiftUI",
- tags: ["macOS", "desktop"],
- mediaSrc: "/case-studies/sidenook-hero.mp4",
- mediaType: "video" as const,
- href: "/work/sidenook",
  },
  {
  tag: "FOODTECH",

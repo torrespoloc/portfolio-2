@@ -112,7 +112,7 @@
  --color-hairline: var(--hairline);
  --color-hairline-strong: var(--hairline-strong);
  /* ── Spacing tokens (8pt grid) ── */
- --spacing-container: 1504px;
+ --spacing-container: 1400px;
  --spacing-content: 944px;
  --spacing-sidebar: 272px;
  --spacing-media-col: 440px;
