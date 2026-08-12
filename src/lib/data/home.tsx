@@ -159,7 +159,7 @@ export function getWorkCards(): WorkCard[] {
  headline: (
  <>
  Making the XY&#39;s healthcare SaaS platform{" "}
- <span className="text-brand-accent">AI and chat driven</span>
+ <span className="text-accent dark:text-chartreuse">AI and chat driven</span>
  </>
  ),
  description:
@@ -186,7 +186,7 @@ export function getWorkCards(): WorkCard[] {
  headline: (
  <>
  A{" "}
- <span className="text-brand-accent">Mac terminal</span> that stays out of
+ <span className="text-accent dark:text-chartreuse">Mac terminal</span> that stays out of
  your way
  </>
  ),
@@ -207,7 +207,7 @@ export function getWorkCards(): WorkCard[] {
  headline: (
  <>
  A{" "}
- <span className="text-brand-accent">HIPAA-compliant</span> contact lens
+ <span className="text-accent dark:text-chartreuse">HIPAA-compliant</span> contact lens
  ordering experience
  </>
  ),
@@ -228,7 +228,7 @@ export function getWorkCards(): WorkCard[] {
  headline: (
  <>
  An{" "}
- <span className="text-brand-accent">upgrade paywall</span> that monetized
+ <span className="text-accent dark:text-chartreuse">upgrade paywall</span> that monetized
  Fundr
  </>
  ),
@@ -248,7 +248,7 @@ export function getWorkCards(): WorkCard[] {
  tag: "FOODTECH",
  headline: (
  <>
- Redesigning <span className="text-brand-accent">3 core flows</span> for
+ Redesigning <span className="text-accent dark:text-chartreuse">3 core flows</span> for
  7dish&apos;s meal planner
  </>
  ),
