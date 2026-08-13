@@ -17,6 +17,8 @@ import {
  sectionRight,
  sectionFull,
  sectionHeader,
+ InfoGrid3,
+ CaseStudyBlockquote,
 } from "@/components/case-study/cs-template_2"
 
 const fadeUp = {
@@ -259,9 +261,8 @@ export default function FundrCaseStudy() {
  <motion.div
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={`${sectionFull} space-y-0`}
+ className="space-y-6"
  >
- <div className="p-0">
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
  <div className="flex flex-col items-center text-center gap-4 p-4">
  <div className="w-20 h-20 bg-accent/[0.08] flex items-center justify-center">
@@ -282,21 +283,17 @@ export default function FundrCaseStudy() {
  <p className="text-body font-semibold text-foreground">Free tier too limited to sell upgrades</p>
  </div>
  </div>
- </div>
 
- <blockquote className="pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed">
- &ldquo;I didn&rsquo;t even know there were paid plans. I&rsquo;ve been on the same tier since I signed up.&rdquo;
- <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
-, User during discovery interviews
- </span>
- </blockquote>
+ <CaseStudyBlockquote
+ body="I didn’t even know there were paid plans. I’ve been on the same tier since I signed up."
+ cite="User during discovery interviews"
+ />
  </motion.div>
 
  {/* Patrick Campbell quote, integrated into problem section */}
  <motion.div
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={sectionFull}
  >
  <div className=" bg-secondary/60 ring-1 ring-hairline p-8 lg:p-10">
  <figure>
@@ -380,26 +377,13 @@ export default function FundrCaseStudy() {
  }}
  />
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
- <p className="text-body text-ink-muted leading-relaxed">
- How all three CTA paths converge into a single checkout
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Multiple entry points, one consistent upgrade experience
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">The result</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Users can enter from any surface and complete in under a minute
- </p>
- </div>
- </div>
+ <InfoGrid3
+ items={[
+ { label: "What this shows", body: "How all three CTA paths converge into a single checkout" },
+ { label: "Why it matters", body: "Multiple entry points, one consistent upgrade experience" },
+ { label: "The result", body: "Users can enter from any surface and complete in under a minute" },
+ ]}
+ />
  </motion.div>
  </motion.div>
  </CaseStudySection>
@@ -481,26 +465,13 @@ export default function FundrCaseStudy() {
  className="w-full h-auto"
  />
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Three CTA types layered by user intent, glance, browse, and act
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Each surface serves a different moment without overwhelming the interface
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">The result</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Self-serve upgrades that don&rsquo;t interrupt the user&rsquo;s flow
- </p>
- </div>
- </div>
+ <InfoGrid3
+ items={[
+ { label: "What this shows", body: "Three CTA types layered by user intent, glance, browse, and act" },
+ { label: "Why it matters", body: "Each surface serves a different moment without overwhelming the interface" },
+ { label: "The result", body: "Self-serve upgrades that don’t interrupt the user’s flow" },
+ ]}
+ />
  </motion.div>
  </motion.div>
  </motion.div>
@@ -575,26 +546,13 @@ export default function FundrCaseStudy() {
  className="w-full h-auto"
  />
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
- <p className="text-body text-ink-muted leading-relaxed">
- The SPV structure, investors, capital flow, and the startup relationship
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Users understand the core mechanism before they consider paying for premium access
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">The result</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Upgrade prompts now carry context, users know exactly what they&rsquo;re unlocking
- </p>
- </div>
- </div>
+ <InfoGrid3
+ items={[
+ { label: "What this shows", body: "The SPV structure, investors, capital flow, and the startup relationship" },
+ { label: "Why it matters", body: "Users understand the core mechanism before they consider paying for premium access" },
+ { label: "The result", body: "Upgrade prompts now carry context, users know exactly what they’re unlocking" },
+ ]}
+ />
  </motion.div>
  </motion.div>
  </CaseStudySection>
@@ -815,20 +773,13 @@ export default function FundrCaseStudy() {
  </div>
  </div>
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">What this shows</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Side-by-side comparison of free vs paid dashboard experience
- </p>
- </div>
- <div className="p-4 rounded-none bg-background">
- <p className="text-label font-semibold text-foreground mb-1">Why it matters</p>
- <p className="text-body text-ink-muted leading-relaxed">
- Users see exactly what they gain, not just what they&rsquo;re missing
- </p>
- </div>
- </div>
+ <InfoGrid3
+ className="sm:grid-cols-2"
+ items={[
+ { label: "What this shows", body: "Side-by-side comparison of free vs paid dashboard experience" },
+ { label: "Why it matters", body: "Users see exactly what they gain, not just what they’re missing" },
+ ]}
+ />
  </motion.div>
  </motion.div>
  </motion.div>

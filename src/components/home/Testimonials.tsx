@@ -76,7 +76,7 @@ function highlightText(text: string, highlights: string[], dark = false): React.
  return (
  <span
  key={i}
- className={`font-semibold ${dark ? "text-chartreuse" : "text-brand-accent"}`}
+ className={`font-semibold ${dark ? "text-chartreuse" : "text-accent"}`}
  >
  {part}
  </span>

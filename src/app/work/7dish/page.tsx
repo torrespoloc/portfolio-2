@@ -598,7 +598,7 @@ export default function SevenDishCaseStudy() {
  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
  className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline"
  >
- <div className="h-full bg-background">
+ <div className="h-full bg-background p-4">
  <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
  Eliminating the legacy &ldquo;Inspiration&rdquo; page
  </h4>
@@ -607,7 +607,7 @@ export default function SevenDishCaseStudy() {
  </p>
  </div>
 
- <div className="h-full bg-background">
+ <div className="h-full bg-background p-4">
  <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2">
  Adding the &ldquo;Saved Recipes Folders&rdquo; feature
  </h4>
@@ -700,7 +700,7 @@ export default function SevenDishCaseStudy() {
  ].map((item, i) => (
  <li
  key={i}
- className="flex h-full gap-4 bg-background"
+ className="flex h-full gap-4 p-4 bg-background"
  >
  <span className="text-body-sm font-mono text-case-highlight shrink-0 pt-1">
  {String(i + 1).padStart(2, "0")}

@@ -24,6 +24,7 @@ interface CaseStudyCardProps {
   className?: string;
   ndaBadge?: boolean;
   badge?: string;
+  impactLabel?: string;
 }
 
 export function CaseStudyCard({
@@ -44,6 +45,7 @@ export function CaseStudyCard({
   className,
   ndaBadge,
   badge,
+  impactLabel = "Impact",
 }: CaseStudyCardProps) {
   const isExternal = href?.startsWith("http");
   const Tag = href ? (isExternal ? "a" : Link) : "div";
@@ -61,7 +63,7 @@ export function CaseStudyCard({
       )}
     >
       {/* Metadata column ~30% */}
-      <div className="flex flex-col flex-1 md:w-[30%] md:flex-none p-6 sm:p-7">
+      <div className="order-2 md:order-none flex flex-col flex-1 md:w-[30%] md:flex-none p-6 sm:p-7">
         <h3 className="font-heading text-[18px] sm:text-[21px] lg:text-[24px] font-semibold leading-[1.25] text-hero-text-dark">
           {headline}
         </h3>
@@ -85,9 +87,9 @@ export function CaseStudyCard({
 
         <div className="mt-4 pt-4 border-t border-hero-border/60">
           <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
-            Impact
+            {impactLabel}
           </span>
-          <div className="flex flex-col gap-3 mt-2">
+          <div className="flex flex-row md:flex-col gap-6 md:gap-3 mt-2">
           <div className="flex flex-col min-w-0">
             <span className="text-xs font-semibold uppercase tracking-[0.08em] text-hero-muted">
               {metric1Label}
@@ -109,7 +111,7 @@ export function CaseStudyCard({
       </div>
 
       {/* Media column ~80% */}
-      <div className="relative w-full md:w-[70%] aspect-video md:aspect-auto md:min-h-[664px] overflow-hidden bg-muted">
+      <div className="order-1 md:order-none relative w-full md:w-[70%] aspect-video md:aspect-auto md:min-h-[664px] overflow-hidden bg-muted">
         {/* Gradient overlay for tag readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent z-[1] pointer-events-none" />
 

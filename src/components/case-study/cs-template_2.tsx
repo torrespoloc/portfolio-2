@@ -6,6 +6,7 @@ import * as React from "react"
 import { motion, useInView } from "framer-motion"
 import { LINKS } from "@/lib/constants"
 import { SectionDivider } from "@/components/ui/section-divider"
+import { cn } from "@/lib/utils"
 
 const fadeUp = {
  hidden: { opacity: 0, y: 12 },
@@ -14,10 +15,9 @@ const fadeUp = {
 
 // ─── Content Width ───
 // Text-heavy sections use a centered reading width.
-const contentWidth = "max-w-content mx-auto"
 const metaStripWidth = "w-full"
 
-const heroWidth = "max-w-content mx-auto px-6 md:px-10"
+const heroWidth = "w-full px-6 md:px-10"
 
 // ─── Shared section layout classes ───
 // Single-column stack: heading, body, and visuals stack vertically
@@ -90,7 +90,7 @@ export function CaseStudySection({ id, children, className = "" }: { id?: string
  return (
  <>
  <SectionDivider />
- <section id={id} className={`${contentWidth} px-6 md:px-10 py-8 md:py-10 ${className}`}>
+ <section id={id} className={`px-6 md:px-10 py-8 md:py-10 ${className}`}>
  {children}
  </section>
  </>
@@ -121,6 +121,49 @@ export function EmptySection({ divider = true }: { divider?: boolean }) {
  {divider && <SectionDivider />}
  <div className="h-24" aria-hidden="true" />
  </>
+ )
+}
+// ─────────────────────────────────────────────
+
+// ─── Section eyebrow: small mono label above a section's heading ───
+// Identical markup repeats at the top of nearly every case-study section
+// (e.g. "What I shipped", "Impact", "The problem"). Centralized here so
+// the eyebrow style updates everywhere at once.
+export function SectionEyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
+ return (
+ <p className={cn("text-xs font-mono font-semibold uppercase tracking-[0.2em] text-brand-accent mb-2", className)}>
+ {children}
+ </p>
+ )
+}
+// ─────────────────────────────────────────────
+
+// ─── Three-column info grid: label + body cards in a hairline grid ───
+// Used for "what/why/result" and "discarded/tested/chosen" style summaries
+// throughout case studies.
+export function InfoGrid3({ items, className }: { items: { label: string; body: React.ReactNode }[]; className?: string }) {
+ return (
+ <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline", className)}>
+ {items.map((item) => (
+ <div key={item.label} className="p-4 rounded-none bg-background">
+ <p className="text-label font-semibold text-foreground mb-1">{item.label}</p>
+ <p className="text-body text-ink-muted leading-snug">{item.body}</p>
+ </div>
+ ))}
+ </div>
+ )
+}
+// ─────────────────────────────────────────────
+
+// ─── Case study blockquote: cited quote with accent rule ───
+export function CaseStudyBlockquote({ body, cite, className }: { body: React.ReactNode; cite: React.ReactNode; className?: string }) {
+ return (
+ <blockquote className={cn("pl-4 border-l-2 border-accent/60 text-body text-ink-muted italic leading-relaxed", className)}>
+ &ldquo;{body}&rdquo;
+ <span className="block mt-1 not-italic text-label font-mono uppercase tracking-[0.12em] text-ink-muted">
+, {cite}
+ </span>
+ </blockquote>
  )
 }
 // ─────────────────────────────────────────────
@@ -163,7 +206,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
 
  return (
  <div className="min-h-screen bg-hero-bg text-foreground relative">
- <div className="mx-auto w-full max-w-[1400px] min-h-screen lg:flex relative">
+ <div className="mx-auto w-full max-w-container min-h-screen lg:flex relative">
  {/* Outer projection lines, z-40 stays above the side nav's z-30 fill */}
  <div className="absolute inset-y-0 left-0 w-px bg-hero-border/60 pointer-events-none z-40" aria-hidden="true" />
  <div className="absolute inset-y-0 right-0 w-px bg-hero-border/60 pointer-events-none z-10" aria-hidden="true" />
@@ -198,16 +241,7 @@ export function CaseStudyTemplatePra({ headline, meta, metaTheme, heroImage, chi
  </nav>
 
  {/* ─── MAIN (right pane) ─── */}
- <main className="flex-1 min-w-0 relative px-6 lg:px-[120px]">
- <div
- aria-hidden="true"
- className="absolute inset-y-0 left-[120px] hidden lg:block w-px bg-hero-border/60 pointer-events-none z-10"
- />
- <div
- aria-hidden="true"
- className="absolute inset-y-0 right-[120px] hidden lg:block w-px bg-hero-border/60 pointer-events-none z-10"
- />
-
+ <main className="flex-1 min-w-0 relative">
  <EmptySection divider={false} />
  <SectionDivider />
 

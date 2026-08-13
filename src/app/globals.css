@@ -509,6 +509,11 @@ section[id] {
  filter: brightness(0) invert(0.82) grayscale(1);
 }
 
+/* Case study tools section — black monochrome logos need inverting on dark bg */
+.dark img[src*="loom.svg"], .dark img[src*="perplexity.svg"], .dark img[src*="chatgpt.svg"] {
+ filter: brightness(0) invert(0.78) grayscale(1);
+}
+
 
 /* Desktop font-size floor — nothing below 16px on large screens */
 @media (width >= 64rem) {

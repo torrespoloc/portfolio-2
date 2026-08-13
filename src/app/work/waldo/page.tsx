@@ -174,8 +174,8 @@ export default function WaldoCaseStudy() {
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
  className={`${sectionFull} mt-12`}
  >
- <div className="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
- <div className="relative overflow-hidden ring-1 ring-hairline max-h-[560px]">
+ <div className="grid grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
+ <div className="relative overflow-hidden ring-1 ring-hairline aspect-[9/19] md:aspect-auto md:max-h-[560px]">
  <Image
  src="/waldo/dashboard.png"
  alt="Patient dashboard showing prescription status and quick-order actions"
@@ -184,7 +184,7 @@ export default function WaldoCaseStudy() {
  className="w-full h-full object-cover object-top"
  />
  </div>
- <div className="relative overflow-hidden ring-1 ring-hairline max-h-[560px]">
+ <div className="relative overflow-hidden ring-1 ring-hairline aspect-[9/19] md:aspect-auto md:max-h-[560px]">
  <Image
  src="/waldo/prescriptions-list.png"
  alt="Prescription management screen with color-coded validity states"
@@ -193,7 +193,7 @@ export default function WaldoCaseStudy() {
  className="w-full h-full object-cover object-top"
  />
  </div>
- <div className="relative overflow-hidden ring-1 ring-hairline max-h-[560px]">
+ <div className="relative overflow-hidden ring-1 ring-hairline aspect-[9/19] md:aspect-auto md:max-h-[560px]">
  <Image
  src="/waldo/cart-review.png"
  alt="Mobile checkout flow with prescription-aware cart review"
@@ -217,9 +217,10 @@ export default function WaldoCaseStudy() {
 
  {/* iDoc at a glance — platform context, not design metrics */}
  <motion.div
- variants={fadeUp}
+ initial={{ opacity: 0, y: 20 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true, amount: 0.2 }}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={sectionFull}
  >
  <p className="text-xs font-mono uppercase tracking-[0.12em] text-ink-muted mb-4">iDoc platform</p>
  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px overflow-hidden ring-1 ring-hairline bg-secondary/70 mb-8">
@@ -233,7 +234,7 @@ export default function WaldoCaseStudy() {
  ].map((m) => (
  <div
  key={m.label}
- className="flex h-full flex-col items-center justify-center text-center bg-background"
+ className="flex h-full flex-col items-center justify-center text-center bg-background p-4 sm:p-5 lg:p-6"
  >
  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground tracking-tight leading-none mb-2">
  {m.value}
@@ -261,7 +262,7 @@ export default function WaldoCaseStudy() {
  <motion.li
  key={i}
  whileHover={{ y: -2, scale: 1.005 }}
- className="flex gap-4 bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
+ className="flex gap-4 p-4 sm:p-5 bg-accent/[0.06] ring-1 ring-accent/20 hover:bg-accent/[0.10] hover:ring-accent/30 hover:shadow-lg transition-all duration-500 ease-[0.22,1,0.36,1]"
  >
  <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-case-eyebrow/30 shrink-0 pt-1 font-mono tabular-nums">
  {String(i + 1).padStart(2, "0")}
@@ -316,9 +317,7 @@ export default function WaldoCaseStudy() {
  <motion.div
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={`${sectionFull} space-y-0`}
  >
- <div className="p-0">
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
  <div className="flex flex-col items-center text-center gap-3">
  <div className="w-20 h-20 bg-accent/[0.08] flex items-center justify-center">
@@ -337,7 +336,6 @@ export default function WaldoCaseStudy() {
  <span className="text-case-eyebrow font-semibold text-xl font-mono tabular-nums">03</span>
  </div>
  <p className="text-body font-semibold text-foreground">Patients with no visibility into their own prescription data</p>
- </div>
  </div>
  </div>
  </motion.div>
@@ -414,7 +412,6 @@ export default function WaldoCaseStudy() {
  <motion.div
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={sectionFull}
  >
  <div className="relative overflow-hidden border border-accent/20 bg-accent/[0.04] p-8 lg:p-10">
  <figure>
@@ -528,7 +525,6 @@ export default function WaldoCaseStudy() {
  <motion.div
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
- className={sectionFull}
  >
  <div className="relative overflow-hidden bg-gradient-to-br from-accent/[0.06] to-background ring-1 ring-accent/[0.08] p-8 lg:p-12">
  <span
@@ -758,17 +754,16 @@ export default function WaldoCaseStudy() {
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
  className="text-base lg:text-lg text-ink-muted leading-relaxed"
  >
- My first healthcare product. The constraints:
+ My first healthcare product — built under constraints that could have slowed everything down:
  </motion.p>
  <motion.ul
  variants={fadeUp}
  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
  className="text-base lg:text-lg text-ink-muted leading-relaxed list-disc pl-4 space-y-2"
  >
- <li>Limited budget</li>
- <li>A back injury mid-project</li>
+ <li>Limited budget — <span className="text-case-highlight font-semibold">$5 in V0 credits</span> stretched across 12+ iterations</li>
  <li>A brand change two weeks before finalization</li>
- <li>A dev team in a different time zone</li>
+ <li>A dev team on three continents</li>
  </motion.ul>
  <motion.p
  variants={fadeUp}

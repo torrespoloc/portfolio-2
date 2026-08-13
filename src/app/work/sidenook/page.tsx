@@ -152,7 +152,7 @@ export default function SideNookCaseStudy() {
  <span className="text-label font-mono uppercase tracking-[0.18em] text-muted-foreground px-2 py-1 ring-1 ring-hero-border">
  macOS · personal
  </span>
- <span className="text-label font-mono uppercase tracking-[0.08em] text-chartreuse">
+ <span className="text-xs font-semibold uppercase tracking-[0.08em] text-chartreuse-foreground bg-chartreuse px-3 py-1">
  Building V2
  </span>
  </div>
@@ -300,7 +300,7 @@ export default function SideNookCaseStudy() {
  <p className="text-xs font-mono uppercase tracking-[0.12em] text-ink-muted mb-2">Product outcomes</p>
  <ul className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
  {outcomes.map((o, i) => (
- <li key={i} className="flex gap-4 bg-background">
+ <li key={i} className="flex gap-4 p-4 bg-background">
  <span className="text-xs font-mono text-muted-foreground/70 shrink-0 pt-1">
  {String(i + 1).padStart(2, "0")}
  </span>
@@ -355,7 +355,6 @@ export default function SideNookCaseStudy() {
  <motion.div
  variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
- className={`${sectionFull}`}
  >
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden ring-1 ring-hairline bg-hairline">
  <div className="h-full bg-background p-4">
