@@ -143,6 +143,7 @@ export type WorkCard = {
  metric1Value: string;
  metric2Label: string;
  metric2Value: string;
+ impactLabel?: string;
  mediaSrcs?: string[];
  mediaSrc?: string;
  mediaType?: "image" | "video";
