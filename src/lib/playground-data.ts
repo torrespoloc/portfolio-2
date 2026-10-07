@@ -15,6 +15,7 @@ export interface PlaygroundItem {
  videoSrc?: string
  posterSrc?: string
  href?: string
+ cta?: string
  order: number
  detail: PlaygroundDetail
 }
@@ -67,6 +68,7 @@ export function getPlaygroundItems(): PlaygroundItem[] {
  videoSrc: meta.videoSrc as string | undefined,
  posterSrc: meta.posterSrc as string | undefined,
  href: meta.href as string | undefined,
+ cta: meta.cta as string | undefined,
  order: (meta.order as number) ?? 99,
  detail: {
  description: descSection,

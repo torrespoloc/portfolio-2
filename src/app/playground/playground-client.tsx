@@ -4,7 +4,6 @@ import { useState, useCallback, useMemo, useEffect, useRef } from "react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { PlaygroundCard } from "@/components/playground-card"
 import { SectionDivider } from "@/components/ui/section-divider"
-import { Semicircle } from "@/components/ui/semicircle"
 import { cn } from "@/lib/utils"
 import type { PlaygroundItem } from "@/lib/playground-data"
 
@@ -110,39 +109,6 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
  const [ideaTags, setIdeaTags] = useState<Record<number, boolean>>({})
 
  const detailPanelRef = useRef<HTMLDivElement>(null)
- const [semicirclePos, setSemicirclePos] = useState<{ top: number; right: number } | null>(null)
-
- // Track detail panel position for the semicircle overlay
- useEffect(() => {
- if (!isSplit || !detailPanelRef.current) {
- setSemicirclePos(null)
- return
- }
- const update = () => {
- const panel = detailPanelRef.current
- if (!panel) return
- const header = panel.querySelector("[data-panel-header]")
- if (!header) return
- const panelRect = panel.getBoundingClientRect()
- const headerRect = header.getBoundingClientRect()
- const pageEl = panel.closest(".relative.min-h-screen")
- if (!pageEl) return
- const pageRect = pageEl.getBoundingClientRect()
- const headerCenterY = headerRect.top + headerRect.height / 2
- setSemicirclePos({
- top: headerCenterY - pageRect.top - 144, // 144 = half the 288px semicircle height
- right: window.innerWidth - panelRect.right,
- })
- }
- update()
- window.addEventListener("resize", update)
- window.addEventListener("scroll", update, { passive: true })
- return () => {
- window.removeEventListener("resize", update)
- window.removeEventListener("scroll", update)
- }
- }, [isSplit, selectedId])
-
  const parsedDesc = useMemo(
  () => (selectedItem ? parseDesc(selectedItem.detail.description) : []),
  [selectedItem],
@@ -362,7 +328,18 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
  </div>
  )}
 
- {selectedItem.videoSrc && <SectionDivider />}
+ {!selectedItem.videoSrc && selectedItem.posterSrc && (
+ <div className="relative w-full aspect-video overflow-hidden bg-muted">
+ {/* eslint-disable-next-line @next/next/no-img-element */}
+ <img
+ src={selectedItem.posterSrc}
+ alt={selectedItem.title}
+ className="absolute inset-0 w-full h-full object-cover object-top"
+ />
+ </div>
+ )}
+
+ {(selectedItem.videoSrc || selectedItem.posterSrc) && <SectionDivider />}
 
  <div className="px-8 py-8">
  <h2 className="font-heading text-[28px] sm:text-[36px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
@@ -404,7 +381,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
  rel="noopener noreferrer"
  className="inline-flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
  >
- Open app
+ {selectedItem.cta ?? "Open app"}
  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
  <polyline points="15 3 21 3 21 9" />
@@ -464,7 +441,18 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
  </div>
  )}
 
- {selectedItem.videoSrc && <SectionDivider />}
+ {!selectedItem.videoSrc && selectedItem.posterSrc && (
+ <div className="relative w-full aspect-video overflow-hidden bg-muted">
+ {/* eslint-disable-next-line @next/next/no-img-element */}
+ <img
+ src={selectedItem.posterSrc}
+ alt={selectedItem.title}
+ className="absolute inset-0 w-full h-full object-cover object-top"
+ />
+ </div>
+ )}
+
+ {(selectedItem.videoSrc || selectedItem.posterSrc) && <SectionDivider />}
 
  <div className="px-5 py-6">
  <h2 className="font-heading text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-hero-text-dark">
@@ -506,7 +494,7 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
  rel="noopener noreferrer"
  className="inline-flex items-center gap-2 text-sm font-medium text-hero-text hover:text-hero-text-dark transition-colors"
  >
- Open app
+ {selectedItem.cta ?? "Open app"}
  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
  <polyline points="15 3 21 3 21 9" />
@@ -524,20 +512,6 @@ export function PlaygroundClient({ items }: { items: PlaygroundItem[] }) {
 
  {/* Grid mode, bottom inset from page container */}
  </div>
-
- {/* Semicircle overlay, rendered at page root so nothing clips it */}
- {semicirclePos && (
- <Semicircle
- size={288}
- flatEdge="left"
- className="z-50"
- style={{
- top: semicirclePos.top,
- right: semicirclePos.right,
- position: "absolute",
- }}
- />
- )}
  </div>
  )
 }

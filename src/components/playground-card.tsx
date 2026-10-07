@@ -52,8 +52,12 @@ export function PlaygroundCard({
  >
  {/* Gradient placeholder */}
  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent" />
+ {posterSrc && !videoSrc && (
+ // eslint-disable-next-line @next/next/no-img-element
+ <img src={posterSrc} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
+ )}
  {/* Content icon */}
- <div className="absolute inset-0 flex items-center justify-center">
+ <div className={cn("absolute inset-0 flex items-center justify-center", posterSrc && !videoSrc && "hidden")}>
  <svg
  width="20"
  height="20"
@@ -109,6 +113,13 @@ export function PlaygroundCard({
  loop
  playsInline
  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-200 ease-out"
+ />
+ ) : posterSrc ? (
+ // eslint-disable-next-line @next/next/no-img-element
+ <img
+ src={posterSrc}
+ alt={title}
+ className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-200 ease-out"
  />
  ) : (
  <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
