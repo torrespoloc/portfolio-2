@@ -58,7 +58,7 @@ export const metadata: Metadata = {
  images: [`${siteUrl}/og-image.png`],
  },
  other: {
- "color-scheme": "light",
+ "color-scheme": "dark",
  },
 };
 
@@ -78,7 +78,7 @@ export default function RootLayout({
  id="theme-init"
  strategy="beforeInteractive"
  dangerouslySetInnerHTML={{
- __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("light")}})()`,
+ __html: `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.classList.add(t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.setAttribute("content",t)}catch(e){document.documentElement.classList.add("dark")}})()`,
  }}
  />
  <Script
